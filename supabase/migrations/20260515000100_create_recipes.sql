@@ -21,7 +21,7 @@ create table if not exists public.recipes (
   astuce text,
   cuisson_micro_ondes boolean not null default false,
   sans_four boolean not null default false,
-  source text not null default 'crous' check (source in ('crous', 'lumora')),
+  source text not null default 'crous' check (source in ('crous', 'broco-chou')),
   source_pdf text,
   source_page integer,
   dietary_tags text[] not null default '{}',

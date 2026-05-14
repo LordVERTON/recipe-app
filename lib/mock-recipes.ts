@@ -1236,7 +1236,7 @@ export const mockRecipes: Recipe[] = [
   // SUGGESTIONS LUMORA (IA)
   // ===============================
   {
-    id: "lumora001",
+    id: "broco-chou001",
     nom: "Buddha bowl d'hiver aux légumes rôtis",
     saison: "hiver",
     mois: "janvier",
@@ -1270,13 +1270,13 @@ export const mockRecipes: Recipe[] = [
     astuce: "Tu peux préparer les légumes rôtis à l'avance et les réchauffer au moment de servir.",
     cuisson_micro_ondes: false,
     sans_four: false,
-    source: "lumora",
+    source: "broco-chou",
     dietary_tags: ["végétarien", "vegan", "légumineuses"],
     main_ingredients: ["patate douce", "pois chiches", "quinoa"],
     canonical_ingredients_status: "verified"
   },
   {
-    id: "lumora002",
+    id: "broco-chou002",
     nom: "Nouilles sautées aux légumes d'hiver",
     saison: "hiver",
     mois: "février",
@@ -1309,7 +1309,7 @@ export const mockRecipes: Recipe[] = [
     ],
     cuisson_micro_ondes: false,
     sans_four: true,
-    source: "lumora",
+    source: "broco-chou",
     dietary_tags: ["végétarien", "vegan"],
     main_ingredients: ["nouilles", "chou chinois", "champignons"],
     canonical_ingredients_status: "verified"
@@ -1318,7 +1318,7 @@ export const mockRecipes: Recipe[] = [
   // DESSERTS LUMORA
   // ===============================
   {
-    id: "lumora-dessert001",
+    id: "broco-chou-dessert001",
     nom: "Crumble aux poires et cannelle",
     saison: "hiver",
     mois: "janvier",
@@ -1349,13 +1349,13 @@ export const mockRecipes: Recipe[] = [
     astuce: "Sers tiède avec une boule de glace à la vanille ou de la crème fraîche.",
     cuisson_micro_ondes: false,
     sans_four: false,
-    source: "lumora",
+    source: "broco-chou",
     dietary_tags: ["végétarien", "fruit"],
     main_ingredients: ["poires", "farine", "beurre"],
     canonical_ingredients_status: "verified"
   },
   {
-    id: "lumora-dessert002",
+    id: "broco-chou-dessert002",
     nom: "Riz au lait à la fleur d'oranger",
     saison: "hiver",
     mois: "février",
@@ -1384,7 +1384,7 @@ export const mockRecipes: Recipe[] = [
     ],
     cuisson_micro_ondes: false,
     sans_four: true,
-    source: "lumora",
+    source: "broco-chou",
     dietary_tags: ["végétarien"],
     main_ingredients: ["riz", "lait", "fleur d'oranger"],
     canonical_ingredients_status: "verified"

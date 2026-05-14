@@ -119,7 +119,7 @@ function mapRecipeRow(row: SupabaseRecipeRow, index: number): Recipe {
     astuce: asString(row.astuce ?? row.tip),
     cuisson_micro_ondes: asBoolean(row.cuisson_micro_ondes ?? row.micro_ondes),
     sans_four: asBoolean(row.sans_four ?? row.no_oven),
-    source: asString(row.source, "crous") === "lumora" ? "lumora" : "crous",
+    source: asString(row.source, "crous") === "broco-chou" ? "broco-chou" : "crous",
     source_pdf: asString(row.source_pdf),
     source_page: row.source_page === undefined ? undefined : asNumber(row.source_page, 0),
     dietary_tags: asStringArray(row.dietary_tags ?? row.tags_alimentaires),
