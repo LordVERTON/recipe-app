@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { ChevronRight, Heart, History, Settings, Trash2, RefreshCw, ChefHat, Utensils, Cake } from "lucide-react"
-import { useLumoraStore } from "@/lib/store"
+import { useBrocoChouStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 
@@ -18,7 +18,7 @@ export function ProfilePage({ onOpenPreferences }: ProfilePageProps) {
     weeklyPlan,
     acceptedRecipes,
     resetSwipes
-  } = useLumoraStore()
+  } = useBrocoChouStore()
 
   const [showResetConfirm, setShowResetConfirm] = useState(false)
 
@@ -49,21 +49,21 @@ export function ProfilePage({ onOpenPreferences }: ProfilePageProps) {
       {/* Stats */}
       <div className="px-6 mb-6">
         <div className="grid grid-cols-3 gap-3">
-          <div className="bg-card rounded-2xl p-4 text-center lumora-shadow">
+          <div className="bg-card rounded-2xl p-4 text-center broco-chou-shadow">
             <div className="w-10 h-10 rounded-full bg-lavender/50 mx-auto mb-2 flex items-center justify-center">
               <ChefHat className="h-5 w-5 text-mauve-taupe" />
             </div>
             <p className="text-2xl font-bold text-charcoal-soft">{weeksPlanned}</p>
             <p className="text-xs text-warm-gray">Semaines</p>
           </div>
-          <div className="bg-card rounded-2xl p-4 text-center lumora-shadow">
+          <div className="bg-card rounded-2xl p-4 text-center broco-chou-shadow">
             <div className="w-10 h-10 rounded-full bg-sage-mist/50 mx-auto mb-2 flex items-center justify-center">
               <Utensils className="h-5 w-5 text-sage-mist" />
             </div>
             <p className="text-2xl font-bold text-charcoal-soft">{cookedRecipes}</p>
             <p className="text-xs text-warm-gray">Cuisinés</p>
           </div>
-          <div className="bg-card rounded-2xl p-4 text-center lumora-shadow">
+          <div className="bg-card rounded-2xl p-4 text-center broco-chou-shadow">
             <div className="w-10 h-10 rounded-full bg-dusty-violet/30 mx-auto mb-2 flex items-center justify-center">
               <Heart className="h-5 w-5 text-deep-plum" />
             </div>
@@ -88,7 +88,7 @@ export function ProfilePage({ onOpenPreferences }: ProfilePageProps) {
             {favoriteRecipes.slice(0, 5).map(recipe => (
               <div
                 key={recipe.id}
-                className="flex-shrink-0 w-36 p-3 rounded-2xl bg-card lumora-shadow"
+                className="flex-shrink-0 w-36 p-3 rounded-2xl bg-card broco-chou-shadow"
               >
                 <div className={cn(
                   "w-full h-20 rounded-xl mb-2 flex items-center justify-center",
@@ -124,7 +124,7 @@ export function ProfilePage({ onOpenPreferences }: ProfilePageProps) {
             {topIngredients.map(ingredient => (
               <span
                 key={ingredient}
-                className="px-3 py-1.5 rounded-full text-sm bg-card lumora-shadow text-charcoal-soft"
+                className="px-3 py-1.5 rounded-full text-sm bg-card broco-chou-shadow text-charcoal-soft"
               >
                 {ingredient}
               </span>
@@ -139,7 +139,7 @@ export function ProfilePage({ onOpenPreferences }: ProfilePageProps) {
         <div className="space-y-2">
           <button
             onClick={onOpenPreferences}
-            className="w-full flex items-center justify-between p-4 rounded-2xl bg-card lumora-shadow hover:bg-lavender/20 transition-colors"
+            className="w-full flex items-center justify-between p-4 rounded-2xl bg-card broco-chou-shadow hover:bg-lavender/20 transition-colors"
           >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-lavender/40 flex items-center justify-center">
@@ -154,7 +154,7 @@ export function ProfilePage({ onOpenPreferences }: ProfilePageProps) {
           </button>
 
           <button
-            className="w-full flex items-center justify-between p-4 rounded-2xl bg-card lumora-shadow hover:bg-lavender/20 transition-colors"
+            className="w-full flex items-center justify-between p-4 rounded-2xl bg-card broco-chou-shadow hover:bg-lavender/20 transition-colors"
           >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-sage-mist/40 flex items-center justify-center">
@@ -177,7 +177,7 @@ export function ProfilePage({ onOpenPreferences }: ProfilePageProps) {
           {!showResetConfirm ? (
             <button
               onClick={() => setShowResetConfirm(true)}
-              className="w-full flex items-center gap-3 p-4 rounded-2xl bg-card lumora-shadow hover:bg-lavender/20 transition-colors"
+              className="w-full flex items-center gap-3 p-4 rounded-2xl bg-card broco-chou-shadow hover:bg-lavender/20 transition-colors"
             >
               <div className="w-10 h-10 rounded-xl bg-soft-sand flex items-center justify-center">
                 <RefreshCw className="h-5 w-5 text-warm-gray" />
@@ -218,7 +218,7 @@ export function ProfilePage({ onOpenPreferences }: ProfilePageProps) {
       {/* App Info */}
       <div className="px-6 pt-4 mt-auto">
         <div className="text-center text-xs text-warm-gray">
-          <p className="mb-1">Lumora Recipes</p>
+          <p className="mb-1">Broco-Chou</p>
           <p>Recettes basées sur les calendriers du Crous</p>
         </div>
       </div>

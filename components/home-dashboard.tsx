@@ -14,7 +14,7 @@ import {
   CheckCircle,
   PlusCircle,
 } from "lucide-react"
-import { useLumoraStore } from "@/lib/store"
+import { useBrocoChouStore } from "@/lib/store"
 import { getCurrentMonthFr, getCurrentSeason } from "@/lib/mock-recipes"
 import { sortRecipesForSwipe, suggestMissingRecipes } from "@/lib/recipe-logic"
 import { SEASONS_FR } from "@/lib/types"
@@ -40,7 +40,7 @@ export function HomeDashboard({ userName = "toi", onNavigate, onViewRecipe }: Ho
     recipeHistory,
     addRecipeToAccepted,
     generateWeeklyPlan,
-  } = useLumoraStore()
+  } = useBrocoChouStore()
   const [suggestionImageSrc, setSuggestionImageSrc] = useState<string | null>(null)
 
   const currentSeason = getCurrentSeason() as keyof typeof SEASONS_FR
@@ -84,7 +84,7 @@ export function HomeDashboard({ userName = "toi", onNavigate, onViewRecipe }: Ho
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.1 }}
-          className="rounded-3xl p-6 lumora-gradient lumora-shadow"
+          className="rounded-3xl p-6 broco-chou-gradient broco-chou-shadow"
         >
           <div className="flex items-start gap-4">
             <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/50">
@@ -97,7 +97,7 @@ export function HomeDashboard({ userName = "toi", onNavigate, onViewRecipe }: Ho
               <p className="mb-4 text-sm text-warm-gray">
                 {hasWeeklyPlan
                   ? `${SEASONS_FR[currentSeason]} - ${currentMonth}`
-                  : "Swipe les recettes, Lumora compose ton planning équilibré."}
+                  : "Swipe les recettes, Broco-Chou compose ton planning équilibré."}
               </p>
               <Button
                 onClick={() => onNavigate(hasWeeklyPlan ? "calendar" : "swipe")}
@@ -124,7 +124,7 @@ export function HomeDashboard({ userName = "toi", onNavigate, onViewRecipe }: Ho
                 onClick={() => onViewRecipe(meal.recipe)}
                 className={cn(
                   "flex w-full items-center gap-3 rounded-2xl p-4 text-left transition-all",
-                  meal.status === "cuisine" ? "bg-sage-mist/30" : "bg-card lumora-shadow hover:bg-lavender/20",
+                  meal.status === "cuisine" ? "bg-sage-mist/30" : "bg-card broco-chou-shadow hover:bg-lavender/20",
                 )}
               >
                 <div className={cn("flex h-12 w-12 items-center justify-center rounded-xl", meal.mealSlot === "dessert" ? "bg-lavender/40" : "bg-dusty-violet/20")}>
@@ -178,7 +178,7 @@ export function HomeDashboard({ userName = "toi", onNavigate, onViewRecipe }: Ho
           </h3>
           <button
             onClick={() => onViewRecipe(recipeOfTheDay)}
-            className="w-full rounded-2xl bg-card p-4 text-left transition-colors lumora-shadow hover:bg-lavender/20"
+            className="w-full rounded-2xl bg-card p-4 text-left transition-colors broco-chou-shadow hover:bg-lavender/20"
           >
             <div className="flex items-center gap-4">
               <div className="h-16 w-16 shrink-0 overflow-hidden rounded-xl bg-lavender/30">
@@ -190,7 +190,7 @@ export function HomeDashboard({ userName = "toi", onNavigate, onViewRecipe }: Ho
                 />
               </div>
               <div className="min-w-0 flex-1">
-                <span className="text-xs text-warm-gray">{recipeOfTheDay.source === "crous" ? "Recette Crous" : "Suggestion Lumora"}</span>
+                <span className="text-xs text-warm-gray">{recipeOfTheDay.source === "crous" ? "Recette Crous" : "Suggestion Broco-Chou"}</span>
                 <p className="truncate font-medium text-charcoal-soft">{recipeTitle(recipeOfTheDay)}</p>
                 <div className="mt-1 flex items-center gap-3 text-xs text-warm-gray">
                   <span className="flex items-center gap-1">
@@ -246,7 +246,7 @@ export function HomeDashboard({ userName = "toi", onNavigate, onViewRecipe }: Ho
 
 function StatCard({ icon: Icon, label, value }: { icon: typeof Utensils; label: string; value: number }) {
   return (
-    <div className="rounded-2xl bg-card p-4 lumora-shadow">
+    <div className="rounded-2xl bg-card p-4 broco-chou-shadow">
       <div className="mb-2 flex items-center gap-2">
         <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-dusty-violet/20">
           <Icon className="h-4 w-4 text-mauve-taupe" />
@@ -260,7 +260,7 @@ function StatCard({ icon: Icon, label, value }: { icon: typeof Utensils; label: 
 
 function QuickAction({ icon: Icon, title, subtitle, onClick }: { icon: typeof Sparkles; title: string; subtitle: string; onClick: () => void }) {
   return (
-    <button onClick={onClick} className="flex items-center gap-3 rounded-2xl bg-card p-4 text-left transition-colors lumora-shadow hover:bg-lavender/20">
+    <button onClick={onClick} className="flex items-center gap-3 rounded-2xl bg-card p-4 text-left transition-colors broco-chou-shadow hover:bg-lavender/20">
       <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-dusty-violet/30 to-mauve-taupe/30">
         <Icon className="h-5 w-5 text-mauve-taupe" />
       </div>
@@ -274,7 +274,7 @@ function QuickAction({ icon: Icon, title, subtitle, onClick }: { icon: typeof Sp
 
 function SuggestionRow({ recipe, reason, onView, onAdd }: { recipe: Recipe; reason: string; onView: () => void; onAdd: () => void }) {
   return (
-    <div className="flex items-center gap-3 rounded-2xl bg-card p-3 lumora-shadow">
+    <div className="flex items-center gap-3 rounded-2xl bg-card p-3 broco-chou-shadow">
       <button onClick={onView} className="flex min-w-0 flex-1 items-center gap-3 text-left">
         <div className="h-12 w-12 shrink-0 overflow-hidden rounded-xl bg-lavender/30">
           <img

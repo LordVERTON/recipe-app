@@ -43,7 +43,7 @@ export function BottomNavigation({ activeTab, onTabChange }: BottomNavigationPro
                   <div className={cn(
                     "w-14 h-14 rounded-full flex items-center justify-center transition-all",
                     isActive 
-                      ? "bg-gradient-to-br from-dusty-violet to-mauve-taupe lumora-shadow" 
+                      ? "bg-gradient-to-br from-dusty-violet to-mauve-taupe broco-chou-shadow" 
                       : "bg-lavender hover:bg-dusty-violet/30"
                   )}>
                     <Icon className={cn(
