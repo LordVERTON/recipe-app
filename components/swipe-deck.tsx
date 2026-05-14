@@ -3,7 +3,7 @@
 import { useState, useCallback } from "react"
 import { motion, AnimatePresence, PanInfo } from "framer-motion"
 import { X, Heart, Star, RotateCcw, ChefHat, Clock, Users, Leaf, Fish, Flame, Microwave } from "lucide-react"
-import { useLumoraStore } from "@/lib/store"
+import { useBrocoChouStore } from "@/lib/store"
 import type { Recipe } from "@/lib/types"
 import { SEASONS_FR } from "@/lib/types"
 import { cn } from "@/lib/utils"
@@ -23,7 +23,7 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
     undoLastSwipe,
     getSwipeProgress,
     acceptedRecipes
-  } = useLumoraStore()
+  } = useBrocoChouStore()
 
   const [exitDirection, setExitDirection] = useState<"left" | "right" | null>(null)
   const [showOverlay, setShowOverlay] = useState<"accept" | "reject" | null>(null)
@@ -213,7 +213,7 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
             className={cn(
               "w-16 h-16 rounded-full flex items-center justify-center transition-all",
               "bg-gradient-to-br from-dusty-violet to-mauve-taupe text-white",
-              "hover:opacity-90 active:scale-95 lumora-shadow"
+              "hover:opacity-90 active:scale-95 broco-chou-shadow"
             )}
           >
             <Heart className="h-7 w-7" />
@@ -289,7 +289,7 @@ function RecipeCardContent({ recipe, isBackground, onViewDetails, showOverlay }:
   return (
     <div
       className={cn(
-        "w-full h-full rounded-3xl overflow-hidden bg-card lumora-shadow",
+        "w-full h-full rounded-3xl overflow-hidden bg-card broco-chou-shadow",
         "border border-soft-sand relative",
         isBackground && "pointer-events-none"
       )}
@@ -341,7 +341,7 @@ function RecipeCardContent({ recipe, isBackground, onViewDetails, showOverlay }:
               ? "bg-sage-mist/90 text-charcoal-soft" 
               : "bg-lavender/90 text-deep-plum"
           )}>
-          {recipe.source === "crous" ? "Recette Crous" : "Suggestion Lumora"}
+          {recipe.source === "crous" ? "Recette Crous" : "Suggestion Broco-Chou"}
           </span>
         </div>
 

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight, ChefHat, Check, Repeat, SkipForward, Clock, ShoppingCart, RefreshCw } from "lucide-react"
-import { useLumoraStore } from "@/lib/store"
+import { useBrocoChouStore } from "@/lib/store"
 import type { Recipe, PlannedMeal } from "@/lib/types"
 import { DAYS_FR } from "@/lib/types"
 import { cn } from "@/lib/utils"
@@ -23,7 +23,7 @@ export function WeeklyCalendar({
   onGenerateGroceryList,
   onRedoPlan 
 }: WeeklyCalendarProps) {
-  const { weeklyPlan, updateMealStatus } = useLumoraStore()
+  const { weeklyPlan, updateMealStatus } = useBrocoChouStore()
   const [selectedDay, setSelectedDay] = useState<number>(new Date().getDay() === 0 ? 6 : new Date().getDay() - 1)
 
   if (!weeklyPlan) {
@@ -101,7 +101,7 @@ export function WeeklyCalendar({
                 className={cn(
                   "flex flex-col items-center min-w-[4.5rem] py-2 px-3 rounded-2xl transition-all",
                   isSelected 
-                    ? "bg-gradient-to-br from-dusty-violet to-mauve-taupe text-white lumora-shadow" 
+                    ? "bg-gradient-to-br from-dusty-violet to-mauve-taupe text-white broco-chou-shadow" 
                     : isToday
                     ? "bg-lavender/50 text-charcoal-soft"
                     : "bg-card text-charcoal-soft hover:bg-lavender/20"
@@ -281,7 +281,7 @@ function MealCard({ meal, onView, onReplace, onToggleCooked, onSkip }: MealCardP
           ? "bg-soft-sand/50 opacity-60" 
           : isCooked 
           ? "bg-sage-mist/30" 
-          : "bg-card lumora-shadow"
+          : "bg-card broco-chou-shadow"
       )}
     >
       <button
@@ -315,9 +315,9 @@ function MealCard({ meal, onView, onReplace, onToggleCooked, onSkip }: MealCardP
               )}>
                 {mealSlot === "dessert" ? "Dessert" : "Dîner"}
               </span>
-              {recipe.source === "lumora" && (
+              {recipe.source === "broco-chou" && (
                 <span className="px-2 py-0.5 rounded-full text-xs bg-warm-ivory text-warm-gray">
-                  Lumora
+                  Broco-Chou
                 </span>
               )}
               {isCooked && (

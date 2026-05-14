@@ -30,7 +30,7 @@ export function RecipeCard({ recipe, onViewDetails, className, isActive = false 
   return (
     <div
       className={cn(
-        "relative w-full h-full rounded-3xl overflow-hidden bg-card lumora-shadow",
+        "relative w-full h-full rounded-3xl overflow-hidden bg-card broco-chou-shadow",
         "border border-soft-sand",
         className
       )}
@@ -51,7 +51,7 @@ export function RecipeCard({ recipe, onViewDetails, className, isActive = false 
               ? "bg-sage-mist text-charcoal-soft" 
               : "bg-lavender text-deep-plum"
           )}>
-            {recipe.source === "crous" ? "Recette Crous" : "Suggestion Lumora"}
+            {recipe.source === "crous" ? "Recette Crous" : "Suggestion Broco-Chou"}
           </span>
         </div>
 

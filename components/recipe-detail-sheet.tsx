@@ -110,7 +110,7 @@ export function RecipeDetailSheet({
                       ? "bg-sage-mist text-charcoal-soft" 
                       : "bg-lavender text-deep-plum"
                   )}>
-                    {recipe.source === "crous" ? "Recette Crous" : "Suggestion Lumora"}
+                    {recipe.source === "crous" ? "Recette Crous" : "Suggestion Broco-Chou"}
                   </span>
                   <span className="px-3 py-1 rounded-full text-xs font-medium bg-dusty-violet/20 text-deep-plum">
                     {SEASONS_FR[recipe.saison]}
