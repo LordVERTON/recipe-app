@@ -14,25 +14,17 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: 'Lumora - Meal Planning for Students',
-  description: 'Discover delicious recipes, plan your weekly meals, and generate smart shopping lists. Powered by CROUS recipes and AI suggestions.',
+  title: 'Broco-Chou - Planning repas étudiant',
+  description: 'Planifie tes repas étudiants avec des recettes inspirées du Crous de Lyon, un calendrier pratique et une liste de courses automatique.',
   generator: 'v0.app',
   icons: {
     icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
       {
         url: '/icon.svg',
         type: 'image/svg+xml',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '/icon.svg',
   },
 }
 

@@ -1,5 +1,5 @@
-import { LumoraApp } from "@/components/lumora-app";
+import { BrocoChouApp } from "@/components/broco-chou-app";
 
 export default function Home() {
-  return <LumoraApp />;
+  return <BrocoChouApp />;
 }

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useLumoraStore } from "@/lib/store";
+import { useBrocoChouStore } from "@/lib/store";
 import type { PlannedMeal, Recipe } from "@/lib/types";
 import { fetchSupabaseRecipes } from "@/lib/supabase-recipes";
 import type { NavTab } from "./bottom-navigation";
@@ -21,7 +21,7 @@ const pageVariants = {
   exit: { opacity: 0, y: -10 },
 };
 
-export function LumoraApp() {
+export function BrocoChouApp() {
   const [activeTab, setActiveTab] = useState<NavTab>("home");
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const hasLoadedSupabase = useRef(false);
@@ -34,7 +34,7 @@ export function LumoraApp() {
     setRecipes,
     addRecipeToAccepted,
     resetSwipes,
-  } = useLumoraStore();
+  } = useBrocoChouStore();
 
   useEffect(() => {
     if (hasLoadedSupabase.current) return;
