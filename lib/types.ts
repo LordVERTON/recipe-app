@@ -1,9 +1,9 @@
-// Core recipe types for Lumora Recipes
+// Core recipe types for Broco-Chou
 
 export type Season = "hiver" | "printemps" | "été" | "automne"
 export type MealType = "petit_dejeuner" | "dejeuner" | "diner" | "dessert" | "aperitif" | "dejeuner/diner"
 export type Difficulty = "très facile" | "facile" | "intermédiaire"
-export type RecipeSource = "crous" | "lumora"
+export type RecipeSource = "crous" | "broco-chou"
 export type CanonicalStatus = "verified" | "partial" | "unknown"
 
 export interface Ingredient {

@@ -3,7 +3,7 @@ import { persist } from 'zustand/middleware'
 import type { Recipe, WeeklyPlan, PlannedMeal, SwipeAction, UserPreferences, GroceryItem, RecipeHistory, MealSlot } from './types'
 import { mockRecipes, getCurrentSeason, getCurrentMonthFr } from './mock-recipes'
 
-interface LumoraState {
+interface BrocoChouState {
   // Recipes
   recipes: Recipe[]
   currentRecipeIndex: number
@@ -42,7 +42,7 @@ interface LumoraState {
   setPreferences: (prefs: Partial<UserPreferences>) => void
   generateGroceryList: () => void
   toggleGroceryItem: (itemName: string) => void
-  setCurrentStep: (step: LumoraState['currentStep']) => void
+  setCurrentStep: (step: BrocoChouState['currentStep']) => void
   addToHistory: (recipeId: string, rating?: number) => void
   getCurrentRecipe: () => Recipe | null
   getSwipeProgress: () => { accepted: number; total: number; desserts: number }
@@ -62,7 +62,7 @@ const defaultPreferences: UserPreferences = {
   difficultyLevel: 'facile'
 }
 
-export const useLumoraStore = create<LumoraState>()(
+export const useBrocoChouStore = create<BrocoChouState>()(
   persist(
     (set, get) => ({
       // Initial state
@@ -95,7 +95,7 @@ export const useLumoraStore = create<LumoraState>()(
         }
 
         set(state => {
-          const newState: Partial<LumoraState> = {
+          const newState: Partial<BrocoChouState> = {
             swipeActions: [...state.swipeActions, swipeAction],
             currentRecipeIndex: state.currentRecipeIndex + 1
           }
@@ -350,7 +350,7 @@ export const useLumoraStore = create<LumoraState>()(
       completeOnboarding: () => set({ hasCompletedOnboarding: true })
     }),
     {
-      name: 'lumora-storage',
+      name: 'broco-chou-storage',
       partialize: (state) => ({
         swipeActions: state.swipeActions,
         acceptedRecipes: state.acceptedRecipes,
