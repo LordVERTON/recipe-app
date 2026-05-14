@@ -3,7 +3,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Lumora Recipes Design System */
+/* Broco-Chou Design System */
 :root {
   /* Core Palette */
   --linen: #FAF0E6;
@@ -100,7 +100,7 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   
-  /* Lumora Custom Colors */
+  /* Broco-Chou Custom Colors */
   --color-linen: #FAF0E6;
   --color-warm-ivory: #FFF9F5;
   --color-lavender: #E6DAF0;
@@ -122,13 +122,13 @@
   }
 }
 
-/* Lumora Gradient Background */
-.lumora-gradient {
+/* Broco-Chou Gradient Background */
+.broco-chou-gradient {
   background: linear-gradient(135deg, #FAF0E6 0%, #FFF9F5 45%, #E6DAF0 100%);
 }
 
 /* Soft shadows for cards */
-.lumora-shadow {
+.broco-chou-shadow {
   box-shadow: 0 4px 20px rgba(155, 100, 169, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
