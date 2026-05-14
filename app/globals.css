@@ -1,0 +1,148 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* Lumora Recipes Design System */
+:root {
+  /* Core Palette */
+  --linen: #FAF0E6;
+  --warm-ivory: #FFF9F5;
+  --lavender: #E6DAF0;
+  --dusty-violet: #BBACD9;
+  --mauve-taupe: #9B64A9;
+  --charcoal-soft: #2B2B2B;
+  --warm-gray: #7A746E;
+  --soft-sand: #E7DDD4;
+  --sage-mist: #C9D8C5;
+  --deep-plum: #6E5A78;
+
+  /* Semantic Tokens */
+  --background: var(--linen);
+  --foreground: var(--charcoal-soft);
+  --card: var(--warm-ivory);
+  --card-foreground: var(--charcoal-soft);
+  --popover: var(--warm-ivory);
+  --popover-foreground: var(--charcoal-soft);
+  --primary: var(--mauve-taupe);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--lavender);
+  --secondary-foreground: var(--charcoal-soft);
+  --muted: var(--soft-sand);
+  --muted-foreground: var(--warm-gray);
+  --accent: var(--dusty-violet);
+  --accent-foreground: var(--charcoal-soft);
+  --destructive: #D97474;
+  --destructive-foreground: #FFFFFF;
+  --border: var(--soft-sand);
+  --input: var(--soft-sand);
+  --ring: var(--dusty-violet);
+  
+  /* Chart colors */
+  --chart-1: var(--mauve-taupe);
+  --chart-2: var(--dusty-violet);
+  --chart-3: var(--sage-mist);
+  --chart-4: var(--lavender);
+  --chart-5: var(--deep-plum);
+  
+  /* Radius */
+  --radius: 1rem;
+  
+  /* Sidebar */
+  --sidebar: var(--warm-ivory);
+  --sidebar-foreground: var(--charcoal-soft);
+  --sidebar-primary: var(--mauve-taupe);
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: var(--lavender);
+  --sidebar-accent-foreground: var(--charcoal-soft);
+  --sidebar-border: var(--soft-sand);
+  --sidebar-ring: var(--dusty-violet);
+}
+
+@theme inline {
+  --font-sans: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), 'Fraunces', Georgia, serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* Lumora Custom Colors */
+  --color-linen: #FAF0E6;
+  --color-warm-ivory: #FFF9F5;
+  --color-lavender: #E6DAF0;
+  --color-dusty-violet: #BBACD9;
+  --color-mauve-taupe: #9B64A9;
+  --color-charcoal-soft: #2B2B2B;
+  --color-warm-gray: #7A746E;
+  --color-soft-sand: #E7DDD4;
+  --color-sage-mist: #C9D8C5;
+  --color-deep-plum: #6E5A78;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Lumora Gradient Background */
+.lumora-gradient {
+  background: linear-gradient(135deg, #FAF0E6 0%, #FFF9F5 45%, #E6DAF0 100%);
+}
+
+/* Soft shadows for cards */
+.lumora-shadow {
+  box-shadow: 0 4px 20px rgba(155, 100, 169, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* Swipe card animations */
+.swipe-card {
+  touch-action: pan-y;
+  user-select: none;
+}
+
+/* Hide scrollbar but keep functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
