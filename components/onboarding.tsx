@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { ArrowRight, BookOpen, Calendar, ShoppingCart, Sparkles, Leaf } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { useLumoraStore } from "@/lib/store"
+import { useBrocoChouStore } from "@/lib/store"
 
 const features = [
   {
@@ -30,10 +30,10 @@ const features = [
 ]
 
 export function Onboarding() {
-  const { completeOnboarding } = useLumoraStore()
+  const { completeOnboarding } = useBrocoChouStore()
 
   return (
-    <div className="min-h-screen lumora-gradient flex flex-col">
+    <div className="min-h-screen broco-chou-gradient flex flex-col">
       {/* Hero Section */}
       <div className="flex-1 flex flex-col items-center justify-center px-8 pt-16 pb-8">
         {/* Logo */}
@@ -43,14 +43,14 @@ export function Onboarding() {
           transition={{ duration: 0.6 }}
           className="mb-8"
         >
-          <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-dusty-violet to-mauve-taupe flex items-center justify-center lumora-shadow mb-4 mx-auto">
-            <Sparkles className="h-10 w-10 text-white" />
+          <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-dusty-violet to-mauve-taupe flex items-center justify-center broco-chou-shadow mb-4 mx-auto text-5xl">
+            🥦
           </div>
           <h1 className="text-3xl font-bold text-charcoal-soft text-center font-serif">
-            Lumora
+            Broco-Chou
           </h1>
           <p className="text-lg text-mauve-taupe font-medium text-center">
-            Recipes
+            Planning étudiant
           </p>
         </motion.div>
 
@@ -65,7 +65,7 @@ export function Onboarding() {
             Planifie ta semaine avec douceur
           </h2>
           <p className="text-warm-gray max-w-xs mx-auto text-pretty">
-            Swipe les recettes qui te donnent envie, Lumora compose ton planning équilibré.
+            Swipe les recettes qui te donnent envie, Broco-Chou compose ton planning équilibré.
           </p>
         </motion.div>
 
@@ -83,7 +83,7 @@ export function Onboarding() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.6 + index * 0.1 }}
-                className="bg-card/80 backdrop-blur-sm rounded-2xl p-4 lumora-shadow"
+                className="bg-card/80 backdrop-blur-sm rounded-2xl p-4 broco-chou-shadow"
               >
                 <div className={cn(
                   "w-10 h-10 rounded-xl mb-3 flex items-center justify-center",
@@ -116,7 +116,7 @@ export function Onboarding() {
         <Button
           onClick={completeOnboarding}
           size="lg"
-          className="w-full bg-gradient-to-r from-dusty-violet to-mauve-taupe text-white hover:opacity-90 h-14 text-base font-semibold rounded-2xl lumora-shadow"
+          className="w-full bg-gradient-to-r from-dusty-violet to-mauve-taupe text-white hover:opacity-90 h-14 text-base font-semibold rounded-2xl broco-chou-shadow"
         >
           Préparer ma semaine
           <ArrowRight className="h-5 w-5 ml-2" />

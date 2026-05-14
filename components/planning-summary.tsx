@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Check, ChefHat, Utensils, Cake, AlertTriangle, Lightbulb, ArrowRight } from "lucide-react"
-import { useLumoraStore } from "@/lib/store"
+import { useBrocoChouStore } from "@/lib/store"
 import { checkRepetition, getBalanceAdvice } from "@/lib/recipe-logic"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -18,7 +18,7 @@ export function PlanningSummary({
   onGeneratePlan, 
   onModifySelection 
 }: PlanningSummaryProps) {
-  const { acceptedRecipes, rejectedRecipes, favoriteRecipes } = useLumoraStore()
+  const { acceptedRecipes, rejectedRecipes, favoriteRecipes } = useBrocoChouStore()
 
   const mainDishes = acceptedRecipes.filter(r => 
     r.tag.includes("déjeuner") || r.tag.includes("dîner")
@@ -57,7 +57,7 @@ export function PlanningSummary({
       <div className="flex-1 overflow-y-auto px-6 hide-scrollbar">
         {/* Summary Stats */}
         <div className="grid grid-cols-3 gap-3 mb-6">
-          <div className="bg-card rounded-2xl p-4 text-center lumora-shadow">
+          <div className="bg-card rounded-2xl p-4 text-center broco-chou-shadow">
             <div className={cn(
               "w-10 h-10 rounded-full mx-auto mb-2 flex items-center justify-center",
               hasEnoughMainDishes ? "bg-sage-mist/50" : "bg-lavender/50"
@@ -70,7 +70,7 @@ export function PlanningSummary({
             <p className="text-2xl font-bold text-charcoal-soft">{mainDishes.length}</p>
             <p className="text-xs text-warm-gray">Plats</p>
           </div>
-          <div className="bg-card rounded-2xl p-4 text-center lumora-shadow">
+          <div className="bg-card rounded-2xl p-4 text-center broco-chou-shadow">
             <div className={cn(
               "w-10 h-10 rounded-full mx-auto mb-2 flex items-center justify-center",
               hasEnoughDesserts ? "bg-sage-mist/50" : "bg-lavender/50"
@@ -83,7 +83,7 @@ export function PlanningSummary({
             <p className="text-2xl font-bold text-charcoal-soft">{desserts.length}</p>
             <p className="text-xs text-warm-gray">Desserts</p>
           </div>
-          <div className="bg-card rounded-2xl p-4 text-center lumora-shadow">
+          <div className="bg-card rounded-2xl p-4 text-center broco-chou-shadow">
             <div className="w-10 h-10 rounded-full mx-auto mb-2 flex items-center justify-center bg-dusty-violet/30">
               <ChefHat className="h-5 w-5 text-deep-plum" />
             </div>
@@ -93,7 +93,7 @@ export function PlanningSummary({
         </div>
 
         {/* Completion Progress */}
-        <div className="bg-card rounded-2xl p-4 mb-6 lumora-shadow">
+        <div className="bg-card rounded-2xl p-4 mb-6 broco-chou-shadow">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm font-medium text-charcoal-soft">Complétion</span>
             <span className={cn(
