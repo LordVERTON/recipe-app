@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Check, Copy, Share, ChevronDown, ShoppingCart, Sparkles } from "lucide-react"
-import { useLumoraStore } from "@/lib/store"
+import { useBrocoChouStore } from "@/lib/store"
 import { GROCERY_CATEGORIES } from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -19,7 +19,7 @@ const PANTRY_STAPLES = [
 ]
 
 export function GroceryList({ onBack }: GroceryListProps) {
-  const { groceryList, toggleGroceryItem } = useLumoraStore()
+  const { groceryList, toggleGroceryItem } = useBrocoChouStore()
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(
     new Set(GROCERY_CATEGORIES)
   )
