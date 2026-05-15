@@ -5,6 +5,7 @@ import { mockRecipes, getCurrentSeason, getCurrentMonthFr } from './mock-recipes
 
 interface BrocoChouState {
   // Recipes
+  recipeCatalog: Recipe[]
   recipes: Recipe[]
   currentRecipeIndex: number
   
@@ -56,6 +57,7 @@ const defaultPreferences: UserPreferences = {
   mealSlots: ['dejeuner', 'diner', 'dessert'],
   includeDessert: true,
   includeBreakfast: true,
+  includeSeasonalRecipes: true,
   maxRepetitionPerMonth: 2,
   equipment: ['poele', 'casserole'],
   budgetLevel: 'etudiant',
@@ -66,7 +68,8 @@ export const useBrocoChouStore = create<BrocoChouState>()(
   persist(
     (set, get) => ({
       // Initial state
-      recipes: mockRecipes,
+      recipeCatalog: mockRecipes,
+      recipes: orderRecipeSuggestions(mockRecipes, defaultPreferences.includeSeasonalRecipes),
       currentRecipeIndex: 0,
       swipeActions: [],
       acceptedRecipes: [],
@@ -80,7 +83,11 @@ export const useBrocoChouStore = create<BrocoChouState>()(
       hasCompletedOnboarding: false,
 
       // Actions
-      setRecipes: (recipes) => set({ recipes }),
+      setRecipes: (recipes) => set(state => ({
+        recipeCatalog: recipes,
+        recipes: orderRecipeSuggestions(recipes, state.preferences.includeSeasonalRecipes !== false),
+        currentRecipeIndex: 0
+      })),
 
       swipeRecipe: (action) => {
         const state = get()
@@ -161,17 +168,13 @@ export const useBrocoChouStore = create<BrocoChouState>()(
         const state = get()
         const { acceptedRecipes, preferences } = state
         
-        // Prefer recipes selected during swipe, then fill missing slots from the full catalog.
-        const mainDishes = acceptedRecipes.filter(r => 
-          r.tag.includes('déjeuner') || r.tag.includes('dîner')
-        )
-        const desserts = acceptedRecipes.filter(r => 
-          r.tag === 'dessert' || r.categorie === 'sucré'
-        )
+        // Build the plan only from recipes explicitly selected in the swiper.
+        const mainDishes = acceptedRecipes.filter(isMainMealRecipe)
+        const desserts = acceptedRecipes.filter(isDessertRecipe)
 
-        const plannedMainDishes = mergeRecipePools(mainDishes, state.recipes.filter(isMainMealRecipe))
-        const plannedBreakfasts = mergeRecipePools(acceptedRecipes.filter(isBreakfastRecipe), state.recipes.filter(isBreakfastRecipe))
-        const plannedDesserts = mergeRecipePools(desserts, state.recipes.filter(isDessertRecipe))
+        const plannedMainDishes = mergeRecipePools(mainDishes)
+        const plannedBreakfasts = mergeRecipePools(acceptedRecipes.filter(isBreakfastRecipe))
+        const plannedDesserts = mergeRecipePools(desserts)
 
         // Create 7-day plan
         const today = new Date()
@@ -309,7 +312,12 @@ export const useBrocoChouStore = create<BrocoChouState>()(
 
       setPreferences: (prefs) => {
         set(state => ({
-          preferences: { ...state.preferences, ...prefs }
+          preferences: { ...state.preferences, ...prefs },
+          recipes: orderRecipeSuggestions(
+            state.recipeCatalog.length > 0 ? state.recipeCatalog : state.recipes,
+            prefs.includeSeasonalRecipes ?? (state.preferences.includeSeasonalRecipes !== false)
+          ),
+          currentRecipeIndex: prefs.includeSeasonalRecipes === undefined ? state.currentRecipeIndex : 0
         }))
       },
 
@@ -437,6 +445,17 @@ function isMainMealRecipe(recipe: Recipe): boolean {
   return !isDessertRecipe(recipe) && !isBreakfastRecipe(recipe) && (
     tag.includes('dejeuner') || tag.includes('diner')
   )
+}
+
+function getSuggestionRecipes(recipes: Recipe[], seasonalOnly: boolean): Recipe[] {
+  if (!seasonalOnly) return recipes
+
+  const currentSeason = getCurrentSeason()
+  return recipes.filter(recipe => recipe.saison === currentSeason)
+}
+
+function orderRecipeSuggestions(recipes: Recipe[], seasonalOnly: boolean): Recipe[] {
+  return [...getSuggestionRecipes(recipes, seasonalOnly)].sort(() => Math.random() - 0.5)
 }
 
 function mergeRecipePools(...pools: Recipe[][]): Recipe[] {

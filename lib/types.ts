@@ -79,6 +79,7 @@ export interface UserPreferences {
   mealSlots: MealSlot[]
   includeDessert: boolean
   includeBreakfast: boolean
+  includeSeasonalRecipes: boolean
   maxRepetitionPerMonth: number
   equipment: string[]
   budgetLevel: "etudiant" | "standard"

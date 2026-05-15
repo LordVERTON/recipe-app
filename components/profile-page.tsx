@@ -2,10 +2,11 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { ChevronRight, Heart, History, Settings, Trash2, RefreshCw, ChefHat, Utensils, Cake } from "lucide-react"
+import { ChevronRight, Star, History, Settings, Trash2, RefreshCw, ChefHat, Utensils, Cake } from "lucide-react"
 import { useBrocoChouStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { Switch } from "@/components/ui/switch"
 
 interface ProfilePageProps {
   onOpenPreferences: () => void
@@ -17,6 +18,8 @@ export function ProfilePage({ onOpenPreferences }: ProfilePageProps) {
     recipeHistory, 
     weeklyPlan,
     acceptedRecipes,
+    preferences,
+    setPreferences,
     resetSwipes
   } = useBrocoChouStore()
 
@@ -65,7 +68,7 @@ export function ProfilePage({ onOpenPreferences }: ProfilePageProps) {
           </div>
           <div className="bg-card rounded-2xl p-4 text-center broco-chou-shadow">
             <div className="w-10 h-10 rounded-full bg-dusty-violet/30 mx-auto mb-2 flex items-center justify-center">
-              <Heart className="h-5 w-5 text-deep-plum" />
+              <Star className="h-5 w-5 text-deep-plum" />
             </div>
             <p className="text-2xl font-bold text-charcoal-soft">{favoriteRecipes.length}</p>
             <p className="text-xs text-warm-gray">Favoris</p>
@@ -81,7 +84,7 @@ export function ProfilePage({ onOpenPreferences }: ProfilePageProps) {
           className="px-6 mb-6"
         >
           <h3 className="text-sm font-semibold text-charcoal-soft mb-3 flex items-center gap-2">
-            <Heart className="h-4 w-4 text-mauve-taupe" />
+            <Star className="h-4 w-4 text-mauve-taupe" />
             Mes favoris
           </h3>
           <div className="flex gap-3 overflow-x-auto hide-scrollbar -mx-6 px-6">
@@ -152,6 +155,27 @@ export function ProfilePage({ onOpenPreferences }: ProfilePageProps) {
             </div>
             <ChevronRight className="h-5 w-5 text-warm-gray" />
           </button>
+
+          <div className="w-full flex items-center justify-between gap-4 p-4 rounded-2xl bg-card broco-chou-shadow">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-sage-mist/40 flex items-center justify-center">
+                <ChefHat className="h-5 w-5 text-sage-mist" />
+              </div>
+              <div className="text-left">
+                <p className="font-medium text-charcoal-soft">Recettes de saison</p>
+                <p className="text-xs text-warm-gray">
+                  {preferences.includeSeasonalRecipes !== false
+                    ? "Suggestions limitees a la saison en cours"
+                    : "Suggestions ouvertes a toutes les saisons"}
+                </p>
+              </div>
+            </div>
+            <Switch
+              checked={preferences.includeSeasonalRecipes !== false}
+              onCheckedChange={(checked) => setPreferences({ includeSeasonalRecipes: checked })}
+              aria-label="Activer les recettes de saison"
+            />
+          </div>
 
           <button
             className="w-full flex items-center justify-between p-4 rounded-2xl bg-card broco-chou-shadow hover:bg-lavender/20 transition-colors"
