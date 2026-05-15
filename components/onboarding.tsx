@@ -1,141 +1,55 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowRight, BookOpen, Calendar, ShoppingCart, Sparkles, Leaf } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
 import { useBrocoChouStore } from "@/lib/store"
-
-const features = [
-  {
-    icon: Leaf,
-    title: "Recettes de saison",
-    description: "Toujours en accord avec les produits du moment"
-  },
-  {
-    icon: Calendar,
-    title: "Planning automatique",
-    description: "7 jours équilibrés générés pour toi"
-  },
-  {
-    icon: ShoppingCart,
-    title: "Liste de courses",
-    description: "Tous les ingrédients regroupés par rayon"
-  },
-  {
-    icon: Sparkles,
-    title: "Anti-répétition",
-    description: "Jamais la même base 3 fois par semaine"
-  }
-]
 
 export function Onboarding() {
   const { completeOnboarding } = useBrocoChouStore()
 
   return (
-    <div className="min-h-screen broco-chou-gradient flex flex-col">
-      {/* Hero Section */}
-      <div className="flex-1 flex flex-col items-center justify-center px-8 pt-16 pb-8">
-        {/* Logo */}
+    <div className="flex min-h-screen flex-col bg-background">
+      <main className="flex flex-1 flex-col items-center justify-center px-8 text-center">
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-8"
+          transition={{ duration: 0.4 }}
+          className="mb-10"
         >
-          <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-dusty-violet to-mauve-taupe flex items-center justify-center broco-chou-shadow mb-4 mx-auto text-5xl">
+          <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-3xl bg-card text-4xl broco-chou-shadow">
             🥦
           </div>
-          <h1 className="text-3xl font-bold text-charcoal-soft text-center font-serif">
+          <h1 className="font-serif text-4xl font-bold text-charcoal-soft">
             Broco-Chou
           </h1>
-          <p className="text-lg text-mauve-taupe font-medium text-center">
-            Planning étudiant
-          </p>
         </motion.div>
 
-        {/* Tagline */}
-        <motion.div
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="text-center mb-12"
+          transition={{ delay: 0.12, duration: 0.4 }}
+          className="mb-10 max-w-xs text-lg leading-relaxed text-warm-gray text-pretty"
         >
-          <h2 className="text-xl text-charcoal-soft font-semibold mb-3 text-pretty">
-            Planifie ta semaine avec douceur
-          </h2>
-          <p className="text-warm-gray max-w-xs mx-auto text-pretty">
-            Swipe les recettes qui te donnent envie, Broco-Chou compose ton planning équilibré.
-          </p>
-        </motion.div>
+          Choisis quelques recettes. On te prepare une semaine simple.
+        </motion.p>
 
-        {/* Features */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          className="w-full max-w-sm"
+          transition={{ delay: 0.22, duration: 0.4 }}
+          className="w-full max-w-xs"
         >
-          <div className="grid grid-cols-2 gap-3">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.6 + index * 0.1 }}
-                className="bg-card/80 backdrop-blur-sm rounded-2xl p-4 broco-chou-shadow"
-              >
-                <div className={cn(
-                  "w-10 h-10 rounded-xl mb-3 flex items-center justify-center",
-                  index % 2 === 0 ? "bg-lavender/50" : "bg-sage-mist/50"
-                )}>
-                  <feature.icon className={cn(
-                    "h-5 w-5",
-                    index % 2 === 0 ? "text-mauve-taupe" : "text-deep-plum"
-                  )} />
-                </div>
-                <h3 className="text-sm font-semibold text-charcoal-soft mb-1">
-                  {feature.title}
-                </h3>
-                <p className="text-xs text-warm-gray leading-relaxed">
-                  {feature.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+          <Button
+            onClick={completeOnboarding}
+            size="lg"
+            className="h-14 w-full rounded-2xl bg-mauve-taupe text-base font-semibold text-white broco-chou-shadow hover:bg-deep-plum"
+          >
+            Commencer
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
         </motion.div>
-      </div>
-
-      {/* CTA Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.9, duration: 0.6 }}
-        className="px-8 pb-12"
-      >
-        <Button
-          onClick={completeOnboarding}
-          size="lg"
-          className="w-full bg-gradient-to-r from-dusty-violet to-mauve-taupe text-white hover:opacity-90 h-14 text-base font-semibold rounded-2xl broco-chou-shadow"
-        >
-          Préparer ma semaine
-          <ArrowRight className="h-5 w-5 ml-2" />
-        </Button>
-        
-        <Button
-          onClick={completeOnboarding}
-          variant="ghost"
-          className="w-full mt-3 text-warm-gray hover:text-mauve-taupe hover:bg-transparent"
-        >
-          <BookOpen className="h-4 w-4 mr-2" />
-          Explorer les recettes
-        </Button>
-
-        {/* Attribution */}
-        <p className="text-center text-xs text-warm-gray mt-6">
-          Recettes issues des calendriers du Crous
-        </p>
-      </motion.div>
+      </main>
     </div>
   )
 }
