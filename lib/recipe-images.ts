@@ -2,6 +2,9 @@ import type { Recipe } from "./types"
 
 const PEXELS_IMAGE_BASE = "/assets/recipe_images/pexels"
 const FALLBACK_IMAGE = "/placeholder.jpg"
+const IMAGE_PATH_ALIASES: Record<string, string> = {
+  "/assets/recipe_images/pexels/chakchouka-d-hiver.jpg": "/assets/recipe_images/pexels/chakchouka-dhiver.jpg",
+}
 
 const mojibakeMap: Record<string, string> = {
   "Ã©": "e",
@@ -45,7 +48,7 @@ export function slugifyRecipeName(name: string): string {
 
 export function getRecipeImageUrl(recipe: Recipe): string {
   if (recipe.imageUrl && !recipe.imageUrl.includes("placeholder")) {
-    return recipe.imageUrl
+    return IMAGE_PATH_ALIASES[recipe.imageUrl] || recipe.imageUrl
   }
 
   return `${PEXELS_IMAGE_BASE}/${slugifyRecipeName(recipe.nom)}.jpg`
