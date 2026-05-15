@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { X, Clock, Users, ChefHat, Leaf, Fish, Flame, Microwave, Check, Heart, Calendar, AlertCircle } from "lucide-react"
+import { X, Clock, Users, ChefHat, Leaf, Fish, Flame, Microwave, Check, Star, Calendar, AlertCircle } from "lucide-react"
 import type { Recipe } from "@/lib/types"
 import { SEASONS_FR } from "@/lib/types"
 import { cn } from "@/lib/utils"
@@ -320,7 +320,7 @@ export function RecipeDetailSheet({
                     onClick={onAddToFavorites}
                     className="flex-1 border-dusty-violet text-mauve-taupe hover:bg-lavender/30"
                   >
-                    <Heart className="h-4 w-4 mr-2" />
+                    <Star className="h-4 w-4 mr-2" />
                     Favoris
                   </Button>
                 )}
