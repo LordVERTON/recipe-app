@@ -235,6 +235,9 @@ export function suggestMissingRecipes(
   preferences: UserPreferences
 ): { type: string; recipes: Recipe[] }[] {
   const suggestions: { type: string; recipes: Recipe[] }[] = []
+  const currentSeason = getCurrentSeason()
+  const seasonalRecipes = allRecipes.filter(r => r.saison === currentSeason)
+  const suggestionPool = preferences.includeSeasonalRecipes !== false ? seasonalRecipes : allRecipes
   
   const mainDishes = selectedRecipes.filter(r => 
     r.tag.includes('déjeuner') || r.tag.includes('dîner')
@@ -246,7 +249,7 @@ export function suggestMissingRecipes(
   // Need at least 7 main dishes
   if (mainDishes.length < 7) {
     const missing = 7 - mainDishes.length
-    const suggested = allRecipes
+    const suggested = suggestionPool
       .filter(r => (r.tag.includes('déjeuner') || r.tag.includes('dîner')) && 
                    !selectedRecipes.some(s => s.id === r.id))
       .slice(0, missing)
@@ -260,7 +263,7 @@ export function suggestMissingRecipes(
   // Need at least 2-3 desserts if preference enabled
   if (preferences.includeDessert && desserts.length < 2) {
     const missing = 2 - desserts.length
-    const suggested = allRecipes
+    const suggested = suggestionPool
       .filter(r => (r.tag === 'dessert' || r.categorie === 'sucré') && 
                    !selectedRecipes.some(s => s.id === r.id))
       .slice(0, missing)
@@ -274,7 +277,7 @@ export function suggestMissingRecipes(
   // Check for vegetarian options
   const vegOptions = mainDishes.filter(r => r.dietary_tags?.includes('végétarien'))
   if (vegOptions.length < 2) {
-    const suggested = allRecipes
+    const suggested = suggestionPool
       .filter(r => r.dietary_tags?.includes('végétarien') && 
                    !selectedRecipes.some(s => s.id === r.id))
       .slice(0, 2 - vegOptions.length)
