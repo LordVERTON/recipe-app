@@ -1,7 +1,7 @@
 "use client"
 
-import { useState, useCallback } from "react"
-import { motion, AnimatePresence, PanInfo } from "framer-motion"
+import { useState, useCallback, useEffect } from "react"
+import { motion, AnimatePresence, PanInfo, animate, useMotionValue, useTransform, type MotionValue } from "framer-motion"
 import { X, Heart, Star, RotateCcw, ChefHat, Clock, Users, Leaf, Fish, Flame, Microwave } from "lucide-react"
 import { useBrocoChouStore } from "@/lib/store"
 import type { Recipe } from "@/lib/types"
@@ -27,19 +27,27 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
 
   const [exitDirection, setExitDirection] = useState<"left" | "right" | null>(null)
   const [showOverlay, setShowOverlay] = useState<"accept" | "reject" | null>(null)
+  const dragX = useMotionValue(0)
+  const rotate = useTransform(dragX, [-240, 0, 240], [-16, 0, 16])
+  const acceptOpacity = useTransform(dragX, [35, 145], [0, 1])
+  const rejectOpacity = useTransform(dragX, [-145, -35], [1, 0])
 
   const currentRecipe = recipes[currentRecipeIndex]
   const nextRecipe = recipes[currentRecipeIndex + 1]
+  const thirdRecipe = recipes[currentRecipeIndex + 2]
   const progress = getSwipeProgress()
 
   const handleSwipe = useCallback((direction: "left" | "right") => {
     setExitDirection(direction)
+    setShowOverlay(direction === "right" ? "accept" : "reject")
+    animate(dragX, direction === "right" ? 520 : -520, { duration: 0.22, ease: "easeOut" })
     setTimeout(() => {
       swipeRecipe(direction === "right" ? "accepted" : "rejected")
       setExitDirection(null)
       setShowOverlay(null)
+      dragX.set(0)
     }, 200)
-  }, [swipeRecipe])
+  }, [dragX, swipeRecipe])
 
   const handleDrag = useCallback((_: any, info: PanInfo) => {
     const threshold = 50
@@ -62,16 +70,21 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
       handleSwipe("left")
     } else {
       setShowOverlay(null)
+      animate(dragX, 0, { type: "spring", stiffness: 420, damping: 32 })
     }
-  }, [handleSwipe])
+  }, [dragX, handleSwipe])
 
   const handleFavorite = useCallback(() => {
     setExitDirection("right")
+    setShowOverlay("accept")
+    animate(dragX, 520, { duration: 0.22, ease: "easeOut" })
     setTimeout(() => {
       swipeRecipe("favorite")
       setExitDirection(null)
+      setShowOverlay(null)
+      dragX.set(0)
     }, 200)
-  }, [swipeRecipe])
+  }, [dragX, swipeRecipe])
 
   // Check if enough recipes are selected
   const hasEnoughRecipes = acceptedRecipes.length >= 7
@@ -101,7 +114,7 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
   }
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex h-full min-h-[calc(100svh-5rem)] flex-col overflow-hidden">
       {/* Progress Header */}
       <div className="px-4 py-3">
         <div className="flex items-center justify-between mb-2">
@@ -129,17 +142,31 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
       </div>
 
       {/* Card Stack */}
-      <div className="flex-1 relative px-4 pb-4">
-        <div className="relative w-full h-full max-w-sm mx-auto">
+      <div className="relative flex min-h-0 flex-1 items-center justify-center px-4 py-3">
+        <div className="relative h-[clamp(300px,56vh,520px)] w-[min(88vw,360px)] swipe-card">
           <AnimatePresence mode="popLayout">
+            {/* Deeper Background Card */}
+            {thirdRecipe && (
+              <motion.div
+                key={thirdRecipe.id + "-third-bg"}
+                className="absolute inset-0"
+                initial={{ scale: 0.88, opacity: 0 }}
+                animate={{ scale: 0.9, opacity: 0.38, y: 28 }}
+                style={{ zIndex: 0 }}
+              >
+                <RecipeCardContent recipe={thirdRecipe} isBackground />
+              </motion.div>
+            )}
+
             {/* Background Card (Next Recipe) */}
             {nextRecipe && (
               <motion.div
                 key={nextRecipe.id + "-bg"}
                 className="absolute inset-0"
-                initial={{ scale: 0.92, opacity: 0.5 }}
-                animate={{ scale: 0.95, opacity: 0.7 }}
-                style={{ zIndex: 0 }}
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: exitDirection ? 1 : 0.95, opacity: 0.72, y: exitDirection ? 0 : 14 }}
+                transition={{ type: "spring", damping: 25, stiffness: 260 }}
+                style={{ zIndex: 1 }}
               >
                 <RecipeCardContent recipe={nextRecipe} isBackground />
               </motion.div>
@@ -149,7 +176,7 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
             <motion.div
               key={currentRecipe.id}
               className="absolute inset-0 cursor-grab active:cursor-grabbing"
-              style={{ zIndex: 1 }}
+              style={{ zIndex: 2, x: dragX, rotate }}
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.9}
@@ -158,8 +185,6 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
               initial={{ scale: 1, x: 0 }}
               animate={{ 
                 scale: 1, 
-                x: exitDirection === "left" ? -400 : exitDirection === "right" ? 400 : 0,
-                rotate: exitDirection === "left" ? -20 : exitDirection === "right" ? 20 : 0,
                 opacity: exitDirection ? 0 : 1
               }}
               exit={{ 
@@ -173,6 +198,8 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
                 recipe={currentRecipe} 
                 onViewDetails={() => onViewRecipeDetails(currentRecipe)}
                 showOverlay={showOverlay}
+                acceptOpacity={acceptOpacity}
+                rejectOpacity={rejectOpacity}
               />
             </motion.div>
           </AnimatePresence>
@@ -180,14 +207,14 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
       </div>
 
       {/* Action Buttons */}
-      <div className="px-4 pb-6">
+      <div className="shrink-0 px-4 pb-4 pt-1">
         <div className="flex items-center justify-center gap-4">
           {/* Undo Button */}
           <button
             onClick={undoLastSwipe}
             disabled={currentRecipeIndex === 0}
             className={cn(
-              "w-12 h-12 rounded-full flex items-center justify-center transition-all",
+              "h-12 w-12 rounded-full flex items-center justify-center transition-all",
               "bg-soft-sand text-warm-gray",
               currentRecipeIndex === 0 ? "opacity-40" : "hover:bg-muted active:scale-95"
             )}
@@ -199,7 +226,7 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
           <button
             onClick={() => handleSwipe("left")}
             className={cn(
-              "w-16 h-16 rounded-full flex items-center justify-center transition-all",
+              "h-16 w-16 rounded-full flex items-center justify-center transition-all",
               "bg-soft-sand text-warm-gray border-2 border-soft-sand",
               "hover:border-warm-gray hover:bg-warm-ivory active:scale-95"
             )}
@@ -211,7 +238,7 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
           <button
             onClick={() => handleSwipe("right")}
             className={cn(
-              "w-16 h-16 rounded-full flex items-center justify-center transition-all",
+              "h-16 w-16 rounded-full flex items-center justify-center transition-all",
               "bg-gradient-to-br from-dusty-violet to-mauve-taupe text-white",
               "hover:opacity-90 active:scale-95 broco-chou-shadow"
             )}
@@ -223,7 +250,7 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
           <button
             onClick={handleFavorite}
             className={cn(
-              "w-12 h-12 rounded-full flex items-center justify-center transition-all",
+              "h-12 w-12 rounded-full flex items-center justify-center transition-all",
               "bg-lavender text-mauve-taupe",
               "hover:bg-dusty-violet/30 active:scale-95"
             )}
@@ -233,11 +260,11 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
         </div>
 
         {/* Action Labels */}
-        <div className="flex items-center justify-center gap-12 mt-3 text-xs text-warm-gray">
-          <span className="w-16 text-center">Annuler</span>
-          <span className="w-20 text-center">Pas cette semaine</span>
-          <span className="w-20 text-center">Je veux la faire</span>
-          <span className="w-16 text-center">Favori</span>
+        <div className="mt-3 grid grid-cols-4 gap-2 text-xs text-warm-gray">
+          <span className="text-center">Annuler</span>
+          <span className="text-center">Pas cette semaine</span>
+          <span className="text-center">Je veux la faire</span>
+          <span className="text-center">Favori</span>
         </div>
 
         {/* Complete Button when enough recipes */}
@@ -266,10 +293,16 @@ interface RecipeCardContentProps {
   isBackground?: boolean
   onViewDetails?: () => void
   showOverlay?: "accept" | "reject" | null
+  acceptOpacity?: MotionValue<number>
+  rejectOpacity?: MotionValue<number>
 }
 
-function RecipeCardContent({ recipe, isBackground, onViewDetails, showOverlay }: RecipeCardContentProps) {
+function RecipeCardContent({ recipe, isBackground, onViewDetails, showOverlay, acceptOpacity, rejectOpacity }: RecipeCardContentProps) {
   const [imageSrc, setImageSrc] = useState(getRecipeImageUrl(recipe))
+
+  useEffect(() => {
+    setImageSrc(getRecipeImageUrl(recipe))
+  }, [recipe])
 
   const getDietaryInfo = () => {
     if (recipe.dietary_tags?.includes("végétarien")) {
@@ -289,31 +322,29 @@ function RecipeCardContent({ recipe, isBackground, onViewDetails, showOverlay }:
   return (
     <div
       className={cn(
-        "w-full h-full rounded-3xl overflow-hidden bg-card broco-chou-shadow",
-        "border border-soft-sand relative",
+        "relative h-full w-full overflow-hidden rounded-[28px] bg-card broco-chou-shadow",
+        "border border-soft-sand",
         isBackground && "pointer-events-none"
       )}
     >
       {/* Swipe Overlays */}
       <AnimatePresence>
-        {showOverlay === "accept" && (
+        {!isBackground && (
           <motion.div 
-            className="absolute inset-0 bg-mauve-taupe/20 z-10 flex items-center justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            key="accept-overlay"
+            className="absolute inset-0 bg-mauve-taupe/20 z-10 flex items-center justify-center pointer-events-none"
+            style={{ opacity: showOverlay === "accept" ? 1 : acceptOpacity }}
           >
             <div className="px-6 py-3 rounded-xl bg-mauve-taupe text-white font-semibold text-lg rotate-[-15deg] border-2 border-white">
               JE VEUX LA FAIRE
             </div>
           </motion.div>
         )}
-        {showOverlay === "reject" && (
+        {!isBackground && (
           <motion.div 
-            className="absolute inset-0 bg-warm-gray/20 z-10 flex items-center justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            key="reject-overlay"
+            className="absolute inset-0 bg-warm-gray/20 z-10 flex items-center justify-center pointer-events-none"
+            style={{ opacity: showOverlay === "reject" ? 1 : rejectOpacity }}
           >
             <div className="px-6 py-3 rounded-xl bg-warm-gray text-white font-semibold text-lg rotate-[15deg] border-2 border-white">
               PAS CETTE SEMAINE
@@ -323,7 +354,7 @@ function RecipeCardContent({ recipe, isBackground, onViewDetails, showOverlay }:
       </AnimatePresence>
 
       {/* Image Section */}
-      <div className="relative h-[42%] bg-gradient-to-br from-lavender/40 to-dusty-violet/30">
+      <div className="relative h-[43%] bg-gradient-to-br from-lavender/40 to-dusty-violet/30">
         <img
           src={imageSrc}
           alt={recipeTitle(recipe)}
@@ -361,14 +392,14 @@ function RecipeCardContent({ recipe, isBackground, onViewDetails, showOverlay }:
       </div>
 
       {/* Content Section */}
-      <div className="p-4 h-[58%] flex flex-col">
+      <div className="flex h-[57%] flex-col p-4">
         {/* Title */}
-        <h3 className="text-lg font-semibold text-charcoal-soft leading-tight line-clamp-2 mb-2 text-pretty">
+        <h3 className="mb-2 line-clamp-2 text-pretty text-lg font-semibold leading-tight text-charcoal-soft">
           {recipeTitle(recipe)}
         </h3>
 
         {/* Meta Info */}
-        <div className="flex items-center gap-4 text-sm text-warm-gray mb-3">
+        <div className="mb-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-warm-gray">
           {recipe.estimatedTime && (
             <div className="flex items-center gap-1">
               <Clock className="h-4 w-4" />
@@ -380,14 +411,14 @@ function RecipeCardContent({ recipe, isBackground, onViewDetails, showOverlay }:
             <span>{recipe.portions}</span>
           </div>
           {recipe.difficulty && (
-            <span className="text-xs px-2 py-0.5 rounded-full bg-lavender/30 text-deep-plum">
+            <span className="rounded-full bg-lavender/30 px-2 py-0.5 text-xs text-deep-plum">
               {recipe.difficulty}
             </span>
           )}
         </div>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-1.5 mb-3">
+        <div className="mb-3 flex flex-wrap gap-1.5">
           {dietaryInfo && (
             <span className={cn(
               "inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs",
@@ -416,7 +447,7 @@ function RecipeCardContent({ recipe, isBackground, onViewDetails, showOverlay }:
         {/* Main Ingredients */}
         <div className="flex-1 min-h-0">
           <p className="text-xs text-warm-gray mb-1">Ingrédients principaux</p>
-          <p className="text-sm text-charcoal-soft line-clamp-2">
+          <p className="line-clamp-2 text-sm text-charcoal-soft">
             {recipe.main_ingredients?.slice(0, 4).join(", ") || 
              recipe.ingredients.slice(0, 3).map(i => i.name.split("(")[0].trim()).join(", ")}
           </p>
@@ -429,7 +460,7 @@ function RecipeCardContent({ recipe, isBackground, onViewDetails, showOverlay }:
               e.stopPropagation()
               onViewDetails()
             }}
-            className="mt-2 py-2 text-sm font-medium text-mauve-taupe hover:text-deep-plum transition-colors"
+            className="mt-2 rounded-full bg-lavender/45 py-2 text-sm font-medium text-mauve-taupe transition-colors hover:bg-lavender hover:text-deep-plum"
           >
             Voir la recette complète
           </button>

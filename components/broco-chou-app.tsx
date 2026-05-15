@@ -117,7 +117,7 @@ export function BrocoChouApp() {
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <main className="flex-1 overflow-hidden pb-20">
+      <main className="min-h-0 flex-1 overflow-hidden pb-20">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
@@ -126,7 +126,7 @@ export function BrocoChouApp() {
             animate="animate"
             exit="exit"
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="h-full"
+            className="h-full min-h-0"
           >
             {renderPage()}
           </motion.div>
