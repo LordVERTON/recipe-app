@@ -30,7 +30,7 @@ export function BrocoChouApp() {
     generateWeeklyPlan,
     generateGroceryList,
     replaceMeal,
-    recipes,
+    acceptedRecipes,
     setRecipes,
     addRecipeToAccepted,
     resetSwipes,
@@ -70,11 +70,11 @@ export function BrocoChouApp() {
   };
 
   const replaceWithSuggestion = (meal: PlannedMeal) => {
-    const replacement = recipes.find(recipe =>
+    const replacement = acceptedRecipes.find(recipe =>
       recipe.id !== meal.recipeId &&
       recipe.categorie === meal.recipe.categorie &&
       recipe.tag === meal.recipe.tag
-    ) || recipes.find(recipe => recipe.id !== meal.recipeId)
+    ) || acceptedRecipes.find(recipe => recipe.id !== meal.recipeId)
 
     if (replacement) {
       replaceMeal(meal.id, replacement);
