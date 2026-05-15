@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useEffect } from "react"
 import { motion, AnimatePresence, PanInfo, animate, useMotionValue, useTransform, type MotionValue } from "framer-motion"
-import { X, Heart, Star, RotateCcw, ChefHat, Clock, Users } from "lucide-react"
+import { X, Heart, Star, RotateCcw, ChefHat, Clock, Users, Utensils } from "lucide-react"
 import { useBrocoChouStore } from "@/lib/store"
 import type { Recipe } from "@/lib/types"
 import { cn } from "@/lib/utils"
@@ -83,8 +83,31 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
     }, 200)
   }, [dragX, swipeRecipe])
 
-  // Check if enough recipes are selected
-  const hasEnoughRecipes = acceptedRecipes.length >= 7
+  const selectedMealRecipes = acceptedRecipes.filter(isDayMealRecipe)
+  const selectedRecipeCount = selectedMealRecipes.length
+  const hasEnoughRecipes = selectedRecipeCount >= 7
+
+  if (hasEnoughRecipes) {
+    return (
+      <div className="flex flex-col items-center justify-center h-full px-6 text-center">
+        <div className="w-20 h-20 rounded-full bg-lavender/50 flex items-center justify-center mb-6">
+          <Utensils className="h-10 w-10 text-mauve-taupe" />
+        </div>
+        <h2 className="text-xl font-semibold text-charcoal-soft mb-2">
+          Ta semaine est prete !
+        </h2>
+        <p className="text-warm-gray mb-6">
+          Les 7 prochains jours ont chacun une recette.
+        </p>
+        <Button
+          onClick={onComplete}
+          className="bg-gradient-to-r from-dusty-violet to-mauve-taupe text-white hover:opacity-90"
+        >
+          Generer mon planning
+        </Button>
+      </div>
+    )
+  }
   if (!currentRecipe) {
     return (
       <div className="flex flex-col items-center justify-center h-full px-6 text-center">
@@ -95,7 +118,7 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
           Tu as parcouru toutes les recettes !
         </h2>
         <p className="text-warm-gray mb-6">
-          {acceptedRecipes.length} recettes sélectionnées
+          {selectedRecipeCount} recettes sélectionnées
         </p>
         <Button
           onClick={onComplete}
@@ -109,21 +132,17 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
 
   return (
     <div className="flex h-full min-h-[calc(100svh-5rem)] flex-col overflow-hidden">
-      {/* Progress Header */}
+      {/* Selection Header */}
       <div className="px-5 py-4">
-        <div className="mb-2 flex items-center justify-between text-sm text-warm-gray">
-          <span>
-            {currentRecipeIndex + 1} / {recipes.length}
-          </span>
-          <span>{acceptedRecipes.length} gardees</span>
-        </div>
-        <div className="h-1 overflow-hidden rounded-full bg-soft-sand">
-          <motion.div 
-            className="h-full bg-gradient-to-r from-dusty-violet to-mauve-taupe rounded-full"
-            initial={{ width: 0 }}
-            animate={{ width: `${(currentRecipeIndex / recipes.length) * 100}%` }}
-            transition={{ duration: 0.3 }}
-          />
+        <div className="flex items-center justify-end text-sm text-warm-gray">
+          <div
+            className="flex h-8 min-w-12 items-center justify-center gap-1.5 rounded-full bg-soft-sand px-3 font-semibold text-charcoal-soft"
+            aria-label={`${selectedRecipeCount} recettes selectionnees`}
+            title={`${selectedRecipeCount} recettes selectionnees`}
+          >
+            <Utensils className="h-4 w-4 text-mauve-taupe" />
+            <span>{selectedRecipeCount}</span>
+          </div>
         </div>
       </div>
 
@@ -245,24 +264,22 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
           </button>
         </div>
 
-        {/* Complete Button when enough recipes */}
-        {hasEnoughRecipes && (
-          <motion.div 
-            className="mt-6"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            <Button
-              onClick={onComplete}
-              className="w-full bg-gradient-to-r from-dusty-violet to-mauve-taupe text-white hover:opacity-90"
-            >
-              Generer mon planning
-            </Button>
-          </motion.div>
-        )}
       </div>
     </div>
   )
+}
+
+function isDayMealRecipe(recipe: Recipe): boolean {
+  const tag = recipe.tag
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+  const category = recipe.categorie
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+
+  return category !== "sucre" && !tag.includes("dessert") && !tag.includes("petit")
 }
 
 // Recipe Card Content Component
