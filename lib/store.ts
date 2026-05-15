@@ -53,9 +53,9 @@ const defaultPreferences: UserPreferences = {
   diet: 'omnivore',
   excludedIngredients: [],
   favoriteIngredients: [],
-  mealSlots: ['diner', 'dessert'],
+  mealSlots: ['dejeuner', 'diner', 'dessert'],
   includeDessert: true,
-  includeBreakfast: false,
+  includeBreakfast: true,
   maxRepetitionPerMonth: 2,
   equipment: ['poele', 'casserole'],
   budgetLevel: 'etudiant',
@@ -161,13 +161,17 @@ export const useBrocoChouStore = create<BrocoChouState>()(
         const state = get()
         const { acceptedRecipes, preferences } = state
         
-        // Separate main dishes and desserts
+        // Prefer recipes selected during swipe, then fill missing slots from the full catalog.
         const mainDishes = acceptedRecipes.filter(r => 
           r.tag.includes('déjeuner') || r.tag.includes('dîner')
         )
         const desserts = acceptedRecipes.filter(r => 
           r.tag === 'dessert' || r.categorie === 'sucré'
         )
+
+        const plannedMainDishes = mergeRecipePools(mainDishes, state.recipes.filter(isMainMealRecipe))
+        const plannedBreakfasts = mergeRecipePools(acceptedRecipes.filter(isBreakfastRecipe), state.recipes.filter(isBreakfastRecipe))
+        const plannedDesserts = mergeRecipePools(desserts, state.recipes.filter(isDessertRecipe))
 
         // Create 7-day plan
         const today = new Date()
@@ -181,20 +185,20 @@ export const useBrocoChouStore = create<BrocoChouState>()(
           const dayDate = new Date(weekStart)
           dayDate.setDate(weekStart.getDate() + i)
 
-          // Select main dish avoiding repetition of main ingredients
+          // Select lunch and dinner while avoiding repetition of main ingredients.
           let selectedMain = selectRecipeAvoidingRepetition(
-            mainDishes, 
+            plannedMainDishes, 
             meals.map(m => m.recipe), 
             usedMainIngredients
           )
 
           if (selectedMain) {
             meals.push({
-              id: `meal-${i}-main`,
+              id: `meal-${i}-lunch`,
               recipeId: selectedMain.id,
               recipe: selectedMain,
               dayDate,
-              mealSlot: 'diner',
+              mealSlot: 'dejeuner',
               status: 'planifie'
             })
 
@@ -204,13 +208,53 @@ export const useBrocoChouStore = create<BrocoChouState>()(
             })
           }
 
+          const selectedDinner = selectRecipeAvoidingRepetition(
+            plannedMainDishes,
+            meals.map(m => m.recipe),
+            usedMainIngredients
+          )
+
+          if (selectedDinner) {
+            meals.push({
+              id: `meal-${i}-dinner`,
+              recipeId: selectedDinner.id,
+              recipe: selectedDinner,
+              dayDate,
+              mealSlot: 'diner',
+              status: 'planifie'
+            })
+
+            selectedDinner.main_ingredients?.forEach(ing => {
+              usedMainIngredients.set(ing, (usedMainIngredients.get(ing) || 0) + 1)
+            })
+          }
+
+          if (i >= 5 && plannedBreakfasts.length > 0) {
+            const selectedBreakfast = selectRecipeAvoidingRepetition(
+              plannedBreakfasts,
+              meals.map(m => m.recipe),
+              usedMainIngredients
+            )
+
+            if (selectedBreakfast) {
+              meals.push({
+                id: `meal-${i}-breakfast`,
+                recipeId: selectedBreakfast.id,
+                recipe: selectedBreakfast,
+                dayDate,
+                mealSlot: 'petit_dejeuner',
+                status: 'planifie'
+              })
+            }
+          }
+
           // Add dessert if preference enabled and we have desserts
-          if (preferences.includeDessert && desserts.length > 0) {
-            const dessertIndex = i % desserts.length
+          if (preferences.includeDessert && plannedDesserts.length > 0) {
+            const dessertIndex = i % plannedDesserts.length
             meals.push({
               id: `meal-${i}-dessert`,
-              recipeId: desserts[dessertIndex].id,
-              recipe: desserts[dessertIndex],
+              recipeId: plannedDesserts[dessertIndex].id,
+              recipe: plannedDesserts[dessertIndex],
               dayDate,
               mealSlot: 'dessert',
               status: 'planifie'
@@ -368,6 +412,42 @@ export const useBrocoChouStore = create<BrocoChouState>()(
 
 // Helper functions for recipe scoring and selection
 
+function normalizeText(value: string): string {
+  return value
+    .replace(/Ã©|ÃƒÂ©/g, 'e')
+    .replace(/Ã¨|ÃƒÂ¨/g, 'e')
+    .replace(/Ãª|ÃƒÂª/g, 'e')
+    .replace(/Ã®|ÃƒÂ®/g, 'i')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+}
+
+function isBreakfastRecipe(recipe: Recipe): boolean {
+  const tag = normalizeText(recipe.tag)
+  return tag.includes('petit') && (tag.includes('dejeuner') || tag.includes('dej'))
+}
+
+function isDessertRecipe(recipe: Recipe): boolean {
+  return normalizeText(recipe.tag) === 'dessert' || normalizeText(recipe.categorie).includes('sucre')
+}
+
+function isMainMealRecipe(recipe: Recipe): boolean {
+  const tag = normalizeText(recipe.tag)
+  return !isDessertRecipe(recipe) && !isBreakfastRecipe(recipe) && (
+    tag.includes('dejeuner') || tag.includes('diner')
+  )
+}
+
+function mergeRecipePools(...pools: Recipe[][]): Recipe[] {
+  const seen = new Set<string>()
+  return pools.flat().filter(recipe => {
+    if (seen.has(recipe.id)) return false
+    seen.add(recipe.id)
+    return true
+  })
+}
+
 function selectRecipeAvoidingRepetition(
   recipes: Recipe[],
   alreadySelected: Recipe[],
@@ -412,7 +492,7 @@ function calculateBalanceScore(meals: PlannedMeal[]): number {
   let score = 0
   const maxScore = 100
 
-  const mainMeals = meals.filter(m => m.mealSlot !== 'dessert')
+  const mainMeals = meals.filter(m => m.mealSlot === 'dejeuner' || m.mealSlot === 'diner')
   const desserts = meals.filter(m => m.mealSlot === 'dessert')
 
   // Seasonality (20 pts)

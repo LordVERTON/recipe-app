@@ -54,7 +54,10 @@ export function WeeklyCalendar({
   const today = new Date()
   const todayIndex = today.getDay() === 0 ? 6 : today.getDay() - 1
 
-  const selectedMeals = mealsByDay.get(selectedDay) || []
+  const selectedMeals = [...(mealsByDay.get(selectedDay) || [])].sort((a, b) => {
+    const order = { petit_dejeuner: 0, dejeuner: 1, diner: 2, dessert: 3 }
+    return order[a.mealSlot] - order[b.mealSlot]
+  })
 
   // Format date for display
   const formatDate = (dayOffset: number) => {
@@ -88,8 +91,9 @@ export function WeeklyCalendar({
         <div className="flex gap-2 overflow-x-auto hide-scrollbar py-1">
           {DAYS_FR.map((day, index) => {
             const meals = mealsByDay.get(index) || []
-            const hasMainMeal = meals.some(m => m.mealSlot !== "dessert")
+            const hasMainMeal = meals.some(m => m.mealSlot === "dejeuner" || m.mealSlot === "diner")
             const hasDessert = meals.some(m => m.mealSlot === "dessert")
+            const hasBreakfast = meals.some(m => m.mealSlot === "petit_dejeuner")
             const allCooked = meals.length > 0 && meals.every(m => m.status === "cuisine")
             const isToday = index === todayIndex
             const isSelected = index === selectedDay
@@ -117,6 +121,12 @@ export function WeeklyCalendar({
                   {formatDate(index)}
                 </span>
                 <div className="flex gap-0.5">
+                  <div className={cn(
+                    "w-1.5 h-1.5 rounded-full",
+                    hasBreakfast
+                      ? allCooked ? "bg-sage-mist" : isSelected ? "bg-white/80" : "bg-sage-mist"
+                      : isSelected ? "bg-white/30" : "bg-soft-sand"
+                  )} />
                   <div className={cn(
                     "w-1.5 h-1.5 rounded-full",
                     hasMainMeal 
@@ -254,6 +264,19 @@ function BalanceScore({ score }: { score: number }) {
   )
 }
 
+function getMealSlotLabel(slot: PlannedMeal["mealSlot"]): string {
+  switch (slot) {
+    case "petit_dejeuner":
+      return "Petit dej"
+    case "dejeuner":
+      return "Dejeuner"
+    case "diner":
+      return "Diner"
+    case "dessert":
+      return "Dessert"
+  }
+}
+
 // Meal Card Component
 interface MealCardProps {
   meal: PlannedMeal
@@ -268,6 +291,7 @@ function MealCard({ meal, onView, onReplace, onToggleCooked, onSkip }: MealCardP
   const isCooked = status === "cuisine"
   const isSkipped = status === "saute"
   const [imageSrc, setImageSrc] = useState(getRecipeImageUrl(recipe))
+  const slotLabel = getMealSlotLabel(mealSlot)
 
   useEffect(() => {
     setImageSrc(getRecipeImageUrl(recipe))
@@ -294,6 +318,8 @@ function MealCard({ meal, onView, onReplace, onToggleCooked, onSkip }: MealCardP
             "w-14 h-14 rounded-xl flex items-center justify-center shrink-0 overflow-hidden",
             mealSlot === "dessert" 
               ? "bg-lavender/40" 
+              : mealSlot === "petit_dejeuner"
+              ? "bg-sage-mist/30"
               : "bg-dusty-violet/20"
           )}>
             <img
@@ -311,9 +337,13 @@ function MealCard({ meal, onView, onReplace, onToggleCooked, onSkip }: MealCardP
                 "px-2 py-0.5 rounded-full text-xs font-medium",
                 mealSlot === "dessert" 
                   ? "bg-lavender/50 text-deep-plum" 
+                  : mealSlot === "petit_dejeuner"
+                  ? "bg-sage-mist/40 text-charcoal-soft"
+                  : mealSlot === "dejeuner"
+                  ? "bg-soft-sand text-warm-gray"
                   : "bg-dusty-violet/20 text-mauve-taupe"
               )}>
-                {mealSlot === "dessert" ? "Dessert" : "Dîner"}
+                {slotLabel}
               </span>
               {recipe.source === "broco-chou" && (
                 <span className="px-2 py-0.5 rounded-full text-xs bg-warm-ivory text-warm-gray">

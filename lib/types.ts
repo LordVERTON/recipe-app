@@ -44,7 +44,7 @@ export interface Recipe {
   canonical_ingredients_status: CanonicalStatus
 }
 
-export type MealSlot = "dejeuner" | "diner" | "dessert"
+export type MealSlot = "petit_dejeuner" | "dejeuner" | "diner" | "dessert"
 
 export interface PlannedMeal {
   id: string
