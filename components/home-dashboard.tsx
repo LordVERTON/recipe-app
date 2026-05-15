@@ -11,6 +11,7 @@ import {
   Clock,
   Utensils,
   Cake,
+  Coffee,
   CheckCircle,
   PlusCircle,
 } from "lucide-react"
@@ -18,7 +19,7 @@ import { useBrocoChouStore } from "@/lib/store"
 import { getCurrentMonthFr, getCurrentSeason } from "@/lib/mock-recipes"
 import { sortRecipesForSwipe, suggestMissingRecipes } from "@/lib/recipe-logic"
 import { SEASONS_FR } from "@/lib/types"
-import type { Recipe } from "@/lib/types"
+import type { PlannedMeal, Recipe } from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import type { NavTab } from "./bottom-navigation"
@@ -127,11 +128,11 @@ export function HomeDashboard({ userName = "toi", onNavigate, onViewRecipe }: Ho
                   meal.status === "cuisine" ? "bg-sage-mist/30" : "bg-card broco-chou-shadow hover:bg-lavender/20",
                 )}
               >
-                <div className={cn("flex h-12 w-12 items-center justify-center rounded-xl", meal.mealSlot === "dessert" ? "bg-lavender/40" : "bg-dusty-violet/20")}>
-                  {meal.status === "cuisine" ? <CheckCircle className="h-6 w-6 text-sage-mist" /> : meal.mealSlot === "dessert" ? <Cake className="h-6 w-6 text-deep-plum" /> : <Utensils className="h-6 w-6 text-mauve-taupe" />}
+                <div className={cn("flex h-12 w-12 items-center justify-center rounded-xl", meal.mealSlot === "dessert" ? "bg-lavender/40" : meal.mealSlot === "petit_dejeuner" ? "bg-sage-mist/30" : "bg-dusty-violet/20")}>
+                  {meal.status === "cuisine" ? <CheckCircle className="h-6 w-6 text-sage-mist" /> : meal.mealSlot === "dessert" ? <Cake className="h-6 w-6 text-deep-plum" /> : meal.mealSlot === "petit_dejeuner" ? <Coffee className="h-6 w-6 text-charcoal-soft" /> : <Utensils className="h-6 w-6 text-mauve-taupe" />}
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="mb-0.5 text-xs capitalize text-warm-gray">{meal.mealSlot === "dessert" ? "Dessert" : "Dîner"}</p>
+                  <p className="mb-0.5 text-xs capitalize text-warm-gray">{getMealSlotLabel(meal.mealSlot)}</p>
                   <p className={cn("truncate font-medium", meal.status === "cuisine" ? "text-warm-gray line-through" : "text-charcoal-soft")}>
                     {recipeTitle(meal.recipe)}
                   </p>
@@ -151,7 +152,7 @@ export function HomeDashboard({ userName = "toi", onNavigate, onViewRecipe }: Ho
       {hasWeeklyPlan && (
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-6 px-6">
           <div className="grid grid-cols-2 gap-3">
-            <StatCard icon={Utensils} label="Plats prévus" value={plannedMeals.filter(m => m.mealSlot !== "dessert").length} />
+            <StatCard icon={Utensils} label="Plats prévus" value={plannedMeals.filter(m => m.mealSlot === "dejeuner" || m.mealSlot === "diner").length} />
             <StatCard icon={Cake} label="Desserts" value={plannedMeals.filter(m => m.mealSlot === "dessert").length} />
           </div>
         </motion.div>
@@ -256,6 +257,19 @@ function StatCard({ icon: Icon, label, value }: { icon: typeof Utensils; label: 
       <p className="text-2xl font-bold text-charcoal-soft">{value}</p>
     </div>
   )
+}
+
+function getMealSlotLabel(slot: PlannedMeal["mealSlot"]): string {
+  switch (slot) {
+    case "petit_dejeuner":
+      return "Petit dej"
+    case "dejeuner":
+      return "Dejeuner"
+    case "diner":
+      return "Diner"
+    case "dessert":
+      return "Dessert"
+  }
 }
 
 function QuickAction({ icon: Icon, title, subtitle, onClick }: { icon: typeof Sparkles; title: string; subtitle: string; onClick: () => void }) {
