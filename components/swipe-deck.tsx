@@ -2,10 +2,9 @@
 
 import { useState, useCallback, useEffect } from "react"
 import { motion, AnimatePresence, PanInfo, animate, useMotionValue, useTransform, type MotionValue } from "framer-motion"
-import { X, Heart, Star, RotateCcw, ChefHat, Clock, Users, Leaf, Fish, Flame, Microwave } from "lucide-react"
+import { X, Heart, Star, RotateCcw, ChefHat, Clock, Users } from "lucide-react"
 import { useBrocoChouStore } from "@/lib/store"
 import type { Recipe } from "@/lib/types"
-import { SEASONS_FR } from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { getFallbackRecipeImageUrl, getRecipeImageUrl, recipeTitle } from "@/lib/recipe-images"
@@ -21,7 +20,6 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
     currentRecipeIndex, 
     swipeRecipe, 
     undoLastSwipe,
-    getSwipeProgress,
     acceptedRecipes
   } = useBrocoChouStore()
 
@@ -35,7 +33,6 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
   const currentRecipe = recipes[currentRecipeIndex]
   const nextRecipe = recipes[currentRecipeIndex + 1]
   const thirdRecipe = recipes[currentRecipeIndex + 2]
-  const progress = getSwipeProgress()
 
   const handleSwipe = useCallback((direction: "left" | "right") => {
     setExitDirection(direction)
@@ -88,9 +85,6 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
 
   // Check if enough recipes are selected
   const hasEnoughRecipes = acceptedRecipes.length >= 7
-  const mainDishes = acceptedRecipes.filter(r => r.tag.includes("déjeuner") || r.tag.includes("dîner"))
-  const desserts = acceptedRecipes.filter(r => r.tag === "dessert" || r.categorie === "sucré")
-
   if (!currentRecipe) {
     return (
       <div className="flex flex-col items-center justify-center h-full px-6 text-center">
@@ -116,22 +110,14 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
   return (
     <div className="flex h-full min-h-[calc(100svh-5rem)] flex-col overflow-hidden">
       {/* Progress Header */}
-      <div className="px-4 py-3">
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-sm text-warm-gray">
+      <div className="px-5 py-4">
+        <div className="mb-2 flex items-center justify-between text-sm text-warm-gray">
+          <span>
             {currentRecipeIndex + 1} / {recipes.length}
           </span>
-          <div className="flex items-center gap-3 text-sm">
-            <span className="text-mauve-taupe font-medium">
-              {mainDishes.length} plats
-            </span>
-            <span className="text-dusty-violet font-medium">
-              {desserts.length} desserts
-            </span>
-            <span className="sr-only">{progress.accepted} recettes retenues</span>
-          </div>
+          <span>{acceptedRecipes.length} gardees</span>
         </div>
-        <div className="h-1.5 bg-soft-sand rounded-full overflow-hidden">
+        <div className="h-1 overflow-hidden rounded-full bg-soft-sand">
           <motion.div 
             className="h-full bg-gradient-to-r from-dusty-violet to-mauve-taupe rounded-full"
             initial={{ width: 0 }}
@@ -259,14 +245,6 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
           </button>
         </div>
 
-        {/* Action Labels */}
-        <div className="mt-3 grid grid-cols-4 gap-2 text-xs text-warm-gray">
-          <span className="text-center">Annuler</span>
-          <span className="text-center">Pas cette semaine</span>
-          <span className="text-center">Je veux la faire</span>
-          <span className="text-center">Favori</span>
-        </div>
-
         {/* Complete Button when enough recipes */}
         {hasEnoughRecipes && (
           <motion.div 
@@ -278,7 +256,7 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
               onClick={onComplete}
               className="w-full bg-gradient-to-r from-dusty-violet to-mauve-taupe text-white hover:opacity-90"
             >
-              Générer mon planning ({acceptedRecipes.length} recettes)
+              Generer mon planning
             </Button>
           </motion.div>
         )}
@@ -303,21 +281,6 @@ function RecipeCardContent({ recipe, isBackground, onViewDetails, showOverlay, a
   useEffect(() => {
     setImageSrc(getRecipeImageUrl(recipe))
   }, [recipe])
-
-  const getDietaryInfo = () => {
-    if (recipe.dietary_tags?.includes("végétarien")) {
-      return { icon: <Leaf className="h-3.5 w-3.5" />, label: "Végétarien", color: "bg-sage-mist/50" }
-    }
-    if (recipe.dietary_tags?.includes("poisson")) {
-      return { icon: <Fish className="h-3.5 w-3.5" />, label: "Poisson", color: "bg-dusty-violet/30" }
-    }
-    if (recipe.dietary_tags?.includes("légumineuses")) {
-      return { icon: <Leaf className="h-3.5 w-3.5" />, label: "Légumineuses", color: "bg-sage-mist/50" }
-    }
-    return null
-  }
-
-  const dietaryInfo = getDietaryInfo()
 
   return (
     <div
@@ -354,7 +317,7 @@ function RecipeCardContent({ recipe, isBackground, onViewDetails, showOverlay, a
       </AnimatePresence>
 
       {/* Image Section */}
-      <div className="relative h-[43%] bg-gradient-to-br from-lavender/40 to-dusty-violet/30">
+      <div className="relative h-[52%] bg-lavender/30">
         <img
           src={imageSrc}
           alt={recipeTitle(recipe)}
@@ -362,44 +325,18 @@ function RecipeCardContent({ recipe, isBackground, onViewDetails, showOverlay, a
           loading={isBackground ? "lazy" : "eager"}
           onError={() => setImageSrc(getFallbackRecipeImageUrl())}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-soft/25 via-transparent to-charcoal-soft/10" />
-        
-        {/* Source Badge */}
-        <div className="absolute top-3 left-3">
-          <span className={cn(
-            "px-2.5 py-1 rounded-full text-xs font-medium",
-            recipe.source === "crous" 
-              ? "bg-sage-mist/90 text-charcoal-soft" 
-              : "bg-lavender/90 text-deep-plum"
-          )}>
-          {recipe.source === "crous" ? "Recette Crous" : "Suggestion Broco-Chou"}
-          </span>
-        </div>
-
-        {/* Season Badge */}
-        <div className="absolute top-3 right-3">
-          <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-white/90 text-warm-gray">
-            {SEASONS_FR[recipe.saison]} - {recipe.mois}
-          </span>
-        </div>
-
-        {/* Meal Type */}
-        <div className="absolute bottom-3 left-3">
-          <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-white/90 text-charcoal-soft capitalize">
-            {recipe.tag}
-          </span>
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-soft/25 via-transparent to-transparent" />
       </div>
 
       {/* Content Section */}
-      <div className="flex h-[57%] flex-col p-4">
+      <div className="flex h-[48%] flex-col p-5">
         {/* Title */}
         <h3 className="mb-2 line-clamp-2 text-pretty text-lg font-semibold leading-tight text-charcoal-soft">
           {recipeTitle(recipe)}
         </h3>
 
         {/* Meta Info */}
-        <div className="mb-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-warm-gray">
+        <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-warm-gray">
           {recipe.estimatedTime && (
             <div className="flex items-center gap-1">
               <Clock className="h-4 w-4" />
@@ -410,43 +347,10 @@ function RecipeCardContent({ recipe, isBackground, onViewDetails, showOverlay, a
             <Users className="h-4 w-4" />
             <span>{recipe.portions}</span>
           </div>
-          {recipe.difficulty && (
-            <span className="rounded-full bg-lavender/30 px-2 py-0.5 text-xs text-deep-plum">
-              {recipe.difficulty}
-            </span>
-          )}
-        </div>
-
-        {/* Tags */}
-        <div className="mb-3 flex flex-wrap gap-1.5">
-          {dietaryInfo && (
-            <span className={cn(
-              "inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs",
-              dietaryInfo.color, "text-charcoal-soft"
-            )}>
-              {dietaryInfo.icon}
-              {dietaryInfo.label}
-            </span>
-          )}
-          
-          {recipe.sans_four && (
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-lavender/40 text-deep-plum">
-              <Flame className="h-3 w-3" />
-              Sans four
-            </span>
-          )}
-          
-          {recipe.cuisson_micro_ondes && (
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-dusty-violet/20 text-deep-plum">
-              <Microwave className="h-3 w-3" />
-              Micro-ondes
-            </span>
-          )}
         </div>
 
         {/* Main Ingredients */}
         <div className="flex-1 min-h-0">
-          <p className="text-xs text-warm-gray mb-1">Ingrédients principaux</p>
           <p className="line-clamp-2 text-sm text-charcoal-soft">
             {recipe.main_ingredients?.slice(0, 4).join(", ") || 
              recipe.ingredients.slice(0, 3).map(i => i.name.split("(")[0].trim()).join(", ")}
@@ -460,9 +364,9 @@ function RecipeCardContent({ recipe, isBackground, onViewDetails, showOverlay, a
               e.stopPropagation()
               onViewDetails()
             }}
-            className="mt-2 rounded-full bg-lavender/45 py-2 text-sm font-medium text-mauve-taupe transition-colors hover:bg-lavender hover:text-deep-plum"
+            className="mt-4 text-sm font-medium text-mauve-taupe transition-colors hover:text-deep-plum"
           >
-            Voir la recette complète
+            Details
           </button>
         )}
       </div>
