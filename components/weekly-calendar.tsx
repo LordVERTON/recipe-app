@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronLeft, ChevronRight, ChefHat, Check, Repeat, SkipForward, Clock, ShoppingCart, RefreshCw } from "lucide-react"
+import { ChefHat, Check, Clock, ShoppingCart, RefreshCw } from "lucide-react"
 import { useBrocoChouStore } from "@/lib/store"
 import type { Recipe, PlannedMeal } from "@/lib/types"
 import { DAYS_FR } from "@/lib/types"
@@ -72,7 +72,9 @@ export function WeeklyCalendar({
       <div className="px-4 py-4">
         <div className="flex items-center justify-between mb-3">
           <h2 className="text-lg font-semibold text-charcoal-soft">Ton planning</h2>
-          <BalanceScore score={weeklyPlan.balanceScore} />
+          <span className="text-sm text-warm-gray">
+            {weeklyPlan.meals.length} repas
+          </span>
         </div>
         
         {/* Week Navigation */}
@@ -103,7 +105,7 @@ export function WeeklyCalendar({
                 key={day}
                 onClick={() => setSelectedDay(index)}
                 className={cn(
-                  "flex flex-col items-center min-w-[4.5rem] py-2 px-3 rounded-2xl transition-all",
+                  "flex min-w-[3.5rem] flex-col items-center rounded-xl px-3 py-2 transition-all",
                   isSelected 
                     ? "bg-gradient-to-br from-dusty-violet to-mauve-taupe text-white broco-chou-shadow" 
                     : isToday
@@ -115,7 +117,7 @@ export function WeeklyCalendar({
                   {day.slice(0, 3)}
                 </span>
                 <span className={cn(
-                  "text-lg font-semibold mb-1",
+                  "mb-1 text-base font-semibold",
                   isSelected ? "text-white" : "text-charcoal-soft"
                 )}>
                   {formatDate(index)}
@@ -178,12 +180,10 @@ export function WeeklyCalendar({
                   key={meal.id}
                   meal={meal}
                   onView={() => onViewRecipe(meal.recipe)}
-                  onReplace={() => onReplaceMeal(meal)}
                   onToggleCooked={() => {
                     const newStatus = meal.status === "cuisine" ? "planifie" : "cuisine"
                     updateMealStatus(meal.id, newStatus)
                   }}
-                  onSkip={() => updateMealStatus(meal.id, "saute")}
                 />
               ))
             )}
@@ -192,7 +192,7 @@ export function WeeklyCalendar({
       </div>
 
       {/* Bottom Actions */}
-      <div className="px-4 py-4 flex gap-3">
+      <div className="flex gap-3 px-4 py-4">
         <Button
           variant="outline"
           onClick={onRedoPlan}
@@ -281,12 +281,10 @@ function getMealSlotLabel(slot: PlannedMeal["mealSlot"]): string {
 interface MealCardProps {
   meal: PlannedMeal
   onView: () => void
-  onReplace: () => void
   onToggleCooked: () => void
-  onSkip: () => void
 }
 
-function MealCard({ meal, onView, onReplace, onToggleCooked, onSkip }: MealCardProps) {
+function MealCard({ meal, onView, onToggleCooked }: MealCardProps) {
   const { recipe, mealSlot, status } = meal
   const isCooked = status === "cuisine"
   const isSkipped = status === "saute"
@@ -345,11 +343,6 @@ function MealCard({ meal, onView, onReplace, onToggleCooked, onSkip }: MealCardP
               )}>
                 {slotLabel}
               </span>
-              {recipe.source === "broco-chou" && (
-                <span className="px-2 py-0.5 rounded-full text-xs bg-warm-ivory text-warm-gray">
-                  Broco-Chou
-                </span>
-              )}
               {isCooked && (
                 <span className="px-2 py-0.5 rounded-full text-xs bg-sage-mist text-charcoal-soft">
                   Cuisiné
@@ -369,7 +362,6 @@ function MealCard({ meal, onView, onReplace, onToggleCooked, onSkip }: MealCardP
                   {recipe.estimatedTime} min
                 </span>
               )}
-              <span>{recipe.portions}</span>
             </div>
           </div>
         </div>
@@ -377,11 +369,11 @@ function MealCard({ meal, onView, onReplace, onToggleCooked, onSkip }: MealCardP
 
       {/* Quick Actions */}
       {!isSkipped && (
-        <div className="flex border-t border-soft-sand">
+        <div className="border-t border-soft-sand">
           <button
             onClick={onToggleCooked}
             className={cn(
-              "flex-1 flex items-center justify-center gap-1.5 py-2.5 text-xs font-medium transition-colors",
+              "flex w-full items-center justify-center gap-1.5 py-2.5 text-xs font-medium transition-colors",
               isCooked 
                 ? "text-sage-mist hover:bg-sage-mist/20" 
                 : "text-warm-gray hover:bg-lavender/20"
@@ -389,22 +381,6 @@ function MealCard({ meal, onView, onReplace, onToggleCooked, onSkip }: MealCardP
           >
             <Check className="h-3.5 w-3.5" />
             {isCooked ? "Cuisiné" : "Marquer cuisiné"}
-          </button>
-          <div className="w-px bg-soft-sand" />
-          <button
-            onClick={onReplace}
-            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 text-xs font-medium text-warm-gray hover:bg-lavender/20 transition-colors"
-          >
-            <Repeat className="h-3.5 w-3.5" />
-            Remplacer
-          </button>
-          <div className="w-px bg-soft-sand" />
-          <button
-            onClick={onSkip}
-            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 text-xs font-medium text-warm-gray hover:bg-lavender/20 transition-colors"
-          >
-            <SkipForward className="h-3.5 w-3.5" />
-            Passer
           </button>
         </div>
       )}
