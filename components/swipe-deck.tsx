@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useCallback, useEffect } from "react"
+import { useState, useCallback, useEffect, useRef } from "react"
 import { motion, AnimatePresence, PanInfo, animate, useMotionValue, useTransform, type MotionValue } from "framer-motion"
 import { X, Heart, Star, RotateCcw, ChefHat, Clock, Users, Utensils } from "lucide-react"
 import { useBrocoChouStore } from "@/lib/store"
@@ -25,6 +25,8 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
 
   const [exitDirection, setExitDirection] = useState<"left" | "right" | null>(null)
   const [showOverlay, setShowOverlay] = useState<"accept" | "reject" | null>(null)
+  const isDraggingRef = useRef(false)
+  const isSwipeAnimatingRef = useRef(false)
   const dragX = useMotionValue(0)
   const rotate = useTransform(dragX, [-240, 0, 240], [-16, 0, 16])
   const acceptOpacity = useTransform(dragX, [35, 145], [0, 1])
@@ -35,6 +37,10 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
   const thirdRecipe = recipes[currentRecipeIndex + 2]
 
   const handleSwipe = useCallback((direction: "left" | "right") => {
+    if (isSwipeAnimatingRef.current) return
+
+    isSwipeAnimatingRef.current = true
+    isDraggingRef.current = false
     setExitDirection(direction)
     setShowOverlay(direction === "right" ? "accept" : "reject")
     animate(dragX, direction === "right" ? 520 : -520, { duration: 0.22, ease: "easeOut" })
@@ -43,8 +49,50 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
       setExitDirection(null)
       setShowOverlay(null)
       dragX.set(0)
+      isSwipeAnimatingRef.current = false
     }, 200)
   }, [dragX, swipeRecipe])
+
+  const resetDragPosition = useCallback(() => {
+    setShowOverlay(null)
+    animate(dragX, 0, { type: "spring", stiffness: 420, damping: 32 })
+  }, [dragX])
+
+  const finishDrag = useCallback((offsetX = 0, velocityX = 0) => {
+    if (isSwipeAnimatingRef.current) return
+
+    const currentX = dragX.get()
+    const effectiveOffset = Math.abs(currentX) > Math.abs(offsetX) ? currentX : offsetX
+    const threshold = 100
+    const velocity = 500
+
+    isDraggingRef.current = false
+
+    if (effectiveOffset > threshold || velocityX > velocity) {
+      handleSwipe("right")
+    } else if (effectiveOffset < -threshold || velocityX < -velocity) {
+      handleSwipe("left")
+    } else {
+      resetDragPosition()
+    }
+  }, [dragX, handleSwipe, resetDragPosition])
+
+  useEffect(() => {
+    const handlePointerRelease = () => {
+      if (!isDraggingRef.current) return
+      finishDrag()
+    }
+
+    window.addEventListener("pointerup", handlePointerRelease)
+    window.addEventListener("pointercancel", handlePointerRelease)
+    window.addEventListener("blur", handlePointerRelease)
+
+    return () => {
+      window.removeEventListener("pointerup", handlePointerRelease)
+      window.removeEventListener("pointercancel", handlePointerRelease)
+      window.removeEventListener("blur", handlePointerRelease)
+    }
+  }, [finishDrag])
 
   const handleDrag = useCallback((_: any, info: PanInfo) => {
     const threshold = 50
@@ -58,18 +106,8 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
   }, [])
 
   const handleDragEnd = useCallback((_: any, info: PanInfo) => {
-    const threshold = 100
-    const velocity = 500
-
-    if (info.offset.x > threshold || info.velocity.x > velocity) {
-      handleSwipe("right")
-    } else if (info.offset.x < -threshold || info.velocity.x < -velocity) {
-      handleSwipe("left")
-    } else {
-      setShowOverlay(null)
-      animate(dragX, 0, { type: "spring", stiffness: 420, damping: 32 })
-    }
-  }, [dragX, handleSwipe])
+    finishDrag(info.offset.x, info.velocity.x)
+  }, [finishDrag])
 
   const handleFavorite = useCallback(() => {
     setExitDirection("right")
@@ -185,6 +223,9 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.9}
+              onDragStart={() => {
+                isDraggingRef.current = true
+              }}
               onDrag={handleDrag}
               onDragEnd={handleDragEnd}
               initial={{ scale: 1, x: 0 }}
