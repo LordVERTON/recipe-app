@@ -36,14 +36,28 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
   const nextRecipe = recipes[currentRecipeIndex + 1]
   const thirdRecipe = recipes[currentRecipeIndex + 2]
 
-  const advanceAfterSwipe = useCallback((action: "accepted" | "rejected" | "favorite") => {
-    setShowOverlay(null)
+  const resetSwipeVisualState = useCallback(() => {
     dragX.stop()
     dragX.set(0)
-    swipeRecipe(action)
+    setShowOverlay(null)
     setExitDirection(null)
+  }, [dragX])
+
+  const advanceAfterSwipe = useCallback((action: "accepted" | "rejected" | "favorite") => {
+    resetSwipeVisualState()
+
+    swipeRecipe(action)
+
+    requestAnimationFrame(() => {
+      resetSwipeVisualState()
+      isSwipeAnimatingRef.current = false
+    })
+  }, [resetSwipeVisualState, swipeRecipe])
+
+  useEffect(() => {
+    resetSwipeVisualState()
     isSwipeAnimatingRef.current = false
-  }, [dragX, swipeRecipe])
+  }, [currentRecipe?.id, resetSwipeVisualState])
 
   const handleSwipe = useCallback((direction: "left" | "right") => {
     if (isSwipeAnimatingRef.current) return
@@ -199,9 +213,9 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
               <motion.div
                 key={thirdRecipe.id + "-third-bg"}
                 className="absolute inset-0"
-                initial={{ scale: 0.88, opacity: 0 }}
-                animate={{ scale: 0.9, opacity: 0.38, y: 28 }}
-                style={{ zIndex: 0 }}
+                initial={{ scale: 0.88, opacity: 0, x: 0, y: 28, rotate: 0 }}
+                animate={{ scale: 0.9, opacity: 0.38, x: 0, y: 28, rotate: 0 }}
+                style={{ zIndex: 0, x: 0, rotate: 0 }}
               >
                 <RecipeCardContent recipe={thirdRecipe} isBackground />
               </motion.div>
@@ -212,10 +226,10 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
               <motion.div
                 key={nextRecipe.id + "-bg"}
                 className="absolute inset-0"
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: exitDirection ? 1 : 0.95, opacity: 0.72, y: exitDirection ? 0 : 14 }}
+                initial={{ scale: 0.9, opacity: 0, x: 0, y: 14, rotate: 0 }}
+                animate={{ scale: exitDirection ? 1 : 0.95, opacity: 0.72, x: 0, y: exitDirection ? 0 : 14, rotate: 0 }}
                 transition={{ type: "spring", damping: 25, stiffness: 260 }}
-                style={{ zIndex: 1 }}
+                style={{ zIndex: 1, x: 0, rotate: 0 }}
               >
                 <RecipeCardContent recipe={nextRecipe} isBackground />
               </motion.div>
@@ -234,16 +248,12 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
               }}
               onDrag={handleDrag}
               onDragEnd={handleDragEnd}
-              initial={{ scale: 1, x: 0 }}
+              initial={{ scale: 1, x: 0, y: 0, rotate: 0 }}
               animate={{ 
                 scale: 1, 
                 opacity: exitDirection ? 0 : 1
               }}
-              exit={{ 
-                x: exitDirection === "left" ? -400 : 400,
-                rotate: exitDirection === "left" ? -20 : 20,
-                opacity: 0 
-              }}
+              exit={{ opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
             >
               <RecipeCardContent 
