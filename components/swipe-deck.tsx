@@ -36,6 +36,15 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
   const nextRecipe = recipes[currentRecipeIndex + 1]
   const thirdRecipe = recipes[currentRecipeIndex + 2]
 
+  const advanceAfterSwipe = useCallback((action: "accepted" | "rejected" | "favorite") => {
+    setShowOverlay(null)
+    dragX.stop()
+    dragX.set(0)
+    swipeRecipe(action)
+    setExitDirection(null)
+    isSwipeAnimatingRef.current = false
+  }, [dragX, swipeRecipe])
+
   const handleSwipe = useCallback((direction: "left" | "right") => {
     if (isSwipeAnimatingRef.current) return
 
@@ -45,13 +54,9 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
     setShowOverlay(direction === "right" ? "accept" : "reject")
     animate(dragX, direction === "right" ? 520 : -520, { duration: 0.22, ease: "easeOut" })
     setTimeout(() => {
-      swipeRecipe(direction === "right" ? "accepted" : "rejected")
-      setExitDirection(null)
-      setShowOverlay(null)
-      dragX.set(0)
-      isSwipeAnimatingRef.current = false
+      advanceAfterSwipe(direction === "right" ? "accepted" : "rejected")
     }, 200)
-  }, [dragX, swipeRecipe])
+  }, [advanceAfterSwipe, dragX])
 
   const resetDragPosition = useCallback(() => {
     setShowOverlay(null)
@@ -110,16 +115,17 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
   }, [finishDrag])
 
   const handleFavorite = useCallback(() => {
+    if (isSwipeAnimatingRef.current) return
+
+    isSwipeAnimatingRef.current = true
+    isDraggingRef.current = false
     setExitDirection("right")
     setShowOverlay("accept")
     animate(dragX, 520, { duration: 0.22, ease: "easeOut" })
     setTimeout(() => {
-      swipeRecipe("favorite")
-      setExitDirection(null)
-      setShowOverlay(null)
-      dragX.set(0)
+      advanceAfterSwipe("favorite")
     }, 200)
-  }, [dragX, swipeRecipe])
+  }, [advanceAfterSwipe, dragX])
 
   const selectedMealRecipes = acceptedRecipes.filter(isDayMealRecipe)
   const selectedRecipeCount = selectedMealRecipes.length
