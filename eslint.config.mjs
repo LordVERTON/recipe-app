@@ -1,7 +1,7 @@
-import nextVitals from "eslint-config-next/core-web-vitals"
+import nextPlugin from "@next/eslint-plugin-next"
+import tseslint from "typescript-eslint"
 
 const config = [
-  ...nextVitals,
   {
     ignores: [
       ".next/**",
@@ -9,6 +9,13 @@ const config = [
       "supabase/.temp/**",
     ],
   },
+  {
+    files: ["**/*.{ts,tsx}"],
+    languageOptions: {
+      parser: tseslint.parser,
+    },
+  },
+  nextPlugin.configs["core-web-vitals"],
 ]
 
 export default config
