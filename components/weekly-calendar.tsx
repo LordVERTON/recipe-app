@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChefHat, Check, Clock, PencilLine, ShoppingCart } from "lucide-react"
+import { ArrowRightLeft, ChefHat, Check, CircleOff, Clock, PencilLine, ShoppingCart } from "lucide-react"
 import { useBrocoChouStore } from "@/lib/store"
 import type { Recipe, PlannedMeal } from "@/lib/types"
 import { cn } from "@/lib/utils"
@@ -28,8 +28,9 @@ export function WeeklyCalendar({
   onGenerateGroceryList,
   onEditPlan
 }: WeeklyCalendarProps) {
-  const { weeklyPlan, updateMealStatus } = useBrocoChouStore()
+  const { weeklyPlan, updateMealStatus, moveMeal } = useBrocoChouStore()
   const [selectedDay, setSelectedDay] = useState(0)
+  const [movingMeal, setMovingMeal] = useState<PlannedMeal | null>(null)
 
   if (!weeklyPlan) {
     return (
@@ -119,6 +120,7 @@ export function WeeklyCalendar({
                 key={date.toISOString()}
                 onClick={() => setSelectedDay(index)}
                 aria-pressed={isSelected}
+                aria-label={`${formatDate(date, { weekday: "long", day: "numeric", month: "long" })}${isToday ? ", aujourd'hui" : ""}, ${meals.length} repas prévus`}
                 className={cn(
                   "flex min-w-[3.5rem] flex-col items-center rounded-xl px-3 py-2 transition-all",
                   isSelected 
@@ -199,6 +201,8 @@ export function WeeklyCalendar({
                     const newStatus = meal.status === "cuisine" ? "planifie" : "cuisine"
                     updateMealStatus(meal.id, newStatus)
                   }}
+                  onToggleSkipped={() => updateMealStatus(meal.id, meal.status === "saute" ? "planifie" : "saute")}
+                  onMove={() => setMovingMeal(meal)}
                 />
               ))
             )}
@@ -224,6 +228,32 @@ export function WeeklyCalendar({
           Liste de courses
         </Button>
       </div>
+
+      {movingMeal && (
+        <div className="fixed inset-0 z-50 flex items-end bg-charcoal-soft/40 p-4 sm:items-center sm:justify-center" role="dialog" aria-modal="true" aria-labelledby="move-meal-title">
+          <div className="w-full max-w-sm rounded-3xl bg-warm-ivory p-6 broco-chou-shadow">
+            <h2 id="move-meal-title" className="text-lg font-semibold text-charcoal-soft">Déplacer ce repas</h2>
+            <p className="mt-2 text-sm text-warm-gray">Choisis un autre jour. S&apos;il est déjà occupé pour ce créneau, le repas existant sera remplacé.</p>
+            <div className="mt-4 grid grid-cols-2 gap-2">
+              {weekDays.map(date => (
+                <Button
+                  key={date.toISOString()}
+                  variant="outline"
+                  disabled={isSameCalendarDay(date, movingMeal.dayDate)}
+                  onClick={() => {
+                    moveMeal(movingMeal.id, date)
+                    setMovingMeal(null)
+                  }}
+                  className="border-soft-sand text-charcoal-soft"
+                >
+                  {formatDate(date, { weekday: "short", day: "numeric" })}
+                </Button>
+              ))}
+            </div>
+            <Button variant="ghost" onClick={() => setMovingMeal(null)} className="mt-3 w-full text-warm-gray">Annuler</Button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
@@ -297,9 +327,11 @@ interface MealCardProps {
   meal: PlannedMeal
   onView: () => void
   onToggleCooked: () => void
+  onToggleSkipped: () => void
+  onMove: () => void
 }
 
-function MealCard({ meal, onView, onToggleCooked }: MealCardProps) {
+function MealCard({ meal, onView, onToggleCooked, onToggleSkipped, onMove }: MealCardProps) {
   const { recipe, mealSlot, status } = meal
   const isCooked = status === "cuisine"
   const isSkipped = status === "saute"
@@ -363,6 +395,11 @@ function MealCard({ meal, onView, onToggleCooked }: MealCardProps) {
                   Cuisiné
                 </span>
               )}
+              {isSkipped && (
+                <span className="px-2 py-0.5 rounded-full text-xs bg-soft-sand text-warm-gray">
+                  Ignoré
+                </span>
+              )}
             </div>
             <h4 className={cn(
               "font-medium text-charcoal-soft line-clamp-1 mb-1",
@@ -383,8 +420,8 @@ function MealCard({ meal, onView, onToggleCooked }: MealCardProps) {
       </button>
 
       {/* Quick Actions */}
-      {!isSkipped && (
-        <div className="border-t border-soft-sand">
+      <div className="border-t border-soft-sand">
+        <div className="grid grid-cols-3 divide-x divide-soft-sand">
           <button
             onClick={onToggleCooked}
             className={cn(
@@ -395,10 +432,16 @@ function MealCard({ meal, onView, onToggleCooked }: MealCardProps) {
             )}
           >
             <Check className="h-3.5 w-3.5" />
-            {isCooked ? "Cuisiné" : "Marquer cuisiné"}
+            {isCooked ? "À faire" : "Cuisiné"}
+          </button>
+          <button onClick={onToggleSkipped} className="flex min-h-10 items-center justify-center gap-1 px-1 text-xs font-medium text-warm-gray hover:bg-lavender/20">
+            <CircleOff className="h-3.5 w-3.5" /> {isSkipped ? "Prévoir" : "Ignorer"}
+          </button>
+          <button onClick={onMove} className="flex min-h-10 items-center justify-center gap-1 px-1 text-xs font-medium text-warm-gray hover:bg-lavender/20">
+            <ArrowRightLeft className="h-3.5 w-3.5" /> Déplacer
           </button>
         </div>
-      )}
+      </div>
     </div>
   )
 }

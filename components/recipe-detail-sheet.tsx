@@ -93,6 +93,7 @@ export function RecipeDetailSheet({
             {/* Close Button */}
             <button
               onClick={onClose}
+              aria-label="Fermer la recette"
               className="absolute top-4 right-4 w-8 h-8 rounded-full bg-soft-sand flex items-center justify-center text-warm-gray hover:bg-muted transition-colors"
             >
               <X className="h-5 w-5" />

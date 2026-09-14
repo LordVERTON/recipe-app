@@ -1,9 +1,9 @@
 "use client"
 
 import { useMemo, useState } from "react"
-import { Check, ChevronLeft, ChevronRight, PencilLine, Plus, X } from "lucide-react"
+import { AlertTriangle, Check, ChevronLeft, ChevronRight, PencilLine, Plus, RotateCcw, Search, X } from "lucide-react"
 import { useBrocoChouStore } from "@/lib/store"
-import type { MealSlot, Recipe } from "@/lib/types"
+import type { MealSlot, PlannedMeal, Recipe, Season } from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { recipeTitle } from "@/lib/recipe-images"
@@ -36,8 +36,15 @@ function getDayLabel(date: Date, short = false) {
 }
 
 export function WeeklyPlanEditor({ onDone }: WeeklyPlanEditorProps) {
-  const { weeklyPlan, recipeCatalog, setMealInPlan, removeMealFromPlan } = useBrocoChouStore()
+  const { weeklyPlan, recipeCatalog, preferences, setMealInPlan, removeMealFromPlan } = useBrocoChouStore()
   const [selectedDay, setSelectedDay] = useState(0)
+  const [query, setQuery] = useState("")
+  const [season, setSeason] = useState<Season | "all">("all")
+  const [maxTime, setMaxTime] = useState<number | "all">("all")
+  const [diet, setDiet] = useState<"all" | "vegetarien" | "poisson">("all")
+  const [equipment, setEquipment] = useState("all")
+  const [pendingRemoval, setPendingRemoval] = useState<{ meal: PlannedMeal; date: Date } | null>(null)
+  const [lastRemoved, setLastRemoved] = useState<{ meal: PlannedMeal; date: Date } | null>(null)
 
   const days = useMemo(() => {
     if (!weeklyPlan) return []
@@ -57,6 +64,21 @@ export function WeeklyPlanEditor({ onDone }: WeeklyPlanEditorProps) {
     )
   }, [recipeCatalog, weeklyPlan])
 
+  const filteredRecipes = useMemo(() => {
+    const normalizedQuery = query.trim().toLocaleLowerCase("fr-FR")
+    return recipes.filter(recipe => {
+      const matchesQuery = !normalizedQuery || recipeTitle(recipe).toLocaleLowerCase("fr-FR").includes(normalizedQuery)
+      const matchesSeason = season === "all" || recipe.saison === season
+      const matchesTime = maxTime === "all" || (recipe.estimatedTime ?? Number.POSITIVE_INFINITY) <= maxTime
+      const tags = recipe.dietary_tags?.map(tag => tag.toLocaleLowerCase("fr-FR")) ?? []
+      const matchesDiet = diet === "all" || (diet === "vegetarien" ? tags.includes("végétarien") : tags.includes("poisson"))
+      const matchesEquipment = equipment === "all" || recipe.equipment?.some(item => item === equipment)
+      return matchesQuery && matchesSeason && matchesTime && matchesDiet && matchesEquipment
+    })
+  }, [diet, equipment, maxTime, query, recipes, season])
+
+  const equipmentOptions = useMemo(() => Array.from(new Set(recipes.flatMap(recipe => recipe.equipment ?? []))).sort(), [recipes])
+
   if (!weeklyPlan || days.length === 0) return null
 
   const activeDate = days[selectedDay]
@@ -64,15 +86,24 @@ export function WeeklyPlanEditor({ onDone }: WeeklyPlanEditorProps) {
   const plannedCount = weeklyPlan.meals.filter(meal => meal.status !== "saute").length
 
   const getMeal = (slot: MealSlot) => activeMeals.find(meal => meal.mealSlot === slot)
+  const visibleMealSlots = mealSlots.filter(slot => preferences.mealSlots.includes(slot.id))
+  const slotsToDisplay = visibleMealSlots.length > 0 ? visibleMealSlots : mealSlots
 
   const updateSlot = (slot: MealSlot, recipeId: string) => {
-    if (!recipeId) {
-      removeMealFromPlan(activeDate, slot)
-      return
-    }
-
     const recipe = recipes.find(candidate => candidate.id === recipeId)
     if (recipe) setMealInPlan(activeDate, slot, recipe)
+  }
+
+  const requestRemoval = (slot: MealSlot) => {
+    const meal = getMeal(slot)
+    if (meal) setPendingRemoval({ meal, date: activeDate })
+  }
+
+  const confirmRemoval = () => {
+    if (!pendingRemoval) return
+    removeMealFromPlan(pendingRemoval.date, pendingRemoval.meal.mealSlot)
+    setLastRemoved(pendingRemoval)
+    setPendingRemoval(null)
   }
 
   return (
@@ -94,6 +125,58 @@ export function WeeklyPlanEditor({ onDone }: WeeklyPlanEditorProps) {
         <p className="rounded-2xl bg-sage-mist/30 px-4 py-3 text-sm text-charcoal-soft">
           Tes changements sont enregistrés automatiquement. La liste de courses sera actualisée quand tu la régénéreras.
         </p>
+
+        <div className="mt-4 rounded-2xl bg-card p-3 broco-chou-shadow">
+          <label className="sr-only" htmlFor="recipe-search">Rechercher une recette</label>
+          <div className="flex items-center gap-2 rounded-xl border border-soft-sand bg-warm-ivory px-3">
+            <Search className="h-4 w-4 text-warm-gray" />
+            <input
+              id="recipe-search"
+              type="search"
+              value={query}
+              onChange={event => setQuery(event.target.value)}
+              placeholder="Rechercher une recette"
+              className="min-h-10 w-full bg-transparent text-sm text-charcoal-soft outline-none placeholder:text-warm-gray"
+            />
+          </div>
+          <div className="mt-2 grid grid-cols-2 gap-2">
+            <label className="text-xs text-warm-gray">
+              Saison
+              <select value={season} onChange={event => setSeason(event.target.value as Season | "all")} className="mt-1 min-h-10 w-full rounded-lg border border-soft-sand bg-warm-ivory px-2 text-sm text-charcoal-soft">
+                <option value="all">Toutes</option>
+                <option value="hiver">Hiver</option>
+                <option value="printemps">Printemps</option>
+                <option value="été">Été</option>
+                <option value="automne">Automne</option>
+              </select>
+            </label>
+            <label className="text-xs text-warm-gray">
+              Temps maximum
+              <select value={maxTime} onChange={event => setMaxTime(event.target.value === "all" ? "all" : Number(event.target.value))} className="mt-1 min-h-10 w-full rounded-lg border border-soft-sand bg-warm-ivory px-2 text-sm text-charcoal-soft">
+                <option value="all">Sans limite</option>
+                <option value="20">20 minutes</option>
+                <option value="40">40 minutes</option>
+                <option value="60">1 heure</option>
+              </select>
+            </label>
+            <label className="text-xs text-warm-gray">
+              Régime
+              <select value={diet} onChange={event => setDiet(event.target.value as typeof diet)} className="mt-1 min-h-10 w-full rounded-lg border border-soft-sand bg-warm-ivory px-2 text-sm text-charcoal-soft">
+                <option value="all">Tous</option>
+                <option value="vegetarien">Végétarien</option>
+                <option value="poisson">Poisson</option>
+              </select>
+            </label>
+            <label className="text-xs text-warm-gray">
+              Équipement
+              <select value={equipment} onChange={event => setEquipment(event.target.value)} className="mt-1 min-h-10 w-full rounded-lg border border-soft-sand bg-warm-ivory px-2 text-sm text-charcoal-soft">
+                <option value="all">Tout équipement</option>
+                {equipmentOptions.map(item => <option key={item} value={item}>{item}</option>)}
+              </select>
+            </label>
+          </div>
+          <p className="mt-2 text-xs text-warm-gray">{filteredRecipes.length} recettes correspondent aux filtres.</p>
+        </div>
       </header>
 
       <div className="mb-5 px-4">
@@ -150,16 +233,17 @@ export function WeeklyPlanEditor({ onDone }: WeeklyPlanEditorProps) {
           </Button>
         </div>
 
-        <div className="space-y-3">
-          {mealSlots.map(slot => {
+        <div className="grid gap-3 md:grid-cols-2">
+          {slotsToDisplay.map(slot => {
             const meal = getMeal(slot.id)
             return (
               <MealSlotPicker
                 key={slot.id}
                 slot={slot}
                 meal={meal?.recipe}
-                recipes={recipes}
+                recipes={filteredRecipes}
                 onChange={recipeId => updateSlot(slot.id, recipeId)}
+                onClear={() => requestRemoval(slot.id)}
               />
             )
           })}
@@ -167,6 +251,21 @@ export function WeeklyPlanEditor({ onDone }: WeeklyPlanEditorProps) {
       </main>
 
       <div className="px-6 pt-6">
+        {lastRemoved && (
+          <div className="mb-3 flex items-center justify-between gap-3 rounded-xl bg-lavender/40 px-3 py-2 text-sm text-charcoal-soft">
+            <span className="truncate">Repas retiré</span>
+            <button
+              type="button"
+              onClick={() => {
+                setMealInPlan(lastRemoved.date, lastRemoved.meal.mealSlot, lastRemoved.meal.recipe)
+                setLastRemoved(null)
+              }}
+              className="inline-flex min-h-9 items-center gap-1 rounded-lg px-2 font-semibold text-mauve-taupe hover:bg-lavender"
+            >
+              <RotateCcw className="h-3.5 w-3.5" /> Annuler
+            </button>
+          </div>
+        )}
         <Button
           type="button"
           onClick={onDone}
@@ -176,6 +275,20 @@ export function WeeklyPlanEditor({ onDone }: WeeklyPlanEditorProps) {
           Voir mon planning
         </Button>
       </div>
+
+      {pendingRemoval && (
+        <div className="fixed inset-0 z-50 flex items-end bg-charcoal-soft/40 p-4 sm:items-center sm:justify-center" role="dialog" aria-modal="true" aria-labelledby="remove-meal-title">
+          <div className="w-full max-w-sm rounded-3xl bg-warm-ivory p-6 broco-chou-shadow">
+            <AlertTriangle className="mb-3 h-6 w-6 text-mauve-taupe" />
+            <h2 id="remove-meal-title" className="text-lg font-semibold text-charcoal-soft">Retirer ce repas ?</h2>
+            <p className="mt-2 text-sm text-warm-gray">{recipeTitle(pendingRemoval.meal.recipe)} sera retiré du planning et de la prochaine liste de courses.</p>
+            <div className="mt-5 flex gap-3">
+              <Button variant="outline" onClick={() => setPendingRemoval(null)} className="flex-1 border-soft-sand">Annuler</Button>
+              <Button onClick={confirmRemoval} className="flex-1 bg-mauve-taupe text-white hover:bg-deep-plum">Retirer</Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
@@ -185,12 +298,15 @@ function MealSlotPicker({
   meal,
   recipes,
   onChange,
+  onClear,
 }: {
   slot: (typeof mealSlots)[number]
   meal?: Recipe
   recipes: Recipe[]
   onChange: (recipeId: string) => void
+  onClear: () => void
 }) {
+  const options = meal && !recipes.some(recipe => recipe.id === meal.id) ? [meal, ...recipes] : recipes
   return (
     <section className="rounded-2xl bg-card p-4 broco-chou-shadow">
       <div className="mb-3 flex items-center justify-between gap-3">
@@ -201,7 +317,7 @@ function MealSlotPicker({
         {meal ? (
           <button
             type="button"
-            onClick={() => onChange("")}
+            onClick={onClear}
             className="inline-flex min-h-9 items-center gap-1 rounded-lg px-2 text-xs font-medium text-warm-gray hover:bg-lavender/30"
             aria-label={`Retirer ${recipeTitle(meal)} du ${slot.label.toLowerCase()}`}
           >
@@ -219,7 +335,7 @@ function MealSlotPicker({
         className="min-h-11 w-full rounded-xl border border-soft-sand bg-warm-ivory px-3 text-sm text-charcoal-soft outline-none focus:border-dusty-violet focus:ring-2 focus:ring-dusty-violet/30"
       >
         <option value="">Aucune recette prévue</option>
-        {recipes.map(recipe => (
+        {options.map(recipe => (
           <option key={recipe.id} value={recipe.id}>{recipeTitle(recipe)}</option>
         ))}
       </select>

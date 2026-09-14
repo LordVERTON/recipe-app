@@ -23,6 +23,7 @@ interface BrocoChouState {
   
   // Preferences
   preferences: UserPreferences
+  householdSize: number
   
   // Grocery
   groceryList: GroceryItem[]
@@ -43,11 +44,14 @@ interface BrocoChouState {
   replaceMeal: (mealId: string, newRecipe: Recipe) => void
   setMealInPlan: (dayDate: Date, mealSlot: MealSlot, recipe: Recipe) => void
   removeMealFromPlan: (dayDate: Date, mealSlot: MealSlot) => void
+  moveMeal: (mealId: string, destinationDate: Date) => void
   setPreferences: (prefs: Partial<UserPreferences>) => void
+  setHouseholdSize: (size: number) => void
   generateGroceryList: () => void
   toggleGroceryItem: (itemName: string) => void
   setCurrentStep: (step: BrocoChouState['currentStep']) => void
   addToHistory: (recipeId: string, rating?: number) => void
+  rateRecipeHistory: (historyIndex: number, rating: number) => void
   getCurrentRecipe: () => Recipe | null
   getSwipeProgress: () => { accepted: number; total: number; desserts: number }
   completeOnboarding: () => void
@@ -97,6 +101,7 @@ export const useBrocoChouStore = create<BrocoChouState>()(
       weeklyPlan: null,
       recipeHistory: [],
       preferences: defaultPreferences,
+      householdSize: 1,
       groceryList: [],
       currentStep: 'envies',
       hasCompletedOnboarding: false,
@@ -205,34 +210,38 @@ export const useBrocoChouStore = create<BrocoChouState>()(
           const dayDate = new Date(weekStart)
           dayDate.setDate(weekStart.getDate() + i)
 
-          // Select lunch and dinner while avoiding repetition of main ingredients.
-          let selectedMain = selectRecipeAvoidingRepetition(
+          // Select only the meal slots the user wants to plan.
+          const selectedLunch = preferences.mealSlots.includes('dejeuner')
+            ? selectRecipeAvoidingRepetition(
             plannedMainDishes, 
             meals.map(m => m.recipe), 
             usedMainIngredients
-          )
+              )
+            : null
 
-          if (selectedMain) {
+          if (selectedLunch) {
             meals.push({
               id: `meal-${i}-lunch`,
-              recipeId: selectedMain.id,
-              recipe: selectedMain,
+              recipeId: selectedLunch.id,
+              recipe: selectedLunch,
               dayDate,
               mealSlot: 'dejeuner',
               status: 'planifie'
             })
 
             // Track main ingredients
-            selectedMain.main_ingredients?.forEach(ing => {
+            selectedLunch.main_ingredients?.forEach(ing => {
               usedMainIngredients.set(ing, (usedMainIngredients.get(ing) || 0) + 1)
             })
           }
 
-          const selectedDinner = selectRecipeAvoidingRepetition(
+          const selectedDinner = preferences.mealSlots.includes('diner')
+            ? selectRecipeAvoidingRepetition(
             plannedMainDishes,
             meals.map(m => m.recipe),
             usedMainIngredients
-          )
+              )
+            : null
 
           if (selectedDinner) {
             meals.push({
@@ -249,7 +258,7 @@ export const useBrocoChouStore = create<BrocoChouState>()(
             })
           }
 
-          if (i >= 5 && plannedBreakfasts.length > 0) {
+          if (preferences.includeBreakfast && preferences.mealSlots.includes('petit_dejeuner') && plannedBreakfasts.length > 0) {
             const selectedBreakfast = selectRecipeAvoidingRepetition(
               plannedBreakfasts,
               meals.map(m => m.recipe),
@@ -269,7 +278,7 @@ export const useBrocoChouStore = create<BrocoChouState>()(
           }
 
           // Add dessert if preference enabled and we have desserts
-          if (preferences.includeDessert && plannedDesserts.length > 0) {
+          if (preferences.includeDessert && preferences.mealSlots.includes('dessert') && plannedDesserts.length > 0) {
             const dessertIndex = i % plannedDesserts.length
             meals.push({
               id: `meal-${i}-dessert`,
@@ -318,13 +327,20 @@ export const useBrocoChouStore = create<BrocoChouState>()(
       updateMealStatus: (mealId, status) => {
         set(state => {
           if (!state.weeklyPlan) return state
+          const previousMeal = state.weeklyPlan.meals.find(meal => meal.id === mealId)
+          const meals = state.weeklyPlan.meals.map(meal =>
+            meal.id === mealId ? { ...meal, status } : meal
+          )
+          const cookedNow = status === 'cuisine' && previousMeal?.status !== 'cuisine'
           return {
             weeklyPlan: {
               ...state.weeklyPlan,
-              meals: state.weeklyPlan.meals.map(meal =>
-                meal.id === mealId ? { ...meal, status } : meal
-              )
-            }
+              meals
+            },
+            groceryList: status === 'saute' ? [] : state.groceryList,
+            recipeHistory: cookedNow && previousMeal
+              ? [...state.recipeHistory, { recipeId: previousMeal.recipeId, cookedAt: new Date(), skipped: false }]
+              : state.recipeHistory
           }
         })
       },
@@ -403,6 +419,29 @@ export const useBrocoChouStore = create<BrocoChouState>()(
         })
       },
 
+      moveMeal: (mealId, destinationDate) => {
+        set(state => {
+          if (!state.weeklyPlan) return state
+          const mealToMove = state.weeklyPlan.meals.find(meal => meal.id === mealId)
+          if (!mealToMove) return state
+
+          const normalizedDestination = startOfDay(destinationDate)
+          const meals = state.weeklyPlan.meals
+            .filter(meal => meal.id !== mealId)
+            .filter(meal => !(meal.mealSlot === mealToMove.mealSlot && isSameCalendarDay(meal.dayDate, normalizedDestination)))
+            .concat({ ...mealToMove, dayDate: normalizedDestination, status: 'remplace' as const })
+
+          return {
+            weeklyPlan: {
+              ...state.weeklyPlan,
+              meals,
+              balanceScore: calculateBalanceScore(meals)
+            },
+            groceryList: []
+          }
+        })
+      },
+
       setPreferences: (prefs) => {
         set(state => ({
           preferences: { ...state.preferences, ...prefs },
@@ -414,11 +453,14 @@ export const useBrocoChouStore = create<BrocoChouState>()(
         }))
       },
 
+      setHouseholdSize: (size) => set({ householdSize: Math.max(1, Math.min(12, Math.round(size))) }),
+
       generateGroceryList: () => {
         const state = get()
         if (!state.weeklyPlan) return
 
         const ingredientMap = new Map<string, GroceryItem>()
+        const checkedItems = new Map(state.groceryList.map(item => [normalizeIngredientName(item.name), item.checked]))
 
         state.weeklyPlan.meals.forEach(meal => {
           if (meal.status === 'saute') return
@@ -430,15 +472,13 @@ export const useBrocoChouStore = create<BrocoChouState>()(
             if (existing) {
               existing.recipeIds.push(meal.recipeId)
               // Try to combine quantities
-              if (ing.quantity && existing.quantity) {
-                existing.quantity = combineQuantities(existing.quantity, ing.quantity)
-              }
+              existing.quantity = combineQuantities(existing.quantity, scaleIngredientQuantity(ing.quantity, ing.unit, state.householdSize))
             } else {
               ingredientMap.set(key, {
                 name: ing.name,
-                quantity: ing.quantity || '',
+                quantity: scaleIngredientQuantity(ing.quantity, ing.unit, state.householdSize),
                 category: ing.category || categorizeIngredient(ing.name),
-                checked: false,
+                checked: checkedItems.get(key) ?? false,
                 recipeIds: [meal.recipeId]
               })
             }
@@ -475,6 +515,14 @@ export const useBrocoChouStore = create<BrocoChouState>()(
         }))
       },
 
+      rateRecipeHistory: (historyIndex, rating) => {
+        set(state => ({
+          recipeHistory: state.recipeHistory.map((entry, index) =>
+            index === historyIndex ? { ...entry, rating: Math.max(1, Math.min(5, Math.round(rating))) } : entry
+          )
+        }))
+      },
+
       getCurrentRecipe: () => {
         const state = get()
         return state.recipes[state.currentRecipeIndex] || null
@@ -504,6 +552,7 @@ export const useBrocoChouStore = create<BrocoChouState>()(
         weeklyPlan: state.weeklyPlan,
         recipeHistory: state.recipeHistory,
         preferences: state.preferences,
+        householdSize: state.householdSize,
         groceryList: state.groceryList,
         hasCompletedOnboarding: state.hasCompletedOnboarding
       })
@@ -679,7 +728,46 @@ function categorizeIngredient(name: string): string {
   return 'Épicerie, condiments et produits sucrés'
 }
 
-function combineQuantities(q1: string, q2: string): string {
-  // Simple combination - just append
-  return `${q1} + ${q2}`
+function scaleIngredientQuantity(quantity: string | undefined, unit: string | undefined, householdSize: number): string {
+  if (!quantity) return unit || ''
+
+  const parsed = parseQuantity(quantity)
+  if (parsed === null) return [quantity, unit].filter(Boolean).join(' ')
+
+  const scaled = parsed * householdSize
+  const formatted = Number.isInteger(scaled) ? String(scaled) : String(Math.round(scaled * 100) / 100).replace('.', ',')
+  return [formatted, unit].filter(Boolean).join(' ')
+}
+
+function parseQuantity(value: string): number | null {
+  const normalized = value.trim().replace(',', '.')
+  const fraction = normalized.match(/^(\d+)\s*\/\s*(\d+)$/)
+  if (fraction) {
+    const denominator = Number(fraction[2])
+    return denominator === 0 ? null : Number(fraction[1]) / denominator
+  }
+
+  const numeric = normalized.match(/^\d+(?:\.\d+)?/)
+  return numeric ? Number(numeric[0]) : null
+}
+
+function splitQuantity(value: string): { amount: number; suffix: string } | null {
+  const normalized = value.trim().replace(',', '.')
+  const match = normalized.match(/^(\d+(?:\.\d+)?)\s*(.*)$/)
+  return match ? { amount: Number(match[1]), suffix: match[2].trim().toLowerCase() } : null
+}
+
+function combineQuantities(first: string, second: string): string {
+  if (!first) return second
+  if (!second) return first
+
+  const firstQuantity = splitQuantity(first)
+  const secondQuantity = splitQuantity(second)
+  if (!firstQuantity || !secondQuantity || firstQuantity.suffix !== secondQuantity.suffix) {
+    return `${first} + ${second}`
+  }
+
+  const total = firstQuantity.amount + secondQuantity.amount
+  const formatted = Number.isInteger(total) ? String(total) : String(Math.round(total * 100) / 100).replace('.', ',')
+  return [formatted, firstQuantity.suffix].filter(Boolean).join(' ')
 }

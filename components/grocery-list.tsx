@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Check, Copy, Share, ChevronDown, ShoppingCart, Sparkles } from "lucide-react"
+import { Check, Copy, Share2, Printer, ChevronDown, ShoppingCart, Sparkles } from "lucide-react"
 import { useBrocoChouStore } from "@/lib/store"
 import { GROCERY_CATEGORIES } from "@/lib/types"
 import { cn } from "@/lib/utils"
@@ -76,8 +76,7 @@ export function GroceryList({ onBack }: GroceryListProps) {
   const totalCount = groceryList.length
   const progress = totalCount > 0 ? (checkedCount / totalCount) * 100 : 0
 
-  const copyToClipboard = async () => {
-    const text = GROCERY_CATEGORIES
+  const getListText = () => GROCERY_CATEGORIES
       .map(category => {
         const items = itemsByCategory.get(category) || []
         if (items.length === 0) return null
@@ -91,6 +90,9 @@ export function GroceryList({ onBack }: GroceryListProps) {
       .filter(Boolean)
       .join("\n\n")
 
+  const copyToClipboard = async () => {
+    const text = getListText()
+
     try {
       await navigator.clipboard.writeText(text)
       setCopied(true)
@@ -98,6 +100,19 @@ export function GroceryList({ onBack }: GroceryListProps) {
     } catch (err) {
       console.error("Failed to copy:", err)
     }
+  }
+
+  const shareList = async () => {
+    const text = getListText()
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: "Liste de courses Broco-Chou", text })
+        return
+      } catch (error) {
+        if ((error as DOMException).name === "AbortError") return
+      }
+    }
+    await copyToClipboard()
   }
 
   if (groceryList.length === 0) {
@@ -124,7 +139,7 @@ export function GroceryList({ onBack }: GroceryListProps) {
   }
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="print-grocery flex flex-col h-full">
       {/* Header */}
       <div className="px-4 py-4">
         <div className="flex items-center justify-between mb-3">
@@ -132,13 +147,20 @@ export function GroceryList({ onBack }: GroceryListProps) {
           <div className="flex items-center gap-2">
             <button
               onClick={copyToClipboard}
-              className="p-2 rounded-full hover:bg-lavender/30 transition-colors"
+              aria-label={copied ? "Liste copiée" : "Copier la liste de courses"}
+              className="flex min-h-11 min-w-11 items-center justify-center rounded-full hover:bg-lavender/30 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dusty-violet"
             >
               {copied ? (
                 <Check className="h-5 w-5 text-sage-mist" />
               ) : (
                 <Copy className="h-5 w-5 text-warm-gray" />
               )}
+            </button>
+            <button onClick={shareList} aria-label="Partager la liste de courses" className="flex min-h-11 min-w-11 items-center justify-center rounded-full text-warm-gray hover:bg-lavender/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dusty-violet">
+              <Share2 className="h-5 w-5" />
+            </button>
+            <button onClick={() => window.print()} aria-label="Imprimer la liste de courses" className="flex min-h-11 min-w-11 items-center justify-center rounded-full text-warm-gray hover:bg-lavender/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dusty-violet">
+              <Printer className="h-5 w-5" />
             </button>
           </div>
         </div>
@@ -175,6 +197,7 @@ export function GroceryList({ onBack }: GroceryListProps) {
             <div key={category} className="mb-4">
               <button
                 onClick={() => toggleCategory(category)}
+                aria-expanded={isExpanded}
                 className="w-full flex items-center justify-between py-2 text-left"
               >
                 <div className="flex items-center gap-2">

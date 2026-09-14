@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, CalendarDays, ShoppingCart, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useBrocoChouStore } from "@/lib/store"
 
@@ -34,10 +34,22 @@ export function Onboarding() {
           Choisis quelques recettes. On te prepare une semaine simple.
         </motion.p>
 
+        <motion.ol
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.18, duration: 0.35 }}
+          className="mb-8 w-full max-w-xs space-y-2 text-left"
+          aria-label="Comment fonctionne Broco-Chou"
+        >
+          <li className="flex items-center gap-3 rounded-xl bg-card/70 px-3 py-2 text-sm text-charcoal-soft"><Sparkles className="h-4 w-4 text-mauve-taupe" /> 1. Choisis les recettes qui te donnent envie</li>
+          <li className="flex items-center gap-3 rounded-xl bg-card/70 px-3 py-2 text-sm text-charcoal-soft"><CalendarDays className="h-4 w-4 text-mauve-taupe" /> 2. Compose ta semaine à partir d&apos;aujourd&apos;hui</li>
+          <li className="flex items-center gap-3 rounded-xl bg-card/70 px-3 py-2 text-sm text-charcoal-soft"><ShoppingCart className="h-4 w-4 text-mauve-taupe" /> 3. Génère ta liste de courses</li>
+        </motion.ol>
+
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.22, duration: 0.4 }}
+          transition={{ delay: 0.28, duration: 0.4 }}
           className="w-full max-w-xs"
         >
           <Button

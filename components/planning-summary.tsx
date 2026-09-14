@@ -18,7 +18,7 @@ export function PlanningSummary({
   onGeneratePlan, 
   onModifySelection 
 }: PlanningSummaryProps) {
-  const { acceptedRecipes, favoriteRecipes } = useBrocoChouStore()
+  const { acceptedRecipes, favoriteRecipes, preferences } = useBrocoChouStore()
 
   const mainDishes = acceptedRecipes.filter(r => 
     r.tag.includes("déjeuner") || r.tag.includes("dîner")
@@ -35,10 +35,13 @@ export function PlanningSummary({
   const balanceAdvice = getBalanceAdvice(acceptedRecipes)
 
   // Calculate completion score
-  const hasEnoughMainDishes = mainDishes.length >= 7
-  const hasEnoughDesserts = desserts.length >= 2
+  const plansMainMeals = preferences.mealSlots.includes("dejeuner") || preferences.mealSlots.includes("diner")
+  const plansDesserts = preferences.includeDessert && preferences.mealSlots.includes("dessert")
+  const hasEnoughMainDishes = !plansMainMeals || mainDishes.length >= 7
+  const hasEnoughDesserts = !plansDesserts || desserts.length >= 1
+  const canGenerate = hasEnoughMainDishes && hasEnoughDesserts && acceptedRecipes.length > 0
   const completionScore = Math.min(100, Math.round(
-    ((mainDishes.length / 7) * 70) + ((Math.min(desserts.length, 3) / 3) * 30)
+    ((plansMainMeals ? mainDishes.length / 7 : 1) * 70) + ((plansDesserts ? Math.min(desserts.length, 1) : 1) * 30)
   ))
 
   return (
@@ -91,8 +94,8 @@ export function PlanningSummary({
             />
           </div>
           <div className="flex justify-between mt-2 text-xs text-warm-gray">
-            <span>{mainDishes.length}/7 plats minimum</span>
-            <span>{desserts.length}/2 desserts minimum</span>
+            <span>{plansMainMeals ? `${mainDishes.length}/7 plats minimum` : "Plats désactivés"}</span>
+            <span>{plansDesserts ? `${desserts.length}/1 dessert minimum` : "Desserts désactivés"}</span>
           </div>
         </div>
 
@@ -184,10 +187,10 @@ export function PlanningSummary({
       <div className="px-6 pb-6 pt-4 space-y-3">
         <Button
           onClick={onGeneratePlan}
-          disabled={!hasEnoughMainDishes}
+          disabled={!canGenerate}
           className={cn(
             "w-full text-white",
-            hasEnoughMainDishes 
+            canGenerate
               ? "bg-gradient-to-r from-dusty-violet to-mauve-taupe hover:opacity-90"
               : "bg-muted text-muted-foreground"
           )}

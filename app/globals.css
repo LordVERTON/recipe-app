@@ -120,6 +120,9 @@
   body {
     @apply bg-background text-foreground;
   }
+  button, input, select, textarea, a {
+    @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dusty-violet;
+  }
 }
 
 /* Broco-Chou Gradient Background */
@@ -145,4 +148,21 @@
 }
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+@media print {
+  body {
+    background: #fff !important;
+  }
+  nav, button, .pb-24 {
+    display: none !important;
+  }
+  .print-grocery {
+    display: block !important;
+    height: auto !important;
+    color: #000 !important;
+  }
+  .print-grocery * {
+    box-shadow: none !important;
+  }
 }

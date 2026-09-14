@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { ChevronRight, Star, History, Settings, Trash2, RefreshCw, ChefHat, Utensils, Cake } from "lucide-react"
+import { ChevronRight, Star, History, Settings, RefreshCw, ChefHat, Utensils, Cake, Minus, Plus } from "lucide-react"
 import { useBrocoChouStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -18,12 +18,18 @@ export function ProfilePage({ onOpenPreferences }: ProfilePageProps) {
     recipeHistory, 
     weeklyPlan,
     acceptedRecipes,
+    recipeCatalog,
     preferences,
     setPreferences,
+    householdSize,
+    setHouseholdSize,
+    addRecipeToAccepted,
+    rateRecipeHistory,
     resetSwipes
   } = useBrocoChouStore()
 
   const [showResetConfirm, setShowResetConfirm] = useState(false)
+  const [showHistory, setShowHistory] = useState(false)
 
   // Calculate stats
   const weeksPlanned = recipeHistory.length > 0 ? Math.ceil(recipeHistory.length / 7) : 0
@@ -41,6 +47,10 @@ export function ProfilePage({ onOpenPreferences }: ProfilePageProps) {
     .sort((a, b) => b[1] - a[1])
     .slice(0, 5)
     .map(([name]) => name)
+  const recentHistory = recipeHistory
+    .map((entry, index) => ({ entry, index, recipe: recipeCatalog.find(recipe => recipe.id === entry.recipeId) || acceptedRecipes.find(recipe => recipe.id === entry.recipeId) }))
+    .reverse()
+    .slice(0, 6)
 
   return (
     <div className="flex flex-col min-h-full pb-24">
@@ -177,7 +187,60 @@ export function ProfilePage({ onOpenPreferences }: ProfilePageProps) {
             />
           </div>
 
+          <div className="rounded-2xl bg-card p-4 broco-chou-shadow">
+            <div className="mb-3 flex items-center justify-between gap-4">
+              <div>
+                <p className="font-medium text-charcoal-soft">Repas à planifier</p>
+                <p className="text-xs text-warm-gray">Le générateur respecte ces choix.</p>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {[
+                ["petit_dejeuner", "Petit-déjeuner"],
+                ["dejeuner", "Déjeuner"],
+                ["diner", "Dîner"],
+                ["dessert", "Dessert"],
+              ].map(([slot, label]) => {
+                const selected = preferences.mealSlots.includes(slot as typeof preferences.mealSlots[number])
+                return (
+                  <button
+                    key={slot}
+                    type="button"
+                    aria-pressed={selected}
+                    onClick={() => setPreferences({
+                      mealSlots: selected
+                        ? preferences.mealSlots.filter(item => item !== slot)
+                        : [...preferences.mealSlots, slot as typeof preferences.mealSlots[number]],
+                      includeBreakfast: slot === "petit_dejeuner" ? !selected : preferences.includeBreakfast,
+                      includeDessert: slot === "dessert" ? !selected : preferences.includeDessert,
+                    })}
+                    className={cn(
+                      "min-h-10 rounded-full px-3 text-sm font-medium transition-colors",
+                      selected ? "bg-mauve-taupe text-white" : "bg-soft-sand text-charcoal-soft hover:bg-lavender"
+                    )}
+                  >
+                    {label}
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between gap-4 rounded-2xl bg-card p-4 broco-chou-shadow">
+            <div>
+              <p className="font-medium text-charcoal-soft">Nombre de personnes</p>
+              <p className="text-xs text-warm-gray">Les quantités de courses seront multipliées.</p>
+            </div>
+            <div className="flex items-center gap-1 rounded-xl bg-soft-sand p-1">
+              <button type="button" onClick={() => setHouseholdSize(householdSize - 1)} disabled={householdSize <= 1} aria-label="Diminuer le nombre de personnes" className="flex h-9 w-9 items-center justify-center rounded-lg text-warm-gray hover:bg-lavender disabled:opacity-40"><Minus className="h-4 w-4" /></button>
+              <span className="min-w-7 text-center text-sm font-semibold text-charcoal-soft">{householdSize}</span>
+              <button type="button" onClick={() => setHouseholdSize(householdSize + 1)} aria-label="Augmenter le nombre de personnes" className="flex h-9 w-9 items-center justify-center rounded-lg text-warm-gray hover:bg-lavender"><Plus className="h-4 w-4" /></button>
+            </div>
+          </div>
+
           <button
+            onClick={() => setShowHistory(value => !value)}
+            aria-expanded={showHistory}
             className="w-full flex items-center justify-between p-4 rounded-2xl bg-card broco-chou-shadow hover:bg-lavender/20 transition-colors"
           >
             <div className="flex items-center gap-3">
@@ -193,6 +256,36 @@ export function ProfilePage({ onOpenPreferences }: ProfilePageProps) {
           </button>
         </div>
       </div>
+
+      {showHistory && (
+        <div className="px-6 mb-6">
+          <h3 className="mb-3 text-sm font-semibold text-charcoal-soft">À cuisiner à nouveau</h3>
+          {recentHistory.length === 0 ? (
+            <p className="rounded-2xl bg-card p-4 text-sm text-warm-gray broco-chou-shadow">Marque un repas comme cuisiné dans ton planning pour le retrouver ici.</p>
+          ) : (
+            <div className="space-y-2">
+              {recentHistory.map(({ entry, index, recipe }) => (
+                <div key={`${entry.recipeId}-${index}`} className="rounded-2xl bg-card p-4 broco-chou-shadow">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="min-w-0">
+                      <p className="truncate font-medium text-charcoal-soft">{recipe?.nom || "Recette"}</p>
+                      <p className="text-xs text-warm-gray">{new Date(entry.cookedAt).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}</p>
+                    </div>
+                    {recipe && <Button variant="outline" size="sm" onClick={() => addRecipeToAccepted(recipe)} className="shrink-0 border-soft-sand text-mauve-taupe">Refaire</Button>}
+                  </div>
+                  <div className="mt-3 flex items-center gap-1" aria-label="Noter cette recette">
+                    {[1, 2, 3, 4, 5].map(rating => (
+                      <button key={rating} type="button" onClick={() => rateRecipeHistory(index, rating)} aria-label={`Donner ${rating} étoiles`} className="flex h-9 w-9 items-center justify-center rounded-lg hover:bg-lavender/30">
+                        <Star className={cn("h-4 w-4", (entry.rating || 0) >= rating ? "fill-mauve-taupe text-mauve-taupe" : "text-soft-sand")} />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Reset Actions */}
       <div className="px-6 mb-6">

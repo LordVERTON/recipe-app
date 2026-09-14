@@ -27,6 +27,9 @@ export function HomeDashboard({ userName = "toi", onNavigate, onViewRecipe }: Ho
   const today = new Date()
   const todayMeals = plannedMeals.filter(meal => new Date(meal.dayDate).toDateString() === today.toDateString())
   const hasWeeklyPlan = weeklyPlan !== null
+  const planRange = weeklyPlan
+    ? `Du ${new Date(weeklyPlan.weekStart).toLocaleDateString("fr-FR", { day: "numeric", month: "long" })} au ${new Date(weeklyPlan.weekEnd).toLocaleDateString("fr-FR", { day: "numeric", month: "long" })}`
+    : null
 
   return (
     <div className="flex min-h-full flex-col pb-24">
@@ -57,7 +60,7 @@ export function HomeDashboard({ userName = "toi", onNavigate, onViewRecipe }: Ho
                 {hasWeeklyPlan ? "Ton planning" : "Preparer ta semaine"}
               </h2>
               <p className="mb-4 text-sm text-warm-gray">
-                {hasWeeklyPlan ? `${SEASONS_FR[currentSeason]} - ${currentMonth}` : "Choisis tes recettes, on s'occupe du reste."}
+                {hasWeeklyPlan ? planRange : "Choisis tes recettes, on s'occupe du reste."}
               </p>
               <Button
                 onClick={() => onNavigate(hasWeeklyPlan ? "calendar" : "swipe")}
