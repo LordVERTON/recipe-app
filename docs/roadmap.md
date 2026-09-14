@@ -23,21 +23,21 @@ This is a living, prioritized audit of Broco-Chou’s current mobile-first recip
 
 ## Next — improve clarity and control
 
-- [ ] Add an explicit confirmation/undo affordance for destructive planning actions (clearing a meal or restarting a plan).
-- [ ] Show the plan’s seven-day date range prominently on the home card and calendar; make the active day visible without relying on color alone.
-- [ ] Offer filters and search in the recipe picker (diet, cooking time, season, available equipment) to reduce cognitive load in a large catalog.
-- [ ] Let people set which meal slots they plan, and make generator requirements match those choices rather than always requiring seven main dishes.
-- [ ] Support quantity scaling by household size and normalize units before combining grocery quantities; the current `“x + y”` output is understandable but not actionable.
-- [ ] Add a “skip / move to another day” flow, with the grocery list refreshed automatically.
+- [x] Add an explicit confirmation/undo affordance for destructive planning actions (clearing a meal or restarting a plan).
+- [x] Show the plan’s seven-day date range prominently on the home card and calendar; make the active day visible without relying on color alone.
+- [x] Offer filters and search in the recipe picker (diet, cooking time, season, available equipment) to reduce cognitive load in a large catalog.
+- [x] Let people set which meal slots they plan, and make generator requirements match those choices rather than always requiring seven main dishes.
+- [x] Support quantity scaling by household size and normalize units before combining grocery quantities; the current `“x + y”` output is understandable but not actionable.
+- [x] Add a “skip / move to another day” flow, with the grocery list refreshed automatically.
 
 ## Later — deepen the product
 
-- [ ] Add accessible labels, visible keyboard focus, and larger tap-target checks across icon-only controls (copy, close, category toggles).
-- [ ] Check text/color contrast for muted text and status dots; status must also have a text or icon cue for color-vision accessibility.
-- [ ] Provide a desktop/tablet planning layout in addition to the current compact mobile view.
-- [ ] Add a lightweight first-week walkthrough that explains swipe, plan, and shopping-list relationships.
-- [ ] Add a history view with ratings and “cook again” suggestions, using existing history data.
-- [ ] Enable sharing/exporting a plan and shopping list with an accessible, formatted print view.
+- [x] Add accessible labels, visible keyboard focus, and larger tap-target checks across icon-only controls (copy, close, category toggles).
+- [x] Check text/color contrast for muted text and status dots; status must also have a text or icon cue for color-vision accessibility.
+- [x] Provide a desktop/tablet planning layout in addition to the current compact mobile view.
+- [x] Add a lightweight first-week walkthrough that explains swipe, plan, and shopping-list relationships.
+- [x] Add a history view with ratings and “cook again” suggestions, using existing history data.
+- [x] Enable sharing/exporting a plan and shopping list with an accessible, formatted print view.
 
 ## Design system observations
 

@@ -54,7 +54,7 @@ Open Studio to inspect tables and run safe development queries. Auth accepts `ht
 3. Apply locally and verify the schema/data:
 
    ```powershell
-   npx supabase db reset
+   npx supabase db reset --local
    ```
 
    This recreates the local database, applies all migrations in order, and runs `supabase/seed.sql` when present. It destroys only local Supabase database data.
