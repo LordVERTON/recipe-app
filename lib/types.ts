@@ -3,7 +3,7 @@
 export type Season = "hiver" | "printemps" | "été" | "automne"
 export type MealType = "petit_dejeuner" | "dejeuner" | "diner" | "dessert" | "aperitif" | "dejeuner/diner"
 export type Difficulty = "très facile" | "facile" | "intermédiaire"
-export type RecipeSource = "crous" | "broco-chou"
+export type RecipeSource = "crous" | "broco-chou" | "instagram"
 export type CanonicalStatus = "verified" | "partial" | "unknown"
 
 export interface Ingredient {
