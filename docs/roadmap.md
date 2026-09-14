@@ -4,10 +4,22 @@ This is a living, prioritized audit of Broco-Chou’s current mobile-first recip
 
 ## Now — make planning dependable
 
-- [ ] Let people build and edit a seven-day plan that begins today, including adding, replacing, and clearing meals.
-- [ ] Make every plan date-based rather than Monday-based, so the dashboard and calendar always agree on what “today” means.
-- [ ] Preserve a clear empty state and a low-friction route from recipe discovery into planning.
-- [ ] Regenerate the shopping list after a plan is changed, while preserving a clear indication that it reflects the latest plan.
+- [x] Let people build and edit a seven-day plan that begins today, including adding, replacing, and clearing meals.
+- [x] Make every plan date-based rather than Monday-based, so the dashboard and calendar always agree on what “today” means.
+- [x] Preserve a clear empty state and a low-friction route from recipe discovery into planning.
+- [x] Invalidate the shopping list after a plan is changed and explain that it is refreshed when regenerated.
+
+## Current experience audit
+
+| Area | What works today | Main UX/UI opportunity |
+| --- | --- | --- |
+| Onboarding & preferences | A focused setup captures diet, equipment, and budget. | Explain how these choices affect results and make the settings easy to revisit from the profile. |
+| Recipe discovery | Swipe actions make choosing feel lightweight; recipe sheets offer ingredients and steps. | Add search and filters before choice, plus a clearer way to compare selected recipes. |
+| Home | The dashboard surfaces today’s meals and a clear route to the planning tab. | Show the active plan’s date range and an at-a-glance next action when the day is empty. |
+| Weekly planning | A dated seven-day plan now starts today, with direct add, change, and remove controls. | Add move/duplicate, undo, and a compact desktop overview. |
+| Cooking | Meal cards support recipe viewing and marking a meal cooked. | Add skip/move actions and connect “cooked” to a rating/history prompt. |
+| Shopping | Ingredients are grouped, checkable, and copyable. | Normalize quantities, retain checked state across a regeneration where possible, and identify plan changes before replacing a list. |
+| Navigation & visual language | The five-tab mobile navigation and warm palette are consistent. | Strengthen non-color state indicators, keyboard focus, and icon-only control labels. |
 
 ## Next — improve clarity and control
 
