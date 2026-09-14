@@ -241,7 +241,9 @@ export function WeeklyPlanEditor({ onDone }: WeeklyPlanEditorProps) {
                 key={slot.id}
                 slot={slot}
                 meal={meal?.recipe}
-                recipes={filteredRecipes}
+                recipes={filteredRecipes.filter(recipe =>
+                  recipe.id === meal?.recipeId || !weeklyPlan.meals.some(plannedMeal => plannedMeal.recipeId === recipe.id)
+                )}
                 onChange={recipeId => updateSlot(slot.id, recipeId)}
                 onClear={() => requestRemoval(slot.id)}
               />

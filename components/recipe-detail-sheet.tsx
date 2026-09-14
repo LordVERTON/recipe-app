@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { X, Clock, Users, ChefHat, Leaf, Fish, Flame, Microwave, Check, Star, Calendar, AlertCircle } from "lucide-react"
 import type { Recipe } from "@/lib/types"
@@ -17,6 +17,13 @@ interface RecipeDetailSheetProps {
   onAddToFavorites?: () => void
 }
 
+interface RecipeChecks {
+  recipeId: string | null
+  items: Set<number>
+}
+
+const emptyRecipeChecks = new Set<number>()
+
 export function RecipeDetailSheet({ 
   recipe, 
   isOpen, 
@@ -24,43 +31,34 @@ export function RecipeDetailSheet({
   onAddToPlanning,
   onAddToFavorites 
 }: RecipeDetailSheetProps) {
-  const [checkedSteps, setCheckedSteps] = useState<Set<number>>(new Set())
-  const [checkedIngredients, setCheckedIngredients] = useState<Set<number>>(new Set())
-  const [imageSrc, setImageSrc] = useState<string | null>(null)
+  const [checkedStepsState, setCheckedStepsState] = useState<RecipeChecks>({ recipeId: null, items: new Set() })
+  const [checkedIngredientsState, setCheckedIngredientsState] = useState<RecipeChecks>({ recipeId: null, items: new Set() })
+  const checkedSteps = checkedStepsState.recipeId === recipe?.id ? checkedStepsState.items : emptyRecipeChecks
+  const checkedIngredients = checkedIngredientsState.recipeId === recipe?.id ? checkedIngredientsState.items : emptyRecipeChecks
 
   const toggleStep = (index: number) => {
-    setCheckedSteps(prev => {
-      const next = new Set(prev)
+    setCheckedStepsState(prev => {
+      const next = new Set(prev.recipeId === recipe?.id ? prev.items : [])
       if (next.has(index)) {
         next.delete(index)
       } else {
         next.add(index)
       }
-      return next
+      return { recipeId: recipe?.id ?? null, items: next }
     })
   }
 
   const toggleIngredient = (index: number) => {
-    setCheckedIngredients(prev => {
-      const next = new Set(prev)
+    setCheckedIngredientsState(prev => {
+      const next = new Set(prev.recipeId === recipe?.id ? prev.items : [])
       if (next.has(index)) {
         next.delete(index)
       } else {
         next.add(index)
       }
-      return next
+      return { recipeId: recipe?.id ?? null, items: next }
     })
   }
-
-  const resetChecks = () => {
-    setCheckedSteps(new Set())
-    setCheckedIngredients(new Set())
-  }
-
-  useEffect(() => {
-    setImageSrc(recipe ? getRecipeImageUrl(recipe) : null)
-    resetChecks()
-  }, [recipe])
 
   if (!recipe) return null
 
@@ -192,10 +190,13 @@ export function RecipeDetailSheet({
               {/* Image */}
               <div className="mx-6 h-48 rounded-2xl bg-gradient-to-br from-lavender/40 to-dusty-violet/30 overflow-hidden mb-6">
                 <img
-                  src={imageSrc || getRecipeImageUrl(recipe)}
+                  src={getRecipeImageUrl(recipe)}
                   alt={recipeTitle(recipe)}
                   className="h-full w-full object-cover"
-                  onError={() => setImageSrc(getFallbackRecipeImageUrl())}
+                  onError={event => {
+                    event.currentTarget.onerror = null
+                    event.currentTarget.src = getFallbackRecipeImageUrl()
+                  }}
                 />
               </div>
 
@@ -205,7 +206,7 @@ export function RecipeDetailSheet({
                   <h3 className="text-lg font-semibold text-charcoal-soft">Ingrédients</h3>
                   {checkedIngredients.size > 0 && (
                     <button 
-                      onClick={() => setCheckedIngredients(new Set())}
+                      onClick={() => setCheckedIngredientsState({ recipeId: recipe.id, items: new Set() })}
                       className="text-xs text-mauve-taupe"
                     >
                       Réinitialiser
@@ -249,7 +250,7 @@ export function RecipeDetailSheet({
                   <h3 className="text-lg font-semibold text-charcoal-soft">Préparation</h3>
                   {checkedSteps.size > 0 && (
                     <button 
-                      onClick={() => setCheckedSteps(new Set())}
+                      onClick={() => setCheckedStepsState({ recipeId: recipe.id, items: new Set() })}
                       className="text-xs text-mauve-taupe"
                     >
                       Réinitialiser

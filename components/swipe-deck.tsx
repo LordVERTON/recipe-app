@@ -20,7 +20,9 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
     currentRecipeIndex, 
     swipeRecipe, 
     undoLastSwipe,
-    acceptedRecipes
+    acceptedRecipes,
+    preferences,
+    resetSwipes
   } = useBrocoChouStore()
 
   const [exitDirection, setExitDirection] = useState<"left" | "right" | null>(null)
@@ -54,10 +56,12 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
     })
   }, [resetSwipeVisualState, swipeRecipe])
 
-  useEffect(() => {
+  const handleUndo = useCallback(() => {
+    if (isSwipeAnimatingRef.current || currentRecipeIndex === 0) return
     resetSwipeVisualState()
     isSwipeAnimatingRef.current = false
-  }, [currentRecipe?.id, resetSwipeVisualState])
+    undoLastSwipe()
+  }, [currentRecipeIndex, resetSwipeVisualState, undoLastSwipe])
 
   const handleSwipe = useCallback((direction: "left" | "right") => {
     if (isSwipeAnimatingRef.current) return
@@ -141,9 +145,20 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
     }, 200)
   }, [advanceAfterSwipe, dragX])
 
-  const selectedMealRecipes = acceptedRecipes.filter(isDayMealRecipe)
-  const selectedRecipeCount = selectedMealRecipes.length
-  const hasEnoughRecipes = selectedRecipeCount >= 7
+  const selectedMainMeals = acceptedRecipes.filter(isMainMealRecipe)
+  const selectedBreakfasts = acceptedRecipes.filter(isBreakfastRecipe)
+  const selectedDesserts = acceptedRecipes.filter(isDessertRecipe)
+  const requiredMainMeals = (preferences.mealSlots.includes("dejeuner") ? 7 : 0)
+    + (preferences.mealSlots.includes("diner") ? 7 : 0)
+  const requiredBreakfasts = preferences.includeBreakfast && preferences.mealSlots.includes("petit_dejeuner") ? 7 : 0
+  const requiredDesserts = preferences.includeDessert && preferences.mealSlots.includes("dessert") ? 7 : 0
+  const missingMainMeals = Math.max(0, requiredMainMeals - selectedMainMeals.length)
+  const missingBreakfasts = Math.max(0, requiredBreakfasts - selectedBreakfasts.length)
+  const missingDesserts = Math.max(0, requiredDesserts - selectedDesserts.length)
+  const missingRecipeCount = missingMainMeals + missingBreakfasts + missingDesserts
+  const selectedRecipeCount = selectedMainMeals.length + selectedBreakfasts.length + selectedDesserts.length
+  const hasEnoughRecipes = missingRecipeCount === 0
+  const remainingLabel = getRemainingLabel(missingMainMeals, missingBreakfasts, missingDesserts)
 
   if (hasEnoughRecipes) {
     return (
@@ -155,7 +170,7 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
           Ta semaine est prete !
         </h2>
         <p className="text-warm-gray mb-6">
-          Les 7 prochains jours ont chacun une recette.
+          Chaque repas prévu pour les 7 prochains jours a une recette différente.
         </p>
         <Button
           onClick={onComplete}
@@ -176,13 +191,13 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
           Tu as parcouru toutes les recettes !
         </h2>
         <p className="text-warm-gray mb-6">
-          {selectedRecipeCount} recettes sélectionnées
+          {selectedRecipeCount} recettes sélectionnées. Il manque {remainingLabel} pour compléter la semaine sans répétition.
         </p>
         <Button
-          onClick={onComplete}
+          onClick={resetSwipes}
           className="bg-gradient-to-r from-dusty-violet to-mauve-taupe text-white hover:opacity-90"
         >
-          Générer mon planning
+          Recommencer ma sélection
         </Button>
       </div>
     )
@@ -195,8 +210,8 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
         <div className="text-sm text-warm-gray">
           <div
             className="flex h-8 min-w-12 items-center justify-center gap-1.5 rounded-full bg-soft-sand px-3 font-semibold text-charcoal-soft"
-            aria-label={`${selectedRecipeCount} recettes selectionnees`}
-            title={`${selectedRecipeCount} recettes selectionnees`}
+            aria-label={`${selectedRecipeCount} recettes sélectionnées, ${remainingLabel} restant`}
+            title={`${selectedRecipeCount} recettes sélectionnées, ${remainingLabel} restant`}
           >
             <Utensils className="h-4 w-4 text-mauve-taupe" />
             <span>{selectedRecipeCount}</span>
@@ -273,7 +288,7 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
         <div className="flex items-center justify-center gap-4">
           {/* Undo Button */}
           <button
-            onClick={undoLastSwipe}
+            onClick={handleUndo}
             disabled={currentRecipeIndex === 0}
             className={cn(
               "h-12 w-12 rounded-full flex items-center justify-center transition-all",
@@ -326,17 +341,36 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
   )
 }
 
-function isDayMealRecipe(recipe: Recipe): boolean {
-  const tag = recipe.tag
+function normalizedRecipeText(value: string): string {
+  return value
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
-  const category = recipe.categorie
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
+}
 
-  return category !== "sucre" && !tag.includes("dessert") && !tag.includes("petit")
+function isBreakfastRecipe(recipe: Recipe): boolean {
+  const tag = normalizedRecipeText(recipe.tag)
+  return tag.includes("petit") && tag.includes("dejeuner")
+}
+
+function isDessertRecipe(recipe: Recipe): boolean {
+  return normalizedRecipeText(recipe.tag) === "dessert" || normalizedRecipeText(recipe.categorie).includes("sucre")
+}
+
+function isMainMealRecipe(recipe: Recipe): boolean {
+  const tag = normalizedRecipeText(recipe.tag)
+  return !isBreakfastRecipe(recipe) && !isDessertRecipe(recipe)
+    && (tag.includes("dejeuner") || tag.includes("diner"))
+}
+
+function getRemainingLabel(missingMainMeals: number, missingBreakfasts: number, missingDesserts: number): string {
+  const missingByType = [
+    missingMainMeals > 0 && `${missingMainMeals} plat${missingMainMeals > 1 ? "s" : ""}`,
+    missingBreakfasts > 0 && `${missingBreakfasts} petit${missingBreakfasts > 1 ? "s" : ""}-déjeuner${missingBreakfasts > 1 ? "s" : ""}`,
+    missingDesserts > 0 && `${missingDesserts} dessert${missingDesserts > 1 ? "s" : ""}`,
+  ].filter(Boolean)
+
+  return missingByType.join(", ") || "aucune recette"
 }
 
 // Recipe Card Content Component
@@ -350,11 +384,7 @@ interface RecipeCardContentProps {
 }
 
 function RecipeCardContent({ recipe, isBackground, onViewDetails, showOverlay, acceptOpacity, rejectOpacity }: RecipeCardContentProps) {
-  const [imageSrc, setImageSrc] = useState(getRecipeImageUrl(recipe))
-
-  useEffect(() => {
-    setImageSrc(getRecipeImageUrl(recipe))
-  }, [recipe])
+  const imageSrc = getRecipeImageUrl(recipe)
 
   return (
     <div
@@ -397,7 +427,10 @@ function RecipeCardContent({ recipe, isBackground, onViewDetails, showOverlay, a
           alt={recipeTitle(recipe)}
           className="absolute inset-0 h-full w-full object-cover"
           loading={isBackground ? "lazy" : "eager"}
-          onError={() => setImageSrc(getFallbackRecipeImageUrl())}
+          onError={event => {
+            event.currentTarget.onerror = null
+            event.currentTarget.src = getFallbackRecipeImageUrl()
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal-soft/25 via-transparent to-transparent" />
       </div>

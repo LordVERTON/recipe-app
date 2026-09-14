@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowRightLeft, ChefHat, Check, CircleOff, Clock, PencilLine, ShoppingCart } from "lucide-react"
 import { useBrocoChouStore } from "@/lib/store"
@@ -335,12 +335,8 @@ function MealCard({ meal, onView, onToggleCooked, onToggleSkipped, onMove }: Mea
   const { recipe, mealSlot, status } = meal
   const isCooked = status === "cuisine"
   const isSkipped = status === "saute"
-  const [imageSrc, setImageSrc] = useState(getRecipeImageUrl(recipe))
+  const imageSrc = getRecipeImageUrl(recipe)
   const slotLabel = getMealSlotLabel(mealSlot)
-
-  useEffect(() => {
-    setImageSrc(getRecipeImageUrl(recipe))
-  }, [recipe])
 
   return (
     <div
@@ -371,7 +367,10 @@ function MealCard({ meal, onView, onToggleCooked, onToggleSkipped, onMove }: Mea
               src={imageSrc}
               alt={recipeTitle(recipe)}
               className="h-full w-full object-cover"
-              onError={() => setImageSrc(getFallbackRecipeImageUrl())}
+              onError={event => {
+                event.currentTarget.onerror = null
+                event.currentTarget.src = getFallbackRecipeImageUrl()
+              }}
             />
           </div>
 

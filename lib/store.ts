@@ -132,10 +132,14 @@ export const useBrocoChouStore = create<BrocoChouState>()(
           }
 
           if (action === 'accepted' || action === 'favorite') {
-            newState.acceptedRecipes = [...state.acceptedRecipes, currentRecipe]
+            newState.acceptedRecipes = state.acceptedRecipes.some(recipe => recipe.id === currentRecipe.id)
+              ? state.acceptedRecipes
+              : [...state.acceptedRecipes, currentRecipe]
           }
           if (action === 'favorite') {
-            newState.favoriteRecipes = [...state.favoriteRecipes, currentRecipe]
+            newState.favoriteRecipes = state.favoriteRecipes.some(recipe => recipe.id === currentRecipe.id)
+              ? state.favoriteRecipes
+              : [...state.favoriteRecipes, currentRecipe]
           }
           if (action === 'rejected') {
             newState.rejectedRecipes = [...state.rejectedRecipes, currentRecipe]
@@ -277,17 +281,26 @@ export const useBrocoChouStore = create<BrocoChouState>()(
             }
           }
 
-          // Add dessert if preference enabled and we have desserts
-          if (preferences.includeDessert && preferences.mealSlots.includes('dessert') && plannedDesserts.length > 0) {
-            const dessertIndex = i % plannedDesserts.length
-            meals.push({
-              id: `meal-${i}-dessert`,
-              recipeId: plannedDesserts[dessertIndex].id,
-              recipe: plannedDesserts[dessertIndex],
-              dayDate,
-              mealSlot: 'dessert',
-              status: 'planifie'
-            })
+          // Desserts follow the same rule as other meals: a recipe can only
+          // appear once in the week. If the selection is incomplete, the slot
+          // deliberately remains empty until the user picks another recipe.
+          if (preferences.includeDessert && preferences.mealSlots.includes('dessert')) {
+            const selectedDessert = selectRecipeAvoidingRepetition(
+              plannedDesserts,
+              meals.map(m => m.recipe),
+              usedMainIngredients
+            )
+
+            if (selectedDessert) {
+              meals.push({
+                id: `meal-${i}-dessert`,
+                recipeId: selectedDessert.id,
+                recipe: selectedDessert,
+                dayDate,
+                mealSlot: 'dessert',
+                status: 'planifie'
+              })
+            }
           }
         }
 
@@ -348,6 +361,14 @@ export const useBrocoChouStore = create<BrocoChouState>()(
       replaceMeal: (mealId, newRecipe) => {
         set(state => {
           if (!state.weeklyPlan) return state
+          if (!state.weeklyPlan.meals.some(meal => meal.id === mealId)) return state
+
+          // Keep a weekly plan free of duplicate recipes, including edits made
+          // outside the automatic generator.
+          if (state.weeklyPlan.meals.some(meal => meal.id !== mealId && meal.recipeId === newRecipe.id)) {
+            return state
+          }
+
           const meals = state.weeklyPlan.meals.map(meal =>
             meal.id === mealId
               ? { ...meal, recipe: newRecipe, recipeId: newRecipe.id, status: 'remplace' as const }
@@ -372,6 +393,10 @@ export const useBrocoChouStore = create<BrocoChouState>()(
           const existingMeal = state.weeklyPlan.meals.find(meal =>
             meal.mealSlot === mealSlot && isSameCalendarDay(meal.dayDate, normalizedDay)
           )
+          if (state.weeklyPlan.meals.some(meal => meal.id !== existingMeal?.id && meal.recipeId === recipe.id)) {
+            return state
+          }
+
           const meals = existingMeal
             ? state.weeklyPlan.meals.map(meal =>
                 meal.id === existingMeal.id
@@ -619,9 +644,7 @@ function selectRecipeAvoidingRepetition(
   )
 
   if (availableRecipes.length === 0) {
-    // If all recipes used, pick from original list avoiding immediate repetition
-    const lastRecipe = alreadySelected[alreadySelected.length - 1]
-    return recipes.find(r => r.id !== lastRecipe?.id) || recipes[0]
+    return null
   }
 
   // Score recipes based on ingredient diversity
