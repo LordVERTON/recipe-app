@@ -191,8 +191,8 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
   return (
     <div className="flex h-full min-h-[calc(100svh-5rem)] flex-col overflow-hidden">
       {/* Selection Header */}
-      <div className="px-5 py-4">
-        <div className="flex items-center justify-end text-sm text-warm-gray">
+      <div className="flex h-12 shrink-0 items-center justify-end px-4">
+        <div className="text-sm text-warm-gray">
           <div
             className="flex h-8 min-w-12 items-center justify-center gap-1.5 rounded-full bg-soft-sand px-3 font-semibold text-charcoal-soft"
             aria-label={`${selectedRecipeCount} recettes selectionnees`}
@@ -205,8 +205,8 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
       </div>
 
       {/* Card Stack */}
-      <div className="relative flex min-h-0 flex-1 items-center justify-center px-4 py-3">
-        <div className="relative h-[clamp(300px,56vh,520px)] w-[min(88vw,360px)] swipe-card">
+      <div className="relative flex min-h-0 flex-1 items-start justify-center px-4 pb-2 pt-0">
+        <div className="relative h-[clamp(280px,52vh,500px)] w-[min(88vw,360px)] swipe-card">
           <AnimatePresence mode="popLayout">
             {/* Deeper Background Card */}
             {thirdRecipe && (
@@ -269,7 +269,7 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
       </div>
 
       {/* Action Buttons */}
-      <div className="shrink-0 px-4 pb-4 pt-1">
+      <div className="shrink-0 px-4 pb-5 pt-2">
         <div className="flex items-center justify-center gap-4">
           {/* Undo Button */}
           <button
