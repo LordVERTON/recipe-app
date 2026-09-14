@@ -367,6 +367,151 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=
 NEXT_PUBLIC_SUPABASE_RECIPES_TABLE=recipes
 ```
 
+### Import de recettes Instagram (développement)
+
+La page `/admin/import` permet de créer une recette à partir du texte d'une publication ou d'un Reel Instagram, puis de choisir une image Pexels. Ajoutez ces variables uniquement dans `.env.local` :
+
+```env
+PEXELS_API_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+```
+
+La clé de service est utilisée côté serveur uniquement pour enregistrer la recette et ne doit jamais être préfixée par `NEXT_PUBLIC_`.
+
+### Ajout de données avec la CLI Supabase
+
+La CLI Supabase permet aussi d'ajouter ou de vérifier des données SQL. La cible dépend de la commande utilisée :
+
+```bash
+# Exécute un script SQL sur le projet Supabase lié (peut être la production)
+npx supabase db query --linked --file chemin/vers/import.sql
+
+# Vérifie les données sur le projet lié
+npx supabase db query --linked "select id, nom from public.recipes limit 10;"
+```
+
+Avant toute écriture, vérifier que le projet lié est bien celui attendu avec `supabase/.temp/linked-project.json`. Les scripts d'import de production doivent être ciblés, transactionnels, et ne doivent pas utiliser `truncate` sauf si le remplacement complet des données est volontaire.
+
+Les commandes locales de la CLI, notamment `npx supabase start`, utilisent Docker pour générer une base locale de développement à partir des migrations et du seed. Cette base locale est distincte de la production : elle peut être réinitialisée sans modifier le projet Supabase distant. Ne pas confondre `--local` (développement Docker) et `--linked` (projet Supabase distant).
+
+#### Ajout d'une recette en production (projet Supabase lié)
+
+1. Créer un fichier SQL temporaire contenant une transaction ciblée, par exemple `supabase/import-recipe.sql`.
+2. Exécuter le fichier sur le projet lié :
+
+```bash
+npx supabase db query --linked --file supabase/import-recipe.sql
+```
+
+3. Vérifier la recette ajoutée avec une requête de lecture :
+
+```bash
+npx supabase db query --linked "select id, nom, source, portions from public.recipes where id = 'recipe-id';"
+```
+
+4. Supprimer le fichier SQL temporaire s'il ne doit pas être conservé dans le dépôt.
+
+Si une nouvelle valeur est nécessaire pour une contrainte (par exemple une nouvelle `source`), créer d'abord une migration dans `supabase/migrations/`, puis l'appliquer explicitement :
+
+```bash
+npx supabase db push --linked --yes
+```
+
+Ne jamais utiliser `supabase db reset` contre la production : cette commande réinitialise les données. Pour la production, utiliser des `insert` ciblés et éviter `truncate`.
+
+#### Ajout d'une recette dans les seeds de développement (Docker)
+
+La base Docker locale est construite à partir des migrations et de `supabase/seed.sql`. Pour ajouter une recette au jeu de données de développement, modifier ou régénérer ce fichier de seed, puis réinitialiser uniquement la base locale.
+
+```bash
+# Démarre les services Supabase locaux dans Docker
+npx supabase start
+
+# Régénère le seed depuis les sources du projet, si nécessaire
+py scripts/generate_supabase_seed_from_sources.py
+
+# Recrée la base Docker locale, applique les migrations puis supabase/seed.sql
+npx supabase db reset --local
+```
+
+`supabase/seed.sql` peut contenir `truncate` car il est destiné à reconstruire la base de développement locale. Cette commande avec `--local` ne modifie jamais le projet Supabase de production. Ne pas utiliser `--linked` pour un seed destructif.
+
+#### Modèle SQL complet
+
+Ce modèle ajoute les ingrédients manquants sans écraser ceux qui existent déjà, puis ajoute une recette avec tous les attributs de `public.recipes`. Remplacer les valeurs d'exemple avant exécution.
+
+```sql
+begin;
+
+insert into public.ingredients (name, category, aliases)
+values
+  ('ingrédient principal', 'Fruits, légumes et légumineuses', array['alias éventuel'])
+on conflict (name) do nothing;
+
+insert into public.recipes (
+  id,
+  nom,
+  description,
+  saison,
+  mois,
+  mois_numero,
+  semaine,
+  jour,
+  tag,
+  categorie,
+  theme_special,
+  portions,
+  estimated_time,
+  difficulty,
+  image_url,
+  ingredients,
+  instructions,
+  astuce,
+  cuisson_micro_ondes,
+  sans_four,
+  source,
+  source_pdf,
+  source_page,
+  dietary_tags,
+  main_ingredients,
+  equipment,
+  canonical_ingredients_status
+)
+values (
+  'instagram-nom-recette-identifiant',
+  'Nom de la recette',
+  'Description courte.',
+  'été',
+  'juin',
+  6,
+  null,
+  null,
+  'déjeuner/dîner',
+  'salé',
+  null,
+  '2 personnes',
+  30,
+  'facile',
+  'https://images.pexels.com/photos/exemple.jpeg',
+  '[{"name":"ingrédient principal","quantity":"200","unit":"g","canonical":true}]'::jsonb,
+  '["Première étape.","Deuxième étape."]'::jsonb,
+  'Astuce facultative.',
+  false,
+  true,
+  'instagram',
+  'https://www.instagram.com/p/identifiant/',
+  null,
+  array['végétarien'],
+  array['ingrédient principal'],
+  array['saladier', 'poêle'],
+  'partial'
+);
+
+commit;
+```
+
+Les colonnes `id`, `created_at` et `updated_at` de `public.ingredients` sont générées automatiquement. Les colonnes `created_at` et `updated_at` de `public.recipes` sont également générées automatiquement. Les valeurs actuellement acceptées pour `source` sont `crous`, `lumora`, `broco-chou` et `instagram`.
+
 `NEXT_PUBLIC_SUPABASE_RECIPES_TABLE` est optionnelle. Si elle n'est pas définie, l'application utilise `recipes`.
 
 ### Schéma principal
