@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useBrocoChouStore } from "@/lib/store";
-import type { PlannedMeal, Recipe } from "@/lib/types";
+import type { Recipe } from "@/lib/types";
 import { fetchSupabaseRecipes } from "@/lib/supabase-recipes";
 import type { NavTab } from "./bottom-navigation";
 import { BottomNavigation } from "./bottom-navigation";
@@ -14,6 +14,7 @@ import { GroceryList } from "./grocery-list";
 import { ProfilePage } from "./profile-page";
 import { Onboarding } from "./onboarding";
 import { RecipeDetailSheet } from "./recipe-detail-sheet";
+import { WeeklyPlanEditor } from "./weekly-plan-editor";
 
 const pageVariants = {
   initial: { opacity: 0, y: 10 },
@@ -24,16 +25,16 @@ const pageVariants = {
 export function BrocoChouApp() {
   const [activeTab, setActiveTab] = useState<NavTab>("home");
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
+  const [isPlanEditorOpen, setIsPlanEditorOpen] = useState(false);
   const hasLoadedSupabase = useRef(false);
   const {
     hasCompletedOnboarding,
     generateWeeklyPlan,
+    createWeeklyPlan,
     generateGroceryList,
-    replaceMeal,
-    acceptedRecipes,
+    weeklyPlan,
     setRecipes,
     addRecipeToAccepted,
-    resetSwipes,
   } = useBrocoChouStore();
 
   useEffect(() => {
@@ -61,6 +62,7 @@ export function BrocoChouApp() {
 
   const completeSwipe = () => {
     generateWeeklyPlan();
+    setIsPlanEditorOpen(false);
     setActiveTab("calendar");
   };
 
@@ -69,21 +71,9 @@ export function BrocoChouApp() {
     setActiveTab("grocery");
   };
 
-  const replaceWithSuggestion = (meal: PlannedMeal) => {
-    const replacement = acceptedRecipes.find(recipe =>
-      recipe.id !== meal.recipeId &&
-      recipe.categorie === meal.recipe.categorie &&
-      recipe.tag === meal.recipe.tag
-    ) || acceptedRecipes.find(recipe => recipe.id !== meal.recipeId)
-
-    if (replacement) {
-      replaceMeal(meal.id, replacement);
-    }
-  };
-
-  const redoPlan = () => {
-    resetSwipes();
-    setActiveTab("swipe");
+  const openPlanEditor = () => {
+    if (!weeklyPlan) createWeeklyPlan();
+    setIsPlanEditorOpen(true);
   };
 
   const renderPage = () => {
@@ -98,12 +88,14 @@ export function BrocoChouApp() {
           />
         );
       case "calendar":
+        if (isPlanEditorOpen) {
+          return <WeeklyPlanEditor onDone={() => setIsPlanEditorOpen(false)} />;
+        }
         return (
           <WeeklyCalendar
             onViewRecipe={openRecipeDetails}
-            onReplaceMeal={replaceWithSuggestion}
             onGenerateGroceryList={openGroceryList}
-            onRedoPlan={redoPlan}
+            onEditPlan={openPlanEditor}
           />
         );
       case "grocery":

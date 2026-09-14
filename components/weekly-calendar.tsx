@@ -2,29 +2,34 @@
 
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChefHat, Check, Clock, ShoppingCart, RefreshCw } from "lucide-react"
+import { ChefHat, Check, Clock, PencilLine, ShoppingCart } from "lucide-react"
 import { useBrocoChouStore } from "@/lib/store"
 import type { Recipe, PlannedMeal } from "@/lib/types"
-import { DAYS_FR } from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { getFallbackRecipeImageUrl, getRecipeImageUrl, recipeTitle } from "@/lib/recipe-images"
 
+function isSameCalendarDay(first: Date | string, second: Date | string) {
+  const firstDate = new Date(first)
+  const secondDate = new Date(second)
+  return firstDate.getFullYear() === secondDate.getFullYear()
+    && firstDate.getMonth() === secondDate.getMonth()
+    && firstDate.getDate() === secondDate.getDate()
+}
+
 interface WeeklyCalendarProps {
   onViewRecipe: (recipe: Recipe) => void
-  onReplaceMeal: (meal: PlannedMeal) => void
   onGenerateGroceryList: () => void
-  onRedoPlan: () => void
+  onEditPlan: () => void
 }
 
 export function WeeklyCalendar({ 
   onViewRecipe, 
-  onReplaceMeal, 
   onGenerateGroceryList,
-  onRedoPlan 
+  onEditPlan
 }: WeeklyCalendarProps) {
   const { weeklyPlan, updateMealStatus } = useBrocoChouStore()
-  const [selectedDay, setSelectedDay] = useState<number>(new Date().getDay() === 0 ? 6 : new Date().getDay() - 1)
+  const [selectedDay, setSelectedDay] = useState(0)
 
   if (!weeklyPlan) {
     return (
@@ -36,35 +41,44 @@ export function WeeklyCalendar({
           Pas encore de planning
         </h2>
         <p className="text-warm-gray mb-6">
-          Commence par swiper quelques recettes pour créer ton planning de la semaine.
+          Crée ta semaine à partir d&apos;aujourd&apos;hui ou ajoute des recettes après les avoir découvertes.
         </p>
+        <Button
+          onClick={onEditPlan}
+          className="bg-gradient-to-r from-dusty-violet to-mauve-taupe text-white hover:opacity-90"
+        >
+          <PencilLine className="mr-2 h-4 w-4" />
+          Créer ma semaine
+        </Button>
       </div>
     )
   }
 
-  // Group meals by day
-  const mealsByDay = new Map<number, PlannedMeal[]>()
-  weeklyPlan.meals.forEach(meal => {
-    const dayIndex = new Date(meal.dayDate).getDay()
-    const normalizedIndex = dayIndex === 0 ? 6 : dayIndex - 1 // Monday = 0
-    const existing = mealsByDay.get(normalizedIndex) || []
-    mealsByDay.set(normalizedIndex, [...existing, meal])
+  const weekDays = Array.from({ length: 7 }, (_, index) => {
+    const date = new Date(weeklyPlan.weekStart)
+    date.setDate(date.getDate() + index)
+    return date
   })
 
-  const today = new Date()
-  const todayIndex = today.getDay() === 0 ? 6 : today.getDay() - 1
+  // Group meals by their date within this personal seven-day window.
+  const mealsByDay = new Map<number, PlannedMeal[]>()
+  weeklyPlan.meals.forEach(meal => {
+    const dayIndex = weekDays.findIndex(day => isSameCalendarDay(day, meal.dayDate))
+    if (dayIndex >= 0) {
+      const existing = mealsByDay.get(dayIndex) || []
+      mealsByDay.set(dayIndex, [...existing, meal])
+    }
+  })
+
+  const todayIndex = weekDays.findIndex(day => isSameCalendarDay(day, new Date()))
 
   const selectedMeals = [...(mealsByDay.get(selectedDay) || [])].sort((a, b) => {
     const order = { petit_dejeuner: 0, dejeuner: 1, diner: 2, dessert: 3 }
     return order[a.mealSlot] - order[b.mealSlot]
   })
 
-  // Format date for display
-  const formatDate = (dayOffset: number) => {
-    const date = new Date(weeklyPlan.weekStart)
-    date.setDate(date.getDate() + dayOffset)
-    return date.getDate()
-  }
+  const formatDate = (date: Date, options: Intl.DateTimeFormatOptions) =>
+    new Intl.DateTimeFormat("fr-FR", options).format(date)
 
   return (
     <div className="flex flex-col h-full">
@@ -80,10 +94,10 @@ export function WeeklyCalendar({
         {/* Week Navigation */}
         <div className="flex items-center justify-between">
           <span className="text-sm text-warm-gray">
-            Semaine du {new Date(weeklyPlan.weekStart).toLocaleDateString("fr-FR", { 
+            Du {formatDate(weekDays[0], {
               day: "numeric", 
               month: "long" 
-            })}
+            })} au {formatDate(weekDays[6], { day: "numeric", month: "long" })}
           </span>
         </div>
       </div>
@@ -91,7 +105,7 @@ export function WeeklyCalendar({
       {/* Day Selector */}
       <div className="px-4 mb-4">
         <div className="flex gap-2 overflow-x-auto hide-scrollbar py-1">
-          {DAYS_FR.map((day, index) => {
+          {weekDays.map((date, index) => {
             const meals = mealsByDay.get(index) || []
             const hasMainMeal = meals.some(m => m.mealSlot === "dejeuner" || m.mealSlot === "diner")
             const hasDessert = meals.some(m => m.mealSlot === "dessert")
@@ -102,8 +116,9 @@ export function WeeklyCalendar({
 
             return (
               <button
-                key={day}
+                key={date.toISOString()}
                 onClick={() => setSelectedDay(index)}
+                aria-pressed={isSelected}
                 className={cn(
                   "flex min-w-[3.5rem] flex-col items-center rounded-xl px-3 py-2 transition-all",
                   isSelected 
@@ -114,13 +129,13 @@ export function WeeklyCalendar({
                 )}
               >
                 <span className="text-xs font-medium mb-1">
-                  {day.slice(0, 3)}
+                  {formatDate(date, { weekday: "short" }).replace(".", "")}
                 </span>
                 <span className={cn(
                   "mb-1 text-base font-semibold",
                   isSelected ? "text-white" : "text-charcoal-soft"
                 )}>
-                  {formatDate(index)}
+                  {date.getDate()}
                 </span>
                 <div className="flex gap-0.5">
                   <div className={cn(
@@ -161,7 +176,7 @@ export function WeeklyCalendar({
           >
             <div className="flex items-center justify-between mb-2">
               <h3 className="font-semibold text-charcoal-soft">
-                {DAYS_FR[selectedDay]} {formatDate(selectedDay)}
+                {formatDate(weekDays[selectedDay], { weekday: "long", day: "numeric", month: "long" })}
               </h3>
               {selectedDay === todayIndex && (
                 <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-lavender text-deep-plum">
@@ -195,11 +210,11 @@ export function WeeklyCalendar({
       <div className="flex gap-3 px-4 py-4">
         <Button
           variant="outline"
-          onClick={onRedoPlan}
+          onClick={onEditPlan}
           className="flex-1 border-soft-sand text-warm-gray hover:bg-lavender/20"
         >
-          <RefreshCw className="h-4 w-4 mr-2" />
-          Refaire
+          <PencilLine className="h-4 w-4 mr-2" />
+          Modifier
         </Button>
         <Button
           onClick={onGenerateGroceryList}

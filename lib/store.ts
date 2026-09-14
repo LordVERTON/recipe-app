@@ -38,8 +38,11 @@ interface BrocoChouState {
   resetSwipes: () => void
   addRecipeToAccepted: (recipe: Recipe) => void
   generateWeeklyPlan: () => void
+  createWeeklyPlan: () => void
   updateMealStatus: (mealId: string, status: PlannedMeal['status']) => void
   replaceMeal: (mealId: string, newRecipe: Recipe) => void
+  setMealInPlan: (dayDate: Date, mealSlot: MealSlot, recipe: Recipe) => void
+  removeMealFromPlan: (dayDate: Date, mealSlot: MealSlot) => void
   setPreferences: (prefs: Partial<UserPreferences>) => void
   generateGroceryList: () => void
   toggleGroceryItem: (itemName: string) => void
@@ -62,6 +65,22 @@ const defaultPreferences: UserPreferences = {
   equipment: ['poele', 'casserole'],
   budgetLevel: 'etudiant',
   difficultyLevel: 'facile'
+}
+
+function startOfDay(date: Date | string): Date {
+  const normalized = new Date(date)
+  normalized.setHours(0, 0, 0, 0)
+  return normalized
+}
+
+function addDays(date: Date, amount: number): Date {
+  const result = new Date(date)
+  result.setDate(result.getDate() + amount)
+  return result
+}
+
+function isSameCalendarDay(first: Date | string, second: Date | string): boolean {
+  return startOfDay(first).getTime() === startOfDay(second).getTime()
 }
 
 export const useBrocoChouStore = create<BrocoChouState>()(
@@ -176,10 +195,8 @@ export const useBrocoChouStore = create<BrocoChouState>()(
         const plannedBreakfasts = mergeRecipePools(acceptedRecipes.filter(isBreakfastRecipe))
         const plannedDesserts = mergeRecipePools(desserts)
 
-        // Create 7-day plan
-        const today = new Date()
-        const weekStart = new Date(today)
-        weekStart.setDate(today.getDate() - today.getDay() + 1) // Monday
+        // Plans are personal seven-day windows, beginning today—not calendar weeks.
+        const weekStart = startOfDay(new Date())
         
         const meals: PlannedMeal[] = []
         const usedMainIngredients: Map<string, number> = new Map()
@@ -280,6 +297,24 @@ export const useBrocoChouStore = create<BrocoChouState>()(
         set({ weeklyPlan, currentStep: 'planning' })
       },
 
+      createWeeklyPlan: () => {
+        const weekStart = startOfDay(new Date())
+        const weekEnd = addDays(weekStart, 6)
+
+        set({
+          weeklyPlan: {
+            id: `plan-${Date.now()}`,
+            weekStart,
+            weekEnd,
+            meals: [],
+            balanceScore: 0,
+            status: 'active'
+          },
+          groceryList: [],
+          currentStep: 'planning'
+        })
+      },
+
       updateMealStatus: (mealId, status) => {
         set(state => {
           if (!state.weeklyPlan) return state
@@ -297,15 +332,73 @@ export const useBrocoChouStore = create<BrocoChouState>()(
       replaceMeal: (mealId, newRecipe) => {
         set(state => {
           if (!state.weeklyPlan) return state
+          const meals = state.weeklyPlan.meals.map(meal =>
+            meal.id === mealId
+              ? { ...meal, recipe: newRecipe, recipeId: newRecipe.id, status: 'remplace' as const }
+              : meal
+          )
           return {
             weeklyPlan: {
               ...state.weeklyPlan,
-              meals: state.weeklyPlan.meals.map(meal =>
-                meal.id === mealId 
-                  ? { ...meal, recipe: newRecipe, recipeId: newRecipe.id, status: 'remplace' as const }
+              meals,
+              balanceScore: calculateBalanceScore(meals)
+            },
+            groceryList: []
+          }
+        })
+      },
+
+      setMealInPlan: (dayDate, mealSlot, recipe) => {
+        set(state => {
+          if (!state.weeklyPlan) return state
+
+          const normalizedDay = startOfDay(dayDate)
+          const existingMeal = state.weeklyPlan.meals.find(meal =>
+            meal.mealSlot === mealSlot && isSameCalendarDay(meal.dayDate, normalizedDay)
+          )
+          const meals = existingMeal
+            ? state.weeklyPlan.meals.map(meal =>
+                meal.id === existingMeal.id
+                  ? { ...meal, recipe, recipeId: recipe.id, status: 'remplace' as const }
                   : meal
               )
-            }
+            : [
+                ...state.weeklyPlan.meals,
+                {
+                  id: `meal-${normalizedDay.getTime()}-${mealSlot}`,
+                  recipeId: recipe.id,
+                  recipe,
+                  dayDate: normalizedDay,
+                  mealSlot,
+                  status: 'planifie' as const
+                }
+              ]
+
+          return {
+            weeklyPlan: {
+              ...state.weeklyPlan,
+              meals,
+              balanceScore: calculateBalanceScore(meals)
+            },
+            groceryList: []
+          }
+        })
+      },
+
+      removeMealFromPlan: (dayDate, mealSlot) => {
+        set(state => {
+          if (!state.weeklyPlan) return state
+          const meals = state.weeklyPlan.meals.filter(meal =>
+            meal.mealSlot !== mealSlot || !isSameCalendarDay(meal.dayDate, dayDate)
+          )
+
+          return {
+            weeklyPlan: {
+              ...state.weeklyPlan,
+              meals,
+              balanceScore: calculateBalanceScore(meals)
+            },
+            groceryList: []
           }
         })
       },
