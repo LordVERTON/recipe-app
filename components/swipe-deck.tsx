@@ -145,9 +145,14 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
     }, 200)
   }, [advanceAfterSwipe, dragX])
 
-  const selectedMainMeals = acceptedRecipes.filter(isMainMealRecipe)
-  const selectedBreakfasts = acceptedRecipes.filter(isBreakfastRecipe)
-  const selectedDesserts = acceptedRecipes.filter(isDessertRecipe)
+  // Older persisted sessions can contain duplicate acceptances. Count only
+  // distinct recipes so the deck never declares a week complete too early.
+  const uniqueAcceptedRecipes = acceptedRecipes.filter(
+    (recipe, index, recipes) => recipes.findIndex(candidate => candidate.id === recipe.id) === index
+  )
+  const selectedMainMeals = uniqueAcceptedRecipes.filter(isMainMealRecipe)
+  const selectedBreakfasts = uniqueAcceptedRecipes.filter(isBreakfastRecipe)
+  const selectedDesserts = uniqueAcceptedRecipes.filter(isDessertRecipe)
   const requiredMainMeals = (preferences.mealSlots.includes("dejeuner") ? 7 : 0)
     + (preferences.mealSlots.includes("diner") ? 7 : 0)
   const requiredBreakfasts = preferences.includeBreakfast && preferences.mealSlots.includes("petit_dejeuner") ? 7 : 0
