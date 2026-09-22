@@ -5,6 +5,9 @@
 
 /* Broco-Chou Design System */
 :root {
+  /* System stacks keep local development and builds fully offline. */
+  --font-dm-sans: "Segoe UI", Arial, sans-serif;
+  --font-fraunces: Georgia, "Times New Roman", serif;
   /* Core Palette */
   --linen: #FAF0E6;
   --warm-ivory: #FFF9F5;

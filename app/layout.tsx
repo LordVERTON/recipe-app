@@ -1,17 +1,6 @@
 import type { Metadata, Viewport } from 'next'
-import { DM_Sans, Fraunces } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
-
-const dmSans = DM_Sans({ 
-  subsets: ["latin"],
-  variable: "--font-dm-sans",
-});
-
-const fraunces = Fraunces({ 
-  subsets: ["latin"],
-  variable: "--font-fraunces",
-});
 
 export const metadata: Metadata = {
   title: 'Broco-Chou - Planning repas étudiant',
@@ -42,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr" className={`${dmSans.variable} ${fraunces.variable}`}>
+    <html lang="fr">
       <body className="bg-background font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
