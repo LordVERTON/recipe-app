@@ -4,9 +4,10 @@ This project uses the Supabase CLI configuration in `supabase/config.toml`. Loca
 
 ## Prerequisites
 
-- Node.js and the project dependencies installed (`npm install`)
 - Docker Desktop running (required by the Supabase CLI for local services)
-- The Supabase CLI available through the project dependency or `npx supabase`
+- The project dependencies installed with `npm ci` (this includes the pinned Supabase CLI)
+
+The initial `npm run supabase:start` may download Docker service images. Once they are cached, the command deliberately hides any remote-link metadata during startup, so later starts do not contact Supabase Cloud and work without Internet.
 
 Do not commit `.env.local`, local service secrets, or anything in `supabase/.temp/`.
 
@@ -15,7 +16,7 @@ Do not commit `.env.local`, local service secrets, or anything in `supabase/.tem
 From the repository root, start Supabase first:
 
 ```powershell
-npx supabase start
+npm run supabase:start
 ```
 
 The configured local endpoints are:
@@ -27,11 +28,10 @@ The configured local endpoints are:
 | Studio | `http://127.0.0.1:54323` |
 | Next.js | `http://localhost:3000` (when started below) |
 
-The CLI prints the local API URL, anonymous key, and service-role key. Copy only the API URL and anonymous key into `.env.local`:
+The CLI prints the local API URL, anonymous key, and service-role key. Generate `.env.local` from those local values:
 
-```dotenv
-NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321
-NEXT_PUBLIC_SUPABASE_ANON_KEY=<the-local-anon-key-output-by-supabase-start>
+```powershell
+npm run supabase:env
 ```
 
 Then run the web app in a second terminal:
@@ -47,14 +47,14 @@ Open Studio to inspect tables and run safe development queries. Auth accepts `ht
 1. Create a timestamped migration:
 
    ```powershell
-   npx supabase migration new describe_the_change
+npm exec -- supabase migration new describe_the_change
    ```
 
 2. Edit the generated SQL in `supabase/migrations/`. Make migrations additive and reversible where practical.
 3. Apply locally and verify the schema/data:
 
    ```powershell
-   npx supabase db reset --local
+npm run supabase:reset
    ```
 
    This recreates the local database, applies all migrations in order, and runs `supabase/seed.sql` when present. It destroys only local Supabase database data.
@@ -80,16 +80,16 @@ The SQL files in `supabase/new-import/` are source/import artifacts. Review them
 
 ```powershell
 # Show local project status and connection values
-npx supabase status
+npm run supabase:status
 
 # Stop local containers (data remains in Docker volumes)
-npx supabase stop
+npm run supabase:stop
 
 # Stop and remove local volumes when a full clean start is wanted
-npx supabase stop --no-backup
+npm exec -- supabase stop --no-backup
 
 # Compare migration history with a linked remote project (only after `supabase link`)
-npx supabase migration list
+npm exec -- supabase migration list
 ```
 
 ## Remote-environment safety

@@ -384,15 +384,15 @@ La CLI Supabase permet aussi d'ajouter ou de vérifier des données SQL. La cibl
 
 ```bash
 # Exécute un script SQL sur le projet Supabase lié (peut être la production)
-npx supabase db query --linked --file chemin/vers/import.sql
+npm exec -- supabase db query --linked --file chemin/vers/import.sql
 
 # Vérifie les données sur le projet lié
-npx supabase db query --linked "select id, nom from public.recipes limit 10;"
+npm exec -- supabase db query --linked "select id, nom from public.recipes limit 10;"
 ```
 
 Avant toute écriture, vérifier que le projet lié est bien celui attendu avec `supabase/.temp/linked-project.json`. Les scripts d'import de production doivent être ciblés, transactionnels, et ne doivent pas utiliser `truncate` sauf si le remplacement complet des données est volontaire.
 
-Les commandes locales de la CLI, notamment `npx supabase start`, utilisent Docker pour générer une base locale de développement à partir des migrations et du seed. Cette base locale est distincte de la production : elle peut être réinitialisée sans modifier le projet Supabase distant. Ne pas confondre `--local` (développement Docker) et `--linked` (projet Supabase distant).
+Les commandes locales de la CLI, notamment `npm run supabase:start`, utilisent Docker pour générer une base locale de développement à partir des migrations et du seed. Cette base locale est distincte de la production : elle peut être réinitialisée sans modifier le projet Supabase distant. Ne pas confondre `--local` (développement Docker) et `--linked` (projet Supabase distant).
 
 #### Ajout d'une recette en production (projet Supabase lié)
 
@@ -400,13 +400,13 @@ Les commandes locales de la CLI, notamment `npx supabase start`, utilisent Docke
 2. Exécuter le fichier sur le projet lié :
 
 ```bash
-npx supabase db query --linked --file supabase/import-recipe.sql
+npm exec -- supabase db query --linked --file supabase/import-recipe.sql
 ```
 
 3. Vérifier la recette ajoutée avec une requête de lecture :
 
 ```bash
-npx supabase db query --linked "select id, nom, source, portions from public.recipes where id = 'recipe-id';"
+npm exec -- supabase db query --linked "select id, nom, source, portions from public.recipes where id = 'recipe-id';"
 ```
 
 4. Supprimer le fichier SQL temporaire s'il ne doit pas être conservé dans le dépôt.
@@ -414,7 +414,7 @@ npx supabase db query --linked "select id, nom, source, portions from public.rec
 Si une nouvelle valeur est nécessaire pour une contrainte (par exemple une nouvelle `source`), créer d'abord une migration dans `supabase/migrations/`, puis l'appliquer explicitement :
 
 ```bash
-npx supabase db push --linked --yes
+npm exec -- supabase db push --linked --yes
 ```
 
 Ne jamais utiliser `supabase db reset` contre la production : cette commande réinitialise les données. Pour la production, utiliser des `insert` ciblés et éviter `truncate`.
@@ -425,13 +425,13 @@ La base Docker locale est construite à partir des migrations et de `supabase/se
 
 ```bash
 # Démarre les services Supabase locaux dans Docker
-npx supabase start
+npm run supabase:start
 
 # Régénère le seed depuis les sources du projet, si nécessaire
 py scripts/generate_supabase_seed_from_sources.py
 
 # Recrée la base Docker locale, applique les migrations puis supabase/seed.sql
-npx supabase db reset --local
+npm run supabase:reset
 ```
 
 `supabase/seed.sql` peut contenir `truncate` car il est destiné à reconstruire la base de développement locale. Cette commande avec `--local` ne modifie jamais le projet Supabase de production. Ne pas utiliser `--linked` pour un seed destructif.
@@ -492,7 +492,7 @@ values (
   '2 personnes',
   30,
   'facile',
-  'https://images.pexels.com/photos/exemple.jpeg',
+  '/assets/recipe_images/pexels/nom-recette.jpg',
   '[{"name":"ingrédient principal","quantity":"200","unit":"g","canonical":true}]'::jsonb,
   '["Première étape.","Deuxième étape."]'::jsonb,
   'Astuce facultative.',
@@ -555,19 +555,20 @@ La Row Level Security est activée, avec des politiques de lecture pour les rôl
 Prérequis :
 
 - Node.js récent compatible avec Next.js 16 ;
-- pnpm recommandé, car le projet contient un `pnpm-lock.yaml` ;
-- un projet Supabase si l'on veut utiliser la base distante.
+- npm (le lockfile `package-lock.json` est versionné) ;
+- Docker Desktop pour la base Supabase locale ;
+- un projet Supabase uniquement si l'on veut utiliser la base distante.
 
 Installer les dépendances :
 
 ```bash
-pnpm install
+npm ci
 ```
 
 Lancer le serveur de développement :
 
 ```bash
-pnpm dev
+npm run dev
 ```
 
 L'application est ensuite disponible sur :
@@ -579,19 +580,19 @@ http://localhost:3000
 Construire pour la production :
 
 ```bash
-pnpm build
+npm run build
 ```
 
 Démarrer la version de production :
 
 ```bash
-pnpm start
+npm run start
 ```
 
 Lancer le lint :
 
 ```bash
-pnpm lint
+npm run lint
 ```
 
 ## Scripts disponibles
@@ -602,6 +603,9 @@ Dans `package.json` :
 - `build` : compile l'application ;
 - `start` : démarre l'application compilée ;
 - `lint` : lance ESLint sur le projet.
+- `dev` : démarre Next.js en développement ;
+- `supabase:start`, `supabase:status`, `supabase:stop`, `supabase:reset` : gèrent la pile Docker locale ;
+- `offline:check` : contrôle que le seed ne dépend d'aucune image Pexels distante.
 
 Dans `scripts/` :
 
