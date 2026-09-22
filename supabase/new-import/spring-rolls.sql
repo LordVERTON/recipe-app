@@ -55,7 +55,7 @@ values (
   '4 portions',
   25,
   'facile',
-  'https://images.pexels.com/photos/6646353/pexels-photo-6646353.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+  '/assets/recipe_images/pexels/rouleaux-de-printemps.jpg',
 
   '[
     {"name":"papier de riz","quantity":"8","unit":"feuilles","canonical":true},

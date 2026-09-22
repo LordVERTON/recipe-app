@@ -59,7 +59,7 @@ values (
   '1 personne',
   20,
   'facile',
-  'https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+  '/assets/recipe_images/pexels/tagliatelles-de-courgette-et-mozzarella.jpg',
 
   '[
     {"name":"courgette","quantity":"2","unit":"pieces","canonical":true},

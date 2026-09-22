@@ -6,6 +6,23 @@ const IMAGE_PATH_ALIASES: Record<string, string> = {
   "/assets/recipe_images/pexels/chakchouka-d-hiver.jpg": "/assets/recipe_images/pexels/chakchouka-dhiver.jpg",
 }
 
+function resolveLocalImagePath(imageUrl: string): string {
+  const alias = IMAGE_PATH_ALIASES[imageUrl]
+  if (alias) return alias
+
+  // The initial seed used hyphenated French elisions (d-hiver, l-avocat),
+  // while the checked-in JPEG filenames omit that separator (dhiver, lavocat).
+  // Normalize them here so both existing and future local databases work.
+  if (imageUrl.startsWith(PEXELS_IMAGE_BASE)) {
+    if (imageUrl.endsWith("/linguines-a-l-artichaut.jpg") || imageUrl.endsWith("/tartinade-d-artichaut.jpg")) {
+      return imageUrl
+    }
+    return imageUrl.replaceAll("-d-", "-d").replaceAll("-l-", "-l")
+  }
+
+  return imageUrl
+}
+
 const mojibakeMap: Record<string, string> = {
   "Ã©": "e",
   "Ã¨": "e",
@@ -48,7 +65,7 @@ export function slugifyRecipeName(name: string): string {
 
 export function getRecipeImageUrl(recipe: Recipe): string {
   if (recipe.imageUrl && !recipe.imageUrl.includes("placeholder")) {
-    return IMAGE_PATH_ALIASES[recipe.imageUrl] || recipe.imageUrl
+    return resolveLocalImagePath(recipe.imageUrl)
   }
 
   return `${PEXELS_IMAGE_BASE}/${slugifyRecipeName(recipe.nom)}.jpg`
