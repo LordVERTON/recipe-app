@@ -273,7 +273,7 @@ def build_seed(recipes, ingredients):
             sql_text_array(ingredient["aliases"]),
         ]) + ")")
 
-    return f"""-- Generated from recettes_crous_supabase.xlsx and ingredients.txt.
+    seed_sql = f"""-- Generated from recettes_crous_supabase.xlsx and ingredients.txt.
 begin;
 
 truncate table public.recipes restart identity cascade;
@@ -319,6 +319,12 @@ on conflict (name) do update set
 
 commit;
 """
+
+    weekly_import = Path("supabase/new-import/weekly-plan-recipes.sql")
+    if weekly_import.exists():
+        seed_sql += "\n\n-- Additional Broco-Chou recipes kept across seed regeneration.\n"
+        seed_sql += weekly_import.read_text(encoding="utf-8")
+    return seed_sql
 
 
 def main():
