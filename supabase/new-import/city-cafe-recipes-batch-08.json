@@ -1,0 +1,1705 @@
+[
+  {
+    "id": "city-cafe-roti-de-porc-et-sauce-charcutiere",
+    "original_name": "Rôti de porc et sauce charcutière",
+    "nom": "Rôti de porc et sauce charcutière",
+    "description": "Rôti de porc et sauce charcutière préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "hiver",
+    "mois": "janvier",
+    "mois_numero": 1,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 100,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/8257003/pexels-photo-8257003.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Porc",
+        "quantity": "600",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sortir la viande du réfrigérateur 15 minutes avant la cuisson et l’assaisonner. Préparer les légumes et préchauffer le four à 190 °C pour les pièces à rôtir.",
+      "Faire dorer la viande dans une cocotte ou une poêle chaude avec l’huile, sur toutes ses faces; réserver si nécessaire.",
+      "Cuire les aromates porc dans la même matière grasse. Pour un mijoté, ajouter le bouillon, couvrir et cuire à feu doux jusqu’à ce que la viande soit tendre; pour une pièce, poursuivre au four jusqu’à cuisson à cœur adaptée.",
+      "Préparer la sauce ou les légumes d’accompagnement, laisser reposer la viande 5 à 10 minutes, puis trancher et servir."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "porc"
+    ],
+    "main_ingredients": [
+      "porc"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "rôti de pork et sauce charcutière plated finished dish",
+    "pexels_photo_id": 8257003,
+    "pexels_alt": "Close-up of a braised pork dish with green vegetables and sauce, beautifully plated.",
+    "pexels_photographer": "AMANDA LIM",
+    "pexels_photographer_url": "https://www.pexels.com/@amanda-lim-5074906",
+    "pexels_url": "https://www.pexels.com/photo/cooked-food-on-white-ceramic-plate-8257003/"
+  },
+  {
+    "id": "city-cafe-saute-de-porc-basquaise-au-piment-d-espelette",
+    "original_name": "Sauté de porc basquaise au piment d’Espelette",
+    "nom": "Sauté de porc basquaise au piment d’Espelette",
+    "description": "Sauté de porc basquaise au piment d’Espelette préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "août",
+    "mois_numero": 8,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 80,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/32080132/pexels-photo-32080132.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Porc",
+        "quantity": "600",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Piment",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Bouillon",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Éplucher et couper les oignons et les carottes en morceaux réguliers; sécher et assaisonner la viande si le plat en contient. Faire chauffer l’huile dans une cocotte.",
+      "Faire dorer la viande par petites quantités, puis ajouter oignons, carottes et ail et cuire 4 minutes. Pour une version végétarienne, faire simplement revenir les légumes et les légumineuses.",
+      "Ajouter le bouillon et les aromates, couvrir et mijoter doucement jusqu’à ce que les ingrédients soient tendres (30 à 90 minutes selon le plat); remuer et ajouter un peu d’eau si nécessaire.",
+      "Cuire l’accompagnement séparément, goûter la sauce, rectifier l’assaisonnement et servir chaud."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "porc"
+    ],
+    "main_ingredients": [
+      "porc",
+      "piment"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "sauté de pork basquaise au piment d’espelette plated finished dish",
+    "pexels_photo_id": 32080132,
+    "pexels_alt": "Artful pork dish garnished with greens, elegantly plated, captured in Trentino-Alto Adige, Italy.",
+    "pexels_photographer": "Sergio Raffa",
+    "pexels_photographer_url": "https://www.pexels.com/@sergio-raffa-325143911",
+    "pexels_url": "https://www.pexels.com/photo/gourmet-pork-dish-with-artful-plating-in-italy-32080132/"
+  },
+  {
+    "id": "city-cafe-roti-de-veau-facon-grand-mere-et-pommes-nouvelles-confites",
+    "original_name": "Rôti de veau façon grand-mère et pommes nouvelles confites",
+    "nom": "Rôti de veau façon grand-mère et pommes nouvelles confites",
+    "description": "Rôti de veau façon grand-mère et pommes nouvelles confites préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "printemps",
+    "mois": "mai",
+    "mois_numero": 5,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 110,
+    "difficulty": "intermédiaire",
+    "image_url": "https://images.pexels.com/photos/7474109/pexels-photo-7474109.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Veau",
+        "quantity": "600",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sortir la viande du réfrigérateur 15 minutes avant la cuisson et l’assaisonner. Préparer les légumes et préchauffer le four à 190 °C pour les pièces à rôtir.",
+      "Faire dorer la viande dans une cocotte ou une poêle chaude avec l’huile, sur toutes ses faces; réserver si nécessaire.",
+      "Cuire les aromates veau dans la même matière grasse. Pour un mijoté, ajouter le bouillon, couvrir et cuire à feu doux jusqu’à ce que la viande soit tendre; pour une pièce, poursuivre au four jusqu’à cuisson à cœur adaptée.",
+      "Préparer la sauce ou les légumes d’accompagnement, laisser reposer la viande 5 à 10 minutes, puis trancher et servir."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "veau"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "rôti de veal façon grand-mère et pommes nouvelles confites plated finished dish",
+    "pexels_photo_id": 7474109,
+    "pexels_alt": "From above delicious vitello tonnato dish consisting of sliced veal covered with creamy sauce and lettuce leaves and served on plate",
+    "pexels_photographer": "Valeria Boltneva",
+    "pexels_photographer_url": "https://www.pexels.com/@valeriya",
+    "pexels_url": "https://www.pexels.com/photo/meat-served-with-sauce-and-lettuce-7474109/"
+  },
+  {
+    "id": "city-cafe-travers-de-porc-a-la-texane",
+    "original_name": "Travers de porc à la texane",
+    "nom": "Travers de porc à la texane",
+    "description": "Travers de porc à la texane préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juillet",
+    "mois_numero": 7,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 150,
+    "difficulty": "intermédiaire",
+    "image_url": "https://images.pexels.com/photos/36242485/pexels-photo-36242485.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Porc",
+        "quantity": "600",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sortir la viande du réfrigérateur 15 minutes avant la cuisson et l’assaisonner. Préparer les légumes et préchauffer le four à 190 °C pour les pièces à rôtir.",
+      "Faire dorer la viande dans une cocotte ou une poêle chaude avec l’huile, sur toutes ses faces; réserver si nécessaire.",
+      "Cuire les aromates porc dans la même matière grasse. Pour un mijoté, ajouter le bouillon, couvrir et cuire à feu doux jusqu’à ce que la viande soit tendre; pour une pièce, poursuivre au four jusqu’à cuisson à cœur adaptée.",
+      "Préparer la sauce ou les légumes d’accompagnement, laisser reposer la viande 5 à 10 minutes, puis trancher et servir."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "porc"
+    ],
+    "main_ingredients": [
+      "porc"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "travers de pork à la texane plated finished dish",
+    "pexels_photo_id": 36242485,
+    "pexels_alt": "Delicious gourmet dish featuring braised pork, carrots, peas, and mashed potatoes, elegantly plated.",
+    "pexels_photographer": "DΛVΞ GΛRCIΛ",
+    "pexels_photographer_url": "https://www.pexels.com/@davegarcia",
+    "pexels_url": "https://www.pexels.com/photo/gourmet-meal-with-braised-pork-and-vegetables-36242485/"
+  },
+  {
+    "id": "city-cafe-emince-de-veau-a-l-italienne-et-basilic",
+    "original_name": "Émincé de veau à l’italienne et basilic",
+    "nom": "Émincé de veau à l’italienne et basilic",
+    "description": "Émincé de veau à l’italienne et basilic préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "août",
+    "mois_numero": 8,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/31064160/pexels-photo-31064160.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Veau",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Basilic",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sortir la viande du réfrigérateur 15 minutes avant la cuisson et l’assaisonner. Préparer les légumes et préchauffer le four à 190 °C pour les pièces à rôtir.",
+      "Faire dorer la viande dans une cocotte ou une poêle chaude avec l’huile, sur toutes ses faces; réserver si nécessaire.",
+      "Cuire les aromates veau, basilic dans la même matière grasse. Pour un mijoté, ajouter le bouillon, couvrir et cuire à feu doux jusqu’à ce que la viande soit tendre; pour une pièce, poursuivre au four jusqu’à cuisson à cœur adaptée.",
+      "Préparer la sauce ou les légumes d’accompagnement, laisser reposer la viande 5 à 10 minutes, puis trancher et servir."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "veau",
+      "basilic"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "émincé de veal à l’italienne et basilic plated finished dish",
+    "pexels_photo_id": 31064160,
+    "pexels_alt": "Delicious veal scaloppini with mushroom sauce and pasta, garnished with fresh herbs.",
+    "pexels_photographer": "Mahmoud Salem",
+    "pexels_photographer_url": "https://www.pexels.com/@peno33",
+    "pexels_url": "https://www.pexels.com/photo/elegant-pasta-with-mushroom-and-herb-garnish-31064160/"
+  },
+  {
+    "id": "city-cafe-boulettes-d-agneau-a-la-libanaise",
+    "original_name": "Boulettes d’agneau à la libanaise",
+    "nom": "Boulettes d’agneau à la libanaise",
+    "description": "Boulettes d’agneau à la libanaise préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "printemps",
+    "mois": "mai",
+    "mois_numero": 5,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 45,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/16505918/pexels-photo-16505918.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Agneau",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sortir la viande du réfrigérateur 15 minutes avant la cuisson et l’assaisonner. Préparer les légumes et préchauffer le four à 190 °C pour les pièces à rôtir.",
+      "Faire dorer la viande dans une cocotte ou une poêle chaude avec l’huile, sur toutes ses faces; réserver si nécessaire.",
+      "Cuire les aromates agneau dans la même matière grasse. Pour un mijoté, ajouter le bouillon, couvrir et cuire à feu doux jusqu’à ce que la viande soit tendre; pour une pièce, poursuivre au four jusqu’à cuisson à cœur adaptée.",
+      "Préparer la sauce ou les légumes d’accompagnement, laisser reposer la viande 5 à 10 minutes, puis trancher et servir."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "agneau"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "boulettes d’lamb à la libanaise plated finished dish",
+    "pexels_photo_id": 16505918,
+    "pexels_alt": "Close-up of a beautifully plated dish with pomegranate seeds and pine nuts on a creamy base.",
+    "pexels_photographer": "Ranya Obeidallah",
+    "pexels_photographer_url": "https://www.pexels.com/@ranya-obeidallah-535160914",
+    "pexels_url": "https://www.pexels.com/photo/top-view-of-a-meal-on-a-plate-16505918/"
+  },
+  {
+    "id": "city-cafe-ribs-de-porc-barbecue-et-pommes-de-terre-roties",
+    "original_name": "Ribs de porc barbecue et pommes de terre rôties",
+    "nom": "Ribs de porc barbecue et pommes de terre rôties",
+    "description": "Ribs de porc barbecue et pommes de terre rôties préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 150,
+    "difficulty": "intermédiaire",
+    "image_url": "https://images.pexels.com/photos/16020706/pexels-photo-16020706.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Porc",
+        "quantity": "600",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sortir la viande du réfrigérateur 15 minutes avant la cuisson et l’assaisonner. Préparer les légumes et préchauffer le four à 190 °C pour les pièces à rôtir.",
+      "Faire dorer la viande dans une cocotte ou une poêle chaude avec l’huile, sur toutes ses faces; réserver si nécessaire.",
+      "Cuire les aromates porc dans la même matière grasse. Pour un mijoté, ajouter le bouillon, couvrir et cuire à feu doux jusqu’à ce que la viande soit tendre; pour une pièce, poursuivre au four jusqu’à cuisson à cœur adaptée.",
+      "Préparer la sauce ou les légumes d’accompagnement, laisser reposer la viande 5 à 10 minutes, puis trancher et servir."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "porc"
+    ],
+    "main_ingredients": [
+      "porc"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "ribs de pork barbecue et pommes de terre rôties plated finished dish",
+    "pexels_photo_id": 16020706,
+    "pexels_alt": "Delicious barbecued pork ribs with potato wedges on a white plate.",
+    "pexels_photographer": "Khải Huyền Trương",
+    "pexels_photographer_url": "https://www.pexels.com/@kh-i-huy-n-tr-ng-471596296",
+    "pexels_url": "https://www.pexels.com/photo/close-up-of-food-on-plate-16020706/"
+  },
+  {
+    "id": "city-cafe-joue-de-porc-au-cidre-et-lardons-fumes",
+    "original_name": "Joue de porc au cidre et lardons fumés",
+    "nom": "Joue de porc au cidre et lardons fumés",
+    "description": "Joue de porc au cidre et lardons fumés préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "hiver",
+    "mois": "janvier",
+    "mois_numero": 1,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 150,
+    "difficulty": "intermédiaire",
+    "image_url": "https://images.pexels.com/photos/19503818/pexels-photo-19503818.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Porc",
+        "quantity": "600",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Bouillon",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Éplucher et couper les oignons et les carottes en morceaux réguliers; sécher et assaisonner la viande si le plat en contient. Faire chauffer l’huile dans une cocotte.",
+      "Faire dorer la viande par petites quantités, puis ajouter oignons, carottes et ail et cuire 4 minutes. Pour une version végétarienne, faire simplement revenir les légumes et les légumineuses.",
+      "Ajouter le bouillon et les aromates, couvrir et mijoter doucement jusqu’à ce que les ingrédients soient tendres (30 à 90 minutes selon le plat); remuer et ajouter un peu d’eau si nécessaire.",
+      "Cuire l’accompagnement séparément, goûter la sauce, rectifier l’assaisonnement et servir chaud."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "porc"
+    ],
+    "main_ingredients": [
+      "porc"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "joue de pork au cidre et lardons fumés plated finished dish",
+    "pexels_photo_id": 19503818,
+    "pexels_alt": "Delicious pork dish with sauerkraut and seasoned fries, beautifully plated.",
+    "pexels_photographer": "Valeria Boltneva",
+    "pexels_photographer_url": "https://www.pexels.com/@valeriya",
+    "pexels_url": "https://www.pexels.com/photo/dinner-with-meat-and-sauerkraut-19503818/"
+  },
+  {
+    "id": "city-cafe-epaule-de-porc-farcie-aux-epinards-et-pruneaux",
+    "original_name": "Épaule de porc farcie aux épinards et pruneaux",
+    "nom": "Épaule de porc farcie aux épinards et pruneaux",
+    "description": "Épaule de porc farcie aux épinards et pruneaux préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "hiver",
+    "mois": "février",
+    "mois_numero": 2,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 180,
+    "difficulty": "intermédiaire",
+    "image_url": "https://images.pexels.com/photos/11001291/pexels-photo-11001291.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Épinards",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Porc",
+        "quantity": "600",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Pruneaux",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sortir la viande du réfrigérateur 15 minutes avant la cuisson et l’assaisonner. Préparer les légumes et préchauffer le four à 190 °C pour les pièces à rôtir.",
+      "Faire dorer la viande dans une cocotte ou une poêle chaude avec l’huile, sur toutes ses faces; réserver si nécessaire.",
+      "Cuire les aromates épinards, porc, pruneaux dans la même matière grasse. Pour un mijoté, ajouter le bouillon, couvrir et cuire à feu doux jusqu’à ce que la viande soit tendre; pour une pièce, poursuivre au four jusqu’à cuisson à cœur adaptée.",
+      "Préparer la sauce ou les légumes d’accompagnement, laisser reposer la viande 5 à 10 minutes, puis trancher et servir."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "porc"
+    ],
+    "main_ingredients": [
+      "épinards",
+      "porc",
+      "pruneaux"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "épaule de pork farcie aux épinards et pruneaux plated finished dish",
+    "pexels_photo_id": 11001291,
+    "pexels_alt": "Elegant plated dish featuring bacon-wrapped pork medallions on a bed of lentils and greens.",
+    "pexels_photographer": "Sylwester Ficek",
+    "pexels_photographer_url": "https://www.pexels.com/@sylwester-ficek-154797634",
+    "pexels_url": "https://www.pexels.com/photo/gourmet-bacon-wrapped-pork-with-lentils-11001291/"
+  },
+  {
+    "id": "city-cafe-grenadin-de-porc-sauce-moutarde-et-figues",
+    "original_name": "Grenadin de porc, sauce moutarde et figues",
+    "nom": "Grenadin de porc, sauce moutarde et figues",
+    "description": "Grenadin de porc, sauce moutarde et figues préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "automne",
+    "mois": "septembre",
+    "mois_numero": 9,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 40,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/37047950/pexels-photo-37047950.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Porc",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Figues",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Moutarde",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sortir la viande du réfrigérateur 15 minutes avant la cuisson et l’assaisonner. Préparer les légumes et préchauffer le four à 190 °C pour les pièces à rôtir.",
+      "Faire dorer la viande dans une cocotte ou une poêle chaude avec l’huile, sur toutes ses faces; réserver si nécessaire.",
+      "Cuire les aromates porc, figues, moutarde dans la même matière grasse. Pour un mijoté, ajouter le bouillon, couvrir et cuire à feu doux jusqu’à ce que la viande soit tendre; pour une pièce, poursuivre au four jusqu’à cuisson à cœur adaptée.",
+      "Préparer la sauce ou les légumes d’accompagnement, laisser reposer la viande 5 à 10 minutes, puis trancher et servir."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "porc"
+    ],
+    "main_ingredients": [
+      "porc",
+      "figues",
+      "moutarde"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "grenadin de pork, sauce moutarde et figues plated finished dish",
+    "pexels_photo_id": 37047950,
+    "pexels_alt": "Plate of traditional Czech dumplings and pork with savory sauce on a wooden table.",
+    "pexels_photographer": "Vero Lova",
+    "pexels_photographer_url": "https://www.pexels.com/@verolova",
+    "pexels_url": "https://www.pexels.com/photo/traditional-czech-meal-with-dumplings-and-pork-37047950/"
+  },
+  {
+    "id": "city-cafe-pave-de-cheval-et-sauce-bearnaise",
+    "original_name": "Pavé de cheval et sauce béarnaise",
+    "nom": "Pavé de cheval et sauce béarnaise",
+    "description": "Pavé de cheval et sauce béarnaise préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/39640989/pexels-photo-39640989.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Cheval",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sortir la viande du réfrigérateur 15 minutes avant la cuisson et l’assaisonner. Préparer les légumes et préchauffer le four à 190 °C pour les pièces à rôtir.",
+      "Faire dorer la viande dans une cocotte ou une poêle chaude avec l’huile, sur toutes ses faces; réserver si nécessaire.",
+      "Cuire les aromates cheval dans la même matière grasse. Pour un mijoté, ajouter le bouillon, couvrir et cuire à feu doux jusqu’à ce que la viande soit tendre; pour une pièce, poursuivre au four jusqu’à cuisson à cœur adaptée.",
+      "Préparer la sauce ou les légumes d’accompagnement, laisser reposer la viande 5 à 10 minutes, puis trancher et servir."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "cheval"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "pavé de steak et sauce béarnaise plated finished dish",
+    "pexels_photo_id": 39640989,
+    "pexels_alt": "A deliciously plated steak with mushroom sauce and smooth puree on a white ceramic plate.",
+    "pexels_photographer": "Flávio Nascimento",
+    "pexels_photographer_url": "https://www.pexels.com/@flavionascimento",
+    "pexels_url": "https://www.pexels.com/photo/gourmet-steak-with-mushroom-sauce-and-puree-39640989/"
+  },
+  {
+    "id": "city-cafe-pave-de-cheval-aux-herbes",
+    "original_name": "Pavé de cheval aux herbes",
+    "nom": "Pavé de cheval aux herbes",
+    "description": "Pavé de cheval aux herbes préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 25,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/13322845/pexels-photo-13322845.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Cheval",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sortir la viande du réfrigérateur 15 minutes avant la cuisson et l’assaisonner. Préparer les légumes et préchauffer le four à 190 °C pour les pièces à rôtir.",
+      "Faire dorer la viande dans une cocotte ou une poêle chaude avec l’huile, sur toutes ses faces; réserver si nécessaire.",
+      "Cuire les aromates cheval dans la même matière grasse. Pour un mijoté, ajouter le bouillon, couvrir et cuire à feu doux jusqu’à ce que la viande soit tendre; pour une pièce, poursuivre au four jusqu’à cuisson à cœur adaptée.",
+      "Préparer la sauce ou les légumes d’accompagnement, laisser reposer la viande 5 à 10 minutes, puis trancher et servir."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "cheval"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "pavé de steak aux herbes plated finished dish",
+    "pexels_photo_id": 13322845,
+    "pexels_alt": "Close-up of a gourmet beef steak with sauce and herbs, artfully plated.",
+    "pexels_photographer": "Valeria Boltneva",
+    "pexels_photographer_url": "https://www.pexels.com/@valeriya",
+    "pexels_url": "https://www.pexels.com/photo/grilled-meat-with-vegetable-on-white-ceramic-plate-13322845/"
+  },
+  {
+    "id": "city-cafe-magret-de-canard-roti-et-jus-balsamique",
+    "original_name": "Magret de canard rôti et jus balsamique",
+    "nom": "Magret de canard rôti et jus balsamique",
+    "description": "Magret de canard rôti et jus balsamique préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "automne",
+    "mois": "septembre",
+    "mois_numero": 9,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/19295799/pexels-photo-19295799.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Canard",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sortir la viande du réfrigérateur 15 minutes avant la cuisson et l’assaisonner. Préparer les légumes et préchauffer le four à 190 °C pour les pièces à rôtir.",
+      "Faire dorer la viande dans une cocotte ou une poêle chaude avec l’huile, sur toutes ses faces; réserver si nécessaire.",
+      "Cuire les aromates canard dans la même matière grasse. Pour un mijoté, ajouter le bouillon, couvrir et cuire à feu doux jusqu’à ce que la viande soit tendre; pour une pièce, poursuivre au four jusqu’à cuisson à cœur adaptée.",
+      "Préparer la sauce ou les légumes d’accompagnement, laisser reposer la viande 5 à 10 minutes, puis trancher et servir."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "canard"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "magret de duck rôti et jus balsamique plated finished dish",
+    "pexels_photo_id": 19295799,
+    "pexels_alt": "Delicious duck plated with rich sauce in a rustic ceramic bowl, perfect for a gourmet meal.",
+    "pexels_photographer": "Nadin Sh",
+    "pexels_photographer_url": "https://www.pexels.com/@nadin-sh-78971847",
+    "pexels_url": "https://www.pexels.com/photo/japanese-meal-in-a-bowl-19295799/"
+  },
+  {
+    "id": "city-cafe-parmentier-de-canard-mousseline-de-celeri-et-morilles",
+    "original_name": "Parmentier de canard, mousseline de céleri et morilles",
+    "nom": "Parmentier de canard, mousseline de céleri et morilles",
+    "description": "Parmentier de canard, mousseline de céleri et morilles préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "hiver",
+    "mois": "février",
+    "mois_numero": 2,
+    "tag": "dessert",
+    "categorie": "sucré",
+    "portions": "4 personnes",
+    "estimated_time": 90,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/29296209/pexels-photo-29296209.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Canard",
+        "quantity": "600",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Morilles",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Farine",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sucre",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "4",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Beurre",
+        "quantity": "120",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Crème",
+        "quantity": "120",
+        "unit": "g",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 180 °C. Peser les ingrédients secs et beurrer le moule si cette recette en utilise un.",
+      "Mélanger beurre et sucre jusqu’à obtenir une texture crémeuse, puis incorporer les œufs et les ingrédients aromatiques prévus.",
+      "Ajouter progressivement les ingrédients secs et les garnitures; mélanger juste assez pour former une préparation homogène.",
+      "Cuire selon le format: 10 à 12 min pour des cookies, 25 à 35 min pour un gâteau ou une crème au bain-marie. Laisser refroidir avant de servir."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [],
+    "main_ingredients": [
+      "canard",
+      "morilles"
+    ],
+    "equipment": [
+      "four",
+      "saladier",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "parmentier de duck, mousseline de céleri et morilles plated finished dish",
+    "pexels_photo_id": 29296209,
+    "pexels_alt": "A beautifully plated duck breast with potato gratin and sauce.",
+    "pexels_photographer": "Nadin Sh",
+    "pexels_photographer_url": "https://www.pexels.com/@nadin-sh-78971847",
+    "pexels_url": "https://www.pexels.com/photo/elegant-plate-of-gourmet-duck-and-potatoes-29296209/"
+  },
+  {
+    "id": "city-cafe-filet-de-canard-roti-jus-au-raisin-et-mousseline-de-pomme-de-terre-et-celeri",
+    "original_name": "Filet de canard rôti, jus au raisin et mousseline de pomme de terre et céleri",
+    "nom": "Filet de canard rôti, jus au raisin et mousseline de pomme de terre et céleri",
+    "description": "Filet de canard rôti, jus au raisin et mousseline de pomme de terre et céleri préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "automne",
+    "mois": "septembre",
+    "mois_numero": 9,
+    "tag": "dessert",
+    "categorie": "sucré",
+    "portions": "2 personnes",
+    "estimated_time": 55,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/14410380/pexels-photo-14410380.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Pommes de terre",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Canard",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Raisins",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Pommes",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Farine",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sucre",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Beurre",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Crème",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 180 °C. Peser les ingrédients secs et beurrer le moule si cette recette en utilise un.",
+      "Mélanger beurre et sucre jusqu’à obtenir une texture crémeuse, puis incorporer les œufs et les ingrédients aromatiques prévus.",
+      "Ajouter progressivement les ingrédients secs et les garnitures; mélanger juste assez pour former une préparation homogène.",
+      "Cuire selon le format: 10 à 12 min pour des cookies, 25 à 35 min pour un gâteau ou une crème au bain-marie. Laisser refroidir avant de servir."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [],
+    "main_ingredients": [
+      "pommes de terre",
+      "canard",
+      "raisins",
+      "pommes"
+    ],
+    "equipment": [
+      "four",
+      "saladier",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "filet de duck rôti, jus au raisin et mousseline de pomme de terre et céleri plated finished dish",
+    "pexels_photo_id": 14410380,
+    "pexels_alt": "Elegant gourmet duck dish artfully plated with rich red sauce and garnishes.",
+    "pexels_photographer": "Max Griss",
+    "pexels_photographer_url": "https://www.pexels.com/@max-griss-16866522",
+    "pexels_url": "https://www.pexels.com/photo/plate-with-a-meat-dish-14410380/"
+  },
+  {
+    "id": "city-cafe-pastilla-de-canard-aux-fruits-secs-miel-et-citron",
+    "original_name": "Pastilla de canard aux fruits secs, miel et citron",
+    "nom": "Pastilla de canard aux fruits secs, miel et citron",
+    "description": "Pastilla de canard aux fruits secs, miel et citron préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "automne",
+    "mois": "octobre",
+    "mois_numero": 10,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 100,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/36871906/pexels-photo-36871906.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Canard",
+        "quantity": "600",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Miel",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sortir la viande du réfrigérateur 15 minutes avant la cuisson et l’assaisonner. Préparer les légumes et préchauffer le four à 190 °C pour les pièces à rôtir.",
+      "Faire dorer la viande dans une cocotte ou une poêle chaude avec l’huile, sur toutes ses faces; réserver si nécessaire.",
+      "Cuire les aromates canard, citrons, miel dans la même matière grasse. Pour un mijoté, ajouter le bouillon, couvrir et cuire à feu doux jusqu’à ce que la viande soit tendre; pour une pièce, poursuivre au four jusqu’à cuisson à cœur adaptée.",
+      "Préparer la sauce ou les légumes d’accompagnement, laisser reposer la viande 5 à 10 minutes, puis trancher et servir."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "canard",
+      "citrons",
+      "miel"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "pastilla de duck aux fruits secs, miel et citron plated finished dish",
+    "pexels_photo_id": 36871906,
+    "pexels_alt": "Close-up of a Moroccan pastilla dessert garnished with mint and powdered sugar.",
+    "pexels_photographer": "Zak H",
+    "pexels_photographer_url": "https://www.pexels.com/@zakh",
+    "pexels_url": "https://www.pexels.com/photo/traditional-moroccan-pastilla-dessert-close-up-36871906/"
+  },
+  {
+    "id": "city-cafe-civet-de-cerf-au-cacao-et-spatzle",
+    "original_name": "Civet de cerf au cacao et spätzle",
+    "nom": "Civet de cerf au cacao et spätzle",
+    "description": "Civet de cerf au cacao et spätzle préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "hiver",
+    "mois": "janvier",
+    "mois_numero": 1,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 210,
+    "difficulty": "intermédiaire",
+    "image_url": "https://images.pexels.com/photos/38626233/pexels-photo-38626233.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Cerf",
+        "quantity": "600",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Cacao",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Bouillon",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Éplucher et couper les oignons et les carottes en morceaux réguliers; sécher et assaisonner la viande si le plat en contient. Faire chauffer l’huile dans une cocotte.",
+      "Faire dorer la viande par petites quantités, puis ajouter oignons, carottes et ail et cuire 4 minutes. Pour une version végétarienne, faire simplement revenir les légumes et les légumineuses.",
+      "Ajouter le bouillon et les aromates, couvrir et mijoter doucement jusqu’à ce que les ingrédients soient tendres (30 à 90 minutes selon le plat); remuer et ajouter un peu d’eau si nécessaire.",
+      "Cuire l’accompagnement séparément, goûter la sauce, rectifier l’assaisonnement et servir chaud."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "cerf",
+      "cacao"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "civet de venison au cacao et spätzle plated finished dish",
+    "pexels_photo_id": 38626233,
+    "pexels_alt": "A vibrant plate of Spatzle with eggs and fresh vegetables, showcasing a farm-to-table meal.",
+    "pexels_photographer": "DΛVΞ GΛRCIΛ",
+    "pexels_photographer_url": "https://www.pexels.com/@davegarcia",
+    "pexels_url": "https://www.pexels.com/photo/delicious-spatzle-dish-with-fresh-ingredients-38626233/"
+  },
+  {
+    "id": "city-cafe-saucisse-de-cerf-a-la-moutarde-airelles-et-spatzle",
+    "original_name": "Saucisse de cerf à la moutarde, airelles et spätzle",
+    "nom": "Saucisse de cerf à la moutarde, airelles et spätzle",
+    "description": "Saucisse de cerf à la moutarde, airelles et spätzle préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "automne",
+    "mois": "novembre",
+    "mois_numero": 11,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/38626236/pexels-photo-38626236.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Cerf",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Moutarde",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sortir la viande du réfrigérateur 15 minutes avant la cuisson et l’assaisonner. Préparer les légumes et préchauffer le four à 190 °C pour les pièces à rôtir.",
+      "Faire dorer la viande dans une cocotte ou une poêle chaude avec l’huile, sur toutes ses faces; réserver si nécessaire.",
+      "Cuire les aromates cerf, moutarde dans la même matière grasse. Pour un mijoté, ajouter le bouillon, couvrir et cuire à feu doux jusqu’à ce que la viande soit tendre; pour une pièce, poursuivre au four jusqu’à cuisson à cœur adaptée.",
+      "Préparer la sauce ou les légumes d’accompagnement, laisser reposer la viande 5 à 10 minutes, puis trancher et servir."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "cerf",
+      "moutarde"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "saucisse de venison à la moutarde, airelles et spätzle plated finished dish",
+    "pexels_photo_id": 38626236,
+    "pexels_alt": "A savory Spätzle dish garnished with herbs and surrounded by fresh vegetables and spices.",
+    "pexels_photographer": "DΛVΞ GΛRCIΛ",
+    "pexels_photographer_url": "https://www.pexels.com/@davegarcia",
+    "pexels_url": "https://www.pexels.com/photo/delicious-spatzle-dish-with-fresh-ingredients-38626236/"
+  },
+  {
+    "id": "city-cafe-poitrine-de-faisan-au-raisin-et-sauce-aux-morilles",
+    "original_name": "Poitrine de faisan au raisin et sauce aux morilles",
+    "nom": "Poitrine de faisan au raisin et sauce aux morilles",
+    "description": "Poitrine de faisan au raisin et sauce aux morilles préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "automne",
+    "mois": "octobre",
+    "mois_numero": 10,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 50,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/28705621/pexels-photo-28705621.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Faisan",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Raisins",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Morilles",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sortir la viande du réfrigérateur 15 minutes avant la cuisson et l’assaisonner. Préparer les légumes et préchauffer le four à 190 °C pour les pièces à rôtir.",
+      "Faire dorer la viande dans une cocotte ou une poêle chaude avec l’huile, sur toutes ses faces; réserver si nécessaire.",
+      "Cuire les aromates faisan, raisins, morilles dans la même matière grasse. Pour un mijoté, ajouter le bouillon, couvrir et cuire à feu doux jusqu’à ce que la viande soit tendre; pour une pièce, poursuivre au four jusqu’à cuisson à cœur adaptée.",
+      "Préparer la sauce ou les légumes d’accompagnement, laisser reposer la viande 5 à 10 minutes, puis trancher et servir."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "faisan",
+      "raisins",
+      "morilles"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "poitrine de pheasant au raisin et sauce aux morilles plated finished dish",
+    "pexels_photo_id": 28705621,
+    "pexels_alt": "A gourmet dish featuring a main meat portion, potatoes, greens, and a dark sauce, elegantly plated.",
+    "pexels_photographer": "Filipp Romanovski",
+    "pexels_photographer_url": "https://www.pexels.com/@filipp-romanovski-297235844",
+    "pexels_url": "https://www.pexels.com/photo/gourmet-fine-dining-plate-with-sauce-and-herbs-28705621/"
+  },
+  {
+    "id": "city-cafe-gigot-d-agneau-au-miel-curry-et-citron",
+    "original_name": "Gigot d’agneau au miel, curry et citron",
+    "nom": "Gigot d’agneau au miel, curry et citron",
+    "description": "Gigot d’agneau au miel, curry et citron préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "printemps",
+    "mois": "avril",
+    "mois_numero": 4,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 150,
+    "difficulty": "intermédiaire",
+    "image_url": "https://images.pexels.com/photos/12312117/pexels-photo-12312117.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Agneau",
+        "quantity": "600",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Curry",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Miel",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Bouillon",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Éplucher et couper les oignons et les carottes en morceaux réguliers; sécher et assaisonner la viande si le plat en contient. Faire chauffer l’huile dans une cocotte.",
+      "Faire dorer la viande par petites quantités, puis ajouter oignons, carottes et ail et cuire 4 minutes. Pour une version végétarienne, faire simplement revenir les légumes et les légumineuses.",
+      "Ajouter le bouillon et les aromates, couvrir et mijoter doucement jusqu’à ce que les ingrédients soient tendres (30 à 90 minutes selon le plat); remuer et ajouter un peu d’eau si nécessaire.",
+      "Cuire l’accompagnement séparément, goûter la sauce, rectifier l’assaisonnement et servir chaud."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "agneau",
+      "citrons",
+      "curry",
+      "miel"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "gigot d’lamb au miel, curry et citron plated finished dish",
+    "pexels_photo_id": 12312117,
+    "pexels_alt": "Top view of a delicious Indian lamb curry dish with herbs and spices.",
+    "pexels_photographer": "Pixie  Pannier",
+    "pexels_photographer_url": "https://www.pexels.com/@pixie-pannier-208944735",
+    "pexels_url": "https://www.pexels.com/photo/overhead-shot-of-a-meat-dish-12312117/"
+  }
+]

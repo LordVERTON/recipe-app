@@ -1,0 +1,3124 @@
+[
+  {
+    "id": "city-cafe-brochettes-de-saumon-et-saint-jacques-sauce-gremolata",
+    "original_name": "Brochettes de saumon et Saint-Jacques, sauce gremolata",
+    "nom": "Brochettes de saumon et Saint-Jacques, sauce gremolata",
+    "description": "Brochettes de saumon et Saint-Jacques, sauce gremolata préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/39193006/pexels-photo-39193006.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Saumon",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sécher le poisson et préparer les garnitures saumon; préchauffer le four à 190 °C si la cuisson est au four.",
+      "Cuire les accompagnements séparément: démarrer les pommes de terre ou les céréales dans une casserole d’eau salée.",
+      "Saisir le poisson dans une poêle huilée 2 à 3 min par face selon l’épaisseur, ou le cuire au four 10 à 15 min jusqu’à ce que sa chair soit opaque et se détache.",
+      "Préparer la sauce avec les aromates et le citron, puis servir immédiatement avec le poisson et l’accompagnement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "saumon"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "brochettes de salmon et saint-jacques, sauce gremolata plated finished dish",
+    "pexels_photo_id": 39193006,
+    "pexels_alt": "Delicious grilled salmon served with broccoli and gourmet sauce in cozy restaurant setting.",
+    "pexels_photographer": "Aabouden Yassir",
+    "pexels_photographer_url": "https://www.pexels.com/@aabouden-yassir-2163228451",
+    "pexels_url": "https://www.pexels.com/photo/salmon-dish-with-vegetables-on-patterned-plate-39193006/"
+  },
+  {
+    "id": "city-cafe-sebaste-a-la-marseillaise-citron-caramelise-et-fenouil",
+    "original_name": "Sébaste à la marseillaise, citron caramélisé et fenouil",
+    "nom": "Sébaste à la marseillaise, citron caramélisé et fenouil",
+    "description": "Sébaste à la marseillaise, citron caramélisé et fenouil préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 40,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/11091826/pexels-photo-11091826.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Sébaste",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Fenouil",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sécher le poisson et préparer les garnitures sébaste, fenouil, citrons; préchauffer le four à 190 °C si la cuisson est au four.",
+      "Cuire les accompagnements séparément: démarrer les pommes de terre ou les céréales dans une casserole d’eau salée.",
+      "Saisir le poisson dans une poêle huilée 2 à 3 min par face selon l’épaisseur, ou le cuire au four 10 à 15 min jusqu’à ce que sa chair soit opaque et se détache.",
+      "Préparer la sauce avec les aromates et le citron, puis servir immédiatement avec le poisson et l’accompagnement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "sébaste",
+      "fenouil",
+      "citrons"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "rockfish à la marseillaise, citron caramélisé et fenouil plated finished dish",
+    "pexels_photo_id": 11091826,
+    "pexels_alt": "A delectable fusion meal plated artistically on a light blue plate showcasing vibrant colors and textures.",
+    "pexels_photographer": "yoland rafougilet",
+    "pexels_photographer_url": "https://www.pexels.com/@yokafimages974",
+    "pexels_url": "https://www.pexels.com/photo/potatoes-with-stewed-vegetables-on-a-light-blue-plate-11091826/"
+  },
+  {
+    "id": "city-cafe-joues-de-lotte-aux-deux-citrons-et-capres",
+    "original_name": "Joues de lotte aux deux citrons et câpres",
+    "nom": "Joues de lotte aux deux citrons et câpres",
+    "description": "Joues de lotte aux deux citrons et câpres préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "printemps",
+    "mois": "avril",
+    "mois_numero": 4,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/27039902/pexels-photo-27039902.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Lotte",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Câpres",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Bouillon",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Éplucher et couper les oignons et les carottes en morceaux réguliers; sécher et assaisonner la viande si le plat en contient. Faire chauffer l’huile dans une cocotte.",
+      "Faire dorer la viande par petites quantités, puis ajouter oignons, carottes et ail et cuire 4 minutes. Pour une version végétarienne, faire simplement revenir les légumes et les légumineuses.",
+      "Ajouter le bouillon et les aromates, couvrir et mijoter doucement jusqu’à ce que les ingrédients soient tendres (30 à 90 minutes selon le plat); remuer et ajouter un peu d’eau si nécessaire.",
+      "Cuire l’accompagnement séparément, goûter la sauce, rectifier l’assaisonnement et servir chaud."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "lotte",
+      "câpres"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "joues de monkfish aux deux citrons et câpres plated finished dish",
+    "pexels_photo_id": 27039902,
+    "pexels_alt": "Close-up of a gourmet dish with vibrant colors and fresh ingredients elegantly plated.",
+    "pexels_photographer": "Change C.C",
+    "pexels_photographer_url": "https://www.pexels.com/@change-c-c-974768353",
+    "pexels_url": "https://www.pexels.com/photo/close-up-of-a-dish-on-a-white-plate-27039902/"
+  },
+  {
+    "id": "city-cafe-cabillaud-au-panko-et-mayonnaise-au-wasabi",
+    "original_name": "Cabillaud au panko et mayonnaise au wasabi",
+    "nom": "Cabillaud au panko et mayonnaise au wasabi",
+    "description": "Cabillaud au panko et mayonnaise au wasabi préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/38995738/pexels-photo-38995738.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Cabillaud",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sécher le poisson et préparer les garnitures cabillaud; préchauffer le four à 190 °C si la cuisson est au four.",
+      "Cuire les accompagnements séparément: démarrer les pommes de terre ou les céréales dans une casserole d’eau salée.",
+      "Saisir le poisson dans une poêle huilée 2 à 3 min par face selon l’épaisseur, ou le cuire au four 10 à 15 min jusqu’à ce que sa chair soit opaque et se détache.",
+      "Préparer la sauce avec les aromates et le citron, puis servir immédiatement avec le poisson et l’accompagnement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "cabillaud"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "cod au panko et mayonnaise au wasabi plated finished dish",
+    "pexels_photo_id": 38995738,
+    "pexels_alt": "Elegant plated cod fillet with spring peas and mushrooms in a yellow sauce.",
+    "pexels_photographer": "Nadin Sh",
+    "pexels_photographer_url": "https://www.pexels.com/@nadin-sh-78971847",
+    "pexels_url": "https://www.pexels.com/photo/gourmet-cod-with-mushrooms-and-peas-38995738/"
+  },
+  {
+    "id": "city-cafe-parmentier-de-poisson-a-la-patate-douce",
+    "original_name": "Parmentier de poisson à la patate douce",
+    "nom": "Parmentier de poisson à la patate douce",
+    "description": "Parmentier de poisson à la patate douce préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "hiver",
+    "mois": "janvier",
+    "mois_numero": 1,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 65,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/24289143/pexels-photo-24289143.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Poisson blanc",
+        "quantity": "600",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Pommes de terre",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "4",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Fromage frais",
+        "quantity": "120",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 190 °C. Préparer la garniture poisson blanc et cuire au préalable les légumes humides dans une poêle pour évacuer leur eau.",
+      "Foncer le moule ou la plaque avec la pâte; piquer le fond. Mélanger les œufs, la crème et le fromage, puis assaisonner.",
+      "Répartir la garniture, verser l’appareil ou la sauce et enfourner 30 à 40 minutes jusqu’à ce que la pâte soit dorée et le centre pris.",
+      "Laisser reposer 8 minutes avant de couper; accompagner de la salade ou des herbes prévues."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": false,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "poisson blanc"
+    ],
+    "equipment": [
+      "four",
+      "saladier",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "parmentier de fish à la patate douce plated finished dish",
+    "pexels_photo_id": 24289143,
+    "pexels_alt": "A beautifully plated seafood dish with shrimp and fish on an elegant plate, captured in Oporto.",
+    "pexels_photographer": "Adriano Bragi",
+    "pexels_photographer_url": "https://www.pexels.com/@adriano-bragi-1288014591",
+    "pexels_url": "https://www.pexels.com/photo/seafood-on-plate-24289143/"
+  },
+  {
+    "id": "city-cafe-lieu-noir-en-croute-de-noisette-et-pistou-provencal",
+    "original_name": "Lieu noir en croûte de noisette et pistou provençal",
+    "nom": "Lieu noir en croûte de noisette et pistou provençal",
+    "description": "Lieu noir en croûte de noisette et pistou provençal préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/35617863/pexels-photo-35617863.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Lieu noir",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Noisettes",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préparer et couper les légumes lieu noir, noisettes en morceaux réguliers. Préchauffer le four à 200 °C si la recette prévoit une cuisson rôtie.",
+      "Faire revenir les aromates dans une casserole ou une grande poêle avec l’huile, puis ajouter les légumes et les légumineuses.",
+      "Ajouter un fond d’eau ou de bouillon, couvrir et cuire 15 à 25 minutes jusqu’à tendreté; mélanger régulièrement et compléter le liquide si nécessaire.",
+      "Assaisonner, ajouter les herbes et le fromage prévus, puis servir avec l’accompagnement indiqué."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "lieu noir",
+      "noisettes"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "lieu noir en croûte de noisette et pistou provençal plated finished dish",
+    "pexels_photo_id": 35617863,
+    "pexels_alt": "Delicious salmon en croute with vegetables served on a black plate, finished with a mustard sauce drizzle.",
+    "pexels_photographer": "bams awey",
+    "pexels_photographer_url": "https://www.pexels.com/@bambangawey",
+    "pexels_url": "https://www.pexels.com/photo/gourmet-salmon-en-croute-with-vegetables-and-sauce-35617863/"
+  },
+  {
+    "id": "city-cafe-fletan-en-papillote-d-ete",
+    "original_name": "Flétan en papillote d’été",
+    "nom": "Flétan en papillote d’été",
+    "description": "Flétan en papillote d’été préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juillet",
+    "mois_numero": 7,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 30,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/37367757/pexels-photo-37367757.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Flétan",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préparer et couper les légumes flétan en morceaux réguliers. Préchauffer le four à 200 °C si la recette prévoit une cuisson rôtie.",
+      "Faire revenir les aromates dans une casserole ou une grande poêle avec l’huile, puis ajouter les légumes et les légumineuses.",
+      "Ajouter un fond d’eau ou de bouillon, couvrir et cuire 15 à 25 minutes jusqu’à tendreté; mélanger régulièrement et compléter le liquide si nécessaire.",
+      "Assaisonner, ajouter les herbes et le fromage prévus, puis servir avec l’accompagnement indiqué."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "flétan"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "baked halibut fish foil lemon herbs",
+    "pexels_photo_id": 37367757,
+    "pexels_alt": "Savor this flavorful baked fish served with rice and garnished with fresh lemon and herbs.",
+    "pexels_photographer": "Mahi Mog",
+    "pexels_photographer_url": "https://www.pexels.com/@mahimoh",
+    "pexels_url": "https://www.pexels.com/photo/delicious-baked-fish-with-lemon-and-herbs-37367757/",
+    "pexels_source_url": "https://images.pexels.com/photos/37367757/pexels-photo-37367757.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+  },
+  {
+    "id": "city-cafe-filets-de-perche-au-beurre-citron-basilic-et-pommes-frites",
+    "original_name": "Filets de perche au beurre citron-basilic et pommes frites",
+    "nom": "Filets de perche au beurre citron-basilic et pommes frites",
+    "description": "Filets de perche au beurre citron-basilic et pommes frites préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 45,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/32651690/pexels-photo-32651690.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Beurre",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Perche",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Basilic",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sécher le poisson et préparer les garnitures beurre, perche, citrons; préchauffer le four à 190 °C si la cuisson est au four.",
+      "Cuire les accompagnements séparément: démarrer les pommes de terre ou les céréales dans une casserole d’eau salée.",
+      "Saisir le poisson dans une poêle huilée 2 à 3 min par face selon l’épaisseur, ou le cuire au four 10 à 15 min jusqu’à ce que sa chair soit opaque et se détache.",
+      "Préparer la sauce avec les aromates et le citron, puis servir immédiatement avec le poisson et l’accompagnement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "beurre",
+      "perche",
+      "citrons",
+      "basilic"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "perch fillet fish fries lemon",
+    "pexels_photo_id": 32651690,
+    "pexels_alt": "Delicious crispy fish fillet paired with fries, cherry tomatoes, and a lemon wedge for a perfect meal.",
+    "pexels_photographer": "Nour Alhoda",
+    "pexels_photographer_url": "https://www.pexels.com/@nour-alhoda-2151678059",
+    "pexels_url": "https://www.pexels.com/photo/crispy-fish-and-fries-on-wooden-platter-32651690/",
+    "pexels_source_url": "https://images.pexels.com/photos/32651690/pexels-photo-32651690.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+  },
+  {
+    "id": "city-cafe-salade-cesar-aux-gambas-panees",
+    "original_name": "Salade César aux gambas panées",
+    "nom": "Salade César aux gambas panées",
+    "description": "Salade César aux gambas panées préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/5272106/pexels-photo-5272106.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Gambas",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sécher le poisson et préparer les garnitures gambas; préchauffer le four à 190 °C si la cuisson est au four.",
+      "Cuire les accompagnements séparément: démarrer les pommes de terre ou les céréales dans une casserole d’eau salée.",
+      "Saisir le poisson dans une poêle huilée 2 à 3 min par face selon l’épaisseur, ou le cuire au four 10 à 15 min jusqu’à ce que sa chair soit opaque et se détache.",
+      "Préparer la sauce avec les aromates et le citron, puis servir immédiatement avec le poisson et l’accompagnement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "gambas"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "salade césar aux prawns panées plated finished dish",
+    "pexels_photo_id": 5272106,
+    "pexels_alt": "Crispy prawns served with fresh salad and lime on a blue ceramic plate, perfect culinary presentation.",
+    "pexels_photographer": "Denys Gromov",
+    "pexels_photographer_url": "https://www.pexels.com/@jdgromov",
+    "pexels_url": "https://www.pexels.com/photo/close-up-shot-of-delicious-prawns-on-a-tray-5272106/"
+  },
+  {
+    "id": "city-cafe-truite-de-mer-au-four-laquage-aux-herbes",
+    "original_name": "Truite de mer au four, laquage aux herbes",
+    "nom": "Truite de mer au four, laquage aux herbes",
+    "description": "Truite de mer au four, laquage aux herbes préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/34178398/pexels-photo-34178398.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Truite",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sécher le poisson et préparer les garnitures truite; préchauffer le four à 190 °C si la cuisson est au four.",
+      "Cuire les accompagnements séparément: démarrer les pommes de terre ou les céréales dans une casserole d’eau salée.",
+      "Saisir le poisson dans une poêle huilée 2 à 3 min par face selon l’épaisseur, ou le cuire au four 10 à 15 min jusqu’à ce que sa chair soit opaque et se détache.",
+      "Préparer la sauce avec les aromates et le citron, puis servir immédiatement avec le poisson et l’accompagnement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "truite"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "truite de mer au four, laquage aux herbes plated finished dish",
+    "pexels_photo_id": 34178398,
+    "pexels_alt": "Exquisite fish dish garnished with fresh herbs and served elegantly in Boulogne-sur-Mer.",
+    "pexels_photographer": "Bingqian Li",
+    "pexels_photographer_url": "https://www.pexels.com/@bingqian-li-230971044",
+    "pexels_url": "https://www.pexels.com/photo/gourmet-fish-dish-with-herbs-in-boulogne-sur-mer-34178398/"
+  },
+  {
+    "id": "city-cafe-ceviche-d-eglefin-aux-agrumes-et-lait-de-coco",
+    "original_name": "Ceviche d’églefin aux agrumes et lait de coco",
+    "nom": "Ceviche d’églefin aux agrumes et lait de coco",
+    "description": "Ceviche d’églefin aux agrumes et lait de coco préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 30,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/28490844/pexels-photo-28490844.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Églefin",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oranges",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Choisir un poisson vendu pour consommation crue, le maintenir à 4 °C ou moins et le préparer avec du matériel propre; respecter les consignes du poissonnier concernant la congélation antiparasitaire.",
+      "Couper le poisson au couteau juste avant le repas. Mélanger avec agrumes, herbes et assaisonnement, puis réserver au réfrigérateur pendant la courte durée prévue par la recette.",
+      "Le jus de citron modifie la texture mais ne détruit pas de façon fiable les microbes ou parasites; ne pas servir à une personne enceinte, âgée ou immunodéprimée.",
+      "Servir très frais dès la préparation et jeter les restes; ne pas laisser le poisson cru à température ambiante."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "églefin",
+      "oranges"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "ceviche d’églefin aux agrumes et lait de coco plated finished dish",
+    "pexels_photo_id": 28490844,
+    "pexels_alt": "Delicious gourmet ceviche served with corn and fried fish on a stylish plate.",
+    "pexels_photographer": "Nano Erdozain",
+    "pexels_photographer_url": "https://www.pexels.com/@nano-erdozain-120534369",
+    "pexels_url": "https://www.pexels.com/photo/gourmet-ceviche-with-traditional-sides-28490844/"
+  },
+  {
+    "id": "city-cafe-daurade-et-sauce-vierge-estivale",
+    "original_name": "Daurade et sauce vierge estivale",
+    "nom": "Daurade et sauce vierge estivale",
+    "description": "Daurade et sauce vierge estivale préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "août",
+    "mois_numero": 8,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 30,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/11217817/pexels-photo-11217817.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Daurade",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sécher le poisson et préparer les garnitures daurade; préchauffer le four à 190 °C si la cuisson est au four.",
+      "Cuire les accompagnements séparément: démarrer les pommes de terre ou les céréales dans une casserole d’eau salée.",
+      "Saisir le poisson dans une poêle huilée 2 à 3 min par face selon l’épaisseur, ou le cuire au four 10 à 15 min jusqu’à ce que sa chair soit opaque et se détache.",
+      "Préparer la sauce avec les aromates et le citron, puis servir immédiatement avec le poisson et l’accompagnement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "daurade"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "sea bream et sauce vierge estivale plated finished dish",
+    "pexels_photo_id": 11217817,
+    "pexels_alt": "Elegant gourmet fish dinner plated with saffron sauce and roasted vegetables.",
+    "pexels_photographer": "Valeriya Kobzar",
+    "pexels_photographer_url": "https://www.pexels.com/@valeriya-kobzar-42371713",
+    "pexels_url": "https://www.pexels.com/photo/cooked-food-on-white-ceramic-plate-11217817/"
+  },
+  {
+    "id": "city-cafe-tartare-de-lieu-noir-avocat-tomate-et-coriandre",
+    "original_name": "Tartare de lieu noir, avocat, tomate et coriandre",
+    "nom": "Tartare de lieu noir, avocat, tomate et coriandre",
+    "description": "Tartare de lieu noir, avocat, tomate et coriandre préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 25,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/10296416/pexels-photo-10296416.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Tomates",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Avocats",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Lieu noir",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Coriandre",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préparer et couper les légumes tomates, avocats, lieu noir, coriandre en morceaux réguliers. Préchauffer le four à 200 °C si la recette prévoit une cuisson rôtie.",
+      "Faire revenir les aromates dans une casserole ou une grande poêle avec l’huile, puis ajouter les légumes et les légumineuses.",
+      "Ajouter un fond d’eau ou de bouillon, couvrir et cuire 15 à 25 minutes jusqu’à tendreté; mélanger régulièrement et compléter le liquide si nécessaire.",
+      "Assaisonner, ajouter les herbes et le fromage prévus, puis servir avec l’accompagnement indiqué."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "tomates",
+      "avocats",
+      "lieu noir",
+      "coriandre"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "tartare de lieu noir, avocado, tomato et coriandre plated finished dish",
+    "pexels_photo_id": 10296416,
+    "pexels_alt": "Delicious avocado and salmon tartare served on a stylish black tray with cherry tomatoes.",
+    "pexels_photographer": "Shameel mukkath",
+    "pexels_photographer_url": "https://www.pexels.com/@shameel-mukkath-3421394",
+    "pexels_url": "https://www.pexels.com/photo/meal-on-plate-and-avocado-behind-10296416/"
+  },
+  {
+    "id": "city-cafe-bar-roti-aux-herbes-de-provence-et-aioli",
+    "original_name": "Bar rôti aux herbes de Provence et aïoli",
+    "nom": "Bar rôti aux herbes de Provence et aïoli",
+    "description": "Bar rôti aux herbes de Provence et aïoli préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 40,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/37534677/pexels-photo-37534677.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Bar",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sécher le poisson et préparer les garnitures bar; préchauffer le four à 190 °C si la cuisson est au four.",
+      "Cuire les accompagnements séparément: démarrer les pommes de terre ou les céréales dans une casserole d’eau salée.",
+      "Saisir le poisson dans une poêle huilée 2 à 3 min par face selon l’épaisseur, ou le cuire au four 10 à 15 min jusqu’à ce que sa chair soit opaque et se détache.",
+      "Préparer la sauce avec les aromates et le citron, puis servir immédiatement avec le poisson et l’accompagnement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "bar"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "roasted sea bass herbs aioli",
+    "pexels_photo_id": 37534677,
+    "pexels_alt": "Deliciously grilled fish garnished with herbs, garlic, and lime on a white plate.",
+    "pexels_photographer": "Masuma Rahaman",
+    "pexels_photographer_url": "https://www.pexels.com/@masuma-rahaman-437541976",
+    "pexels_url": "https://www.pexels.com/photo/grilled-whole-fish-with-herbs-and-lime-37534677/",
+    "pexels_source_url": "https://images.pexels.com/photos/37534677/pexels-photo-37534677.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+  },
+  {
+    "id": "city-cafe-curry-de-crevettes-au-lait-de-coco-et-legumes-wok",
+    "original_name": "Curry de crevettes au lait de coco et légumes wok",
+    "nom": "Curry de crevettes au lait de coco et légumes wok",
+    "description": "Curry de crevettes au lait de coco et légumes wok préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/27039838/pexels-photo-27039838.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Crevettes",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Curry",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Bouillon",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Éplucher et couper les oignons et les carottes en morceaux réguliers; sécher et assaisonner la viande si le plat en contient. Faire chauffer l’huile dans une cocotte.",
+      "Faire dorer la viande par petites quantités, puis ajouter oignons, carottes et ail et cuire 4 minutes. Pour une version végétarienne, faire simplement revenir les légumes et les légumineuses.",
+      "Ajouter le bouillon et les aromates, couvrir et mijoter doucement jusqu’à ce que les ingrédients soient tendres (30 à 90 minutes selon le plat); remuer et ajouter un peu d’eau si nécessaire.",
+      "Cuire l’accompagnement séparément, goûter la sauce, rectifier l’assaisonnement et servir chaud."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "crevettes",
+      "curry"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "curry de shrimp au lait de coco et légumes wok plated finished dish",
+    "pexels_photo_id": 27039838,
+    "pexels_alt": "Delicious shrimp curry served on an elegant white plate with a dark wood table backdrop.",
+    "pexels_photographer": "Change C.C",
+    "pexels_photographer_url": "https://www.pexels.com/@change-c-c-974768353",
+    "pexels_url": "https://www.pexels.com/photo/close-up-of-a-plate-with-a-gourmet-dish-27039838/"
+  },
+  {
+    "id": "city-cafe-tartines-aillees-au-sebaste-et-pesto",
+    "original_name": "Tartines aillées au sébaste et pesto",
+    "nom": "Tartines aillées au sébaste et pesto",
+    "description": "Tartines aillées au sébaste et pesto préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 30,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/334985/pexels-photo-334985.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Sébaste",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Pesto",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Pain",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Salade",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Tomates",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préparer les garnitures sébaste, pesto; laver et essorer les légumes, puis cuire toute protéine crue à cœur dans une poêle chaude.",
+      "Mélanger les éléments de sauce et assaisonner. Trancher le pain; le toaster ou le réchauffer à la poêle jusqu’à ce qu’il soit doré.",
+      "Monter le sandwich avec la sauce, les éléments chauds puis les légumes frais. Pour un fromage à gratiner, passer 3 à 5 minutes sous le gril.",
+      "Couper en deux et servir aussitôt, avec la garniture prévue."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "sébaste",
+      "pesto"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "tartines aillées au rockfish et pesto plated finished dish",
+    "pexels_photo_id": 334985,
+    "pexels_alt": "A beautifully plated gourmet dish featuring smoked salmon, prosciutto, and greens on a white plate.",
+    "pexels_photographer": "Rene Terp",
+    "pexels_photographer_url": "https://www.pexels.com/@reneterp",
+    "pexels_url": "https://www.pexels.com/photo/lettuce-with-sauce-on-plate-334985/"
+  },
+  {
+    "id": "city-cafe-darne-de-saumon-a-l-oseille",
+    "original_name": "Darne de saumon à l’oseille",
+    "nom": "Darne de saumon à l’oseille",
+    "description": "Darne de saumon à l’oseille préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "printemps",
+    "mois": "avril",
+    "mois_numero": 4,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 30,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/6297198/pexels-photo-6297198.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Saumon",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oseille",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sécher le poisson et préparer les garnitures saumon, oseille; préchauffer le four à 190 °C si la cuisson est au four.",
+      "Cuire les accompagnements séparément: démarrer les pommes de terre ou les céréales dans une casserole d’eau salée.",
+      "Saisir le poisson dans une poêle huilée 2 à 3 min par face selon l’épaisseur, ou le cuire au four 10 à 15 min jusqu’à ce que sa chair soit opaque et se détache.",
+      "Préparer la sauce avec les aromates et le citron, puis servir immédiatement avec le poisson et l’accompagnement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "saumon",
+      "oseille"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "darne de salmon à l’oseille plated finished dish",
+    "pexels_photo_id": 6297198,
+    "pexels_alt": "A gourmet salmon dish served with couscous and roasted vegetables artfully plated.",
+    "pexels_photographer": "Data Gen Consultora",
+    "pexels_photographer_url": "https://www.pexels.com/@data-gen-consultora-14371247",
+    "pexels_url": "https://www.pexels.com/photo/a-person-preparing-food-6297198/"
+  },
+  {
+    "id": "city-cafe-calamaretti-facon-bord-de-mer-frites-et-salade",
+    "original_name": "Calamaretti façon bord de mer, frites et salade",
+    "nom": "Calamaretti façon bord de mer, frites et salade",
+    "description": "Calamaretti façon bord de mer, frites et salade préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 45,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/34178397/pexels-photo-34178397.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Calamars",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sécher le poisson et préparer les garnitures calamars; préchauffer le four à 190 °C si la cuisson est au four.",
+      "Cuire les accompagnements séparément: démarrer les pommes de terre ou les céréales dans une casserole d’eau salée.",
+      "Saisir le poisson dans une poêle huilée 2 à 3 min par face selon l’épaisseur, ou le cuire au four 10 à 15 min jusqu’à ce que sa chair soit opaque et se détache.",
+      "Préparer la sauce avec les aromates et le citron, puis servir immédiatement avec le poisson et l’accompagnement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "calamars"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "calamaretti façon bord de mer, frites et salade plated finished dish",
+    "pexels_photo_id": 34178397,
+    "pexels_alt": "A sumptuous plate of prosciutto garnished with fresh greens, set on an elegant table.",
+    "pexels_photographer": "Bingqian Li",
+    "pexels_photographer_url": "https://www.pexels.com/@bingqian-li-230971044",
+    "pexels_url": "https://www.pexels.com/photo/delicious-prosciutto-dish-in-boulogne-sur-mer-34178397/"
+  },
+  {
+    "id": "city-cafe-eglefin-meuniere-et-creme-aigrelette-au-citron-vert",
+    "original_name": "Églefin meunière et crème aigrelette au citron vert",
+    "nom": "Églefin meunière et crème aigrelette au citron vert",
+    "description": "Églefin meunière et crème aigrelette au citron vert préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 30,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/5638511/pexels-photo-5638511.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Crème",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Églefin",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sécher le poisson et préparer les garnitures crème, églefin, citrons; préchauffer le four à 190 °C si la cuisson est au four.",
+      "Cuire les accompagnements séparément: démarrer les pommes de terre ou les céréales dans une casserole d’eau salée.",
+      "Saisir le poisson dans une poêle huilée 2 à 3 min par face selon l’épaisseur, ou le cuire au four 10 à 15 min jusqu’à ce que sa chair soit opaque et se détache.",
+      "Préparer la sauce avec les aromates et le citron, puis servir immédiatement avec le poisson et l’accompagnement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "crème",
+      "églefin",
+      "citrons"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "églefin meunière et crème aigrelette au citron vert plated finished dish",
+    "pexels_photo_id": 5638511,
+    "pexels_alt": "Gourmet crème brûlée topped with fresh strawberries and red currants on a fancy plate.",
+    "pexels_photographer": "Shameel mukkath",
+    "pexels_photographer_url": "https://www.pexels.com/@shameel-mukkath-3421394",
+    "pexels_url": "https://www.pexels.com/photo/a-close-up-shot-of-a-dessert-on-a-plate-5638511/"
+  },
+  {
+    "id": "city-cafe-poulpe-a-la-mediterraneenne-et-pommes-fondantes",
+    "original_name": "Poulpe à la méditerranéenne et pommes fondantes",
+    "nom": "Poulpe à la méditerranéenne et pommes fondantes",
+    "description": "Poulpe à la méditerranéenne et pommes fondantes préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 100,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/14629740/pexels-photo-14629740.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Poulpe",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sécher le poisson et préparer les garnitures poulpe; préchauffer le four à 190 °C si la cuisson est au four.",
+      "Cuire les accompagnements séparément: démarrer les pommes de terre ou les céréales dans une casserole d’eau salée.",
+      "Saisir le poisson dans une poêle huilée 2 à 3 min par face selon l’épaisseur, ou le cuire au four 10 à 15 min jusqu’à ce que sa chair soit opaque et se détache.",
+      "Préparer la sauce avec les aromates et le citron, puis servir immédiatement avec le poisson et l’accompagnement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "poulpe"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "octopus à la méditerranéenne et pommes fondantes plated finished dish",
+    "pexels_photo_id": 14629740,
+    "pexels_alt": "Elegant plated octopus dish with creamy sauce and garnish on a grey plate.",
+    "pexels_photographer": "Doğu Tuncer",
+    "pexels_photographer_url": "https://www.pexels.com/@dogu-tuncer-339534179",
+    "pexels_url": "https://www.pexels.com/photo/octopus-on-plate-14629740/"
+  },
+  {
+    "id": "city-cafe-tartare-de-saumon-creme-aigre-a-l-echalote-et-ciboulette",
+    "original_name": "Tartare de saumon, crème aigre à l’échalote et ciboulette",
+    "nom": "Tartare de saumon, crème aigre à l’échalote et ciboulette",
+    "description": "Tartare de saumon, crème aigre à l’échalote et ciboulette préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 25,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/34759453/pexels-photo-34759453.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Crème",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Saumon",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Ciboulette",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Choisir un poisson vendu pour consommation crue, le maintenir à 4 °C ou moins et le préparer avec du matériel propre; respecter les consignes du poissonnier concernant la congélation antiparasitaire.",
+      "Couper le poisson au couteau juste avant le repas. Mélanger avec agrumes, herbes et assaisonnement, puis réserver au réfrigérateur pendant la courte durée prévue par la recette.",
+      "Le jus de citron modifie la texture mais ne détruit pas de façon fiable les microbes ou parasites; ne pas servir à une personne enceinte, âgée ou immunodéprimée.",
+      "Servir très frais dès la préparation et jeter les restes; ne pas laisser le poisson cru à température ambiante."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "crème",
+      "saumon",
+      "ciboulette"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "tartare de salmon, crème aigre à l’échalote et ciboulette plated finished dish",
+    "pexels_photo_id": 34759453,
+    "pexels_alt": "A beautifully plated salmon tartare with caviar and greens captured in natural light.",
+    "pexels_photographer": "Valeria Boltneva",
+    "pexels_photographer_url": "https://www.pexels.com/@valeriya",
+    "pexels_url": "https://www.pexels.com/photo/gourmet-salmon-tartare-on-elegant-plate-34759453/"
+  },
+  {
+    "id": "city-cafe-filet-de-daurade-aux-saveurs-estivales",
+    "original_name": "Filet de daurade aux saveurs estivales",
+    "nom": "Filet de daurade aux saveurs estivales",
+    "description": "Filet de daurade aux saveurs estivales préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "août",
+    "mois_numero": 8,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 30,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/32651689/pexels-photo-32651689.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Daurade",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sécher le poisson et préparer les garnitures daurade; préchauffer le four à 190 °C si la cuisson est au four.",
+      "Cuire les accompagnements séparément: démarrer les pommes de terre ou les céréales dans une casserole d’eau salée.",
+      "Saisir le poisson dans une poêle huilée 2 à 3 min par face selon l’épaisseur, ou le cuire au four 10 à 15 min jusqu’à ce que sa chair soit opaque et se détache.",
+      "Préparer la sauce avec les aromates et le citron, puis servir immédiatement avec le poisson et l’accompagnement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "daurade"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "filet de sea bream aux saveurs estivales plated finished dish",
+    "pexels_photo_id": 32651689,
+    "pexels_alt": "Delicious crispy fish filet with seasoned fries and fresh cherry tomatoes on a wooden board.",
+    "pexels_photographer": "Nour Alhoda",
+    "pexels_photographer_url": "https://www.pexels.com/@nour-alhoda-2151678059",
+    "pexels_url": "https://www.pexels.com/photo/crispy-fish-and-seasoned-fries-on-a-wooden-board-32651689/"
+  },
+  {
+    "id": "city-cafe-carrelet-parfume-au-combava",
+    "original_name": "Carrelet parfumé au combava",
+    "nom": "Carrelet parfumé au combava",
+    "description": "Carrelet parfumé au combava préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 30,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/6879452/pexels-photo-6879452.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Poisson blanc",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sécher le poisson et préparer les garnitures poisson blanc, huile d’olive, citrons; préchauffer le four à 190 °C si la cuisson est au four.",
+      "Cuire les accompagnements séparément: démarrer les pommes de terre ou les céréales dans une casserole d’eau salée.",
+      "Saisir le poisson dans une poêle huilée 2 à 3 min par face selon l’épaisseur, ou le cuire au four 10 à 15 min jusqu’à ce que sa chair soit opaque et se détache.",
+      "Préparer la sauce avec les aromates et le citron, puis servir immédiatement avec le poisson et l’accompagnement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "poisson blanc",
+      "huile d’olive",
+      "citrons"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "carrelet parfumé au combava plated finished dish",
+    "pexels_photo_id": 6879452,
+    "pexels_alt": "Elegant plated seafood dish with vegetables at a fine dining restaurant.",
+    "pexels_photographer": "minchephoto photography",
+    "pexels_photographer_url": "https://www.pexels.com/@minchephoto",
+    "pexels_url": "https://www.pexels.com/photo/close-up-of-a-gourmet-dish-with-seafood-6879452/"
+  },
+  {
+    "id": "city-cafe-accras-de-poisson-et-salade-de-pommes-de-terre-creole",
+    "original_name": "Accras de poisson et salade de pommes de terre créole",
+    "nom": "Accras de poisson et salade de pommes de terre créole",
+    "description": "Accras de poisson et salade de pommes de terre créole préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 55,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/36921558/pexels-photo-36921558.png?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Poisson blanc",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sécher le poisson et préparer les garnitures poisson blanc; préchauffer le four à 190 °C si la cuisson est au four.",
+      "Cuire les accompagnements séparément: démarrer les pommes de terre ou les céréales dans une casserole d’eau salée.",
+      "Saisir le poisson dans une poêle huilée 2 à 3 min par face selon l’épaisseur, ou le cuire au four 10 à 15 min jusqu’à ce que sa chair soit opaque et se détache.",
+      "Préparer la sauce avec les aromates et le citron, puis servir immédiatement avec le poisson et l’accompagnement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "poisson blanc"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "accras de fish et salade de pommes de terre créole plated finished dish",
+    "pexels_photo_id": 36921558,
+    "pexels_alt": "Grilled fish served with rice, potatoes, beans, and fresh salad on a vibrant table.",
+    "pexels_photographer": "Carlos Hernandez",
+    "pexels_photographer_url": "https://www.pexels.com/@carlos-hernandez-2055472366",
+    "pexels_url": "https://www.pexels.com/photo/delicious-grilled-fish-plate-with-sides-36921558/"
+  },
+  {
+    "id": "city-cafe-daurade-snackee-beurre-rouge-et-citron-confit",
+    "original_name": "Daurade snackée, beurre rouge et citron confit",
+    "nom": "Daurade snackée, beurre rouge et citron confit",
+    "description": "Daurade snackée, beurre rouge et citron confit préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/38573904/pexels-photo-38573904.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Beurre",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Daurade",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sécher le poisson et préparer les garnitures beurre, daurade, citrons; préchauffer le four à 190 °C si la cuisson est au four.",
+      "Cuire les accompagnements séparément: démarrer les pommes de terre ou les céréales dans une casserole d’eau salée.",
+      "Saisir le poisson dans une poêle huilée 2 à 3 min par face selon l’épaisseur, ou le cuire au four 10 à 15 min jusqu’à ce que sa chair soit opaque et se détache.",
+      "Préparer la sauce avec les aromates et le citron, puis servir immédiatement avec le poisson et l’accompagnement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "beurre",
+      "daurade",
+      "citrons"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "sea bream snackée, beurre rouge et citron confit plated finished dish",
+    "pexels_photo_id": 38573904,
+    "pexels_alt": "Tasty grilled sea bream served with polenta and a fresh salad, perfect for a healthy meal.",
+    "pexels_photographer": "Mariya Muschard",
+    "pexels_photographer_url": "https://www.pexels.com/@mammiya",
+    "pexels_url": "https://www.pexels.com/photo/delicious-sea-bream-meal-with-salad-and-coffee-38573904/"
+  },
+  {
+    "id": "city-cafe-ragout-de-poulpe-a-la-provencale",
+    "original_name": "Ragoût de poulpe à la provençale",
+    "nom": "Ragoût de poulpe à la provençale",
+    "description": "Ragoût de poulpe à la provençale préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 110,
+    "difficulty": "intermédiaire",
+    "image_url": "https://images.pexels.com/photos/34913276/pexels-photo-34913276.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Poulpe",
+        "quantity": "600",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Bouillon",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Éplucher et couper les oignons et les carottes en morceaux réguliers; sécher et assaisonner la viande si le plat en contient. Faire chauffer l’huile dans une cocotte.",
+      "Faire dorer la viande par petites quantités, puis ajouter oignons, carottes et ail et cuire 4 minutes. Pour une version végétarienne, faire simplement revenir les légumes et les légumineuses.",
+      "Ajouter le bouillon et les aromates, couvrir et mijoter doucement jusqu’à ce que les ingrédients soient tendres (30 à 90 minutes selon le plat); remuer et ajouter un peu d’eau si nécessaire.",
+      "Cuire l’accompagnement séparément, goûter la sauce, rectifier l’assaisonnement et servir chaud."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "poulpe"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "ragoût de octopus à la provençale plated finished dish",
+    "pexels_photo_id": 34913276,
+    "pexels_alt": "Exquisite plated octopus with vibrant garnish on decorative floral plate, perfect for gourmet food enthusiasts.",
+    "pexels_photographer": "Nadin Sh",
+    "pexels_photographer_url": "https://www.pexels.com/@nadin-sh-78971847",
+    "pexels_url": "https://www.pexels.com/photo/gourmet-octopus-dish-with-vibrant-garnish-on-floral-plate-34913276/"
+  },
+  {
+    "id": "city-cafe-filets-de-perche-sauce-citron",
+    "original_name": "Filets de perche sauce citron",
+    "nom": "Filets de perche sauce citron",
+    "description": "Filets de perche sauce citron préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 30,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/36009491/pexels-photo-36009491.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Perche",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sécher le poisson et préparer les garnitures perche, citrons; préchauffer le four à 190 °C si la cuisson est au four.",
+      "Cuire les accompagnements séparément: démarrer les pommes de terre ou les céréales dans une casserole d’eau salée.",
+      "Saisir le poisson dans une poêle huilée 2 à 3 min par face selon l’épaisseur, ou le cuire au four 10 à 15 min jusqu’à ce que sa chair soit opaque et se détache.",
+      "Préparer la sauce avec les aromates et le citron, puis servir immédiatement avec le poisson et l’accompagnement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "perche",
+      "citrons"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "filets de perch sauce citron plated finished dish",
+    "pexels_photo_id": 36009491,
+    "pexels_alt": "Delicious gourmet fish served on a bed of creamy spinach and artfully drizzled sauce.",
+    "pexels_photographer": "Milton Das",
+    "pexels_photographer_url": "https://www.pexels.com/@miltonphotography",
+    "pexels_url": "https://www.pexels.com/photo/gourmet-grilled-fish-on-creamed-spinach-36009491/"
+  },
+  {
+    "id": "city-cafe-lingue-bleue-gremolata-et-tagliatelles-fraiches",
+    "original_name": "Lingue bleue gremolata et tagliatelles fraîches",
+    "nom": "Lingue bleue gremolata et tagliatelles fraîches",
+    "description": "Lingue bleue gremolata et tagliatelles fraîches préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/18334680/pexels-photo-18334680.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Pâtes",
+        "quantity": "160",
+        "unit": "g secs",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Courgettes",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Pois chiches",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Porter une grande casserole d’eau salée à ébullition et cuire les pâtes selon leur emballage; réserver une louche d’eau de cuisson.",
+      "Pendant ce temps, préparer et couper les garnitures pâtes, ail, huile d’olive. Faire revenir les éléments aromatiques dans une poêle avec l’huile.",
+      "Ajouter les ingrédients principaux et cuire jusqu’à tendreté; incorporer la sauce ou le fromage prévu et détendre avec un peu d’eau de cuisson.",
+      "Mélanger avec les pâtes égouttées, rectifier l’assaisonnement et servir aussitôt avec la garniture restante."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "pâtes",
+      "ail",
+      "huile d’olive"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "lingue bleue gremolata et tagliatelles fraîches plated finished dish",
+    "pexels_photo_id": 18334680,
+    "pexels_alt": "Two plates of shrimp pasta with rich tomato sauce, garnished stylishly.",
+    "pexels_photographer": "Tallita Maynara",
+    "pexels_photographer_url": "https://www.pexels.com/@tallitamaynara",
+    "pexels_url": "https://www.pexels.com/photo/pasta-with-shrimps-in-sauce-18334680/"
+  },
+  {
+    "id": "city-cafe-lotte-au-bouillon-asiatique-citronnelle-et-coriandre",
+    "original_name": "Lotte au bouillon asiatique, citronnelle et coriandre",
+    "nom": "Lotte au bouillon asiatique, citronnelle et coriandre",
+    "description": "Lotte au bouillon asiatique, citronnelle et coriandre préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "hiver",
+    "mois": "janvier",
+    "mois_numero": 1,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 40,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/30335685/pexels-photo-30335685.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Lotte",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Coriandre",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sécher le poisson et préparer les garnitures lotte, coriandre; préchauffer le four à 190 °C si la cuisson est au four.",
+      "Cuire les accompagnements séparément: démarrer les pommes de terre ou les céréales dans une casserole d’eau salée.",
+      "Saisir le poisson dans une poêle huilée 2 à 3 min par face selon l’épaisseur, ou le cuire au four 10 à 15 min jusqu’à ce que sa chair soit opaque et se détache.",
+      "Préparer la sauce avec les aromates et le citron, puis servir immédiatement avec le poisson et l’accompagnement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "lotte",
+      "coriandre"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "monkfish au bouillon asiatique, citronnelle et coriandre plated finished dish",
+    "pexels_photo_id": 30335685,
+    "pexels_alt": "Delicious gourmet meal with creamy sauce and fresh herbs on a black plate.",
+    "pexels_photographer": "Valeria Boltneva",
+    "pexels_photographer_url": "https://www.pexels.com/@valeriya",
+    "pexels_url": "https://www.pexels.com/photo/appetizing-plated-gourmet-meal-presentation-30335685/"
+  },
+  {
+    "id": "city-cafe-rouille-de-sebaste-a-la-marseillaise",
+    "original_name": "Rouille de sébaste à la marseillaise",
+    "nom": "Rouille de sébaste à la marseillaise",
+    "description": "Rouille de sébaste à la marseillaise préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 90,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/32800350/pexels-photo-32800350.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Sébaste",
+        "quantity": "600",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Bouillon",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Éplucher et couper les oignons et les carottes en morceaux réguliers; sécher et assaisonner la viande si le plat en contient. Faire chauffer l’huile dans une cocotte.",
+      "Faire dorer la viande par petites quantités, puis ajouter oignons, carottes et ail et cuire 4 minutes. Pour une version végétarienne, faire simplement revenir les légumes et les légumineuses.",
+      "Ajouter le bouillon et les aromates, couvrir et mijoter doucement jusqu’à ce que les ingrédients soient tendres (30 à 90 minutes selon le plat); remuer et ajouter un peu d’eau si nécessaire.",
+      "Cuire l’accompagnement séparément, goûter la sauce, rectifier l’assaisonnement et servir chaud."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "sébaste"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "rouille de rockfish à la marseillaise plated finished dish",
+    "pexels_photo_id": 32800350,
+    "pexels_alt": "Close-up view of La Marseillaise sculpture on the Arc de Triomphe in Paris, depicting passionate French revolutionaries.",
+    "pexels_photographer": "Carlos  López",
+    "pexels_photographer_url": "https://www.pexels.com/@carlos-lopez-247210494",
+    "pexels_url": "https://www.pexels.com/photo/detailed-sculpture-of-la-marseillaise-on-arc-de-triomphe-32800350/"
+  },
+  {
+    "id": "city-cafe-bouillabaisse-marseillaise",
+    "original_name": "Bouillabaisse marseillaise",
+    "nom": "Bouillabaisse marseillaise",
+    "description": "Bouillabaisse marseillaise préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 120,
+    "difficulty": "intermédiaire",
+    "image_url": "https://images.pexels.com/photos/17568746/pexels-photo-17568746.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Oignons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Bouillon",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Éplucher et couper les oignons et les carottes en morceaux réguliers; sécher et assaisonner la viande si le plat en contient. Faire chauffer l’huile dans une cocotte.",
+      "Faire dorer la viande par petites quantités, puis ajouter oignons, carottes et ail et cuire 4 minutes. Pour une version végétarienne, faire simplement revenir les légumes et les légumineuses.",
+      "Ajouter le bouillon et les aromates, couvrir et mijoter doucement jusqu’à ce que les ingrédients soient tendres (30 à 90 minutes selon le plat); remuer et ajouter un peu d’eau si nécessaire.",
+      "Cuire l’accompagnement séparément, goûter la sauce, rectifier l’assaisonnement et servir chaud."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "oignons",
+      "carottes",
+      "ail"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "bouillabaisse marseillaise plated finished dish",
+    "pexels_photo_id": 17568746,
+    "pexels_alt": "Delicious bouillabaisse seafood soup garnished with basil leaves, served in a white bowl on a wooden table.",
+    "pexels_photographer": "Nadin Sh",
+    "pexels_photographer_url": "https://www.pexels.com/@nadin-sh-78971847",
+    "pexels_url": "https://www.pexels.com/photo/delicious-red-soup-on-table-17568746/"
+  },
+  {
+    "id": "city-cafe-eglefin-aux-coquillages-et-tagliatelles-fraiches",
+    "original_name": "Églefin aux coquillages et tagliatelles fraîches",
+    "nom": "Églefin aux coquillages et tagliatelles fraîches",
+    "description": "Églefin aux coquillages et tagliatelles fraîches préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/8697526/pexels-photo-8697526.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Églefin",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Pâtes",
+        "quantity": "160",
+        "unit": "g secs",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Porter une grande casserole d’eau salée à ébullition et cuire les pâtes selon leur emballage; réserver une louche d’eau de cuisson.",
+      "Pendant ce temps, préparer et couper les garnitures églefin. Faire revenir les éléments aromatiques dans une poêle avec l’huile.",
+      "Ajouter les ingrédients principaux et cuire jusqu’à tendreté; incorporer la sauce ou le fromage prévu et détendre avec un peu d’eau de cuisson.",
+      "Mélanger avec les pâtes égouttées, rectifier l’assaisonnement et servir aussitôt avec la garniture restante."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "églefin"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "églefin aux coquillages et tagliatelles fraîches plated finished dish",
+    "pexels_photo_id": 8697526,
+    "pexels_alt": "Delicious Italian pasta with tomato sauce and parmesan, elegantly plated.",
+    "pexels_photographer": "Farhad Ibrahimzade",
+    "pexels_photographer_url": "https://www.pexels.com/@farhad",
+    "pexels_url": "https://www.pexels.com/photo/pasta-dish-on-white-ceramic-plate-8697526/"
+  },
+  {
+    "id": "city-cafe-aile-de-raie-a-la-grenobloise",
+    "original_name": "Aile de raie à la grenobloise",
+    "nom": "Aile de raie à la grenobloise",
+    "description": "Aile de raie à la grenobloise préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "printemps",
+    "mois": "mai",
+    "mois_numero": 5,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/18058362/pexels-photo-18058362.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Raie",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sécher le poisson et préparer les garnitures raie; préchauffer le four à 190 °C si la cuisson est au four.",
+      "Cuire les accompagnements séparément: démarrer les pommes de terre ou les céréales dans une casserole d’eau salée.",
+      "Saisir le poisson dans une poêle huilée 2 à 3 min par face selon l’épaisseur, ou le cuire au four 10 à 15 min jusqu’à ce que sa chair soit opaque et se détache.",
+      "Préparer la sauce avec les aromates et le citron, puis servir immédiatement avec le poisson et l’accompagnement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "raie"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "aile de raie à la grenobloise plated finished dish",
+    "pexels_photo_id": 18058362,
+    "pexels_alt": "A selection of gourmet dishes beautifully presented in a restaurant setting, highlighting vibrant colors and textures.",
+    "pexels_photographer": "Valeria Boltneva",
+    "pexels_photographer_url": "https://www.pexels.com/@valeriya",
+    "pexels_url": "https://www.pexels.com/photo/dinner-served-on-a-plate-in-a-restaurant-18058362/"
+  },
+  {
+    "id": "city-cafe-quenelles-de-brochet-sauce-nantua",
+    "original_name": "Quenelles de brochet, sauce Nantua",
+    "nom": "Quenelles de brochet, sauce Nantua",
+    "description": "Quenelles de brochet, sauce Nantua préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "hiver",
+    "mois": "janvier",
+    "mois_numero": 1,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 50,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/32742941/pexels-photo-32742941.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Brochet",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sécher le poisson et préparer les garnitures brochet; préchauffer le four à 190 °C si la cuisson est au four.",
+      "Cuire les accompagnements séparément: démarrer les pommes de terre ou les céréales dans une casserole d’eau salée.",
+      "Saisir le poisson dans une poêle huilée 2 à 3 min par face selon l’épaisseur, ou le cuire au four 10 à 15 min jusqu’à ce que sa chair soit opaque et se détache.",
+      "Préparer la sauce avec les aromates et le citron, puis servir immédiatement avec le poisson et l’accompagnement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "brochet"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "quenelles de brochet, sauce nantua plated finished dish",
+    "pexels_photo_id": 32742941,
+    "pexels_alt": "Delicious gourmet ravioli with sauce, artfully plated in a fine dining restaurant setting.",
+    "pexels_photographer": "Daigoro Folz",
+    "pexels_photographer_url": "https://www.pexels.com/@daigofotos",
+    "pexels_url": "https://www.pexels.com/photo/close-up-of-gourmet-ravioli-on-restaurant-plates-32742941/"
+  },
+  {
+    "id": "city-cafe-cabillaud-en-croute-de-parmesan-et-noisette",
+    "original_name": "Cabillaud en croûte de parmesan et noisette",
+    "nom": "Cabillaud en croûte de parmesan et noisette",
+    "description": "Cabillaud en croûte de parmesan et noisette préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/11044248/pexels-photo-11044248.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Parmesan",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Cabillaud",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Noisettes",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sécher le poisson et préparer les garnitures parmesan, cabillaud, noisettes; préchauffer le four à 190 °C si la cuisson est au four.",
+      "Cuire les accompagnements séparément: démarrer les pommes de terre ou les céréales dans une casserole d’eau salée.",
+      "Saisir le poisson dans une poêle huilée 2 à 3 min par face selon l’épaisseur, ou le cuire au four 10 à 15 min jusqu’à ce que sa chair soit opaque et se détache.",
+      "Préparer la sauce avec les aromates et le citron, puis servir immédiatement avec le poisson et l’accompagnement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "parmesan",
+      "cabillaud",
+      "noisettes"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "cod en croûte de parmesan et noisette plated finished dish",
+    "pexels_photo_id": 11044248,
+    "pexels_alt": "Delicious cod filet with fennel, green peas, and zucchini puree on a stylish plate.",
+    "pexels_photographer": "Sylwester Ficek",
+    "pexels_photographer_url": "https://www.pexels.com/@sylwester-ficek-154797634",
+    "pexels_url": "https://www.pexels.com/photo/food-restaurant-fish-cooking-11044248/"
+  },
+  {
+    "id": "city-cafe-maigre-en-croute-de-lentilles-et-agrumes",
+    "original_name": "Maigre en croûte de lentilles et agrumes",
+    "nom": "Maigre en croûte de lentilles et agrumes",
+    "description": "Maigre en croûte de lentilles et agrumes préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 45,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/6555512/pexels-photo-6555512.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Lentilles",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Maigre",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oranges",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sécher le poisson et préparer les garnitures lentilles, maigre, oranges; préchauffer le four à 190 °C si la cuisson est au four.",
+      "Cuire les accompagnements séparément: démarrer les pommes de terre ou les céréales dans une casserole d’eau salée.",
+      "Saisir le poisson dans une poêle huilée 2 à 3 min par face selon l’épaisseur, ou le cuire au four 10 à 15 min jusqu’à ce que sa chair soit opaque et se détache.",
+      "Préparer la sauce avec les aromates et le citron, puis servir immédiatement avec le poisson et l’accompagnement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "lentilles",
+      "maigre",
+      "oranges"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "maigre en croûte de lentilles et agrumes plated finished dish",
+    "pexels_photo_id": 6555512,
+    "pexels_alt": "Elegantly plated fish dish with lentils and greens, showcasing modern culinary artistry.",
+    "pexels_photographer": "Son Tung Tran",
+    "pexels_photographer_url": "https://www.pexels.com/@son-tung-tran-17375059",
+    "pexels_url": "https://www.pexels.com/photo/cooked-food-on-white-ceramic-plate-6555512/"
+  },
+  {
+    "id": "city-cafe-supions-aux-pleurotes-et-beurre-persille",
+    "original_name": "Supions aux pleurotes et beurre persillé",
+    "nom": "Supions aux pleurotes et beurre persillé",
+    "description": "Supions aux pleurotes et beurre persillé préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "automne",
+    "mois": "octobre",
+    "mois_numero": 10,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 30,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/39444292/pexels-photo-39444292.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Beurre",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Pleurotes",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préparer et couper les légumes beurre, pleurotes en morceaux réguliers. Préchauffer le four à 200 °C si la recette prévoit une cuisson rôtie.",
+      "Faire revenir les aromates dans une casserole ou une grande poêle avec l’huile, puis ajouter les légumes et les légumineuses.",
+      "Ajouter un fond d’eau ou de bouillon, couvrir et cuire 15 à 25 minutes jusqu’à tendreté; mélanger régulièrement et compléter le liquide si nécessaire.",
+      "Assaisonner, ajouter les herbes et le fromage prévus, puis servir avec l’accompagnement indiqué."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "beurre",
+      "pleurotes"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "supions aux pleurotes et beurre persillé plated finished dish",
+    "pexels_photo_id": 39444292,
+    "pexels_alt": "Delicious gourmet chocolate dessert with a berry accent, elegantly plated with a golden fork.",
+    "pexels_photographer": "Nadin Sh",
+    "pexels_photographer_url": "https://www.pexels.com/@nadin-sh-78971847",
+    "pexels_url": "https://www.pexels.com/photo/gourmet-chocolate-dessert-with-fresh-berries-39444292/"
+  },
+  {
+    "id": "city-cafe-cannellonis-de-poissons-nobles-sauce-tomate-maison",
+    "original_name": "Cannellonis de poissons nobles, sauce tomate maison",
+    "nom": "Cannellonis de poissons nobles, sauce tomate maison",
+    "description": "Cannellonis de poissons nobles, sauce tomate maison préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 75,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/17346299/pexels-photo-17346299.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Tomates",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Ravioli",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Porter une grande casserole d’eau salée à ébullition et cuire les pâtes selon leur emballage; réserver une louche d’eau de cuisson.",
+      "Pendant ce temps, préparer et couper les garnitures tomates. Faire revenir les éléments aromatiques dans une poêle avec l’huile.",
+      "Ajouter les ingrédients principaux et cuire jusqu’à tendreté; incorporer la sauce ou le fromage prévu et détendre avec un peu d’eau de cuisson.",
+      "Mélanger avec les pâtes égouttées, rectifier l’assaisonnement et servir aussitôt avec la garniture restante."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "tomates"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "cannellonis de fishs nobles, sauce tomato maison plated finished dish",
+    "pexels_photo_id": 17346299,
+    "pexels_alt": "Close-up of a gourmet dish plated with cheese, cherry tomatoes, and sauce.",
+    "pexels_photographer": "Arthur  Swiffen",
+    "pexels_photographer_url": "https://www.pexels.com/@arthur-swiffen-172080999",
+    "pexels_url": "https://www.pexels.com/photo/spoon-over-food-in-bowl-17346299/"
+  }
+]

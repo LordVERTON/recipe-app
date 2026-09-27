@@ -1,0 +1,475 @@
+[
+  {
+    "id": "city-cafe-rosti-pizza-tomate-mozzarella-bufala",
+    "original_name": "Rösti pizza tomate et mozzarella di bufala",
+    "nom": "Rösti-pizza à la tomate et mozzarella di bufala",
+    "description": "Une base croustillante de pommes de terre râpées remplace la pâte, garnie de tomate et de mozzarella di bufala fondante.",
+    "saison": "été",
+    "mois": "août",
+    "mois_numero": 8,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 50,
+    "difficulty": "intermédiaire",
+    "image_url": "https://images.pexels.com/photos/30232158/pexels-photo-30232158.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Pommes de terre",
+        "quantity": "500",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Tomates",
+        "quantity": "200",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Mozzarella di bufala",
+        "quantity": "125",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "1",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Farine",
+        "quantity": "20",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Basilic",
+        "quantity": "8",
+        "unit": "feuilles",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 220 °C. Râper les pommes de terre, les presser dans un torchon propre pour retirer leur eau puis les mélanger avec l’œuf, la farine, du sel et du poivre.",
+      "Étaler en disque de 1 cm sur une plaque huilée et enfourner 20 minutes; retourner délicatement et cuire encore 10 minutes.",
+      "Couper les tomates en rondelles et égoutter la mozzarella. Répartir sur la base dorée.",
+      "Enfourner 8 à 10 minutes, jusqu’à ce que le fromage soit juste fondu. Ajouter le basilic et servir chaud."
+    ],
+    "astuce": "Pressez soigneusement les pommes de terre râpées: une base sèche devient plus croustillante.",
+    "cuisson_micro_ondes": false,
+    "sans_four": false,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "pommes de terre",
+      "tomates",
+      "mozzarella di bufala"
+    ],
+    "equipment": [
+      "four",
+      "plaque de cuisson",
+      "râpe",
+      "torchon propre",
+      "saladier"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "potato rosti pizza tomato mozzarella",
+    "pexels_photo_id": 30232158,
+    "pexels_alt": "Delicious tomato and basil pizza with cheese on a rustic wooden table, perfect for food lovers.",
+    "pexels_photographer": "Raymond Petrik",
+    "pexels_photographer_url": "https://www.pexels.com/@raymond-petrik-1448389535",
+    "pexels_url": "https://www.pexels.com/photo/rustic-tomato-basil-pizza-on-wooden-table-30232158/"
+  },
+  {
+    "id": "city-cafe-pizza-maison-legumes-rotis",
+    "original_name": "Pizza maison aux légumes rôtis",
+    "nom": "Pizza maison aux légumes rôtis",
+    "description": "Une pizza familiale garnie de courgette, poivron et oignon rôtis, avec tomate et mozzarella.",
+    "saison": "été",
+    "mois": "août",
+    "mois_numero": 8,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 55,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/30818094/pexels-photo-30818094.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Pâte à pizza",
+        "quantity": "1",
+        "unit": "boule de 400 g",
+        "canonical": true
+      },
+      {
+        "name": "Courgettes",
+        "quantity": "200",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Poivrons",
+        "quantity": "1",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Tomates",
+        "quantity": "200",
+        "unit": "g concassées",
+        "canonical": true
+      },
+      {
+        "name": "Mozzarella",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "2",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Origan",
+        "quantity": "1",
+        "unit": "c. à café",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Chauffer le four à 220 °C. Couper la courgette, le poivron et l’oignon en morceaux, mélanger avec une cuillère d’huile et rôtir 18 minutes sur une plaque.",
+      "Étaler la pâte sur une plaque farinée. Étaler les tomates concassées en laissant un bord libre.",
+      "Répartir la mozzarella égouttée puis les légumes rôtis. Ajouter l’origan et le reste d’huile.",
+      "Cuire 12 à 15 minutes, jusqu’à ce que la pâte soit gonflée et dorée. Laisser reposer 2 minutes avant de trancher."
+    ],
+    "astuce": "Rôtir les légumes avant le montage évite qu’ils ne détrempent la pâte.",
+    "cuisson_micro_ondes": false,
+    "sans_four": false,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "pâte à pizza",
+      "courgettes",
+      "poivrons",
+      "mozzarella"
+    ],
+    "equipment": [
+      "four",
+      "plaque de cuisson",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "roasted vegetable pizza",
+    "pexels_photo_id": 30818094,
+    "pexels_alt": "Close-up of an artisan pizza topped with roasted vegetables and herbs.",
+    "pexels_photographer": "damla selen demir",
+    "pexels_photographer_url": "https://www.pexels.com/@damla-selen-demir-429137893",
+    "pexels_url": "https://www.pexels.com/photo/artisan-pizza-with-vegetable-toppings-30818094/"
+  },
+  {
+    "id": "city-cafe-pizza-trois-fromages-champignons-roquette",
+    "original_name": "Pizza trois fromages, champignons et roquette",
+    "nom": "Pizza aux trois fromages, champignons et roquette",
+    "description": "Une pizza généreuse au fromage fondant et aux champignons dorés, réveillée par la roquette ajoutée après cuisson.",
+    "saison": "automne",
+    "mois": "octobre",
+    "mois_numero": 10,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 40,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/17478671/pexels-photo-17478671.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Pâte à pizza",
+        "quantity": "1",
+        "unit": "boule de 250 g",
+        "canonical": true
+      },
+      {
+        "name": "Champignons de Paris",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Mozzarella",
+        "quantity": "80",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Gorgonzola",
+        "quantity": "50",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Parmesan",
+        "quantity": "25",
+        "unit": "g râpé",
+        "canonical": true
+      },
+      {
+        "name": "Crème",
+        "quantity": "2",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Roquette",
+        "quantity": "30",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à café",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 230 °C avec une plaque à l’intérieur. Émincer les champignons et les faire revenir 5 minutes à la poêle avec l’huile.",
+      "Étaler la pâte sur du papier cuisson. Étaler la crème en couche fine, puis répartir mozzarella, gorgonzola, parmesan et champignons.",
+      "Faire glisser la pizza sur la plaque chaude et cuire 10 à 13 minutes, jusqu’à ce que les bords soient bien dorés.",
+      "Garnir de roquette juste avant de servir."
+    ],
+    "astuce": "La roquette ajoutée à la sortie du four garde son croquant et son goût poivré.",
+    "cuisson_micro_ondes": false,
+    "sans_four": false,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "mozzarella",
+      "gorgonzola",
+      "champignons",
+      "roquette"
+    ],
+    "equipment": [
+      "four",
+      "plaque de cuisson",
+      "poêle",
+      "couteau"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "three cheese mushroom arugula pizza",
+    "pexels_photo_id": 17478671,
+    "pexels_alt": "Top view of a homemade pizza topped with fresh arugula, cheese, and mushrooms.",
+    "pexels_photographer": "Nadin Sh",
+    "pexels_photographer_url": "https://www.pexels.com/@nadin-sh-78971847",
+    "pexels_url": "https://www.pexels.com/photo/pizza-with-arugula-leaves-17478671/"
+  },
+  {
+    "id": "city-cafe-pizza-legumes-automne-ricotta-herbes",
+    "original_name": "Pizza aux légumes d'automne rôtis et ricotta aux herbes",
+    "nom": "Pizza aux légumes d’automne rôtis et ricotta aux herbes",
+    "description": "Courge et oignon rôtis sur une pâte croustillante, ponctués de ricotta fraîche parfumée aux herbes.",
+    "saison": "automne",
+    "mois": "octobre",
+    "mois_numero": 10,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 55,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/7362681/pexels-photo-7362681.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Pâte à pizza",
+        "quantity": "1",
+        "unit": "boule de 250 g",
+        "canonical": true
+      },
+      {
+        "name": "Potimarron",
+        "quantity": "250",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons rouges",
+        "quantity": "1",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Ricotta",
+        "quantity": "100",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à café",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe hachée",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 210 °C. Épépiner le potimarron et le couper en fines tranches; émincer l’oignon.",
+      "Mélanger les légumes avec l’huile, le thym, du sel et du poivre puis rôtir 20 minutes, jusqu’à tendreté.",
+      "Augmenter le four à 230 °C. Étaler la pâte sur une plaque et répartir les légumes rôtis.",
+      "Cuire 12 à 15 minutes. Détendre la ricotta avec le persil et une cuillère d’eau, puis déposer en petites cuillerées sur la pizza chaude."
+    ],
+    "astuce": "Le potimarron peut être utilisé avec sa peau après lavage: elle s’attendrit à la cuisson.",
+    "cuisson_micro_ondes": false,
+    "sans_four": false,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "potimarron",
+      "ricotta",
+      "pâte à pizza"
+    ],
+    "equipment": [
+      "four",
+      "plaque de cuisson",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "pumpkin ricotta pizza savory",
+    "pexels_photo_id": 7362681,
+    "pexels_alt": "Close-up of a vegetarian pizza topped with ricotta cheese and spinach, served on a wooden board.",
+    "pexels_photographer": "Engin Akyurt",
+    "pexels_photographer_url": "https://www.pexels.com/@enginakyurt",
+    "pexels_url": "https://www.pexels.com/photo/pizza-on-top-of-a-wooden-table-7362681/"
+  },
+  {
+    "id": "city-cafe-margherita-quatre-fromages-tomates-cerises",
+    "original_name": "Margherita aux quatre fromages et coulis de tomate cerise fraîche",
+    "nom": "Pizza Margherita aux quatre fromages et coulis de tomates cerises",
+    "description": "Une base de tomates cerises fraîches mixées, garnie de mozzarella, chèvre, gorgonzola et parmesan.",
+    "saison": "été",
+    "mois": "août",
+    "mois_numero": 8,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 40,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/33457997/pexels-photo-33457997.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Pâte à pizza",
+        "quantity": "1",
+        "unit": "boule de 250 g",
+        "canonical": true
+      },
+      {
+        "name": "Tomates cerises",
+        "quantity": "250",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Mozzarella",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Chèvre",
+        "quantity": "40",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Gorgonzola",
+        "quantity": "35",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Parmesan",
+        "quantity": "20",
+        "unit": "g râpé",
+        "canonical": true
+      },
+      {
+        "name": "Basilic",
+        "quantity": "8",
+        "unit": "feuilles",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à café",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 230 °C avec une plaque. Mixer les tomates cerises avec l’huile et une pincée de sel; faire réduire 8 minutes dans une petite casserole.",
+      "Étaler la pâte et répartir le coulis refroidi en fine couche. Égoutter la mozzarella et la couper en morceaux.",
+      "Ajouter mozzarella, chèvre émietté, gorgonzola et parmesan.",
+      "Cuire 10 à 13 minutes sur la plaque chaude. Parsemer de basilic à la sortie du four et servir."
+    ],
+    "astuce": "Goûtez le coulis avant de l’étaler et faites-le réduire davantage s’il est très aqueux.",
+    "cuisson_micro_ondes": false,
+    "sans_four": false,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "tomates cerises",
+      "mozzarella",
+      "chèvre",
+      "gorgonzola",
+      "parmesan"
+    ],
+    "equipment": [
+      "four",
+      "plaque de cuisson",
+      "mixeur",
+      "casserole"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "four cheese cherry tomato pizza",
+    "pexels_photo_id": 33457997,
+    "pexels_alt": "Close-up image of a cheese pizza topped with cherry tomatoes and basil on a wooden table.",
+    "pexels_photographer": "pedro furtado",
+    "pexels_photographer_url": "https://www.pexels.com/@pedrofurtadoo",
+    "pexels_url": "https://www.pexels.com/photo/delicious-cheese-pizza-with-fresh-toppings-33457997/"
+  }
+]

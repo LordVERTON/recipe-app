@@ -1,0 +1,862 @@
+[
+  {
+    "id": "city-cafe-joue-de-boeuf-mijotee",
+    "original_name": "Joue de bœuf mijotée",
+    "nom": "Joue de bœuf mijotée",
+    "description": "Joue de bœuf mijotée préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "hiver",
+    "mois": "janvier",
+    "mois_numero": 1,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 210,
+    "difficulty": "intermédiaire",
+    "image_url": "https://images.pexels.com/photos/8112923/pexels-photo-8112923.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Bœuf",
+        "quantity": "600",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Bouillon",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Éplucher et couper les oignons et les carottes en morceaux réguliers; sécher et assaisonner la viande si le plat en contient. Faire chauffer l’huile dans une cocotte.",
+      "Faire dorer la viande par petites quantités, puis ajouter oignons, carottes et ail et cuire 4 minutes. Pour une version végétarienne, faire simplement revenir les légumes et les légumineuses.",
+      "Ajouter le bouillon et les aromates, couvrir et mijoter doucement jusqu’à ce que les ingrédients soient tendres (30 à 90 minutes selon le plat); remuer et ajouter un peu d’eau si nécessaire.",
+      "Cuire l’accompagnement séparément, goûter la sauce, rectifier l’assaisonnement et servir chaud."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "bœuf"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "joue de beef mijotée plated finished dish",
+    "pexels_photo_id": 8112923,
+    "pexels_alt": "Close-up of a gourmet braised beef dish with fresh garnish, beautifully plated and lit by natural sunlight.",
+    "pexels_photographer": "Rachel Claire",
+    "pexels_photographer_url": "https://www.pexels.com/@rachel-claire",
+    "pexels_url": "https://www.pexels.com/photo/sunlight-over-food-on-plate-8112923/"
+  },
+  {
+    "id": "city-cafe-boeuf-bourguignon-a-l-ancienne-et-pommes-de-terre-vapeur",
+    "original_name": "Bœuf bourguignon à l’ancienne et pommes de terre vapeur",
+    "nom": "Bœuf bourguignon à l’ancienne et pommes de terre vapeur",
+    "description": "Bœuf bourguignon à l’ancienne et pommes de terre vapeur préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "hiver",
+    "mois": "janvier",
+    "mois_numero": 1,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 210,
+    "difficulty": "intermédiaire",
+    "image_url": "https://images.pexels.com/photos/22711494/pexels-photo-22711494.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Bœuf",
+        "quantity": "600",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Bouillon",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Éplucher et couper les oignons et les carottes en morceaux réguliers; sécher et assaisonner la viande si le plat en contient. Faire chauffer l’huile dans une cocotte.",
+      "Faire dorer la viande par petites quantités, puis ajouter oignons, carottes et ail et cuire 4 minutes. Pour une version végétarienne, faire simplement revenir les légumes et les légumineuses.",
+      "Ajouter le bouillon et les aromates, couvrir et mijoter doucement jusqu’à ce que les ingrédients soient tendres (30 à 90 minutes selon le plat); remuer et ajouter un peu d’eau si nécessaire.",
+      "Cuire l’accompagnement séparément, goûter la sauce, rectifier l’assaisonnement et servir chaud."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "bœuf"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "beef bourguignon à l’ancienne et pommes de terre vapeur plated finished dish",
+    "pexels_photo_id": 22711494,
+    "pexels_alt": "Delicious beef served with mashed potatoes and rich sauce on a elegant white plate.",
+    "pexels_photographer": "Nadin Sh",
+    "pexels_photographer_url": "https://www.pexels.com/@nadin-sh-78971847",
+    "pexels_url": "https://www.pexels.com/photo/beef-in-sauce-with-mashed-potatoes-on-plate-22711494/"
+  },
+  {
+    "id": "city-cafe-tartare-de-boeuf-a-l-italienne",
+    "original_name": "Tartare de bœuf à l’italienne",
+    "nom": "Tartare de bœuf à l’italienne",
+    "description": "Tartare de bœuf à l’italienne préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juillet",
+    "mois_numero": 7,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 25,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/13806702/pexels-photo-13806702.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Bœuf",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Choisir chez un boucher de confiance un morceau entier très frais destiné à être consommé cru; le garder à 4 °C ou moins et préparer tout juste avant le repas.",
+      "Nettoyer soigneusement planche et couteau. Parer le bœuf puis le hacher au couteau juste avant de servir; ne pas utiliser de viande hachée déjà préparée.",
+      "Incorporer huile d’olive, câpres, parmesan râpé, moutarde et jaune d’œuf pasteurisé si souhaité. Le citron parfume mais ne rend pas la viande crue sûre.",
+      "Dresser immédiatement, servir sans attendre et jeter tout reste resté à température ambiante."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "bœuf"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "tartare de beef à l’italienne plated finished dish",
+    "pexels_photo_id": 13806702,
+    "pexels_alt": "Savor the flavors of gourmet beef tartare topped with quail eggs, cream sauce, and rye bread cubes.",
+    "pexels_photographer": "Nadin Sh",
+    "pexels_photographer_url": "https://www.pexels.com/@nadin-sh-78971847",
+    "pexels_url": "https://www.pexels.com/photo/close-up-of-a-gourmet-meal-on-a-plate-13806702/"
+  },
+  {
+    "id": "city-cafe-aiguillette-baronne-de-boeuf-hollandaise-a-la-moutarde",
+    "original_name": "Aiguillette baronne de bœuf, hollandaise à la moutarde",
+    "nom": "Aiguillette baronne de bœuf, hollandaise à la moutarde",
+    "description": "Aiguillette baronne de bœuf, hollandaise à la moutarde préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "printemps",
+    "mois": "mai",
+    "mois_numero": 5,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 40,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/19396435/pexels-photo-19396435.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Bœuf",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Moutarde",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sortir la viande du réfrigérateur 15 minutes avant la cuisson et l’assaisonner. Préparer les légumes et préchauffer le four à 190 °C pour les pièces à rôtir.",
+      "Faire dorer la viande dans une cocotte ou une poêle chaude avec l’huile, sur toutes ses faces; réserver si nécessaire.",
+      "Cuire les aromates bœuf, moutarde dans la même matière grasse. Pour un mijoté, ajouter le bouillon, couvrir et cuire à feu doux jusqu’à ce que la viande soit tendre; pour une pièce, poursuivre au four jusqu’à cuisson à cœur adaptée.",
+      "Préparer la sauce ou les légumes d’accompagnement, laisser reposer la viande 5 à 10 minutes, puis trancher et servir."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "bœuf",
+      "moutarde"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "aiguillette baronne de beef, hollandaise à la moutarde plated finished dish",
+    "pexels_photo_id": 19396435,
+    "pexels_alt": "Delicious gourmet beef dish with arugula and rich sauce presented in a dark bowl for elegant dining.",
+    "pexels_photographer": "Nadin Sh",
+    "pexels_photographer_url": "https://www.pexels.com/@nadin-sh-78971847",
+    "pexels_url": "https://www.pexels.com/photo/roast-beef-in-a-sauce-with-arugula-19396435/"
+  },
+  {
+    "id": "city-cafe-mafe-de-boeuf-et-haricots-rouges",
+    "original_name": "Mafé de bœuf et haricots rouges",
+    "nom": "Mafé de bœuf et haricots rouges",
+    "description": "Mafé de bœuf et haricots rouges préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "hiver",
+    "mois": "janvier",
+    "mois_numero": 1,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 120,
+    "difficulty": "intermédiaire",
+    "image_url": "https://images.pexels.com/photos/36430151/pexels-photo-36430151.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Bœuf",
+        "quantity": "600",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Haricots rouges",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Bouillon",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Éplucher et couper les oignons et les carottes en morceaux réguliers; sécher et assaisonner la viande si le plat en contient. Faire chauffer l’huile dans une cocotte.",
+      "Faire dorer la viande par petites quantités, puis ajouter oignons, carottes et ail et cuire 4 minutes. Pour une version végétarienne, faire simplement revenir les légumes et les légumineuses.",
+      "Ajouter le bouillon et les aromates, couvrir et mijoter doucement jusqu’à ce que les ingrédients soient tendres (30 à 90 minutes selon le plat); remuer et ajouter un peu d’eau si nécessaire.",
+      "Cuire l’accompagnement séparément, goûter la sauce, rectifier l’assaisonnement et servir chaud."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "bœuf",
+      "haricots rouges"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "mafé de beef et haricots rouges plated finished dish",
+    "pexels_photo_id": 36430151,
+    "pexels_alt": "Elegant plated beef dish garnished with tomatoes on a sophisticated table setting.",
+    "pexels_photographer": "Willians Huerta",
+    "pexels_photographer_url": "https://www.pexels.com/@willians-huerta-2157111846",
+    "pexels_url": "https://www.pexels.com/photo/gourmet-beef-dish-with-rich-tomato-sauce-36430151/"
+  },
+  {
+    "id": "city-cafe-langue-de-boeuf-confite-et-sauce-gribiche",
+    "original_name": "Langue de bœuf confite et sauce gribiche",
+    "nom": "Langue de bœuf confite et sauce gribiche",
+    "description": "Langue de bœuf confite et sauce gribiche préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "hiver",
+    "mois": "janvier",
+    "mois_numero": 1,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 210,
+    "difficulty": "intermédiaire",
+    "image_url": "https://images.pexels.com/photos/15997561/pexels-photo-15997561.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Bœuf",
+        "quantity": "600",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Bouillon",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Éplucher et couper les oignons et les carottes en morceaux réguliers; sécher et assaisonner la viande si le plat en contient. Faire chauffer l’huile dans une cocotte.",
+      "Faire dorer la viande par petites quantités, puis ajouter oignons, carottes et ail et cuire 4 minutes. Pour une version végétarienne, faire simplement revenir les légumes et les légumineuses.",
+      "Ajouter le bouillon et les aromates, couvrir et mijoter doucement jusqu’à ce que les ingrédients soient tendres (30 à 90 minutes selon le plat); remuer et ajouter un peu d’eau si nécessaire.",
+      "Cuire l’accompagnement séparément, goûter la sauce, rectifier l’assaisonnement et servir chaud."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "bœuf"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "langue de beef confite et sauce gribiche plated finished dish",
+    "pexels_photo_id": 15997561,
+    "pexels_alt": "Elegantly plated roast beef with root vegetables and sauce, perfect for a gourmet dining experience.",
+    "pexels_photographer": "Valeria Boltneva",
+    "pexels_photographer_url": "https://www.pexels.com/@valeriya",
+    "pexels_url": "https://www.pexels.com/photo/roasted-beef-with-vegetables-15997561/"
+  },
+  {
+    "id": "city-cafe-ragout-de-boeuf-du-mezzogiorno",
+    "original_name": "Ragoût de bœuf du Mezzogiorno",
+    "nom": "Ragoût de bœuf du Mezzogiorno",
+    "description": "Ragoût de bœuf du Mezzogiorno préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "hiver",
+    "mois": "février",
+    "mois_numero": 2,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 180,
+    "difficulty": "intermédiaire",
+    "image_url": "https://images.pexels.com/photos/17237175/pexels-photo-17237175.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Bœuf",
+        "quantity": "600",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Bouillon",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Éplucher et couper les oignons et les carottes en morceaux réguliers; sécher et assaisonner la viande si le plat en contient. Faire chauffer l’huile dans une cocotte.",
+      "Faire dorer la viande par petites quantités, puis ajouter oignons, carottes et ail et cuire 4 minutes. Pour une version végétarienne, faire simplement revenir les légumes et les légumineuses.",
+      "Ajouter le bouillon et les aromates, couvrir et mijoter doucement jusqu’à ce que les ingrédients soient tendres (30 à 90 minutes selon le plat); remuer et ajouter un peu d’eau si nécessaire.",
+      "Cuire l’accompagnement séparément, goûter la sauce, rectifier l’assaisonnement et servir chaud."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "bœuf"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "ragoût de beef du mezzogiorno plated finished dish",
+    "pexels_photo_id": 17237175,
+    "pexels_alt": "Gourmet beef dish served with sausage and greens on a white plate, elegantly presented.",
+    "pexels_photographer": "Luca Luperto",
+    "pexels_photographer_url": "https://www.pexels.com/@lucaluperto",
+    "pexels_url": "https://www.pexels.com/photo/beef-cheek-steak-17237175/"
+  },
+  {
+    "id": "city-cafe-lasagnes-de-boeuf",
+    "original_name": "Lasagnes de bœuf",
+    "nom": "Lasagnes de bœuf",
+    "description": "Lasagnes de bœuf préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "hiver",
+    "mois": "janvier",
+    "mois_numero": 1,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 90,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/5949900/pexels-photo-5949900.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Bœuf",
+        "quantity": "600",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Pâtes",
+        "quantity": "320",
+        "unit": "g secs",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Porter une grande casserole d’eau salée à ébullition et cuire les pâtes selon leur emballage; réserver une louche d’eau de cuisson.",
+      "Pendant ce temps, préparer et couper les garnitures bœuf. Faire revenir les éléments aromatiques dans une poêle avec l’huile.",
+      "Ajouter les ingrédients principaux et cuire jusqu’à tendreté; incorporer la sauce ou le fromage prévu et détendre avec un peu d’eau de cuisson.",
+      "Mélanger avec les pâtes égouttées, rectifier l’assaisonnement et servir aussitôt avec la garniture restante."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "bœuf"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "lasagna de beef plated finished dish",
+    "pexels_photo_id": 5949900,
+    "pexels_alt": "A mouthwatering slice of homemade beef lasagna topped with fresh basil.",
+    "pexels_photographer": "alleksana",
+    "pexels_photographer_url": "https://www.pexels.com/@alleksana",
+    "pexels_url": "https://www.pexels.com/photo/close-up-photo-of-cheesy-lasagna-5949900/"
+  },
+  {
+    "id": "city-cafe-tajine-de-jarret-de-boeuf-aux-pruneaux-et-semoule",
+    "original_name": "Tajine de jarret de bœuf aux pruneaux et semoule",
+    "nom": "Tajine de jarret de bœuf aux pruneaux et semoule",
+    "description": "Tajine de jarret de bœuf aux pruneaux et semoule préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "hiver",
+    "mois": "février",
+    "mois_numero": 2,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 210,
+    "difficulty": "intermédiaire",
+    "image_url": "https://images.pexels.com/photos/23025176/pexels-photo-23025176.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Semoule",
+        "quantity": "320",
+        "unit": "g secs",
+        "canonical": true
+      },
+      {
+        "name": "Bœuf",
+        "quantity": "600",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Pruneaux",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Bouillon",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Éplucher et couper les oignons et les carottes en morceaux réguliers; sécher et assaisonner la viande si le plat en contient. Faire chauffer l’huile dans une cocotte.",
+      "Faire dorer la viande par petites quantités, puis ajouter oignons, carottes et ail et cuire 4 minutes. Pour une version végétarienne, faire simplement revenir les légumes et les légumineuses.",
+      "Ajouter le bouillon et les aromates, couvrir et mijoter doucement jusqu’à ce que les ingrédients soient tendres (30 à 90 minutes selon le plat); remuer et ajouter un peu d’eau si nécessaire.",
+      "Cuire l’accompagnement séparément, goûter la sauce, rectifier l’assaisonnement et servir chaud."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "semoule",
+      "bœuf",
+      "pruneaux"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "tagine de jarret de beef aux pruneaux et semoule plated finished dish",
+    "pexels_photo_id": 23025176,
+    "pexels_alt": "A vibrant Moroccan meal featuring beef tagine, various dips, bread, and yellow couscous, perfect for a cultural culinary experience.",
+    "pexels_photographer": "Ali Dashti",
+    "pexels_photographer_url": "https://www.pexels.com/@ali-dashti-506667798",
+    "pexels_url": "https://www.pexels.com/photo/hand-of-woman-eating-food-on-table-23025176/"
+  },
+  {
+    "id": "city-cafe-roast-beef-et-sauce-ravigote",
+    "original_name": "Roast-beef et sauce ravigote",
+    "nom": "Roast-beef et sauce ravigote",
+    "description": "Roast-beef et sauce ravigote préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "printemps",
+    "mois": "mai",
+    "mois_numero": 5,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 70,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/17942032/pexels-photo-17942032.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Bœuf",
+        "quantity": "600",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sortir la viande du réfrigérateur 15 minutes avant la cuisson et l’assaisonner. Préparer les légumes et préchauffer le four à 190 °C pour les pièces à rôtir.",
+      "Faire dorer la viande dans une cocotte ou une poêle chaude avec l’huile, sur toutes ses faces; réserver si nécessaire.",
+      "Cuire les aromates bœuf dans la même matière grasse. Pour un mijoté, ajouter le bouillon, couvrir et cuire à feu doux jusqu’à ce que la viande soit tendre; pour une pièce, poursuivre au four jusqu’à cuisson à cœur adaptée.",
+      "Préparer la sauce ou les légumes d’accompagnement, laisser reposer la viande 5 à 10 minutes, puis trancher et servir."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "bœuf"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "roast-beef et sauce ravigote plated finished dish",
+    "pexels_photo_id": 17942032,
+    "pexels_alt": "Succulent roasted beef with rich sauce and creamy sweet potato puree, garnished with red pepper.",
+    "pexels_photographer": "Nadin Sh",
+    "pexels_photographer_url": "https://www.pexels.com/@nadin-sh-78971847",
+    "pexels_url": "https://www.pexels.com/photo/roasted-meat-in-sauce-17942032/"
+  }
+]

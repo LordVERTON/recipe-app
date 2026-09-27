@@ -1,0 +1,1046 @@
+[
+  {
+    "id": "city-cafe-cookies-au-toblerone",
+    "original_name": "Cookies au Toblerone",
+    "nom": "Cookies au Toblerone",
+    "description": "Cookies moelleux au beurre, garnis de morceaux de Toblerone fondants et de nougat aux amandes.",
+    "saison": "hiver",
+    "mois": "décembre",
+    "mois_numero": 12,
+    "tag": "dessert",
+    "categorie": "sucré",
+    "portions": "4 personnes",
+    "estimated_time": 30,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/9919649/pexels-photo-9919649.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Farine",
+        "quantity": "180",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Beurre",
+        "quantity": "100",
+        "unit": "g mou",
+        "canonical": true
+      },
+      {
+        "name": "Sucre",
+        "quantity": "70",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "1",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Toblerone",
+        "quantity": "120",
+        "unit": "g concassé",
+        "canonical": true
+      },
+      {
+        "name": "Levure",
+        "quantity": "1",
+        "unit": "c. à café",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "pincée",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 180 °C et couvrir une plaque de papier cuisson.",
+      "Fouetter le beurre mou et le sucre 2 minutes. Incorporer l’œuf.",
+      "Mélanger la farine, la levure et une pincée de sel; les incorporer sans trop travailler la pâte.",
+      "Ajouter le Toblerone concassé, former 8 boules et les espacer sur la plaque.",
+      "Cuire 10 à 12 minutes: les bords doivent être pris et le centre encore tendre. Laisser reposer 10 minutes sur la plaque."
+    ],
+    "astuce": "Réserver quelques morceaux de Toblerone pour les déposer sur les cookies juste avant la cuisson.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [],
+    "main_ingredients": [
+      "farine",
+      "beurre",
+      "sucre",
+      "œufs"
+    ],
+    "equipment": [
+      "four",
+      "plaque de cuisson",
+      "saladier",
+      "fouet"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "cookies au toblerone plated finished dish",
+    "pexels_photo_id": 9919649,
+    "pexels_alt": "Indulgent ice cream sundae with cookies and chocolates in a waffle bowl.",
+    "pexels_photographer": "ENESFİLM",
+    "pexels_photographer_url": "https://www.pexels.com/@enesfilm",
+    "pexels_url": "https://www.pexels.com/photo/close-up-photo-of-sweet-ice-cream-dessert-9919649/"
+  },
+  {
+    "id": "city-cafe-mousse-au-nutella-et-noisettes-caramelisees",
+    "original_name": "Mousse au Nutella et noisettes caramélisées",
+    "nom": "Mousse au Nutella et noisettes caramélisées",
+    "description": "Mousse aérienne au Nutella servie avec des noisettes enrobées d’un caramel blond.",
+    "saison": "hiver",
+    "mois": "février",
+    "mois_numero": 2,
+    "tag": "dessert",
+    "categorie": "sucré",
+    "portions": "4 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/14738384/pexels-photo-14738384.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Nutella",
+        "quantity": "180",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Crème",
+        "quantity": "25",
+        "unit": "cl très froide",
+        "canonical": true
+      },
+      {
+        "name": "Noisettes",
+        "quantity": "50",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sucre",
+        "quantity": "35",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "pincée",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Placer un saladier et les fouets au froid 10 minutes. Faire chauffer le Nutella quelques secondes pour l’assouplir, puis le laisser tiédir.",
+      "Fouetter la crème froide en chantilly souple. Incorporer d’abord une cuillerée de crème au Nutella, puis le reste délicatement à la spatule.",
+      "Répartir dans quatre verrines et réserver au réfrigérateur au moins 2 heures.",
+      "Torréfier les noisettes 5 minutes à sec. Faire fondre le sucre dans une petite casserole jusqu’à obtenir un caramel blond, ajouter les noisettes et mélanger.",
+      "Étaler sur du papier cuisson, laisser refroidir puis concasser. Parsemer sur les mousses au moment de servir."
+    ],
+    "astuce": "La mousse se prépare la veille; ajouter les noisettes caramélisées au dernier moment pour qu’elles restent croquantes.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [],
+    "main_ingredients": [
+      "nutella",
+      "crème",
+      "noisettes",
+      "sucre"
+    ],
+    "equipment": [
+      "casserole",
+      "saladier",
+      "fouet",
+      "ramequins",
+      "four"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "mousse au nutella et noisettes caramélisées plated finished dish",
+    "pexels_photo_id": 14738384,
+    "pexels_alt": "Close-up of gourmet dessert with strawberries and mousse elegantly plated in a Budapest restaurant.",
+    "pexels_photographer": "Ivan Dražić",
+    "pexels_photographer_url": "https://www.pexels.com/@ivan-drazic-20457695",
+    "pexels_url": "https://www.pexels.com/photo/dessert-on-a-plate-14738384/"
+  },
+  {
+    "id": "city-cafe-cookies-au-chocolat-et-noix-de-grenoble",
+    "original_name": "Cookies au chocolat et noix de Grenoble",
+    "nom": "Cookies au chocolat et noix de Grenoble",
+    "description": "Cookies au chocolat noir et aux éclats de noix de Grenoble, croustillants sur les bords et moelleux au centre.",
+    "saison": "automne",
+    "mois": "octobre",
+    "mois_numero": 10,
+    "tag": "dessert",
+    "categorie": "sucré",
+    "portions": "4 personnes",
+    "estimated_time": 30,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/5640103/pexels-photo-5640103.png?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Farine",
+        "quantity": "180",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Beurre",
+        "quantity": "100",
+        "unit": "g mou",
+        "canonical": true
+      },
+      {
+        "name": "Sucre",
+        "quantity": "90",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "1",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Chocolat",
+        "quantity": "100",
+        "unit": "g noir concassé",
+        "canonical": true
+      },
+      {
+        "name": "Noix",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Levure",
+        "quantity": "1",
+        "unit": "c. à café",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 180 °C et tapisser une plaque de papier cuisson.",
+      "Crémer le beurre avec le sucre, incorporer l’œuf puis la farine et la levure.",
+      "Ajouter le chocolat concassé et les noix grossièrement hachées.",
+      "Former 8 boules, les déposer en les espaçant et les aplatir légèrement.",
+      "Cuire 10 à 12 minutes. Laisser refroidir 10 minutes sur la plaque avant de déplacer."
+    ],
+    "astuce": "Sortir les cookies quand leur centre paraît encore tendre: ils finiront de prendre en refroidissant.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [],
+    "main_ingredients": [
+      "farine",
+      "beurre",
+      "sucre",
+      "œufs"
+    ],
+    "equipment": [
+      "four",
+      "plaque de cuisson",
+      "saladier",
+      "fouet"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "cookies au chocolat et noix de grenoble plated finished dish",
+    "pexels_photo_id": 5640103,
+    "pexels_alt": "A stack of homemade chocolate crinkle cookies dusted with powdered sugar on a decorative plate.",
+    "pexels_photographer": "McHail Hernandez",
+    "pexels_photographer_url": "https://www.pexels.com/@mchailhernandez",
+    "pexels_url": "https://www.pexels.com/photo/homemade-cookies-in-powdered-sugar-5640103/"
+  },
+  {
+    "id": "city-cafe-chocolat-liegeois",
+    "original_name": "Chocolat liégeois",
+    "nom": "Chocolat liégeois",
+    "description": "Crème chocolatée onctueuse refroidie, surmontée de glace vanille et de crème fouettée.",
+    "saison": "hiver",
+    "mois": "février",
+    "mois_numero": 2,
+    "tag": "dessert",
+    "categorie": "sucré",
+    "portions": "2 personnes",
+    "estimated_time": 25,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/30146049/pexels-photo-30146049.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Lait",
+        "quantity": "40",
+        "unit": "cl",
+        "canonical": true
+      },
+      {
+        "name": "Chocolat",
+        "quantity": "80",
+        "unit": "g noir",
+        "canonical": true
+      },
+      {
+        "name": "Sucre",
+        "quantity": "25",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Maïzena",
+        "quantity": "12",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Crème glacée",
+        "quantity": "2",
+        "unit": "boules vanille",
+        "canonical": true
+      },
+      {
+        "name": "Crème",
+        "quantity": "10",
+        "unit": "cl entière froide",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Délayer la Maïzena et le sucre dans un peu de lait froid. Chauffer le reste du lait.",
+      "Ajouter le chocolat haché au lait chaud et remuer jusqu’à fonte. Verser le mélange de Maïzena en fouettant.",
+      "Cuire à feu moyen 2 à 3 minutes jusqu’à épaississement. Répartir dans deux verres et réfrigérer au moins 2 heures.",
+      "Fouetter la crème froide en chantilly. Déposer une boule de glace vanille sur chaque crème chocolatée puis ajouter la chantilly.",
+      "Servir immédiatement, éventuellement avec des copeaux de chocolat."
+    ],
+    "astuce": "Refroidir les crèmes avant d’ajouter la glace pour éviter qu’elle ne fonde au dressage.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [],
+    "main_ingredients": [
+      "lait",
+      "chocolat",
+      "sucre",
+      "maïzena"
+    ],
+    "equipment": [
+      "casserole",
+      "saladier",
+      "fouet",
+      "ramequins",
+      "four"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "chocolat liégeois plated finished dish",
+    "pexels_photo_id": 30146049,
+    "pexels_alt": "Luxurious chocolate desserts served in glass bowls on stylish golden trays.",
+    "pexels_photographer": "Renkgezgini",
+    "pexels_photographer_url": "https://www.pexels.com/@renkgezgini-222950261",
+    "pexels_url": "https://www.pexels.com/photo/elegant-chocolate-dessert-on-golden-trays-30146049/"
+  },
+  {
+    "id": "city-cafe-cookies-aux-abricots-et-flocons-d-avoine",
+    "original_name": "Cookies aux abricots et flocons d’avoine",
+    "nom": "Cookies aux abricots et flocons d’avoine",
+    "description": "Cookies rustiques aux flocons d’avoine et aux morceaux d’abricot moelleux.",
+    "saison": "été",
+    "mois": "juillet",
+    "mois_numero": 7,
+    "tag": "dessert",
+    "categorie": "sucré",
+    "portions": "4 personnes",
+    "estimated_time": 30,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/6608722/pexels-photo-6608722.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Flocons d’avoine",
+        "quantity": "120",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Farine",
+        "quantity": "100",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Beurre",
+        "quantity": "90",
+        "unit": "g mou",
+        "canonical": true
+      },
+      {
+        "name": "Sucre",
+        "quantity": "70",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "1",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Abricots",
+        "quantity": "100",
+        "unit": "g secs en dés",
+        "canonical": true
+      },
+      {
+        "name": "Levure",
+        "quantity": "1",
+        "unit": "c. à café",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 180 °C et tapisser une plaque de papier cuisson.",
+      "Mélanger le beurre mou et le sucre, puis incorporer l’œuf.",
+      "Ajouter farine, flocons d’avoine et levure; mélanger juste assez pour obtenir une pâte épaisse.",
+      "Couper les abricots secs en dés et les incorporer. Former 8 cookies et les déposer sur la plaque.",
+      "Cuire 12 à 14 minutes jusqu’à légère coloration des bords. Laisser refroidir sur la plaque."
+    ],
+    "astuce": "Si les abricots secs sont fermes, les réhydrater 10 minutes dans de l’eau tiède puis bien les sécher.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [],
+    "main_ingredients": [
+      "flocons d’avoine",
+      "farine",
+      "beurre",
+      "sucre"
+    ],
+    "equipment": [
+      "four",
+      "plaque de cuisson",
+      "saladier",
+      "fouet"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "cookies aux abricots et flocons d’avoine plated finished dish",
+    "pexels_photo_id": 6608722,
+    "pexels_alt": "From above of delicious sweet baked cookies served on plate on wooden table",
+    "pexels_photographer": "Atlantic Ambience",
+    "pexels_photographer_url": "https://www.pexels.com/@freestockpro",
+    "pexels_url": "https://www.pexels.com/photo/tasty-sweet-christmas-cookies-on-table-6608722/"
+  },
+  {
+    "id": "city-cafe-creme-caramel",
+    "original_name": "Crème caramel",
+    "nom": "Crème caramel",
+    "description": "Crème prise aux œufs nappée d’un caramel ambré, cuite doucement au bain-marie.",
+    "saison": "hiver",
+    "mois": "janvier",
+    "mois_numero": 1,
+    "tag": "dessert",
+    "categorie": "sucré",
+    "portions": "4 personnes",
+    "estimated_time": 65,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/36295521/pexels-photo-36295521.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Œufs",
+        "quantity": "3",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Lait",
+        "quantity": "50",
+        "unit": "cl",
+        "canonical": true
+      },
+      {
+        "name": "Sucre",
+        "quantity": "110",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Vanille",
+        "quantity": "1",
+        "unit": "gousse",
+        "canonical": true
+      },
+      {
+        "name": "Eau",
+        "quantity": "2",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 160 °C. Faire fondre 60 g de sucre avec l’eau dans une casserole sans remuer jusqu’à obtenir un caramel ambré.",
+      "Répartir le caramel dans quatre ramequins et laisser durcir.",
+      "Chauffer le lait avec la vanille. Fouetter les œufs avec les 50 g de sucre restants sans faire mousser, puis verser le lait chaud en filet.",
+      "Filtrer l’appareil dans les ramequins. Les poser dans un plat et verser de l’eau chaude à mi-hauteur.",
+      "Cuire au bain-marie 35 à 40 minutes, jusqu’à ce que les crèmes soient prises mais encore légèrement tremblotantes. Refroidir puis réfrigérer 4 heures avant de démouler."
+    ],
+    "astuce": "Passer la lame d’un couteau autour des ramequins et les tremper quelques secondes dans l’eau chaude pour faciliter le démoulage.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [],
+    "main_ingredients": [
+      "œufs",
+      "lait",
+      "sucre",
+      "vanille"
+    ],
+    "equipment": [
+      "casserole",
+      "saladier",
+      "fouet",
+      "ramequins",
+      "four"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "crème caramel plated finished dish",
+    "pexels_photo_id": 36295521,
+    "pexels_alt": "Close-up of crème brûlée caramelizing under a torch flame creates a crispy top in a rustic dish.",
+    "pexels_photographer": "Mohamed  Olwy",
+    "pexels_photographer_url": "https://www.pexels.com/@mohamed9380",
+    "pexels_url": "https://www.pexels.com/photo/creme-brulee-being-torched-in-rustic-dish-36295521/"
+  },
+  {
+    "id": "city-cafe-cookies-au-kinder-maxi",
+    "original_name": "Cookies au Kinder Maxi",
+    "nom": "Cookies au Kinder Maxi",
+    "description": "Cookies moelleux ponctués de morceaux fondants de Kinder Maxi au lait et au chocolat.",
+    "saison": "hiver",
+    "mois": "décembre",
+    "mois_numero": 12,
+    "tag": "dessert",
+    "categorie": "sucré",
+    "portions": "4 personnes",
+    "estimated_time": 30,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/37353913/pexels-photo-37353913.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Farine",
+        "quantity": "180",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Beurre",
+        "quantity": "100",
+        "unit": "g mou",
+        "canonical": true
+      },
+      {
+        "name": "Sucre",
+        "quantity": "70",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "1",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Kinder Maxi",
+        "quantity": "120",
+        "unit": "g en morceaux",
+        "canonical": true
+      },
+      {
+        "name": "Levure",
+        "quantity": "1",
+        "unit": "c. à café",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 180 °C et couvrir une plaque de papier cuisson.",
+      "Fouetter le beurre mou avec le sucre, puis incorporer l’œuf.",
+      "Ajouter la farine et la levure. Mélanger brièvement puis incorporer les morceaux de Kinder Maxi.",
+      "Former 8 boules espacées sur la plaque et les aplatir légèrement.",
+      "Cuire 10 à 12 minutes jusqu’à ce que les bords soient dorés. Laisser reposer avant de servir."
+    ],
+    "astuce": "Réserver les morceaux de chocolat au frais jusqu’au montage pour qu’ils gardent leur forme à la cuisson.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [],
+    "main_ingredients": [
+      "farine",
+      "beurre",
+      "sucre",
+      "œufs"
+    ],
+    "equipment": [
+      "four",
+      "plaque de cuisson",
+      "saladier",
+      "fouet"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "cookies au kinder maxi plated finished dish",
+    "pexels_photo_id": 37353913,
+    "pexels_alt": "A plate of homemade chocolate cookies topped with creamy frosting, perfect for dessert.",
+    "pexels_photographer": "Aleyna Yetkin",
+    "pexels_photographer_url": "https://www.pexels.com/@aleyna-yetkin-2161263848",
+    "pexels_url": "https://www.pexels.com/photo/delicious-homemade-chocolate-frosted-cookies-37353913/"
+  },
+  {
+    "id": "city-cafe-clafoutis-aux-abricots",
+    "original_name": "Clafoutis aux abricots",
+    "nom": "Clafoutis aux abricots",
+    "description": "Clafoutis tendre aux abricots frais, dans un appareil léger à base d’œufs et de lait.",
+    "saison": "été",
+    "mois": "juillet",
+    "mois_numero": 7,
+    "tag": "dessert",
+    "categorie": "sucré",
+    "portions": "4 personnes",
+    "estimated_time": 55,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/38588704/pexels-photo-38588704.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Abricots",
+        "quantity": "450",
+        "unit": "g dénoyautés",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "3",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Farine",
+        "quantity": "90",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sucre",
+        "quantity": "70",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Lait",
+        "quantity": "25",
+        "unit": "cl",
+        "canonical": true
+      },
+      {
+        "name": "Beurre",
+        "quantity": "20",
+        "unit": "g pour le moule",
+        "canonical": true
+      },
+      {
+        "name": "Vanille",
+        "quantity": "1",
+        "unit": "c. à café",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 180 °C et beurrer un plat de 24 cm.",
+      "Laver, sécher, dénoyauter les abricots et les couper en quartiers. Les répartir dans le plat.",
+      "Fouetter les œufs et le sucre. Ajouter la farine, puis le lait et la vanille en fouettant pour éviter les grumeaux.",
+      "Verser l’appareil sur les abricots et enfourner 35 à 40 minutes, jusqu’à ce que le centre soit pris et le dessus doré.",
+      "Laisser tiédir 15 minutes avant de servir."
+    ],
+    "astuce": "Choisir des abricots mûrs mais encore fermes afin qu’ils gardent leur tenue à la cuisson.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [],
+    "main_ingredients": [
+      "abricots",
+      "œufs",
+      "farine",
+      "sucre"
+    ],
+    "equipment": [
+      "casserole",
+      "saladier",
+      "fouet",
+      "ramequins",
+      "four"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "clafoutis aux abricots plated finished dish",
+    "pexels_photo_id": 38588704,
+    "pexels_alt": "Homemade raspberry clafoutis paired with vibrant peony flowers in a vase, creating a charming table setting.",
+    "pexels_photographer": "Natalia Ostapova",
+    "pexels_photographer_url": "https://www.pexels.com/@natalia-ostapova-2162651810",
+    "pexels_url": "https://www.pexels.com/photo/raspberry-clafoutis-with-peony-bouquet-38588704/"
+  },
+  {
+    "id": "city-cafe-cookies-au-cafe-et-chocolat",
+    "original_name": "Cookies au café et chocolat",
+    "nom": "Cookies au café et chocolat",
+    "description": "Cookies au café espresso et au chocolat noir, avec une pâte riche et légèrement amère.",
+    "saison": "automne",
+    "mois": "octobre",
+    "mois_numero": 10,
+    "tag": "dessert",
+    "categorie": "sucré",
+    "portions": "4 personnes",
+    "estimated_time": 30,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/32024868/pexels-photo-32024868.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Farine",
+        "quantity": "180",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Beurre",
+        "quantity": "100",
+        "unit": "g mou",
+        "canonical": true
+      },
+      {
+        "name": "Sucre",
+        "quantity": "85",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "1",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Chocolat",
+        "quantity": "100",
+        "unit": "g noir",
+        "canonical": true
+      },
+      {
+        "name": "Café",
+        "quantity": "2",
+        "unit": "c. à café espresso refroidi",
+        "canonical": true
+      },
+      {
+        "name": "Levure",
+        "quantity": "1",
+        "unit": "c. à café",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 180 °C et tapisser une plaque de papier cuisson.",
+      "Crémer le beurre et le sucre. Incorporer l’œuf et le café refroidi.",
+      "Ajouter la farine et la levure, puis le chocolat concassé.",
+      "Former 8 boules, les espacer sur la plaque et les aplatir légèrement.",
+      "Cuire 10 à 12 minutes. Laisser refroidir sur la plaque pour que le centre se raffermisse."
+    ],
+    "astuce": "Un espresso serré refroidi apporte plus de goût sans détendre la pâte comme le ferait un grand café.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [],
+    "main_ingredients": [
+      "farine",
+      "beurre",
+      "sucre",
+      "œufs"
+    ],
+    "equipment": [
+      "four",
+      "plaque de cuisson",
+      "saladier",
+      "fouet"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "cookies au café et chocolat plated finished dish",
+    "pexels_photo_id": 32024868,
+    "pexels_alt": "Delicious chocolate coffee bean shaped cookies arranged on a plate.",
+    "pexels_photographer": "Fatma Kılıç",
+    "pexels_photographer_url": "https://www.pexels.com/@fatma-kilic-1617912660",
+    "pexels_url": "https://www.pexels.com/photo/chocolate-coffee-bean-cookies-on-plate-32024868/"
+  },
+  {
+    "id": "city-cafe-galette-des-rois",
+    "original_name": "Galette des rois",
+    "nom": "Galette des rois",
+    "description": "Galette dorée garnie d’une frangipane aux amandes, assemblée avec une pâte feuilletée du commerce.",
+    "saison": "hiver",
+    "mois": "janvier",
+    "mois_numero": 1,
+    "tag": "dessert",
+    "categorie": "sucré",
+    "portions": "4 personnes",
+    "estimated_time": 60,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/6072098/pexels-photo-6072098.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Pâte feuilletée",
+        "quantity": "2",
+        "unit": "rouleaux ronds",
+        "canonical": true
+      },
+      {
+        "name": "Amandes",
+        "quantity": "125",
+        "unit": "g poudre",
+        "canonical": true
+      },
+      {
+        "name": "Beurre",
+        "quantity": "100",
+        "unit": "g mou",
+        "canonical": true
+      },
+      {
+        "name": "Sucre",
+        "quantity": "100",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Vanille",
+        "quantity": "1",
+        "unit": "c. à café",
+        "canonical": true
+      },
+      {
+        "name": "Lait",
+        "quantity": "1",
+        "unit": "c. à soupe pour la dorure",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 190 °C. Fouetter le beurre et le sucre, puis incorporer la poudre d’amandes, un œuf et la vanille.",
+      "Dérouler un disque de pâte sur une plaque. Étaler la frangipane au centre en laissant une bordure de 2 cm; placer une fève si souhaité.",
+      "Humidifier la bordure, couvrir du second disque et souder soigneusement. Dessiner des motifs sans percer la pâte.",
+      "Dorer avec le second œuf battu avec le lait, puis réfrigérer 15 minutes pour raffermir la pâte.",
+      "Dorer une seconde fois et cuire 30 à 35 minutes jusqu’à ce que la galette soit bien gonflée et dorée. Laisser tiédir avant de couper."
+    ],
+    "astuce": "Une pâte feuilletée pur beurre du commerce donne un résultat régulier sans exiger le tourage à la maison.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [],
+    "main_ingredients": [
+      "pâte feuilletée",
+      "amandes",
+      "beurre",
+      "sucre"
+    ],
+    "equipment": [
+      "casserole",
+      "saladier",
+      "fouet",
+      "ramequins",
+      "four"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "galette des rois plated finished dish",
+    "pexels_photo_id": 6072098,
+    "pexels_alt": "Delicious homemade galette topped with fresh blueberries and walnuts, perfect dessert option.",
+    "pexels_photographer": "Alesia  Kozik",
+    "pexels_photographer_url": "https://www.pexels.com/@alesiakozik",
+    "pexels_url": "https://www.pexels.com/photo/close-up-shot-of-pie-with-berries-6072098/"
+  },
+  {
+    "id": "city-cafe-cookies-aux-cranberries-et-chocolat-blanc",
+    "original_name": "Cookies aux cranberries et chocolat blanc",
+    "nom": "Cookies aux cranberries et chocolat blanc",
+    "description": "Cookies doux au chocolat blanc, équilibrés par l’acidité des cranberries séchées.",
+    "saison": "hiver",
+    "mois": "décembre",
+    "mois_numero": 12,
+    "tag": "dessert",
+    "categorie": "sucré",
+    "portions": "4 personnes",
+    "estimated_time": 30,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/15794484/pexels-photo-15794484.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Farine",
+        "quantity": "180",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Beurre",
+        "quantity": "100",
+        "unit": "g mou",
+        "canonical": true
+      },
+      {
+        "name": "Sucre",
+        "quantity": "75",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "1",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Chocolat blanc",
+        "quantity": "100",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Cranberries séchées",
+        "quantity": "70",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Levure",
+        "quantity": "1",
+        "unit": "c. à café",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 180 °C et tapisser une plaque de papier cuisson.",
+      "Crémer le beurre et le sucre, puis incorporer l’œuf.",
+      "Mélanger la farine et la levure, les ajouter à la pâte, puis incorporer le chocolat blanc en morceaux et les cranberries.",
+      "Former 8 boules espacées sur la plaque et les aplatir légèrement.",
+      "Cuire 10 à 12 minutes jusqu’à légère coloration des bords. Laisser refroidir sur la plaque."
+    ],
+    "astuce": "Si les cranberries sont très sèches, les faire tremper 5 minutes puis les sécher soigneusement.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [],
+    "main_ingredients": [
+      "farine",
+      "beurre",
+      "sucre",
+      "œufs"
+    ],
+    "equipment": [
+      "four",
+      "plaque de cuisson",
+      "saladier",
+      "fouet"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "cookies aux cranberries et chocolat blanc plated finished dish",
+    "pexels_photo_id": 15794484,
+    "pexels_alt": "Freshly baked cookies with white chocolate and cranberries, styled with pink sauce.",
+    "pexels_photographer": "Ana Palade",
+    "pexels_photographer_url": "https://www.pexels.com/@ana-palade-470459090",
+    "pexels_url": "https://www.pexels.com/photo/homemade-cookies-with-pink-sauce-15794484/"
+  },
+  {
+    "id": "city-cafe-riz-au-lait-et-gel-de-citron-vert",
+    "original_name": "Riz au lait et gel de citron vert",
+    "nom": "Riz au lait et gel de citron vert",
+    "description": "Riz au lait crémeux refroidi, accompagné d’un gel acidulé au citron vert.",
+    "saison": "printemps",
+    "mois": "avril",
+    "mois_numero": 4,
+    "tag": "dessert",
+    "categorie": "sucré",
+    "portions": "4 personnes",
+    "estimated_time": 55,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/36452148/pexels-photo-36452148.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Riz",
+        "quantity": "120",
+        "unit": "g rond",
+        "canonical": true
+      },
+      {
+        "name": "Lait",
+        "quantity": "75",
+        "unit": "cl",
+        "canonical": true
+      },
+      {
+        "name": "Sucre",
+        "quantity": "90",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Vanille",
+        "quantity": "1",
+        "unit": "gousse",
+        "canonical": true
+      },
+      {
+        "name": "Citron vert",
+        "quantity": "2",
+        "unit": "zestes et jus",
+        "canonical": true
+      },
+      {
+        "name": "Gélatine",
+        "quantity": "2",
+        "unit": "g",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Rincer rapidement le riz. Le verser dans une casserole avec le lait et la vanille; cuire à feu très doux 35 à 40 minutes en remuant souvent.",
+      "Ajouter 65 g de sucre dans les 10 dernières minutes. Répartir le riz au lait dans quatre verrines et laisser refroidir.",
+      "Faire tremper la gélatine dans l’eau froide. Chauffer le jus et le zeste de citron vert avec 25 g de sucre et 2 c. à soupe d’eau.",
+      "Hors du feu, incorporer la gélatine essorée, mélanger puis laisser refroidir jusqu’à ce que le gel commence à épaissir.",
+      "Répartir le gel sur le riz au lait froid et réfrigérer au moins 1 heure avant de servir."
+    ],
+    "astuce": "Ne laissez pas le riz au lait sans surveillance: remuez fréquemment et ajoutez un peu de lait s’il épaissit trop.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [],
+    "main_ingredients": [
+      "riz",
+      "lait",
+      "sucre",
+      "vanille"
+    ],
+    "equipment": [
+      "casserole",
+      "saladier",
+      "fouet",
+      "ramequins",
+      "four"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "rice au lait et gel de citron vert plated finished dish",
+    "pexels_photo_id": 36452148,
+    "pexels_alt": "A mouthwatering mango sticky rice dessert garnished with basil leaves and sesame seeds.",
+    "pexels_photographer": "RAQUEL ESPONILLA",
+    "pexels_photographer_url": "https://www.pexels.com/@raquel-esponilla-2153162938",
+    "pexels_url": "https://www.pexels.com/photo/delicious-mango-sticky-rice-dessert-top-view-36452148/"
+  }
+]

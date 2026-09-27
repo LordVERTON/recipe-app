@@ -1,0 +1,1506 @@
+[
+  {
+    "id": "city-cafe-gnocchetti-sardi-courgettes-grillees-saumon",
+    "original_name": "Gnocchetti sardi aux courgettes grillées et saumon",
+    "nom": "Gnocchetti sardi aux courgettes grillées et au saumon",
+    "description": "Malloreddus sardes mêlés à des courgettes dorées, du saumon poêlé et une sauce légère au citron.",
+    "saison": "été",
+    "mois": "août",
+    "mois_numero": 8,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 30,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/39107658/pexels-photo-39107658.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Gnocchetti sardi",
+        "quantity": "180",
+        "unit": "g secs",
+        "canonical": true
+      },
+      {
+        "name": "Saumon",
+        "quantity": "260",
+        "unit": "g sans peau",
+        "canonical": true
+      },
+      {
+        "name": "Courgettes",
+        "quantity": "200",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "gousse",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "0.5",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "2",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Crème",
+        "quantity": "60",
+        "unit": "ml",
+        "canonical": true
+      },
+      {
+        "name": "Parmesan",
+        "quantity": "20",
+        "unit": "g",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Porter une casserole d’eau salée à ébullition et cuire les gnocchetti selon le paquet, généralement 10 à 12 minutes; réserver une louche d’eau de cuisson.",
+      "Couper les courgettes en demi-rondelles. Les dorer 6 à 8 minutes dans une grande poêle avec une cuillère d’huile, puis réserver.",
+      "Couper le saumon en cubes, saler et poivrer, puis le saisir 2 à 3 minutes par face dans la poêle jusqu’à ce qu’il soit opaque à cœur.",
+      "Faire revenir l’ail haché 30 secondes, ajouter la crème, le zeste et le jus de citron, puis détendre avec un peu d’eau de cuisson.",
+      "Ajouter les pâtes égouttées et les courgettes. Mélanger doucement, déposer le saumon et servir avec le parmesan."
+    ],
+    "astuce": "Les malloreddus sont aussi vendus sous le nom de gnocchetti sardi; à défaut, des petites pâtes torsadées conviennent.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "gnocchetti sardi",
+      "saumon",
+      "courgettes"
+    ],
+    "equipment": [
+      "casserole",
+      "grande poêle",
+      "zesteur",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "grilled salmon zucchini pasta",
+    "pexels_photo_id": 39107658,
+    "pexels_alt": "Delicious orecchiette pasta with grilled salmon, cherry tomatoes, and spinach served in a creamy sauce.",
+    "pexels_photographer": "Lena Netkach",
+    "pexels_photographer_url": "https://www.pexels.com/@lena-netkach-395486",
+    "pexels_url": "https://www.pexels.com/photo/gourmet-pasta-with-salmon-and-spinach-39107658/"
+  },
+  {
+    "id": "city-cafe-spaghetti-bolognaise",
+    "original_name": "Spaghetti bolognaise",
+    "nom": "Spaghetti bolognaise",
+    "description": "Spaghetti enrobés d’un ragù maison de bœuf mijoté avec tomate, carotte, céleri et vin rouge.",
+    "saison": "automne",
+    "mois": "octobre",
+    "mois_numero": 10,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 75,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/30406652/pexels-photo-30406652.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Spaghetti",
+        "quantity": "180",
+        "unit": "g secs",
+        "canonical": true
+      },
+      {
+        "name": "Bœuf",
+        "quantity": "250",
+        "unit": "g haché",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "0.5",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Céleri",
+        "quantity": "40",
+        "unit": "g branche",
+        "canonical": true
+      },
+      {
+        "name": "Tomates",
+        "quantity": "250",
+        "unit": "g concassées",
+        "canonical": true
+      },
+      {
+        "name": "Concentré de tomate",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Vin rouge",
+        "quantity": "80",
+        "unit": "ml",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Parmesan",
+        "quantity": "25",
+        "unit": "g",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Hacher finement l’oignon, la carotte et le céleri.",
+      "Chauffer l’huile dans une casserole et faire suer les légumes 5 minutes. Ajouter le bœuf et le faire dorer en l’émiettant.",
+      "Incorporer le concentré de tomate, cuire 1 minute, verser le vin et laisser réduire 2 minutes.",
+      "Ajouter les tomates concassées et 100 ml d’eau. Couvrir partiellement et laisser mijoter 50 minutes à feu doux en remuant parfois; saler et poivrer.",
+      "Cuire les spaghetti al dente dans une grande casserole d’eau salée, égoutter et mélanger au ragù avec un peu d’eau de cuisson si besoin.",
+      "Servir avec le parmesan râpé."
+    ],
+    "astuce": "Le ragù peut mijoter jusqu’à 2 heures à feu très doux; ajoute un peu d’eau s’il épaissit trop.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "spaghetti",
+      "bœuf",
+      "tomates"
+    ],
+    "equipment": [
+      "casserole",
+      "grande casserole",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "spaghetti bolognese",
+    "pexels_photo_id": 30406652,
+    "pexels_alt": "Close-up of spaghetti bolognese with garlic bread on a rustic table.",
+    "pexels_photographer": "Ruslan Kruglov",
+    "pexels_photographer_url": "https://www.pexels.com/@ruslan-kruglov-2148338580",
+    "pexels_url": "https://www.pexels.com/photo/delicious-spaghetti-bolognese-with-garlic-bread-30406652/"
+  },
+  {
+    "id": "city-cafe-fusilli-alla-norma",
+    "original_name": "Fusilli alla Norma",
+    "nom": "Fusilli alla Norma",
+    "description": "Pâtes courtes à la tomate et à l’aubergine dorée, finies au basilic et à la ricotta salata, dans l’esprit de la spécialité de Catane.",
+    "saison": "été",
+    "mois": "août",
+    "mois_numero": 8,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/29039066/pexels-photo-29039066.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Fusilli",
+        "quantity": "180",
+        "unit": "g secs",
+        "canonical": true
+      },
+      {
+        "name": "Aubergines",
+        "quantity": "250",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Tomates",
+        "quantity": "250",
+        "unit": "g concassées",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "gousse",
+        "canonical": true
+      },
+      {
+        "name": "Basilic",
+        "quantity": "8",
+        "unit": "feuilles",
+        "canonical": true
+      },
+      {
+        "name": "Ricotta salata",
+        "quantity": "35",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "2",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Couper l’aubergine en dés de 2 cm, saler légèrement et laisser dégorger 10 minutes, puis sécher.",
+      "Faire dorer l’aubergine en deux fois dans l’huile, 8 à 10 minutes au total. Réserver sur une assiette.",
+      "Dans la même poêle, faire revenir l’ail 30 secondes, ajouter les tomates et laisser réduire 12 minutes à feu doux.",
+      "Cuire les fusilli al dente dans une casserole d’eau salée; garder une petite louche d’eau de cuisson.",
+      "Mélanger pâtes, sauce et aubergine avec un peu d’eau de cuisson. Ajouter le basilic déchiré et servir avec la ricotta salata râpée."
+    ],
+    "astuce": "La ricotta salata est une ricotta salée et affinée; si elle est introuvable, utilise un peu de pecorino, plus puissant.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "fusilli",
+      "aubergines",
+      "tomates",
+      "ricotta salata"
+    ],
+    "equipment": [
+      "casserole",
+      "grande poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "fusilli tomato grilled eggplant pasta",
+    "pexels_photo_id": 29039066,
+    "pexels_alt": "Appetizing rigatoni pasta with tomato sauce, basil, and grilled eggplant.",
+    "pexels_photographer": "Nano Erdozain",
+    "pexels_photographer_url": "https://www.pexels.com/@nano-erdozain-120534369",
+    "pexels_url": "https://www.pexels.com/photo/delicious-rigatoni-pasta-in-tomato-sauce-29039066/"
+  },
+  {
+    "id": "city-cafe-casarecce-sicilienne-thon-olives",
+    "original_name": "Casarecce à la sicilienne",
+    "nom": "Casarecce à la sicilienne, thon, olives et câpres",
+    "description": "Casarecce enrobées de tomate, thon, olives et câpres, une interprétation de la sauce sicilienne distincte de l’alla Norma à l’aubergine.",
+    "saison": "été",
+    "mois": "août",
+    "mois_numero": 8,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 30,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/8264654/pexels-photo-8264654.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Casarecce",
+        "quantity": "180",
+        "unit": "g sèches",
+        "canonical": true
+      },
+      {
+        "name": "Thon",
+        "quantity": "140",
+        "unit": "g égoutté",
+        "canonical": true
+      },
+      {
+        "name": "Tomates",
+        "quantity": "220",
+        "unit": "g concassées",
+        "canonical": true
+      },
+      {
+        "name": "Olives",
+        "quantity": "35",
+        "unit": "g noires dénoyautées",
+        "canonical": true
+      },
+      {
+        "name": "Câpres",
+        "quantity": "15",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "gousse",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "8",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Porter une casserole d’eau salée à ébullition et cuire les casarecce selon le temps indiqué sur le paquet.",
+      "Émincer l’ail et couper les olives en deux. Faire revenir l’ail 30 secondes dans l’huile sans le colorer.",
+      "Ajouter les tomates, les olives et les câpres rincées; laisser mijoter 10 à 12 minutes.",
+      "Égoutter le thon, l’émietter grossièrement et l’ajouter à la sauce pour le réchauffer 2 minutes.",
+      "Égoutter les pâtes en réservant un peu d’eau de cuisson. Les mélanger à la sauce, ajouter le persil haché et servir."
+    ],
+    "astuce": "Les casarecce se trouvent en épicerie italienne; des fusilli ou des torsades courtes les remplacent facilement.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "casarecce",
+      "thon",
+      "olives",
+      "câpres"
+    ],
+    "equipment": [
+      "casserole",
+      "sauteuse",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "sicilian tuna pasta olives capers",
+    "pexels_photo_id": 8264654,
+    "pexels_alt": "Top view of a classic Italian pasta dish with black olives, capers, and cheese garnish.",
+    "pexels_photographer": "Ilaria M",
+    "pexels_photographer_url": "https://www.pexels.com/@ilariam",
+    "pexels_url": "https://www.pexels.com/photo/pasta-dish-with-capers-8264654/"
+  },
+  {
+    "id": "city-cafe-gnocchis-potiron-bleu-bresse",
+    "original_name": "Gnocchis au potiron et bleu de Bresse",
+    "nom": "Gnocchis au potiron et au bleu de Bresse",
+    "description": "Gnocchis poêlés servis avec du potiron rôti et une sauce crémeuse au bleu de Bresse.",
+    "saison": "automne",
+    "mois": "octobre",
+    "mois_numero": 10,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 40,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/29208503/pexels-photo-29208503.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Gnocchis",
+        "quantity": "400",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Potiron",
+        "quantity": "300",
+        "unit": "g épluché",
+        "canonical": true
+      },
+      {
+        "name": "Bleu de Bresse",
+        "quantity": "80",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Crème",
+        "quantity": "80",
+        "unit": "ml",
+        "canonical": true
+      },
+      {
+        "name": "Beurre",
+        "quantity": "15",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Noix",
+        "quantity": "20",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sauge",
+        "quantity": "4",
+        "unit": "feuilles",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 210 °C. Couper le potiron en dés, les déposer sur une plaque, saler et rôtir 20 à 25 minutes jusqu’à tendreté.",
+      "Faire dorer les gnocchis dans une poêle avec le beurre 5 à 7 minutes, en les retournant régulièrement.",
+      "Verser la crème dans une petite casserole, ajouter le bleu émietté et chauffer doucement en remuant jusqu’à obtenir une sauce lisse.",
+      "Ajouter les dés de potiron aux gnocchis et les faire sauter 1 minute.",
+      "Napper de sauce au bleu et terminer avec les noix concassées et la sauge finement ciselée."
+    ],
+    "astuce": "Le potimarron peut remplacer le potiron sans être épluché après un bon lavage; le bleu de Bresse se substitue mal, mais un bleu doux convient.",
+    "cuisson_micro_ondes": false,
+    "sans_four": false,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "gnocchis",
+      "potiron",
+      "bleu de Bresse"
+    ],
+    "equipment": [
+      "four",
+      "plaque de cuisson",
+      "poêle",
+      "casserole",
+      "couteau"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "pumpkin gnocchi",
+    "pexels_photo_id": 29208503,
+    "pexels_alt": "Delicious gourmet dish featuring mushrooms and pumpkin gnocchi elegantly plated.",
+    "pexels_photographer": "Fernanda da Silva Lopes",
+    "pexels_photographer_url": "https://www.pexels.com/@fernanda-da-silva-lopes-2055473628",
+    "pexels_url": "https://www.pexels.com/photo/gourmet-mushroom-and-pumpkin-gnocchi-dish-29208503/"
+  },
+  {
+    "id": "city-cafe-penne-pesto-maison-tomate-mozzarella",
+    "original_name": "Penne au pesto maison, tomate et mozzarella",
+    "nom": "Penne au pesto maison, tomates et mozzarella",
+    "description": "Penne assaisonnées d’un pesto de basilic fraîchement mixé, de tomates juteuses et de mozzarella fondante.",
+    "saison": "été",
+    "mois": "août",
+    "mois_numero": 8,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 25,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/4518883/pexels-photo-4518883.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Penne",
+        "quantity": "180",
+        "unit": "g secs",
+        "canonical": true
+      },
+      {
+        "name": "Basilic",
+        "quantity": "25",
+        "unit": "g de feuilles",
+        "canonical": true
+      },
+      {
+        "name": "Parmesan",
+        "quantity": "25",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Pignons de pin",
+        "quantity": "15",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "0.5",
+        "unit": "gousse",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "35",
+        "unit": "ml",
+        "canonical": true
+      },
+      {
+        "name": "Tomates",
+        "quantity": "180",
+        "unit": "g cerises",
+        "canonical": true
+      },
+      {
+        "name": "Mozzarella",
+        "quantity": "100",
+        "unit": "g",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Cuire les penne al dente dans une casserole d’eau salée. Réserver 80 ml d’eau de cuisson puis égoutter.",
+      "Mixer le basilic, le parmesan, les pignons, l’ail et l’huile jusqu’à obtenir un pesto; ajouter une cuillère d’eau si nécessaire.",
+      "Couper les tomates en deux et déchirer la mozzarella en morceaux.",
+      "Mélanger les pâtes encore chaudes avec le pesto et un peu d’eau de cuisson pour lier la sauce.",
+      "Ajouter tomates et mozzarella, mélanger une fois et servir sans attendre."
+    ],
+    "astuce": "Pour une sauce plus douce, remplace la moitié des pignons par des noix de cajou non salées.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "penne",
+      "basilic",
+      "tomates",
+      "mozzarella"
+    ],
+    "equipment": [
+      "casserole",
+      "mixeur",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "pesto pasta tomatoes cheese",
+    "pexels_photo_id": 4518883,
+    "pexels_alt": "Fresh cherry tomatoes and parmesan cheese adorn this delicious vegetarian pesto pasta.",
+    "pexels_photographer": "Polina Tankilevitch",
+    "pexels_photographer_url": "https://www.pexels.com/@polina-tankilevitch",
+    "pexels_url": "https://www.pexels.com/photo/noodles-with-cheese-and-tomatoes-4518883/"
+  },
+  {
+    "id": "city-cafe-triangoli-courgettes-puttanesca",
+    "original_name": "Triangoli aux courgettes à la puttanesca",
+    "nom": "Triangoli aux courgettes, sauce puttanesca",
+    "description": "Triangoli frais farcis à la courgette, servis avec une sauce vive aux tomates, olives, câpres, ail et anchois.",
+    "saison": "été",
+    "mois": "août",
+    "mois_numero": 8,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 25,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/39061616/pexels-photo-39061616.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Triangoli aux courgettes",
+        "quantity": "250",
+        "unit": "g frais",
+        "canonical": true
+      },
+      {
+        "name": "Tomates",
+        "quantity": "220",
+        "unit": "g concassées",
+        "canonical": true
+      },
+      {
+        "name": "Olives",
+        "quantity": "30",
+        "unit": "g noires",
+        "canonical": true
+      },
+      {
+        "name": "Câpres",
+        "quantity": "10",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Anchois",
+        "quantity": "2",
+        "unit": "filets",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "gousse",
+        "canonical": true
+      },
+      {
+        "name": "Piment",
+        "quantity": "1",
+        "unit": "pincée",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "5",
+        "unit": "g",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Hacher l’ail et couper les olives en deux. Faire chauffer l’huile dans une sauteuse à feu doux.",
+      "Ajouter l’ail, les anchois et le piment; écraser les anchois à la cuillère pendant 1 minute.",
+      "Incorporer les tomates, les olives et les câpres rincées, puis laisser mijoter 10 minutes.",
+      "Cuire les triangoli selon les instructions du paquet, souvent 3 à 4 minutes s’ils sont frais; les retirer avec une écumoire.",
+      "Mélanger délicatement les pâtes à la sauce, ajouter le persil et servir."
+    ],
+    "astuce": "Les triangoli farcis aux courgettes sont vendus frais dans certaines épiceries italiennes; des ravioli courgette-ricotta conviennent également.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "triangoli aux courgettes",
+      "tomates",
+      "olives",
+      "câpres"
+    ],
+    "equipment": [
+      "casserole",
+      "sauteuse",
+      "écumoire",
+      "couteau"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "ravioli tomato sauce pasta",
+    "pexels_photo_id": 39061616,
+    "pexels_alt": "Delicious ravioli served with rich tomato sauce and fresh basil leaf, paired with white wine.",
+    "pexels_photographer": "Sofia Andrade",
+    "pexels_photographer_url": "https://www.pexels.com/@sofia-andrade-2158801830",
+    "pexels_url": "https://www.pexels.com/photo/gourmet-pasta-ravioli-with-tomato-sauce-39061616/"
+  },
+  {
+    "id": "city-cafe-agnolotti-burrata-basilic-pesto",
+    "original_name": "Agnolotti burrata et basilic au pesto alla genovese",
+    "nom": "Agnolotti à la burrata, basilic et pesto alla genovese",
+    "description": "Agnolotti frais au cœur crémeux de burrata, relevés d’un pesto génois et de tomates cerises.",
+    "saison": "été",
+    "mois": "août",
+    "mois_numero": 8,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 25,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/31779531/pexels-photo-31779531.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Agnolotti à la burrata",
+        "quantity": "250",
+        "unit": "g frais",
+        "canonical": true
+      },
+      {
+        "name": "Basilic",
+        "quantity": "25",
+        "unit": "g de feuilles",
+        "canonical": true
+      },
+      {
+        "name": "Parmesan",
+        "quantity": "20",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Pignons de pin",
+        "quantity": "15",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "0.5",
+        "unit": "gousse",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "30",
+        "unit": "ml",
+        "canonical": true
+      },
+      {
+        "name": "Tomates",
+        "quantity": "120",
+        "unit": "g cerises",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Mixer le basilic, le parmesan, les pignons, l’ail et l’huile pour obtenir un pesto épais.",
+      "Porter une casserole d’eau salée à frémissement et cuire les agnolotti selon le paquet, sans les faire bouillir trop vivement.",
+      "Prélever une petite tasse d’eau de cuisson. Égoutter délicatement les pâtes avec une écumoire.",
+      "Délayer le pesto avec une à deux cuillères d’eau de cuisson puis napper les agnolotti.",
+      "Ajouter les tomates cerises coupées en deux et servir avec un peu de parmesan."
+    ],
+    "astuce": "Les agnolotti à la burrata sont parfois vendus surgelés ou frais en épicerie italienne; suivre leur temps de cuisson indiqué et éviter de les manipuler vivement.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "agnolotti à la burrata",
+      "basilic",
+      "pesto"
+    ],
+    "equipment": [
+      "casserole",
+      "mixeur",
+      "écumoire",
+      "couteau"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "burrata ravioli pesto basil pasta",
+    "pexels_photo_id": 31779531,
+    "pexels_alt": "Delicious Italian ravioli topped with pesto sauce, garnished with cherry tomatoes and basil.",
+    "pexels_photographer": "Adriano Bragi",
+    "pexels_photographer_url": "https://www.pexels.com/@adriano-bragi-1288014591",
+    "pexels_url": "https://www.pexels.com/photo/italian-ravioli-with-pesto-and-cherry-tomatoes-31779531/"
+  },
+  {
+    "id": "city-cafe-tagliatelles-vertes-boulettes-veau",
+    "original_name": "Tagliatelles vertes et boulettes de veau",
+    "nom": "Tagliatelles vertes et boulettes de veau",
+    "description": "Tagliatelles aux épinards accompagnées de boulettes de veau moelleuses et d’une sauce tomate courte.",
+    "saison": "automne",
+    "mois": "octobre",
+    "mois_numero": 10,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 40,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/14930760/pexels-photo-14930760.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Tagliatelles vertes",
+        "quantity": "180",
+        "unit": "g fraîches",
+        "canonical": true
+      },
+      {
+        "name": "Veau",
+        "quantity": "240",
+        "unit": "g haché",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "0.5",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Chapelure",
+        "quantity": "20",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Parmesan",
+        "quantity": "20",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Tomates",
+        "quantity": "200",
+        "unit": "g concassées",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "0.5",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "5",
+        "unit": "g",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Mélanger le veau haché avec l’œuf battu, la chapelure, la moitié du parmesan, du sel et du poivre. Former 8 petites boulettes.",
+      "Faire dorer les boulettes dans l’huile 5 minutes en les retournant; réserver.",
+      "Faire revenir l’oignon finement haché dans la même poêle 3 minutes, ajouter les tomates et 100 ml d’eau.",
+      "Remettre les boulettes dans la sauce, couvrir et cuire doucement 15 minutes jusqu’à cuisson complète du veau.",
+      "Cuire les tagliatelles selon le paquet, les égoutter et les répartir avec la sauce et les boulettes.",
+      "Parsemer de persil et du reste de parmesan."
+    ],
+    "astuce": "Des tagliatelles fraîches vertes du commerce sont adaptées; des tagliatelles classiques conviennent si vous n’en trouvez pas.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "tagliatelles vertes",
+      "veau",
+      "tomates"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle avec couvercle",
+      "saladier",
+      "couteau"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "tagliatelle meatballs pasta",
+    "pexels_photo_id": 14930760,
+    "pexels_alt": "Flat lay of delicious tagliatelle pasta with meatballs in tomato sauce, perfect for food lovers.",
+    "pexels_photographer": "Shameel mukkath",
+    "pexels_photographer_url": "https://www.pexels.com/@shameel-mukkath-3421394",
+    "pexels_url": "https://www.pexels.com/photo/meatball-sauce-on-oval-cast-iron-beside-tagliatelle-pasta-14930760/"
+  },
+  {
+    "id": "city-cafe-ravioli-citron-grana-basilic",
+    "original_name": "Ravioli citron, crème de Grana Padano et basilic frais",
+    "nom": "Ravioli au citron, crème de Grana Padano et basilic",
+    "description": "Ravioli frais nappés d’une sauce douce au Grana Padano, éclairée par le citron et le basilic frais.",
+    "saison": "printemps",
+    "mois": "avril",
+    "mois_numero": 4,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 25,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/30302239/pexels-photo-30302239.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Ravioli",
+        "quantity": "250",
+        "unit": "g frais",
+        "canonical": true
+      },
+      {
+        "name": "Crème",
+        "quantity": "120",
+        "unit": "ml",
+        "canonical": true
+      },
+      {
+        "name": "Grana Padano",
+        "quantity": "45",
+        "unit": "g râpé",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "0.5",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Basilic",
+        "quantity": "8",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Beurre",
+        "quantity": "10",
+        "unit": "g",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Porter une casserole d’eau salée à frémissement et cuire les ravioli selon le temps du paquet; réserver une petite louche d’eau.",
+      "Faire fondre le beurre dans une petite casserole à feu doux, ajouter la crème et le zeste finement râpé du citron.",
+      "Incorporer le Grana Padano en fouettant jusqu’à ce qu’il fonde; ajouter une cuillère d’eau de cuisson pour assouplir la sauce.",
+      "Égoutter délicatement les ravioli et les enrober de sauce sans les casser.",
+      "Ajouter quelques gouttes de jus de citron, le basilic ciselé et servir immédiatement."
+    ],
+    "astuce": "Choisir des ravioli frais ricotta-épinards ou ricotta-citron du commerce; la sauce citronnée les accompagne bien sans fabrication de pâte maison.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "ravioli",
+      "Grana Padano",
+      "citron",
+      "basilic"
+    ],
+    "equipment": [
+      "casserole",
+      "petite casserole",
+      "fouet",
+      "zesteur"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "creamy ravioli parmesan sauce",
+    "pexels_photo_id": 30302239,
+    "pexels_alt": "Top view of Italian ravioli in cream sauce with tomatoes and cheese.",
+    "pexels_photographer": "khezez  | خزاز",
+    "pexels_photographer_url": "https://www.pexels.com/@khezez",
+    "pexels_url": "https://www.pexels.com/photo/italian-ravioli-dish-with-creamy-sauce-30302239/"
+  },
+  {
+    "id": "city-cafe-risotto-milanais-truffe-burrata-roquette",
+    "original_name": "Risotto milanais à l'huile de truffe, burrata et roquette",
+    "nom": "Risotto milanais à la truffe, burrata et roquette",
+    "description": "Risotto au safran cuit progressivement au bouillon, terminé au beurre et au Grana Padano, avec burrata, roquette et huile de truffe.",
+    "saison": "automne",
+    "mois": "octobre",
+    "mois_numero": 10,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 40,
+    "difficulty": "intermédiaire",
+    "image_url": "https://images.pexels.com/photos/6216844/pexels-photo-6216844.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Riz",
+        "quantity": "160",
+        "unit": "g spécial risotto",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "0.5",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Bouillon",
+        "quantity": "650",
+        "unit": "ml chaud",
+        "canonical": true
+      },
+      {
+        "name": "Vin blanc",
+        "quantity": "70",
+        "unit": "ml",
+        "canonical": true
+      },
+      {
+        "name": "Safran",
+        "quantity": "0.15",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Beurre",
+        "quantity": "25",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Grana Padano",
+        "quantity": "35",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Burrata",
+        "quantity": "1",
+        "unit": "petite (125 g)",
+        "canonical": true
+      },
+      {
+        "name": "Roquette",
+        "quantity": "25",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile de truffe",
+        "quantity": "1",
+        "unit": "c. à café",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Faire chauffer le bouillon dans une petite casserole et y laisser infuser le safran.",
+      "Faire fondre 10 g de beurre dans une sauteuse. Ajouter l’oignon finement haché et le cuire 3 minutes sans coloration.",
+      "Verser le riz et remuer 1 minute pour l’enrober. Ajouter le vin blanc et laisser évaporer.",
+      "Ajouter le bouillon chaud louche par louche en remuant souvent, pendant 18 à 20 minutes, jusqu’à ce que le riz soit crémeux et encore légèrement ferme.",
+      "Hors du feu, incorporer le reste du beurre et le Grana Padano. Couvrir 2 minutes.",
+      "Répartir le risotto, ajouter la burrata déchirée et la roquette, puis quelques gouttes d’huile de truffe."
+    ],
+    "astuce": "L’huile de truffe est puissante : commence par quelques gouttes et ajuste à table. L’Arborio ou le Carnaroli conviennent au risotto.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "riz",
+      "safran",
+      "burrata",
+      "roquette"
+    ],
+    "equipment": [
+      "sauteuse",
+      "petite casserole",
+      "louche",
+      "râpe"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "Milanese saffron risotto truffle",
+    "pexels_photo_id": 6216844,
+    "pexels_alt": "Delicious Milanese risotto with truffle, plated for fine dining experience.",
+    "pexels_photographer": "Eva Bronzini",
+    "pexels_photographer_url": "https://www.pexels.com/@eva-bronzini",
+    "pexels_url": "https://www.pexels.com/photo/close-up-of-dish-in-plate-on-table-6216844/"
+  },
+  {
+    "id": "city-cafe-cannellonis-potimarron-chevre-frais",
+    "original_name": "Cannellonis de potimarron et chèvre frais",
+    "nom": "Cannellonis au potimarron et chèvre frais",
+    "description": "Cannellonis farcis d’une purée de potimarron rôtie et de chèvre frais, gratinés sous une sauce tomate légère.",
+    "saison": "automne",
+    "mois": "octobre",
+    "mois_numero": 10,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 60,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/36701467/pexels-photo-36701467.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Cannellonis",
+        "quantity": "6",
+        "unit": "tubes secs",
+        "canonical": true
+      },
+      {
+        "name": "Potimarron",
+        "quantity": "300",
+        "unit": "g épluché et épépiné",
+        "canonical": true
+      },
+      {
+        "name": "Chèvre",
+        "quantity": "100",
+        "unit": "g frais",
+        "canonical": true
+      },
+      {
+        "name": "Ricotta",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Tomates",
+        "quantity": "250",
+        "unit": "g concassées",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "0.5",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Parmesan",
+        "quantity": "20",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 200 °C. Couper le potimarron en cubes et le rôtir 20 minutes sur une plaque avec un filet d’huile.",
+      "Écraser le potimarron rôti avec le chèvre frais et la ricotta. Saler, poivrer et garnir les cannellonis secs à l’aide d’une petite cuillère.",
+      "Verser les tomates concassées et l’oignon haché dans le fond d’un petit plat à gratin; ajouter 100 ml d’eau et assaisonner.",
+      "Ranger les cannellonis dans la sauce en une seule couche. Couvrir le plat de papier cuisson puis d’aluminium et cuire 25 minutes.",
+      "Retirer la couverture, parsemer de parmesan et remettre au four 8 à 10 minutes, jusqu’à ce que les pâtes soient tendres et le dessus doré.",
+      "Laisser reposer 5 minutes avant de servir."
+    ],
+    "astuce": "Les cannellonis secs ne nécessitent pas de précuisson si la sauce est assez fluide et le plat couvert au début de la cuisson.",
+    "cuisson_micro_ondes": false,
+    "sans_four": false,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "cannellonis",
+      "potimarron",
+      "chèvre frais"
+    ],
+    "equipment": [
+      "four",
+      "plaque de cuisson",
+      "plat à gratin",
+      "cuillère"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "spinach cheese cannelloni baked pasta",
+    "pexels_photo_id": 36701467,
+    "pexels_alt": "Aerial view of spinach and cheese cannelloni garnished with flowers in a gray bowl.",
+    "pexels_photographer": "Anil  Sharma",
+    "pexels_photographer_url": "https://www.pexels.com/@shootsaga",
+    "pexels_url": "https://www.pexels.com/photo/delicious-spinach-and-cheese-cannelloni-dish-36701467/"
+  },
+  {
+    "id": "city-cafe-spaghetti-gambas-ail-persil",
+    "original_name": "Spaghettis frais aux gambas, ail et persil",
+    "nom": "Spaghettis frais aux gambas, ail et persil",
+    "description": "Spaghettis frais sautés avec des gambas, de l’ail, du persil et un trait de citron.",
+    "saison": "été",
+    "mois": "juillet",
+    "mois_numero": 7,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 25,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/30579195/pexels-photo-30579195.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Spaghetti",
+        "quantity": "180",
+        "unit": "g frais",
+        "canonical": true
+      },
+      {
+        "name": "Gambas",
+        "quantity": "240",
+        "unit": "décortiquées",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "gousses",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "12",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "0.5",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "2",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Piment",
+        "quantity": "1",
+        "unit": "pincée",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Cuire les spaghettis frais selon le paquet, souvent 2 à 4 minutes; réserver une petite tasse d’eau de cuisson.",
+      "Émincer l’ail et hacher le persil. Faire chauffer l’huile dans une grande poêle avec le piment.",
+      "Ajouter les gambas et les saisir 1 à 2 minutes par face jusqu’à ce qu’elles soient roses et opaques.",
+      "Ajouter l’ail et cuire 30 secondes sans le laisser brunir. Verser un peu d’eau de cuisson et le jus de citron.",
+      "Ajouter les pâtes égouttées et le persil, mélanger 30 secondes et servir aussitôt."
+    ],
+    "astuce": "Si les gambas sont surgelées, les décongeler au réfrigérateur et les sécher avant cuisson pour bien les saisir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "spaghettis frais",
+      "gambas",
+      "ail",
+      "persil"
+    ],
+    "equipment": [
+      "casserole",
+      "grande poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "shrimp spaghetti garlic parsley",
+    "pexels_photo_id": 30579195,
+    "pexels_alt": "Close-up of shrimp spaghetti with parsley, perfect for a healthy Mediterranean meal.",
+    "pexels_photographer": "Dominik Gryzbon",
+    "pexels_photographer_url": "https://www.pexels.com/@gryziu",
+    "pexels_url": "https://www.pexels.com/photo/delicious-shrimp-spaghetti-with-fresh-herbs-30579195/"
+  },
+  {
+    "id": "city-cafe-crozets-gratines-vacherin-champignons",
+    "original_name": "Crozet gratiné au Vacherin et champignons des bois",
+    "nom": "Crozets gratinés au Vacherin et champignons des bois",
+    "description": "Crozets savoyards mélangés à des champignons poêlés et gratinés avec du Vacherin fondant.",
+    "saison": "automne",
+    "mois": "octobre",
+    "mois_numero": 10,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 45,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/14623907/pexels-photo-14623907.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Crozets",
+        "quantity": "160",
+        "unit": "g secs",
+        "canonical": true
+      },
+      {
+        "name": "Champignons des bois",
+        "quantity": "180",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Vacherin",
+        "quantity": "100",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Crème",
+        "quantity": "80",
+        "unit": "ml",
+        "canonical": true
+      },
+      {
+        "name": "Échalotes",
+        "quantity": "1",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Beurre",
+        "quantity": "15",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Noix",
+        "quantity": "15",
+        "unit": "g",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four en mode gril à 220 °C. Cuire les crozets dans l’eau bouillante salée selon le paquet, puis égoutter.",
+      "Nettoyer les champignons avec un linge humide et les couper en morceaux. Hacher l’échalote.",
+      "Faire fondre le beurre dans une poêle, cuire l’échalote 2 minutes puis ajouter les champignons et les faire dorer 6 à 8 minutes.",
+      "Ajouter la crème, poivrer et mélanger avec les crozets égouttés.",
+      "Verser dans un petit plat à gratin, répartir le Vacherin en morceaux et gratiner 5 à 7 minutes jusqu’à ce que le fromage fonde et dore.",
+      "Ajouter les noix concassées au moment de servir."
+    ],
+    "astuce": "À défaut de Vacherin Mont-d’Or, un reblochon ou un fromage à pâte molle de montagne donnera un gratin fondant.",
+    "cuisson_micro_ondes": false,
+    "sans_four": false,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "crozets",
+      "champignons des bois",
+      "Vacherin"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "plat à gratin",
+      "four",
+      "couteau"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "creamy mushroom pasta cheese",
+    "pexels_photo_id": 14623907,
+    "pexels_alt": "Creamy pasta topped with mushrooms and cheese in a ceramic bowl on a wooden table.",
+    "pexels_photographer": "Nadin Sh",
+    "pexels_photographer_url": "https://www.pexels.com/@nadin-sh-78971847",
+    "pexels_url": "https://www.pexels.com/photo/delicious-pasta-in-bowl-14623907/"
+  },
+  {
+    "id": "city-cafe-pastitsio-boeuf-braise",
+    "original_name": "Pastitsio au bœuf braisé",
+    "nom": "Pastitsio au bœuf braisé",
+    "description": "Gratin grec de macaroni, bœuf longuement mijoté à la tomate et aux épices, recouvert d’une béchamel dorée au fromage.",
+    "saison": "hiver",
+    "mois": "janvier",
+    "mois_numero": 1,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 225,
+    "difficulty": "intermédiaire",
+    "image_url": "https://images.pexels.com/photos/4661987/pexels-photo-4661987.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Macaroni",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Bœuf",
+        "quantity": "500",
+        "unit": "g à braiser en petits dés",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "gousses",
+        "canonical": true
+      },
+      {
+        "name": "Tomates",
+        "quantity": "400",
+        "unit": "g concassées",
+        "canonical": true
+      },
+      {
+        "name": "Vin rouge",
+        "quantity": "120",
+        "unit": "ml",
+        "canonical": true
+      },
+      {
+        "name": "Bouillon",
+        "quantity": "250",
+        "unit": "ml",
+        "canonical": true
+      },
+      {
+        "name": "Cannelle",
+        "quantity": "0.5",
+        "unit": "c. à café",
+        "canonical": true
+      },
+      {
+        "name": "Beurre",
+        "quantity": "40",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Farine",
+        "quantity": "40",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Lait",
+        "quantity": "500",
+        "unit": "ml",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "1",
+        "unit": "jaune",
+        "canonical": true
+      },
+      {
+        "name": "Parmesan",
+        "quantity": "50",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Muscade",
+        "quantity": "1",
+        "unit": "pincée",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 180 °C. Faire dorer les dés de bœuf dans une cocotte avec un peu de beurre ou d’huile, en plusieurs fois.",
+      "Ajouter l’oignon haché et l’ail, cuire 3 minutes, puis verser le vin rouge et laisser réduire de moitié.",
+      "Ajouter les tomates, le bouillon, la cannelle, du sel et du poivre. Couvrir et laisser braiser à feu doux 2 heures 30, jusqu’à ce que la viande s’effiloche; effilocher grossièrement.",
+      "Cuire les macaronis 2 minutes de moins que le temps du paquet, égoutter et répartir dans un plat à gratin. Étaler le bœuf et sa sauce par-dessus.",
+      "Pour la béchamel, faire fondre 40 g de beurre dans une casserole, ajouter la farine et fouetter 1 minute. Verser le lait progressivement en fouettant et cuire 5 à 7 minutes jusqu’à épaississement.",
+      "Hors du feu, incorporer le jaune d’œuf, la moitié du parmesan et la muscade. Verser sur la viande, parsemer du reste de parmesan.",
+      "Enfourner 30 à 35 minutes jusqu’à ce que le dessus soit doré. Laisser reposer 15 minutes avant de découper."
+    ],
+    "astuce": "Pour réduire le temps, un bœuf haché mijoté 35 minutes convient, mais la version en dés longuement braisés garde le caractère demandé par le menu.",
+    "cuisson_micro_ondes": false,
+    "sans_four": false,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "macaroni",
+      "bœuf braisé",
+      "béchamel"
+    ],
+    "equipment": [
+      "cocotte avec couvercle",
+      "casserole",
+      "fouet",
+      "plat à gratin",
+      "four",
+      "couteau"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "baked layered pasta casserole lasagna",
+    "pexels_photo_id": 4661987,
+    "pexels_alt": "Close-up of a baked lasagna with melted cheese, perfect for Italian cuisine lovers.",
+    "pexels_photographer": "Marina Utrabo",
+    "pexels_photographer_url": "https://www.pexels.com/@marinautrabo",
+    "pexels_url": "https://www.pexels.com/photo/bowl-with-lasagne-4661987/"
+  }
+]

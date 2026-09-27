@@ -1,0 +1,817 @@
+[
+  {
+    "id": "city-cafe-supreme-de-poulet-roti-sauce-aux-morilles",
+    "original_name": "Suprême de poulet rôti, sauce aux morilles",
+    "nom": "Suprême de poulet rôti, sauce aux morilles",
+    "description": "Suprême de poulet rôti, sauce aux morilles préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "printemps",
+    "mois": "avril",
+    "mois_numero": 4,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 55,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/36863872/pexels-photo-36863872.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Poulet",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Morilles",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sortir la viande du réfrigérateur 15 minutes avant la cuisson et l’assaisonner. Préparer les légumes et préchauffer le four à 190 °C pour les pièces à rôtir.",
+      "Faire dorer la viande dans une cocotte ou une poêle chaude avec l’huile, sur toutes ses faces; réserver si nécessaire.",
+      "Cuire les aromates poulet, morilles dans la même matière grasse. Pour un mijoté, ajouter le bouillon, couvrir et cuire à feu doux jusqu’à ce que la viande soit tendre; pour une pièce, poursuivre au four jusqu’à cuisson à cœur adaptée.",
+      "Préparer la sauce ou les légumes d’accompagnement, laisser reposer la viande 5 à 10 minutes, puis trancher et servir."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "volaille"
+    ],
+    "main_ingredients": [
+      "poulet",
+      "morilles"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "suprême de chicken rôti, sauce aux morilles plated finished dish",
+    "pexels_photo_id": 36863872,
+    "pexels_alt": "Deliciously plated roast chicken breast with savory sauce and cauliflower puree.",
+    "pexels_photographer": "Merve Gülhan",
+    "pexels_photographer_url": "https://www.pexels.com/@merve-gulhan-2150623335",
+    "pexels_url": "https://www.pexels.com/photo/gourmet-roast-chicken-with-cauliflower-puree-36863872/"
+  },
+  {
+    "id": "city-cafe-tenders-de-poulet-et-sauce-cajun",
+    "original_name": "Tenders de poulet et sauce cajun",
+    "nom": "Tenders de poulet et sauce cajun",
+    "description": "Tenders de poulet et sauce cajun préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/8859016/pexels-photo-8859016.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Poulet",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sortir la viande du réfrigérateur 15 minutes avant la cuisson et l’assaisonner. Préparer les légumes et préchauffer le four à 190 °C pour les pièces à rôtir.",
+      "Faire dorer la viande dans une cocotte ou une poêle chaude avec l’huile, sur toutes ses faces; réserver si nécessaire.",
+      "Cuire les aromates poulet dans la même matière grasse. Pour un mijoté, ajouter le bouillon, couvrir et cuire à feu doux jusqu’à ce que la viande soit tendre; pour une pièce, poursuivre au four jusqu’à cuisson à cœur adaptée.",
+      "Préparer la sauce ou les légumes d’accompagnement, laisser reposer la viande 5 à 10 minutes, puis trancher et servir."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "volaille"
+    ],
+    "main_ingredients": [
+      "poulet"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "tenders de chicken et sauce cajun plated finished dish",
+    "pexels_photo_id": 8859016,
+    "pexels_alt": "Delicious breaded chicken tenders paired with fresh green beans and sauce, artfully plated.",
+    "pexels_photographer": "Karen Laårk Boshoff",
+    "pexels_photographer_url": "https://www.pexels.com/@laarkstudio",
+    "pexels_url": "https://www.pexels.com/photo/food-on-plate-8859016/"
+  },
+  {
+    "id": "city-cafe-supreme-de-poulet-roti-jus-creme-et-gratin-dauphinois",
+    "original_name": "Suprême de poulet rôti, jus crémé et gratin dauphinois",
+    "nom": "Suprême de poulet rôti, jus crémé et gratin dauphinois",
+    "description": "Suprême de poulet rôti, jus crémé et gratin dauphinois préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "hiver",
+    "mois": "janvier",
+    "mois_numero": 1,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 90,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/20150680/pexels-photo-20150680.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Crème",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Poulet",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Pommes de terre",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Fromage frais",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 190 °C. Préparer la garniture crème, poulet et cuire au préalable les légumes humides dans une poêle pour évacuer leur eau.",
+      "Foncer le moule ou la plaque avec la pâte; piquer le fond. Mélanger les œufs, la crème et le fromage, puis assaisonner.",
+      "Répartir la garniture, verser l’appareil ou la sauce et enfourner 30 à 40 minutes jusqu’à ce que la pâte soit dorée et le centre pris.",
+      "Laisser reposer 8 minutes avant de couper; accompagner de la salade ou des herbes prévues."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": false,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "volaille"
+    ],
+    "main_ingredients": [
+      "crème",
+      "poulet"
+    ],
+    "equipment": [
+      "four",
+      "saladier",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "suprême de chicken rôti, jus crémé et gratin dauphinois plated finished dish",
+    "pexels_photo_id": 20150680,
+    "pexels_alt": "Close-up of a gourmet chicken dish elegantly plated on a designer plate with a black background.",
+    "pexels_photographer": "Change C.C",
+    "pexels_photographer_url": "https://www.pexels.com/@change-c-c-974768353",
+    "pexels_url": "https://www.pexels.com/photo/a-meal-on-a-plate-20150680/"
+  },
+  {
+    "id": "city-cafe-enchiladas-de-poulet-gratinees-au-cheddar",
+    "original_name": "Enchiladas de poulet gratinées au cheddar",
+    "nom": "Enchiladas de poulet gratinées au cheddar",
+    "description": "Enchiladas de poulet gratinées au cheddar préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "août",
+    "mois_numero": 8,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 55,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/31843929/pexels-photo-31843929.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Cheddar",
+        "quantity": "120",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Poulet",
+        "quantity": "600",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Pommes de terre",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "4",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Fromage frais",
+        "quantity": "120",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 190 °C. Préparer la garniture cheddar, poulet et cuire au préalable les légumes humides dans une poêle pour évacuer leur eau.",
+      "Foncer le moule ou la plaque avec la pâte; piquer le fond. Mélanger les œufs, la crème et le fromage, puis assaisonner.",
+      "Répartir la garniture, verser l’appareil ou la sauce et enfourner 30 à 40 minutes jusqu’à ce que la pâte soit dorée et le centre pris.",
+      "Laisser reposer 8 minutes avant de couper; accompagner de la salade ou des herbes prévues."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": false,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "volaille"
+    ],
+    "main_ingredients": [
+      "cheddar",
+      "poulet"
+    ],
+    "equipment": [
+      "four",
+      "saladier",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "enchiladas de chicken gratinées au cheddar plated finished dish",
+    "pexels_photo_id": 31843929,
+    "pexels_alt": "Delicious enchiladas plated with a vibrant red sauce and cream swirl, served on a wooden table.",
+    "pexels_photographer": "Allan González",
+    "pexels_photographer_url": "https://www.pexels.com/@allanglezg",
+    "pexels_url": "https://www.pexels.com/photo/mexican-cuisine-enchiladas-in-rich-red-sauce-31843929/"
+  },
+  {
+    "id": "city-cafe-brochettes-de-poulet-yakitori",
+    "original_name": "Brochettes de poulet yakitori",
+    "nom": "Brochettes de poulet yakitori",
+    "description": "Brochettes de poulet yakitori préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juillet",
+    "mois_numero": 7,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/32722820/pexels-photo-32722820.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Poulet",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Poisson blanc",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sécher le poisson et préparer les garnitures poulet; préchauffer le four à 190 °C si la cuisson est au four.",
+      "Cuire les accompagnements séparément: démarrer les pommes de terre ou les céréales dans une casserole d’eau salée.",
+      "Saisir le poisson dans une poêle huilée 2 à 3 min par face selon l’épaisseur, ou le cuire au four 10 à 15 min jusqu’à ce que sa chair soit opaque et se détache.",
+      "Préparer la sauce avec les aromates et le citron, puis servir immédiatement avec le poisson et l’accompagnement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "volaille"
+    ],
+    "main_ingredients": [
+      "poulet"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "brochettes de chicken yakitori plated finished dish",
+    "pexels_photo_id": 32722820,
+    "pexels_alt": "A plate of assorted yakitori skewers including chicken and vegetables.",
+    "pexels_photographer": "Richard L",
+    "pexels_photographer_url": "https://www.pexels.com/@richard-l-2150581203",
+    "pexels_url": "https://www.pexels.com/photo/delicious-grilled-yakitori-skewers-on-plate-32722820/"
+  },
+  {
+    "id": "city-cafe-poulet-au-beurre-de-cacahuetes-et-lait-de-coco",
+    "original_name": "Poulet au beurre de cacahuètes et lait de coco",
+    "nom": "Poulet au beurre de cacahuètes et lait de coco",
+    "description": "Poulet au beurre de cacahuètes et lait de coco préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "hiver",
+    "mois": "janvier",
+    "mois_numero": 1,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 40,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/11381409/pexels-photo-11381409.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Beurre",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Poulet",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sortir la viande du réfrigérateur 15 minutes avant la cuisson et l’assaisonner. Préparer les légumes et préchauffer le four à 190 °C pour les pièces à rôtir.",
+      "Faire dorer la viande dans une cocotte ou une poêle chaude avec l’huile, sur toutes ses faces; réserver si nécessaire.",
+      "Cuire les aromates beurre, poulet dans la même matière grasse. Pour un mijoté, ajouter le bouillon, couvrir et cuire à feu doux jusqu’à ce que la viande soit tendre; pour une pièce, poursuivre au four jusqu’à cuisson à cœur adaptée.",
+      "Préparer la sauce ou les légumes d’accompagnement, laisser reposer la viande 5 à 10 minutes, puis trancher et servir."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "volaille"
+    ],
+    "main_ingredients": [
+      "beurre",
+      "poulet"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "chicken au beurre de cacahuètes et lait de coco plated finished dish",
+    "pexels_photo_id": 11381409,
+    "pexels_alt": "Sliced sesame crusted chicken garnished with vibrant microgreens, elegantly plated on slate.",
+    "pexels_photographer": "Lorena Martínez",
+    "pexels_photographer_url": "https://www.pexels.com/@lorena-martinez-1218850",
+    "pexels_url": "https://www.pexels.com/photo/cooked-food-on-black-tray-11381409/"
+  },
+  {
+    "id": "city-cafe-supreme-de-poulet-facon-cordon-bleu",
+    "original_name": "Suprême de poulet façon cordon bleu",
+    "nom": "Suprême de poulet façon cordon bleu",
+    "description": "Suprême de poulet façon cordon bleu préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "hiver",
+    "mois": "février",
+    "mois_numero": 2,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 45,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/12349437/pexels-photo-12349437.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Poulet",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sortir la viande du réfrigérateur 15 minutes avant la cuisson et l’assaisonner. Préparer les légumes et préchauffer le four à 190 °C pour les pièces à rôtir.",
+      "Faire dorer la viande dans une cocotte ou une poêle chaude avec l’huile, sur toutes ses faces; réserver si nécessaire.",
+      "Cuire les aromates poulet dans la même matière grasse. Pour un mijoté, ajouter le bouillon, couvrir et cuire à feu doux jusqu’à ce que la viande soit tendre; pour une pièce, poursuivre au four jusqu’à cuisson à cœur adaptée.",
+      "Préparer la sauce ou les légumes d’accompagnement, laisser reposer la viande 5 à 10 minutes, puis trancher et servir."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "volaille"
+    ],
+    "main_ingredients": [
+      "poulet"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "suprême de chicken façon cordon bleu plated finished dish",
+    "pexels_photo_id": 12349437,
+    "pexels_alt": "Appetizing close-up of breaded chicken with creamy sauce, fries, and fresh salad.",
+    "pexels_photographer": "Towfiqu barbhuiya",
+    "pexels_photographer_url": "https://www.pexels.com/@towfiqu-barbhuiya-3440682",
+    "pexels_url": "https://www.pexels.com/photo/cordon-bleu-on-a-ceramic-plate-12349437/"
+  },
+  {
+    "id": "city-cafe-tacos-au-poulet-avocat-et-cheddar",
+    "original_name": "Tacos au poulet, avocat et cheddar",
+    "nom": "Tacos au poulet, avocat et cheddar",
+    "description": "Tacos au poulet, avocat et cheddar préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "août",
+    "mois_numero": 8,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/36498697/pexels-photo-36498697.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Avocats",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Cheddar",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Poulet",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Pain",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Salade",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Tomates",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préparer les garnitures avocats, cheddar, poulet; laver et essorer les légumes, puis cuire toute protéine crue à cœur dans une poêle chaude.",
+      "Mélanger les éléments de sauce et assaisonner. Trancher le pain; le toaster ou le réchauffer à la poêle jusqu’à ce qu’il soit doré.",
+      "Monter le sandwich avec la sauce, les éléments chauds puis les légumes frais. Pour un fromage à gratiner, passer 3 à 5 minutes sous le gril.",
+      "Couper en deux et servir aussitôt, avec la garniture prévue."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "volaille"
+    ],
+    "main_ingredients": [
+      "avocats",
+      "cheddar",
+      "poulet"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "tacos au chicken, avocado et cheddar plated finished dish",
+    "pexels_photo_id": 36498697,
+    "pexels_alt": "Close-up of delicious chicken tacos with avocado, served in a modern restaurant setting.",
+    "pexels_photographer": "DΛVΞ GΛRCIΛ",
+    "pexels_photographer_url": "https://www.pexels.com/@davegarcia",
+    "pexels_url": "https://www.pexels.com/photo/delicious-soft-tacos-with-avocado-and-chicken-36498697/"
+  },
+  {
+    "id": "city-cafe-poulet-tandoori-raita-et-naan",
+    "original_name": "Poulet tandoori, raita et naan",
+    "nom": "Poulet tandoori, raita et naan",
+    "description": "Poulet tandoori, raita et naan préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 45,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/31860142/pexels-photo-31860142.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Poulet",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Pain naan",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sortir la viande du réfrigérateur 15 minutes avant la cuisson et l’assaisonner. Préparer les légumes et préchauffer le four à 190 °C pour les pièces à rôtir.",
+      "Faire dorer la viande dans une cocotte ou une poêle chaude avec l’huile, sur toutes ses faces; réserver si nécessaire.",
+      "Cuire les aromates poulet, pain naan dans la même matière grasse. Pour un mijoté, ajouter le bouillon, couvrir et cuire à feu doux jusqu’à ce que la viande soit tendre; pour une pièce, poursuivre au four jusqu’à cuisson à cœur adaptée.",
+      "Préparer la sauce ou les légumes d’accompagnement, laisser reposer la viande 5 à 10 minutes, puis trancher et servir."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "volaille"
+    ],
+    "main_ingredients": [
+      "poulet",
+      "pain naan"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "chicken tandoori, raita et naan plated finished dish",
+    "pexels_photo_id": 31860142,
+    "pexels_alt": "Elegant presentation of tandoori chicken with herb rice, creamy tomato sauce, and edible flowers.",
+    "pexels_photographer": "shubham howal",
+    "pexels_photographer_url": "https://www.pexels.com/@shubham-howal-2151392548",
+    "pexels_url": "https://www.pexels.com/photo/gourmet-plated-tandoori-chicken-with-herb-rice-31860142/"
+  },
+  {
+    "id": "city-cafe-cordon-bleu-de-dinde",
+    "original_name": "Cordon bleu de dinde",
+    "nom": "Cordon bleu de dinde",
+    "description": "Cordon bleu de dinde préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "hiver",
+    "mois": "février",
+    "mois_numero": 2,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 45,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/33776454/pexels-photo-33776454.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Dinde / volaille",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sortir la viande du réfrigérateur 15 minutes avant la cuisson et l’assaisonner. Préparer les légumes et préchauffer le four à 190 °C pour les pièces à rôtir.",
+      "Faire dorer la viande dans une cocotte ou une poêle chaude avec l’huile, sur toutes ses faces; réserver si nécessaire.",
+      "Cuire les aromates dinde / volaille dans la même matière grasse. Pour un mijoté, ajouter le bouillon, couvrir et cuire à feu doux jusqu’à ce que la viande soit tendre; pour une pièce, poursuivre au four jusqu’à cuisson à cœur adaptée.",
+      "Préparer la sauce ou les légumes d’accompagnement, laisser reposer la viande 5 à 10 minutes, puis trancher et servir."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "volaille"
+    ],
+    "main_ingredients": [
+      "dinde / volaille"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "cordon bleu de dinde plated finished dish",
+    "pexels_photo_id": 33776454,
+    "pexels_alt": "A beautifully plated breaded chicken dish with vibrant vegetables on a modern white plate.",
+    "pexels_photographer": "Speak Media Uganda",
+    "pexels_photographer_url": "https://www.pexels.com/@speakmediauganda",
+    "pexels_url": "https://www.pexels.com/photo/delicious-breaded-chicken-with-colorful-vegetable-garnish-33776454/"
+  }
+]

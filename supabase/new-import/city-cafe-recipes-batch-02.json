@@ -1,0 +1,1144 @@
+[
+  {
+    "id": "city-cafe-banh-mi-poulet",
+    "original_name": "Banh Mi au poulet à la vietnamienne",
+    "nom": "Bánh mì au poulet",
+    "description": "Baguette croustillante garnie de poulet mariné, de carotte vinaigrée, de concombre, de coriandre et d’une mayonnaise légèrement pimentée.",
+    "saison": "été",
+    "mois": "juillet",
+    "mois_numero": 7,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/32961655/pexels-photo-32961655.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Baguette",
+        "quantity": "2",
+        "unit": "petites",
+        "canonical": true
+      },
+      {
+        "name": "Poulet",
+        "quantity": "240",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "100",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Concombres",
+        "quantity": "80",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Coriandre",
+        "quantity": "10",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Mayonnaise",
+        "quantity": "2",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sauce soja",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Vinaigre",
+        "quantity": "2",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sucre",
+        "quantity": "1",
+        "unit": "c. à café",
+        "canonical": true
+      },
+      {
+        "name": "Piment",
+        "quantity": "1",
+        "unit": "pincée",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Râper les carottes. Mélanger le vinaigre, le sucre et 2 cuillères à soupe d’eau, ajouter les carottes et laisser mariner 20 minutes.",
+      "Couper le poulet en fines lanières, le mélanger à la sauce soja puis le saisir dans une poêle chaude 6 à 8 minutes jusqu’à cuisson complète.",
+      "Mélanger la mayonnaise avec le piment. Ouvrir les baguettes sans les séparer complètement et les toaster 2 minutes.",
+      "Tartiner les baguettes de mayonnaise, garnir de poulet, carottes égouttées, concombre en rubans et coriandre. Servir aussitôt."
+    ],
+    "astuce": "Les carottes marinées se préparent la veille et se gardent jusqu’à 3 jours au réfrigérateur.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "volaille"
+    ],
+    "main_ingredients": [
+      "poulet",
+      "carottes",
+      "concombre"
+    ],
+    "equipment": [
+      "poêle",
+      "râpe",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "chicken banh mi sandwich",
+    "pexels_photo_id": 32961655,
+    "pexels_alt": "Traditional Vietnamese bánh mì sandwich placed on local newspaper, surrounded by fresh ingredients, offering a cultural and gastronomic glimpse of Việt Nam.",
+    "pexels_photographer": "Hậu Mai",
+    "pexels_photographer_url": "https://www.pexels.com/@h-u-mai-2153907229",
+    "pexels_url": "https://www.pexels.com/photo/delicious-vietnamese-banh-mi-on-newspaper-32961655/"
+  },
+  {
+    "id": "city-cafe-bagel-feta-grenade-courgette-kebab",
+    "original_name": "Bagel Berliner : feta, grenade, courgette et kebab",
+    "nom": "Bagel au bœuf façon kebab, feta, grenade et courgette",
+    "description": "Une interprétation du Berliner : bœuf épicé façon kebab, courgette grillée, feta et graines de grenade dans un bagel.",
+    "saison": "automne",
+    "mois": "octobre",
+    "mois_numero": 10,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "theme_special": "Berliner",
+    "portions": "2 personnes",
+    "estimated_time": 30,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/38337105/pexels-photo-38337105.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Bagel",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Bœuf",
+        "quantity": "220",
+        "unit": "g émincé",
+        "canonical": true
+      },
+      {
+        "name": "Courgettes",
+        "quantity": "120",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Feta",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Grenade",
+        "quantity": "0.5",
+        "unit": "fruit",
+        "canonical": true
+      },
+      {
+        "name": "Yaourt",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Cumin",
+        "quantity": "0.5",
+        "unit": "c. à café",
+        "canonical": true
+      },
+      {
+        "name": "Paprika",
+        "quantity": "0.5",
+        "unit": "c. à café",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Mélanger le yaourt avec la moitié du cumin, une pincée de paprika et du sel pour obtenir une sauce.",
+      "Couper la courgette en rubans et la saisir dans l’huile 3 à 4 minutes; réserver. Assaisonner le bœuf avec le reste du cumin et du paprika.",
+      "Faire dorer le bœuf à feu vif 3 à 5 minutes selon l’épaisseur, jusqu’à cuisson souhaitée.",
+      "Toaster les bagels. Les garnir de sauce au yaourt, courgette, bœuf, feta émiettée et graines de grenade."
+    ],
+    "astuce": "Le menu ne précise pas l’animal du kebab; cette version domestique utilise du bœuf émincé. On peut acheter des lamelles de kebab de bœuf déjà assaisonnées.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "bœuf",
+      "feta",
+      "grenade",
+      "courgette"
+    ],
+    "equipment": [
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "doner kebab pita sandwich",
+    "pexels_photo_id": 38337105,
+    "pexels_alt": "Appetizing close-up of a döner kebab wrap with crispy lettuce, wrapped in foil, shot in Kapfenberg, Austria.",
+    "pexels_photographer": "Patrick",
+    "pexels_photographer_url": "https://www.pexels.com/@jaralol",
+    "pexels_url": "https://www.pexels.com/photo/close-up-shot-of-a-delicious-doner-kebab-wrap-38337105/"
+  },
+  {
+    "id": "city-cafe-croque-poulet-pesto-persil",
+    "original_name": "Croque poulet et pesto de persil",
+    "nom": "Croque au poulet et pesto de persil",
+    "description": "Pain de mie doré garni de poulet, emmental fondant et pesto maison au persil.",
+    "saison": "printemps",
+    "mois": "avril",
+    "mois_numero": 4,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 25,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/37228248/pexels-photo-37228248.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Pain",
+        "quantity": "4",
+        "unit": "tranches épaisses",
+        "canonical": true
+      },
+      {
+        "name": "Poulet",
+        "quantity": "160",
+        "unit": "g cuit",
+        "canonical": true
+      },
+      {
+        "name": "Emmental",
+        "quantity": "80",
+        "unit": "g râpé",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "20",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Parmesan",
+        "quantity": "20",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "gousse",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "2",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Beurre",
+        "quantity": "10",
+        "unit": "g",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Mixer le persil, le parmesan, l’ail et l’huile d’olive jusqu’à obtenir un pesto épais. Ajouter une cuillère d’eau si nécessaire.",
+      "Préchauffer le four à 200 °C. Effilocher le poulet cuit et le mélanger avec la moitié du pesto.",
+      "Garnir deux tranches de pain de poulet et d’emmental, refermer avec le reste du pain puis beurrer légèrement l’extérieur.",
+      "Faire dorer les croques dans une poêle 2 minutes par face, puis les enfourner 6 à 8 minutes jusqu’à ce que le fromage soit fondu. Servir avec le reste du pesto."
+    ],
+    "astuce": "Un reste de poulet rôti convient très bien et réduit la préparation à 15 minutes.",
+    "cuisson_micro_ondes": false,
+    "sans_four": false,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "volaille"
+    ],
+    "main_ingredients": [
+      "poulet",
+      "persil",
+      "emmental"
+    ],
+    "equipment": [
+      "four",
+      "poêle",
+      "mixeur",
+      "couteau"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "chicken parsley pesto croque monsieur",
+    "pexels_photo_id": 37228248,
+    "pexels_alt": "Savor a crispy Croque Monsieur paired with sunny-side-up eggs and coffee.",
+    "pexels_photographer": "Cristian Arteaga",
+    "pexels_photographer_url": "https://www.pexels.com/@cristian-arteaga-1679611",
+    "pexels_url": "https://www.pexels.com/photo/delicious-breakfast-with-croque-monsieur-and-eggs-37228248/"
+  },
+  {
+    "id": "city-cafe-bagel-boeuf-avocat",
+    "original_name": "Bagel au bœuf et avocat",
+    "nom": "Bagel au bœuf et à l’avocat",
+    "description": "Bagel garni de bœuf grillé, avocat mûr et fromage frais citronné.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 20,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/27135846/pexels-photo-27135846.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Bagel",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Bœuf",
+        "quantity": "220",
+        "unit": "g steak",
+        "canonical": true
+      },
+      {
+        "name": "Avocats",
+        "quantity": "1",
+        "unit": "mûr",
+        "canonical": true
+      },
+      {
+        "name": "Fromage frais",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "0.5",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Salade",
+        "quantity": "30",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à café",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Assaisonner le steak et le saisir dans une poêle huilée 2 à 4 minutes par face selon l’épaisseur et la cuisson désirée. Le laisser reposer 5 minutes.",
+      "Écraser l’avocat avec le jus de citron et une pincée de sel. Détendre le fromage frais avec une cuillère à café d’eau.",
+      "Trancher finement le bœuf reposé. Toaster les bagels côté mie.",
+      "Tartiner les bases de fromage frais, ajouter la salade, l’avocat et le bœuf, puis refermer."
+    ],
+    "astuce": "Pour une version plus tendre, choisir une bavette ou un faux-filet et trancher la viande perpendiculairement aux fibres.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "bœuf",
+      "avocat",
+      "bagel"
+    ],
+    "equipment": [
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "beef avocado bagel",
+    "pexels_photo_id": 27135846,
+    "pexels_alt": "Close-up of a delicious bagel sandwich filled with avocado and melted cheese on a plate outdoors.",
+    "pexels_photographer": "Hyeok Jang",
+    "pexels_photographer_url": "https://www.pexels.com/@hyeok-jang-426014270",
+    "pexels_url": "https://www.pexels.com/photo/close-up-of-a-bagel-with-avocado-27135846/"
+  },
+  {
+    "id": "city-cafe-panini-saumon-chevre-epinards",
+    "original_name": "Panini saumon, chèvre frais et épinards",
+    "nom": "Panini au saumon, chèvre frais et épinards",
+    "description": "Panini croustillant garni de saumon cuit, chèvre frais et jeunes épinards.",
+    "saison": "printemps",
+    "mois": "avril",
+    "mois_numero": 4,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 25,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/1885578/pexels-photo-1885578.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Pain",
+        "quantity": "2",
+        "unit": "pains panini",
+        "canonical": true
+      },
+      {
+        "name": "Saumon",
+        "quantity": "200",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Chèvre",
+        "quantity": "80",
+        "unit": "g frais",
+        "canonical": true
+      },
+      {
+        "name": "Épinards",
+        "quantity": "40",
+        "unit": "g jeunes pousses",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "0.5",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à café",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Chauffer une poêle-gril ou un appareil à panini. Badigeonner le saumon d’un peu d’huile et le cuire 3 à 4 minutes par face, jusqu’à ce qu’il soit opaque; l’émietter.",
+      "Ouvrir les pains. Répartir le chèvre, les épinards et le saumon, puis ajouter quelques gouttes de citron.",
+      "Refermer et griller 3 à 5 minutes dans l’appareil à panini, en pressant légèrement, jusqu’à ce que le pain soit croustillant.",
+      "Couper en deux et servir immédiatement."
+    ],
+    "astuce": "Le saumon fumé peut remplacer le filet cuit; l’ajouter après la cuisson du pain pour préserver sa texture.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "saumon",
+      "chèvre frais",
+      "épinards"
+    ],
+    "equipment": [
+      "appareil à panini ou poêle-gril",
+      "spatule",
+      "couteau"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "salmon spinach goat cheese panini",
+    "pexels_photo_id": 1885578,
+    "pexels_alt": "Delicious grilled panini loaded with melted cheese and fresh spinach, perfect for a satisfying meal.",
+    "pexels_photographer": "Lisa Fotios",
+    "pexels_photographer_url": "https://www.pexels.com/@fotios-photos",
+    "pexels_url": "https://www.pexels.com/photo/cooked-food-1885578/"
+  },
+  {
+    "id": "city-cafe-bagel-rosette-tartare",
+    "original_name": "Bagel rosette et sauce tartare",
+    "nom": "Bagel à la rosette et sauce tartare",
+    "description": "Rosette en fines tranches, salade croquante et sauce tartare aux cornichons et câpres dans un bagel toasté.",
+    "saison": "printemps",
+    "mois": "avril",
+    "mois_numero": 4,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 20,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/23884572/pexels-photo-23884572.png?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Bagel",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Rosette",
+        "quantity": "100",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Mayonnaise",
+        "quantity": "50",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Cornichons",
+        "quantity": "20",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Câpres",
+        "quantity": "1",
+        "unit": "c. à café",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "5",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "0.5",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Salade",
+        "quantity": "30",
+        "unit": "g",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Hacher finement les cornichons, les câpres et le persil. Mélanger à la mayonnaise avec une cuillère à café de jus de citron.",
+      "Couper la rosette en tranches fines et laver puis essorer la salade.",
+      "Toaster les bagels ouverts. Étaler la sauce tartare sur les deux faces intérieures.",
+      "Garnir de salade et de rosette, refermer et servir aussitôt."
+    ],
+    "astuce": "La sauce tartare se prépare la veille et se conserve au frais dans un récipient fermé pendant 2 jours.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "porc"
+    ],
+    "main_ingredients": [
+      "rosette",
+      "bagel",
+      "sauce tartare"
+    ],
+    "equipment": [
+      "couteau",
+      "planche à découper",
+      "saladier"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "salami bagel sandwich",
+    "pexels_photo_id": 23884572,
+    "pexels_alt": "A close-up of hands holding a sandwich with salami and vegetables in an outdoor setting.",
+    "pexels_photographer": "Anh Nguyen",
+    "pexels_photographer_url": "https://www.pexels.com/@anh-nguyen-517648218",
+    "pexels_url": "https://www.pexels.com/photo/woman-holding-a-sandwich-in-her-hands-23884572/"
+  },
+  {
+    "id": "city-cafe-bagel-roastbeef-tartare",
+    "original_name": "Bagel roastbeef et sauce tartare",
+    "nom": "Bagel au roast-beef et sauce tartare",
+    "description": "Tranches de roast-beef, salade et sauce tartare relevée de câpres dans un bagel toasté.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 20,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/12918205/pexels-photo-12918205.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Bagel",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Bœuf",
+        "quantity": "140",
+        "unit": "g roast-beef tranché",
+        "canonical": true
+      },
+      {
+        "name": "Mayonnaise",
+        "quantity": "50",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Cornichons",
+        "quantity": "20",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Câpres",
+        "quantity": "1",
+        "unit": "c. à café",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "5",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Moutarde",
+        "quantity": "1",
+        "unit": "c. à café",
+        "canonical": true
+      },
+      {
+        "name": "Salade",
+        "quantity": "30",
+        "unit": "g",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Hacher les cornichons, les câpres et le persil. Mélanger avec la mayonnaise et la moutarde.",
+      "Laver et essorer la salade. Toaster les bagels ouverts.",
+      "Étaler la sauce tartare sur les faces intérieures, ajouter la salade puis les tranches de roast-beef.",
+      "Refermer les bagels, couper en deux et servir froid ou à température ambiante."
+    ],
+    "astuce": "Utiliser du roast-beef froid déjà cuit du boucher; garder la sauce séparée si le sandwich est préparé à l’avance.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "protéines"
+    ],
+    "main_ingredients": [
+      "roast-beef",
+      "bagel",
+      "sauce tartare"
+    ],
+    "equipment": [
+      "couteau",
+      "planche à découper",
+      "saladier"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "roast beef bagel sandwich",
+    "pexels_photo_id": 12918205,
+    "pexels_alt": "Close-up of sliced roast beef served with pickles, sauce, and brown bread in a cozy setting.",
+    "pexels_photographer": "Nadin Sh",
+    "pexels_photographer_url": "https://www.pexels.com/@nadin-sh-78971847",
+    "pexels_url": "https://www.pexels.com/photo/a-person-holding-stainless-steel-fork-with-meat-12918205/"
+  },
+  {
+    "id": "city-cafe-panini-saumon-fromage-frais-avocat",
+    "original_name": "Panini saumon, fromage frais et avocat",
+    "nom": "Panini au saumon, fromage frais et avocat",
+    "description": "Panini grillé au saumon fumé, fromage frais citronné et avocat fondant.",
+    "saison": "été",
+    "mois": "juillet",
+    "mois_numero": 7,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 20,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/6896523/pexels-photo-6896523.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Pain",
+        "quantity": "2",
+        "unit": "pains panini",
+        "canonical": true
+      },
+      {
+        "name": "Saumon fumé",
+        "quantity": "100",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Fromage frais",
+        "quantity": "80",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Avocats",
+        "quantity": "1",
+        "unit": "mûr",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "0.5",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Aneth",
+        "quantity": "3",
+        "unit": "g",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Écraser le fromage frais avec le zeste et une cuillère à café de jus de citron, puis incorporer l’aneth ciselé.",
+      "Trancher l’avocat et le citronner. Ouvrir les pains et les tartiner de fromage frais.",
+      "Garnir de saumon fumé et d’avocat, refermer et griller 3 à 4 minutes dans un appareil à panini chaud.",
+      "Servir dès que le pain est doré et croustillant."
+    ],
+    "astuce": "Pour éviter que l’avocat brunisse, le citronner juste après l’avoir tranché.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "saumon fumé",
+      "fromage frais",
+      "avocat"
+    ],
+    "equipment": [
+      "appareil à panini ou poêle-gril",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "salmon avocado cream cheese sandwich",
+    "pexels_photo_id": 6896523,
+    "pexels_alt": "Delicious open-faced sandwich with smoked salmon, avocado, and cream cheese on whole grain bread.",
+    "pexels_photographer": "Eiliv Aceron",
+    "pexels_photographer_url": "https://www.pexels.com/@eiliv-aceron-29416110",
+    "pexels_url": "https://www.pexels.com/photo/a-delicious-salmon-toast-with-green-vegetables-6896523/"
+  },
+  {
+    "id": "city-cafe-bagel-jambon-cheddar-galette-pomme-terre",
+    "original_name": "Bagel Windsor : jambon, cheddar et galette de pomme de terre",
+    "nom": "Bagel jambon, cheddar et galette de pomme de terre",
+    "description": "Le Windsor associe jambon, cheddar fondu et petite galette de pomme de terre croustillante dans un bagel toasté.",
+    "saison": "hiver",
+    "mois": "janvier",
+    "mois_numero": 1,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "theme_special": "Windsor",
+    "portions": "2 personnes",
+    "estimated_time": 30,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/39174660/pexels-photo-39174660.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Bagel",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Jambon",
+        "quantity": "2",
+        "unit": "tranches",
+        "canonical": true
+      },
+      {
+        "name": "Cheddar",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Pommes de terre",
+        "quantity": "250",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "1",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Farine",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Huile",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Râper les pommes de terre et les presser dans un torchon propre pour retirer l’excès d’eau. Mélanger avec l’œuf, la farine, sel et poivre.",
+      "Former deux galettes et les cuire dans l’huile à feu moyen 4 à 5 minutes par face jusqu’à ce qu’elles soient dorées et cuites à cœur.",
+      "Ouvrir les bagels, déposer le cheddar et le jambon puis réchauffer 3 minutes au four à 200 °C ou sous un couvercle dans une poêle.",
+      "Glisser une galette chaude dans chaque bagel et servir immédiatement."
+    ],
+    "astuce": "Des rösti surgelés déjà cuits peuvent remplacer les galettes maison; les réchauffer jusqu’à ce qu’elles soient croustillantes.",
+    "cuisson_micro_ondes": false,
+    "sans_four": false,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "porc"
+    ],
+    "main_ingredients": [
+      "jambon",
+      "cheddar",
+      "pommes de terre"
+    ],
+    "equipment": [
+      "râpe",
+      "poêle",
+      "spatule",
+      "four"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "ham cheese bagel sandwich",
+    "pexels_photo_id": 39174660,
+    "pexels_alt": "Close-up of assorted bagels with ham, cheese, and cream cheese.",
+    "pexels_photographer": "大 董",
+    "pexels_photographer_url": "https://www.pexels.com/@724211268",
+    "pexels_url": "https://www.pexels.com/photo/assorted-bagels-with-ham-and-cheese-39174660/"
+  },
+  {
+    "id": "city-cafe-hirata-saumon-legumes-wok",
+    "original_name": "Hirata au saumon et légumes wok",
+    "nom": "Pain Hirata au saumon et légumes sautés",
+    "description": "Pain Hirata vapeur garni de saumon laqué au soja et de légumes sautés au wok. Les pains Hirata sont des pains vapeur souples, généralement servis ouverts et garnis.",
+    "saison": "printemps",
+    "mois": "mai",
+    "mois_numero": 5,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 30,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/14987815/pexels-photo-14987815.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Pain",
+        "quantity": "4",
+        "unit": "pains Hirata surgelés",
+        "canonical": true
+      },
+      {
+        "name": "Saumon",
+        "quantity": "240",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "100",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Chou rouge",
+        "quantity": "100",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sauce soja",
+        "quantity": "2",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Gingembre",
+        "quantity": "10",
+        "unit": "g frais",
+        "canonical": true
+      },
+      {
+        "name": "Miel",
+        "quantity": "1",
+        "unit": "c. à café",
+        "canonical": true
+      },
+      {
+        "name": "Sésame",
+        "quantity": "1",
+        "unit": "c. à café",
+        "canonical": true
+      },
+      {
+        "name": "Huile",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Cuire les pains Hirata à la vapeur selon les indications du paquet, généralement 6 à 8 minutes; les garder couverts.",
+      "Couper le saumon en cubes. Le faire dorer dans une poêle avec le miel et une cuillère à soupe de sauce soja 4 à 5 minutes; réserver.",
+      "Tailler la carotte et le chou en fines lamelles. Les saisir au wok avec l’huile, le gingembre râpé et le reste de sauce soja pendant 3 minutes pour les garder croquants.",
+      "Ouvrir délicatement les pains vapeur, les garnir de légumes puis de saumon. Parsemer de sésame et servir chaud."
+    ],
+    "astuce": "Les pains Hirata sont vendus surgelés dans les épiceries asiatiques; les bao buns ouverts conviennent aussi. Ne pas les laisser sécher après cuisson vapeur.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "saumon",
+      "carottes",
+      "chou rouge"
+    ],
+    "equipment": [
+      "panier vapeur",
+      "wok ou grande poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "teriyaki salmon hirata bao wok vegetables",
+    "pexels_photo_id": 14987815,
+    "pexels_alt": "Fresh homemade bao buns filled with salmon, avocado, and red onion on a rustic plate indoors.",
+    "pexels_photographer": "dorukhan pekcan",
+    "pexels_photographer_url": "https://www.pexels.com/@dorukhan-pekcan-102942430",
+    "pexels_url": "https://www.pexels.com/photo/traditional-bao-buns-on-table-14987815/"
+  },
+  {
+    "id": "city-cafe-bagel-jambon-gruyere",
+    "original_name": "Bagel traditionnel jambon et gruyère",
+    "nom": "Bagel au jambon et au gruyère",
+    "description": "Un bagel simple et généreux au jambon, gruyère râpé et salade croquante.",
+    "saison": "printemps",
+    "mois": "mai",
+    "mois_numero": 5,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 15,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/6492/food-breakfast-fork-bagel.jpg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Bagel",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Jambon",
+        "quantity": "2",
+        "unit": "tranches",
+        "canonical": true
+      },
+      {
+        "name": "Gruyère",
+        "quantity": "60",
+        "unit": "g râpé",
+        "canonical": true
+      },
+      {
+        "name": "Salade",
+        "quantity": "30",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Moutarde",
+        "quantity": "2",
+        "unit": "c. à café",
+        "canonical": true
+      },
+      {
+        "name": "Beurre",
+        "quantity": "10",
+        "unit": "g",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Couper les bagels en deux et les toaster côté mie.",
+      "Tartiner les bases d’un peu de beurre et de moutarde.",
+      "Ajouter la salade, le jambon et le gruyère râpé, puis refermer les bagels.",
+      "Servir froid ou passer 2 minutes sous le gril pour faire fondre légèrement le fromage."
+    ],
+    "astuce": "Le gruyère peut être remplacé par l’emmental déjà râpé si c’est ce que vous avez sous la main.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "porc"
+    ],
+    "main_ingredients": [
+      "jambon",
+      "gruyère",
+      "bagel"
+    ],
+    "equipment": [
+      "grille-pain ou four",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "ham gruyere bagel sandwich",
+    "pexels_photo_id": 6492,
+    "pexels_alt": "Appetizing bagel sandwich with ham and greens on a white plate, perfect for brunch.",
+    "pexels_photographer": "Jaymantri",
+    "pexels_photographer_url": "https://www.pexels.com/@jaymantri",
+    "pexels_url": "https://www.pexels.com/photo/food-breakfast-fork-bagel-6492/"
+  },
+  {
+    "id": "city-cafe-fish-burger",
+    "original_name": "Fish burger",
+    "nom": "Fish burger croustillant et sauce tartare",
+    "description": "Filet de poisson pané au panko, salade fraîche et sauce tartare dans un pain burger moelleux.",
+    "saison": "été",
+    "mois": "juillet",
+    "mois_numero": 7,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 30,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/39042551/pexels-photo-39042551.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Pain",
+        "quantity": "2",
+        "unit": "pains burger",
+        "canonical": true
+      },
+      {
+        "name": "Poisson blanc",
+        "quantity": "2",
+        "unit": "filets de 140 g",
+        "canonical": true
+      },
+      {
+        "name": "Panko",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Farine",
+        "quantity": "30",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "1",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Mayonnaise",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Cornichons",
+        "quantity": "20",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Câpres",
+        "quantity": "1",
+        "unit": "c. à café",
+        "canonical": true
+      },
+      {
+        "name": "Salade",
+        "quantity": "30",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "0.5",
+        "unit": "pièce",
+        "canonical": true
+      },
+      {
+        "name": "Huile",
+        "quantity": "3",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Hacher les cornichons et les câpres, puis les mélanger à la mayonnaise avec un peu de jus de citron.",
+      "Sécher le poisson et le passer successivement dans la farine, l’œuf battu puis le panko en pressant pour faire adhérer la chapelure.",
+      "Faire chauffer l’huile dans une poêle. Cuire les filets 3 à 4 minutes par face jusqu’à ce que la panure soit dorée et le poisson opaque; égoutter sur du papier absorbant.",
+      "Toaster les pains, étaler la sauce tartare, ajouter la salade et le poisson. Servir avec le reste de sauce."
+    ],
+    "astuce": "Le cabillaud, le lieu ou le colin conviennent; adapter la cuisson à l’épaisseur et vérifier que le poisson est opaque à cœur.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "poisson blanc",
+      "panko",
+      "sauce tartare"
+    ],
+    "equipment": [
+      "poêle",
+      "trois assiettes creuses",
+      "spatule",
+      "couteau"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "fish burger sandwich fried fish",
+    "pexels_photo_id": 39042551,
+    "pexels_alt": "Delicious crispy fish sandwich served with a side of golden French fries on a stylish plate for a perfect meal.",
+    "pexels_photographer": "Anthony Rahayel",
+    "pexels_photographer_url": "https://www.pexels.com/@anthony-rahayel-125801377",
+    "pexels_url": "https://www.pexels.com/photo/crispy-fish-sandwich-with-french-fries-on-plate-39042551/"
+  }
+]

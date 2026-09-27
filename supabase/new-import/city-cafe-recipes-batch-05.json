@@ -1,0 +1,2245 @@
+[
+  {
+    "id": "city-cafe-veggie-american-pot-pie",
+    "original_name": "Veggie American Pot Pie",
+    "nom": "Veggie American Pot Pie",
+    "description": "Veggie American Pot Pie préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "hiver",
+    "mois": "février",
+    "mois_numero": 2,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 75,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/39070796/pexels-photo-39070796.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Pâte brisée",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "4",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Crème",
+        "quantity": "120",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Tomates",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Mozzarella",
+        "quantity": "120",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Basilic",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 190 °C. Préparer la garniture pâte brisée, œufs, crème et cuire au préalable les légumes humides dans une poêle pour évacuer leur eau.",
+      "Foncer le moule ou la plaque avec la pâte; piquer le fond. Mélanger les œufs, la crème et le fromage, puis assaisonner.",
+      "Répartir la garniture, verser l’appareil ou la sauce et enfourner 30 à 40 minutes jusqu’à ce que la pâte soit dorée et le centre pris.",
+      "Laisser reposer 8 minutes avant de couper; accompagner de la salade ou des herbes prévues."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": false,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "pâte brisée",
+      "œufs",
+      "crème"
+    ],
+    "equipment": [
+      "four",
+      "saladier",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "veggie american pot pie plated finished dish",
+    "pexels_photo_id": 39070796,
+    "pexels_alt": "Close-up of a savory chicken pot pie with a slice cut out, showing filling.",
+    "pexels_photographer": "Mayara Caroline  Mombelli",
+    "pexels_photographer_url": "https://www.pexels.com/@mayaramombellifotografias",
+    "pexels_url": "https://www.pexels.com/photo/delicious-chicken-pot-pie-on-orange-plate-39070796/"
+  },
+  {
+    "id": "city-cafe-cari-d-oeufs-et-achar-de-legumes",
+    "original_name": "Cari d’œufs et achar de légumes",
+    "nom": "Cari d’œufs et achar de légumes",
+    "description": "Cari d’œufs et achar de légumes préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "août",
+    "mois_numero": 8,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 40,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/24186308/pexels-photo-24186308.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Bouillon",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Éplucher et couper les oignons et les carottes en morceaux réguliers; sécher et assaisonner la viande si le plat en contient. Faire chauffer l’huile dans une cocotte.",
+      "Faire dorer la viande par petites quantités, puis ajouter oignons, carottes et ail et cuire 4 minutes. Pour une version végétarienne, faire simplement revenir les légumes et les légumineuses.",
+      "Ajouter le bouillon et les aromates, couvrir et mijoter doucement jusqu’à ce que les ingrédients soient tendres (30 à 90 minutes selon le plat); remuer et ajouter un peu d’eau si nécessaire.",
+      "Cuire l’accompagnement séparément, goûter la sauce, rectifier l’assaisonnement et servir chaud."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "oignons",
+      "carottes",
+      "ail"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "cari d’egg et achar de légumes plated finished dish",
+    "pexels_photo_id": 24186308,
+    "pexels_alt": "Delicious gourmet dish featuring artistically plated eggs with fresh greens on a decorative black plate.",
+    "pexels_photographer": "Change C.C",
+    "pexels_photographer_url": "https://www.pexels.com/@change-c-c-974768353",
+    "pexels_url": "https://www.pexels.com/photo/fish-served-with-lemons-in-a-restaurant-24186308/"
+  },
+  {
+    "id": "city-cafe-omelette-espagnole-facon-tortilla",
+    "original_name": "Omelette espagnole façon tortilla",
+    "nom": "Omelette espagnole façon tortilla",
+    "description": "Omelette espagnole façon tortilla préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juillet",
+    "mois_numero": 7,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 40,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/21327969/pexels-photo-21327969.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Tortillas",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Beurre",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Crème",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préparer les légumes tortillas et les couper finement. Faire revenir les garnitures dans une poêle avec le beurre jusqu’à ce qu’elles soient tendres.",
+      "Battre les œufs avec la crème, le sel et le poivre. Verser sur la garniture chaude.",
+      "Cuire à feu doux en ramenant les bords vers le centre jusqu’à ce que l’omelette soit prise mais encore moelleuse; cuire complètement les œufs si la recette le demande.",
+      "Ajouter le fromage et les herbes, plier ou dresser les œufs et servir immédiatement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "tortillas"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "omelette espagnole façon tortilla plated finished dish",
+    "pexels_photo_id": 21327969,
+    "pexels_alt": "A flavorful Spanish omelette served with slices of bread, typical tapas in Madrid.",
+    "pexels_photographer": "Ana Lourenco",
+    "pexels_photographer_url": "https://www.pexels.com/@blackphant",
+    "pexels_url": "https://www.pexels.com/photo/tapa-de-tortilla-21327969/"
+  },
+  {
+    "id": "city-cafe-brioche-toastee-duxelles-de-champignons-et-oeuf-au-plat",
+    "original_name": "Brioche toastée, duxelles de champignons et œuf au plat",
+    "nom": "Brioche toastée, duxelles de champignons et œuf au plat",
+    "description": "Brioche toastée, duxelles de champignons et œuf au plat préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "automne",
+    "mois": "octobre",
+    "mois_numero": 10,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 30,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/28292002/pexels-photo-28292002.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Champignons de Paris",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Brioche",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Pain",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Salade",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Tomates",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préparer les garnitures champignons de paris, œufs, brioche; laver et essorer les légumes, puis cuire toute protéine crue à cœur dans une poêle chaude.",
+      "Mélanger les éléments de sauce et assaisonner. Trancher le pain; le toaster ou le réchauffer à la poêle jusqu’à ce qu’il soit doré.",
+      "Monter le sandwich avec la sauce, les éléments chauds puis les légumes frais. Pour un fromage à gratiner, passer 3 à 5 minutes sous le gril.",
+      "Couper en deux et servir aussitôt, avec la garniture prévue."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "champignons de paris",
+      "œufs",
+      "brioche"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "brioche toastée, duxelles de mushroom et œuf au plat plated finished dish",
+    "pexels_photo_id": 28292002,
+    "pexels_alt": "Delicious gourmet dish featuring mushrooms and cream sauce at an outdoor restaurant.",
+    "pexels_photographer": "Valeria Boltneva",
+    "pexels_photographer_url": "https://www.pexels.com/@valeriya",
+    "pexels_url": "https://www.pexels.com/photo/a-plate-of-food-with-mushrooms-and-sauce-on-it-28292002/"
+  },
+  {
+    "id": "city-cafe-croustillant-caprese",
+    "original_name": "Croustillant caprese",
+    "nom": "Croustillant caprese",
+    "description": "Croustillant caprese préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "août",
+    "mois_numero": 8,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 30,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/18635876/pexels-photo-18635876.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Pommes de terre",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Fromage frais",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Tomates",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Mozzarella",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Basilic",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 190 °C. Préparer la garniture pommes de terre, œufs, fromage frais et cuire au préalable les légumes humides dans une poêle pour évacuer leur eau.",
+      "Foncer le moule ou la plaque avec la pâte; piquer le fond. Mélanger les œufs, la crème et le fromage, puis assaisonner.",
+      "Répartir la garniture, verser l’appareil ou la sauce et enfourner 30 à 40 minutes jusqu’à ce que la pâte soit dorée et le centre pris.",
+      "Laisser reposer 8 minutes avant de couper; accompagner de la salade ou des herbes prévues."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": false,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "pommes de terre",
+      "œufs",
+      "fromage frais"
+    ],
+    "equipment": [
+      "four",
+      "saladier",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "croustillant caprese plated finished dish",
+    "pexels_photo_id": 18635876,
+    "pexels_alt": "Delicious fresh Caprese salad with tomatoes, mozzarella, and edible flowers on a bed of lettuce.",
+    "pexels_photographer": "𝗚𝗮𝗯𝘆  Cueto",
+    "pexels_photographer_url": "https://www.pexels.com/@seulchoco",
+    "pexels_url": "https://www.pexels.com/photo/vegetables-on-plate-18635876/"
+  },
+  {
+    "id": "city-cafe-huevos-rancheros-et-salsa-verde",
+    "original_name": "Huevos rancheros et salsa verde",
+    "nom": "Huevos rancheros et salsa verde",
+    "description": "Huevos rancheros et salsa verde préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "août",
+    "mois_numero": 8,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 40,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/31823016/pexels-photo-31823016.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Œufs",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Beurre",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Crème",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Épinards",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Fromage frais",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Noix de muscade",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préparer les légumes œufs, beurre, crème et les couper finement. Faire revenir les garnitures dans une poêle avec le beurre jusqu’à ce qu’elles soient tendres.",
+      "Battre les œufs avec la crème, le sel et le poivre. Verser sur la garniture chaude.",
+      "Cuire à feu doux en ramenant les bords vers le centre jusqu’à ce que l’omelette soit prise mais encore moelleuse; cuire complètement les œufs si la recette le demande.",
+      "Ajouter le fromage et les herbes, plier ou dresser les œufs et servir immédiatement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "œufs",
+      "beurre",
+      "crème"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "huevos rancheros et salsa verde plated finished dish",
+    "pexels_photo_id": 31823016,
+    "pexels_alt": "Traditional Mexican Huevos Rancheros with avocado and cheese, served fresh.",
+    "pexels_photographer": "Allan González",
+    "pexels_photographer_url": "https://www.pexels.com/@allanglezg",
+    "pexels_url": "https://www.pexels.com/photo/delicious-mexican-huevos-rancheros-on-a-plate-31823016/"
+  },
+  {
+    "id": "city-cafe-omelette-a-la-courge-aux-champignons-et-au-fromage-frais",
+    "original_name": "Omelette à la courge, aux champignons et au fromage frais",
+    "nom": "Omelette à la courge, aux champignons et au fromage frais",
+    "description": "Omelette à la courge, aux champignons et au fromage frais préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "automne",
+    "mois": "octobre",
+    "mois_numero": 10,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/27359373/pexels-photo-27359373.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Butternut",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Champignons de Paris",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Beurre",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Crème",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préparer les légumes butternut, champignons de paris et les couper finement. Faire revenir les garnitures dans une poêle avec le beurre jusqu’à ce qu’elles soient tendres.",
+      "Battre les œufs avec la crème, le sel et le poivre. Verser sur la garniture chaude.",
+      "Cuire à feu doux en ramenant les bords vers le centre jusqu’à ce que l’omelette soit prise mais encore moelleuse; cuire complètement les œufs si la recette le demande.",
+      "Ajouter le fromage et les herbes, plier ou dresser les œufs et servir immédiatement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "butternut",
+      "champignons de paris"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "omelette à la squash, aux mushroom et au cheese frais plated finished dish",
+    "pexels_photo_id": 27359373,
+    "pexels_alt": "Golden omelette topped with mushrooms on a rustic plate, perfect breakfast treat.",
+    "pexels_photographer": "Ali Dashti",
+    "pexels_photographer_url": "https://www.pexels.com/@ali-dashti-506667798",
+    "pexels_url": "https://www.pexels.com/photo/a-person-is-holding-a-fork-over-a-plate-of-food-27359373/"
+  },
+  {
+    "id": "city-cafe-gua-bao-au-tofu-et-legumes-croquants",
+    "original_name": "Gua bao au tofu et légumes croquants",
+    "nom": "Gua bao au tofu et légumes croquants",
+    "description": "Gua bao au tofu et légumes croquants préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juin",
+    "mois_numero": 6,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 40,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/14855134/pexels-photo-14855134.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Pain",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Salade",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Tomates",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Mozzarella",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Basilic",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Mayonnaise",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préparer les garnitures pain, salade, tomates; laver et essorer les légumes, puis cuire toute protéine crue à cœur dans une poêle chaude.",
+      "Mélanger les éléments de sauce et assaisonner. Trancher le pain; le toaster ou le réchauffer à la poêle jusqu’à ce qu’il soit doré.",
+      "Monter le sandwich avec la sauce, les éléments chauds puis les légumes frais. Pour un fromage à gratiner, passer 3 à 5 minutes sous le gril.",
+      "Couper en deux et servir aussitôt, avec la garniture prévue."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "pain",
+      "salade",
+      "tomates"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "gua bao au tofu et légumes croquants plated finished dish",
+    "pexels_photo_id": 14855134,
+    "pexels_alt": "Close-up of a delicious gua bao with savory filling, sesame seeds, and spring onion garnish in a cardboard tray.",
+    "pexels_photographer": "Connor Scott McManus",
+    "pexels_photographer_url": "https://www.pexels.com/@connorscottmcmanus",
+    "pexels_url": "https://www.pexels.com/photo/bao-with-sesame-seeds-and-spring-onion-garnish-14855134/"
+  },
+  {
+    "id": "city-cafe-oeufs-a-la-florentine",
+    "original_name": "Œufs à la florentine",
+    "nom": "Œufs à la florentine",
+    "description": "Œufs à la florentine préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "printemps",
+    "mois": "avril",
+    "mois_numero": 4,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/12268531/pexels-photo-12268531.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Œufs",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Beurre",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Crème",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Épinards",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Fromage frais",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Noix de muscade",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préparer les légumes œufs, beurre, crème et les couper finement. Faire revenir les garnitures dans une poêle avec le beurre jusqu’à ce qu’elles soient tendres.",
+      "Battre les œufs avec la crème, le sel et le poivre. Verser sur la garniture chaude.",
+      "Cuire à feu doux en ramenant les bords vers le centre jusqu’à ce que l’omelette soit prise mais encore moelleuse; cuire complètement les œufs si la recette le demande.",
+      "Ajouter le fromage et les herbes, plier ou dresser les œufs et servir immédiatement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "œufs",
+      "beurre",
+      "crème"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "egg à la florentine plated finished dish",
+    "pexels_photo_id": 12268531,
+    "pexels_alt": "A gourmet dish featuring grilled meat, spinach, quail eggs, pine nuts, and sauce artfully plated.",
+    "pexels_photographer": "Egor Kunovsky",
+    "pexels_photographer_url": "https://www.pexels.com/@egor-kunovsky-1199972",
+    "pexels_url": "https://www.pexels.com/photo/a-meal-on-a-plate-12268531/"
+  },
+  {
+    "id": "city-cafe-tartine-a-l-avocat-tomate-mozzarella-et-sauce-vierge",
+    "original_name": "Tartine à l’avocat, tomate, mozzarella et sauce vierge",
+    "nom": "Tartine à l’avocat, tomate, mozzarella et sauce vierge",
+    "description": "Tartine à l’avocat, tomate, mozzarella et sauce vierge préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "août",
+    "mois_numero": 8,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 20,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/29380178/pexels-photo-29380178.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Tomates",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Avocats",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Mozzarella",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Pain",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Salade",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préparer les garnitures tomates, avocats, mozzarella; laver et essorer les légumes, puis cuire toute protéine crue à cœur dans une poêle chaude.",
+      "Mélanger les éléments de sauce et assaisonner. Trancher le pain; le toaster ou le réchauffer à la poêle jusqu’à ce qu’il soit doré.",
+      "Monter le sandwich avec la sauce, les éléments chauds puis les légumes frais. Pour un fromage à gratiner, passer 3 à 5 minutes sous le gril.",
+      "Couper en deux et servir aussitôt, avec la garniture prévue."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "tomates",
+      "avocats",
+      "mozzarella"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "tartine à l’avocado, tomato, mozzarella et sauce vierge plated finished dish",
+    "pexels_photo_id": 29380178,
+    "pexels_alt": "Appetizing dish of mozzarella with tomato sauce and pesto, perfect for food lovers.",
+    "pexels_photographer": "Valeria Boltneva",
+    "pexels_photographer_url": "https://www.pexels.com/@valeriya",
+    "pexels_url": "https://www.pexels.com/photo/delicious-mozzarella-with-tomato-and-pesto-dish-29380178/"
+  },
+  {
+    "id": "city-cafe-croquettes-de-petits-pois-feta-et-zaatar",
+    "original_name": "Croquettes de petits pois, feta et zaatar",
+    "nom": "Croquettes de petits pois, feta et zaatar",
+    "description": "Croquettes de petits pois, feta et zaatar préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "printemps",
+    "mois": "mai",
+    "mois_numero": 5,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 40,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/33217883/pexels-photo-33217883.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Feta",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Zaatar",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Pommes de terre",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Fromage frais",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 190 °C. Préparer la garniture feta, zaatar et cuire au préalable les légumes humides dans une poêle pour évacuer leur eau.",
+      "Foncer le moule ou la plaque avec la pâte; piquer le fond. Mélanger les œufs, la crème et le fromage, puis assaisonner.",
+      "Répartir la garniture, verser l’appareil ou la sauce et enfourner 30 à 40 minutes jusqu’à ce que la pâte soit dorée et le centre pris.",
+      "Laisser reposer 8 minutes avant de couper; accompagner de la salade ou des herbes prévues."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": false,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "feta",
+      "zaatar"
+    ],
+    "equipment": [
+      "four",
+      "saladier",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "croquettes de petits pois, feta et zaatar plated finished dish",
+    "pexels_photo_id": 33217883,
+    "pexels_alt": "Elegantly plated gourmet croquettes with fresh herbs and cucumbers.",
+    "pexels_photographer": "Nadin Sh",
+    "pexels_photographer_url": "https://www.pexels.com/@nadin-sh-78971847",
+    "pexels_url": "https://www.pexels.com/photo/gourmet-appetizer-with-crispy-croquettes-33217883/"
+  },
+  {
+    "id": "city-cafe-brioche-perdue-salee-caviar-d-aubergine-et-oeuf-au-plat",
+    "original_name": "Brioche perdue salée, caviar d’aubergine et œuf au plat",
+    "nom": "Brioche perdue salée, caviar d’aubergine et œuf au plat",
+    "description": "Brioche perdue salée, caviar d’aubergine et œuf au plat préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "août",
+    "mois_numero": 8,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/26586541/pexels-photo-26586541.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Aubergines",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Brioche",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Beurre",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Crème",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préparer les légumes aubergines, œufs, brioche et les couper finement. Faire revenir les garnitures dans une poêle avec le beurre jusqu’à ce qu’elles soient tendres.",
+      "Battre les œufs avec la crème, le sel et le poivre. Verser sur la garniture chaude.",
+      "Cuire à feu doux en ramenant les bords vers le centre jusqu’à ce que l’omelette soit prise mais encore moelleuse; cuire complètement les œufs si la recette le demande.",
+      "Ajouter le fromage et les herbes, plier ou dresser les œufs et servir immédiatement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "aubergines",
+      "œufs",
+      "brioche"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "brioche perdue salée, caviar d’aubergine et œuf au plat plated finished dish",
+    "pexels_photo_id": 26586541,
+    "pexels_alt": "Luxurious gourmet caviar dish served on a small plate with artistic presentation in fine dining setting.",
+    "pexels_photographer": "Luiz Henrique  Mendes",
+    "pexels_photographer_url": "https://www.pexels.com/@luiz-henrique-mendes-1417367475",
+    "pexels_url": "https://www.pexels.com/photo/caviar-on-small-plate-26586541/"
+  },
+  {
+    "id": "city-cafe-nouilles-sautees-aux-legumes-d-ete",
+    "original_name": "Nouilles sautées aux légumes d’été",
+    "nom": "Nouilles sautées aux légumes d’été",
+    "description": "Nouilles sautées aux légumes d’été préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "août",
+    "mois_numero": 8,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 30,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/8935245/pexels-photo-8935245.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Nouilles de riz",
+        "quantity": "160",
+        "unit": "g secs",
+        "canonical": true
+      },
+      {
+        "name": "Pâtes",
+        "quantity": "160",
+        "unit": "g secs",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Porter une grande casserole d’eau salée à ébullition et cuire les pâtes selon leur emballage; réserver une louche d’eau de cuisson.",
+      "Pendant ce temps, préparer et couper les garnitures nouilles de riz. Faire revenir les éléments aromatiques dans une poêle avec l’huile.",
+      "Ajouter les ingrédients principaux et cuire jusqu’à tendreté; incorporer la sauce ou le fromage prévu et détendre avec un peu d’eau de cuisson.",
+      "Mélanger avec les pâtes égouttées, rectifier l’assaisonnement et servir aussitôt avec la garniture restante."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "nouilles de riz"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "nouilles sautées aux légumes d’été plated finished dish",
+    "pexels_photo_id": 8935245,
+    "pexels_alt": "A vibrant dish of mixed vegetables, perfect for a healthy and balanced diet.",
+    "pexels_photographer": "makafood",
+    "pexels_photographer_url": "https://www.pexels.com/@makafood-82669418",
+    "pexels_url": "https://www.pexels.com/photo/vegetable-dish-on-brown-ceramic-plate-8935245/"
+  },
+  {
+    "id": "city-cafe-pain-croustillant-gratine-au-cheddar",
+    "original_name": "Pain croustillant gratiné au cheddar",
+    "nom": "Pain croustillant gratiné au cheddar",
+    "description": "Pain croustillant gratiné au cheddar préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "hiver",
+    "mois": "janvier",
+    "mois_numero": 1,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 20,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/33042510/pexels-photo-33042510.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Cheddar",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Pain",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Pommes de terre",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Fromage frais",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préchauffer le four à 190 °C. Préparer la garniture cheddar, pain et cuire au préalable les légumes humides dans une poêle pour évacuer leur eau.",
+      "Foncer le moule ou la plaque avec la pâte; piquer le fond. Mélanger les œufs, la crème et le fromage, puis assaisonner.",
+      "Répartir la garniture, verser l’appareil ou la sauce et enfourner 30 à 40 minutes jusqu’à ce que la pâte soit dorée et le centre pris.",
+      "Laisser reposer 8 minutes avant de couper; accompagner de la salade ou des herbes prévues."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": false,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "cheddar",
+      "pain"
+    ],
+    "equipment": [
+      "four",
+      "saladier",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "pain croustillant gratiné au cheddar plated finished dish",
+    "pexels_photo_id": 33042510,
+    "pexels_alt": "Delicious golden baked cheese and potato casserole in a decorative baking dish.",
+    "pexels_photographer": "Meliha Ljaljic",
+    "pexels_photographer_url": "https://www.pexels.com/@meliha-ljaljic-305648550",
+    "pexels_url": "https://www.pexels.com/photo/golden-baked-cheese-and-potato-casserole-33042510/"
+  },
+  {
+    "id": "city-cafe-curry-de-pois-casses-epinards-et-patate-douce-oeuf-au-plat",
+    "original_name": "Curry de pois cassés, épinards et patate douce, œuf au plat",
+    "nom": "Curry de pois cassés, épinards et patate douce, œuf au plat",
+    "description": "Curry de pois cassés, épinards et patate douce, œuf au plat préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "automne",
+    "mois": "octobre",
+    "mois_numero": 10,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 65,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/9213999/pexels-photo-9213999.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Épinards",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Pois cassés",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Curry",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Bouillon",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Éplucher et couper les oignons et les carottes en morceaux réguliers; sécher et assaisonner la viande si le plat en contient. Faire chauffer l’huile dans une cocotte.",
+      "Faire dorer la viande par petites quantités, puis ajouter oignons, carottes et ail et cuire 4 minutes. Pour une version végétarienne, faire simplement revenir les légumes et les légumineuses.",
+      "Ajouter le bouillon et les aromates, couvrir et mijoter doucement jusqu’à ce que les ingrédients soient tendres (30 à 90 minutes selon le plat); remuer et ajouter un peu d’eau si nécessaire.",
+      "Cuire l’accompagnement séparément, goûter la sauce, rectifier l’assaisonnement et servir chaud."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "épinards",
+      "pois cassés",
+      "œufs",
+      "curry"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "curry de pois cassés, épinards et patate douce, œuf au plat plated finished dish",
+    "pexels_photo_id": 9213999,
+    "pexels_alt": "Savor a rich and flavorful Indian curry served with rice on a vibrant blue plate.",
+    "pexels_photographer": "Loren Castillo",
+    "pexels_photographer_url": "https://www.pexels.com/@lorencastillo",
+    "pexels_url": "https://www.pexels.com/photo/curry-and-rice-served-on-blue-plate-9213999/"
+  },
+  {
+    "id": "city-cafe-chou-fleur-caramelise-au-sesame-et-riz-a-sushi",
+    "original_name": "Chou-fleur caramélisé au sésame et riz à sushi",
+    "nom": "Chou-fleur caramélisé au sésame et riz à sushi",
+    "description": "Chou-fleur caramélisé au sésame et riz à sushi préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "automne",
+    "mois": "octobre",
+    "mois_numero": 10,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 45,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/9213991/pexels-photo-9213991.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Riz",
+        "quantity": "160",
+        "unit": "g secs",
+        "canonical": true
+      },
+      {
+        "name": "Sésame",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préparer et couper les légumes riz, sésame en morceaux réguliers. Préchauffer le four à 200 °C si la recette prévoit une cuisson rôtie.",
+      "Faire revenir les aromates dans une casserole ou une grande poêle avec l’huile, puis ajouter les légumes et les légumineuses.",
+      "Ajouter un fond d’eau ou de bouillon, couvrir et cuire 15 à 25 minutes jusqu’à tendreté; mélanger régulièrement et compléter le liquide si nécessaire.",
+      "Assaisonner, ajouter les herbes et le fromage prévus, puis servir avec l’accompagnement indiqué."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "riz",
+      "sésame"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "cauliflower caramélisé au sésame et rice à sushi plated finished dish",
+    "pexels_photo_id": 9213991,
+    "pexels_alt": "Colorful grilled vegetables and rice dish on a black plate, garnished with lemon wedge.",
+    "pexels_photographer": "Loren Castillo",
+    "pexels_photographer_url": "https://www.pexels.com/@lorencastillo",
+    "pexels_url": "https://www.pexels.com/photo/delicious-rice-meal-on-brown-square-bowl-with-cauliflowers-and-tomatoes-on-stick-9213991/"
+  },
+  {
+    "id": "city-cafe-couscous-vegetarien-aux-saveurs-orientales",
+    "original_name": "Couscous végétarien aux saveurs orientales",
+    "nom": "Couscous végétarien aux saveurs orientales",
+    "description": "Couscous végétarien aux saveurs orientales préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "automne",
+    "mois": "octobre",
+    "mois_numero": 10,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 65,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/19824910/pexels-photo-19824910.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Oignons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Bouillon",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Éplucher et couper les oignons et les carottes en morceaux réguliers; sécher et assaisonner la viande si le plat en contient. Faire chauffer l’huile dans une cocotte.",
+      "Faire dorer la viande par petites quantités, puis ajouter oignons, carottes et ail et cuire 4 minutes. Pour une version végétarienne, faire simplement revenir les légumes et les légumineuses.",
+      "Ajouter le bouillon et les aromates, couvrir et mijoter doucement jusqu’à ce que les ingrédients soient tendres (30 à 90 minutes selon le plat); remuer et ajouter un peu d’eau si nécessaire.",
+      "Cuire l’accompagnement séparément, goûter la sauce, rectifier l’assaisonnement et servir chaud."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "oignons",
+      "carottes",
+      "ail"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "couscous végétarien aux saveurs orientales plated finished dish",
+    "pexels_photo_id": 19824910,
+    "pexels_alt": "Close-up of a gourmet couscous dish, artfully plated with fresh vegetables on a clear glass plate.",
+    "pexels_photographer": "Patrizia Signorelli",
+    "pexels_photographer_url": "https://www.pexels.com/@patrizia-signorelli-4392119",
+    "pexels_url": "https://www.pexels.com/photo/groats-with-vegetables-19824910/"
+  },
+  {
+    "id": "city-cafe-lasagnes-vegetariennes-automnales",
+    "original_name": "Lasagnes végétariennes automnales",
+    "nom": "Lasagnes végétariennes automnales",
+    "description": "Lasagnes végétariennes automnales préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "automne",
+    "mois": "octobre",
+    "mois_numero": 10,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 75,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/37679127/pexels-photo-37679127.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Pâtes",
+        "quantity": "320",
+        "unit": "g secs",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Courgettes",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Pois chiches",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Porter une grande casserole d’eau salée à ébullition et cuire les pâtes selon leur emballage; réserver une louche d’eau de cuisson.",
+      "Pendant ce temps, préparer et couper les garnitures pâtes, ail, huile d’olive. Faire revenir les éléments aromatiques dans une poêle avec l’huile.",
+      "Ajouter les ingrédients principaux et cuire jusqu’à tendreté; incorporer la sauce ou le fromage prévu et détendre avec un peu d’eau de cuisson.",
+      "Mélanger avec les pâtes égouttées, rectifier l’assaisonnement et servir aussitôt avec la garniture restante."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "pâtes",
+      "ail",
+      "huile d’olive"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "lasagna végétariennes automnales plated finished dish",
+    "pexels_photo_id": 37679127,
+    "pexels_alt": "A beautifully plated vegetarian lasagna garnished with fresh greens, perfect for a healthy meal.",
+    "pexels_photographer": "Aleyna Yetkin",
+    "pexels_photographer_url": "https://www.pexels.com/@aleyna-yetkin-2161263848",
+    "pexels_url": "https://www.pexels.com/photo/delicious-homemade-vegetarian-lasagna-dish-37679127/"
+  },
+  {
+    "id": "city-cafe-welsh-du-nord",
+    "original_name": "Welsh du Nord",
+    "nom": "Welsh du Nord",
+    "description": "Welsh du Nord préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "hiver",
+    "mois": "janvier",
+    "mois_numero": 1,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 25,
+    "difficulty": "très facile",
+    "image_url": "https://images.pexels.com/photos/38169158/pexels-photo-38169158.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Pain",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Salade",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Tomates",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Mozzarella",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Basilic",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Mayonnaise",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préparer les garnitures pain, salade, tomates; laver et essorer les légumes, puis cuire toute protéine crue à cœur dans une poêle chaude.",
+      "Mélanger les éléments de sauce et assaisonner. Trancher le pain; le toaster ou le réchauffer à la poêle jusqu’à ce qu’il soit doré.",
+      "Monter le sandwich avec la sauce, les éléments chauds puis les légumes frais. Pour un fromage à gratiner, passer 3 à 5 minutes sous le gril.",
+      "Couper en deux et servir aussitôt, avec la garniture prévue."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "pain",
+      "salade",
+      "tomates"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "welsh du nord plated finished dish",
+    "pexels_photo_id": 38169158,
+    "pexels_alt": "Interior view of Gare du Nord in Paris, showcasing high-speed trains on parallel tracks under the iconic glass roof.",
+    "pexels_photographer": "Bingqian Li",
+    "pexels_photographer_url": "https://www.pexels.com/@bingqian-li-230971044",
+    "pexels_url": "https://www.pexels.com/photo/gare-du-nord-platform-with-trains-in-paris-38169158/"
+  },
+  {
+    "id": "city-cafe-dahl-cremeux-de-lentilles-corail-courge-et-blettes",
+    "original_name": "Dahl crémeux de lentilles corail, courge et blettes",
+    "nom": "Dahl crémeux de lentilles corail, courge et blettes",
+    "description": "Dahl crémeux de lentilles corail, courge et blettes préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "automne",
+    "mois": "octobre",
+    "mois_numero": 10,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 55,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/6544373/pexels-photo-6544373.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Butternut",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Blettes",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Lentilles",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Lentilles corail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Bouillon",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Éplucher et couper les oignons et les carottes en morceaux réguliers; sécher et assaisonner la viande si le plat en contient. Faire chauffer l’huile dans une cocotte.",
+      "Faire dorer la viande par petites quantités, puis ajouter oignons, carottes et ail et cuire 4 minutes. Pour une version végétarienne, faire simplement revenir les légumes et les légumineuses.",
+      "Ajouter le bouillon et les aromates, couvrir et mijoter doucement jusqu’à ce que les ingrédients soient tendres (30 à 90 minutes selon le plat); remuer et ajouter un peu d’eau si nécessaire.",
+      "Cuire l’accompagnement séparément, goûter la sauce, rectifier l’assaisonnement et servir chaud."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "butternut",
+      "blettes",
+      "lentilles",
+      "lentilles corail"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "dahl crémeux de lentilles corail, squash et blettes plated finished dish",
+    "pexels_photo_id": 6544373,
+    "pexels_alt": "Delicious vegan dahl and rice bowl garnished with cilantro and pistachios, perfect for a healthy meal.",
+    "pexels_photographer": "Alesia  Kozik",
+    "pexels_photographer_url": "https://www.pexels.com/@alesiakozik",
+    "pexels_url": "https://www.pexels.com/photo/food-healthy-lunch-vegetarian-6544373/"
+  },
+  {
+    "id": "city-cafe-courge-farcie-au-quinoa-et-fromage-de-chevre",
+    "original_name": "Courge farcie au quinoa et fromage de chèvre",
+    "nom": "Courge farcie au quinoa et fromage de chèvre",
+    "description": "Courge farcie au quinoa et fromage de chèvre préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "automne",
+    "mois": "octobre",
+    "mois_numero": 10,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 70,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/4899793/pexels-photo-4899793.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Butternut",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Quinoa",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Chèvre",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préparer et couper les légumes butternut, quinoa, chèvre en morceaux réguliers. Préchauffer le four à 200 °C si la recette prévoit une cuisson rôtie.",
+      "Faire revenir les aromates dans une casserole ou une grande poêle avec l’huile, puis ajouter les légumes et les légumineuses.",
+      "Ajouter un fond d’eau ou de bouillon, couvrir et cuire 15 à 25 minutes jusqu’à tendreté; mélanger régulièrement et compléter le liquide si nécessaire.",
+      "Assaisonner, ajouter les herbes et le fromage prévus, puis servir avec l’accompagnement indiqué."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "butternut",
+      "quinoa",
+      "chèvre"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "squash farcie au quinoa et cheese de chèvre plated finished dish",
+    "pexels_photo_id": 4899793,
+    "pexels_alt": "Close-up of roasted butternut squash with quinoa salad, cherry tomatoes, and feta.",
+    "pexels_photographer": "Denys Gromov",
+    "pexels_photographer_url": "https://www.pexels.com/@jdgromov",
+    "pexels_url": "https://www.pexels.com/photo/close-up-shot-of-a-dish-on-a-plate-4899793/"
+  },
+  {
+    "id": "city-cafe-poke-bowl-sain-au-saumon-avocat-et-legumes-croquants",
+    "original_name": "Poke bowl sain au saumon, avocat et légumes croquants",
+    "nom": "Poke bowl sain au saumon, avocat et légumes croquants",
+    "description": "Poke bowl sain au saumon, avocat et légumes croquants préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "été",
+    "mois": "juillet",
+    "mois_numero": 7,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 35,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/36555140/pexels-photo-36555140.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Avocats",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Saumon",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Citrons",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Persil",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Sécher le poisson et préparer les garnitures avocats, saumon; préchauffer le four à 190 °C si la cuisson est au four.",
+      "Cuire les accompagnements séparément: démarrer les pommes de terre ou les céréales dans une casserole d’eau salée.",
+      "Saisir le poisson dans une poêle huilée 2 à 3 min par face selon l’épaisseur, ou le cuire au four 10 à 15 min jusqu’à ce que sa chair soit opaque et se détache.",
+      "Préparer la sauce avec les aromates et le citron, puis servir immédiatement avec le poisson et l’accompagnement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "poisson"
+    ],
+    "main_ingredients": [
+      "avocats",
+      "saumon"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "poke bowl sain au salmon, avocado et légumes croquants plated finished dish",
+    "pexels_photo_id": 36555140,
+    "pexels_alt": "Close-up of a fresh salmon and avocado poke bowl held by a person in beige attire.",
+    "pexels_photographer": "Nadin Sh",
+    "pexels_photographer_url": "https://www.pexels.com/@nadin-sh-78971847",
+    "pexels_url": "https://www.pexels.com/photo/fresh-salmon-and-avocado-poke-bowl-36555140/"
+  },
+  {
+    "id": "city-cafe-tajine-vert-de-legumes-et-pois-chiches",
+    "original_name": "Tajine vert de légumes et pois chiches",
+    "nom": "Tajine vert de légumes et pois chiches",
+    "description": "Tajine vert de légumes et pois chiches préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "printemps",
+    "mois": "mai",
+    "mois_numero": 5,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 70,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/998244/pexels-photo-998244.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Pois chiches",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Oignons",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Carottes",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Bouillon",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Éplucher et couper les oignons et les carottes en morceaux réguliers; sécher et assaisonner la viande si le plat en contient. Faire chauffer l’huile dans une cocotte.",
+      "Faire dorer la viande par petites quantités, puis ajouter oignons, carottes et ail et cuire 4 minutes. Pour une version végétarienne, faire simplement revenir les légumes et les légumineuses.",
+      "Ajouter le bouillon et les aromates, couvrir et mijoter doucement jusqu’à ce que les ingrédients soient tendres (30 à 90 minutes selon le plat); remuer et ajouter un peu d’eau si nécessaire.",
+      "Cuire l’accompagnement séparément, goûter la sauce, rectifier l’assaisonnement et servir chaud."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "pois chiches"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "tagine vert de légumes et pois chiches plated finished dish",
+    "pexels_photo_id": 998244,
+    "pexels_alt": "A savory Moroccan tagine garnished with fresh herbs, served in a traditional dish.",
+    "pexels_photographer": "Abby Chung",
+    "pexels_photographer_url": "https://www.pexels.com/@abby-chung-371167",
+    "pexels_url": "https://www.pexels.com/photo/food-998244/"
+  },
+  {
+    "id": "city-cafe-patate-douce-farcie-a-la-duxelles-de-champignons-et-oeuf-mollet",
+    "original_name": "Patate douce farcie à la duxelles de champignons et œuf mollet",
+    "nom": "Patate douce farcie à la duxelles de champignons et œuf mollet",
+    "description": "Patate douce farcie à la duxelles de champignons et œuf mollet préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "automne",
+    "mois": "octobre",
+    "mois_numero": 10,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 65,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/35546716/pexels-photo-35546716.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Champignons de Paris",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Œufs",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Beurre",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Crème",
+        "quantity": "60",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Préparer les légumes champignons de paris, œufs et les couper finement. Faire revenir les garnitures dans une poêle avec le beurre jusqu’à ce qu’elles soient tendres.",
+      "Battre les œufs avec la crème, le sel et le poivre. Verser sur la garniture chaude.",
+      "Cuire à feu doux en ramenant les bords vers le centre jusqu’à ce que l’omelette soit prise mais encore moelleuse; cuire complètement les œufs si la recette le demande.",
+      "Ajouter le fromage et les herbes, plier ou dresser les œufs et servir immédiatement."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "champignons de paris",
+      "œufs"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "patate douce farcie à la duxelles de mushroom et œuf mollet plated finished dish",
+    "pexels_photo_id": 35546716,
+    "pexels_alt": "Delicious gourmet presentation with chicken, shiitake mushrooms, and edible flower on a white plate.",
+    "pexels_photographer": "Loifotos",
+    "pexels_photographer_url": "https://www.pexels.com/@loifotos",
+    "pexels_url": "https://www.pexels.com/photo/elegant-plated-gourmet-dish-with-decorative-edible-flower-35546716/"
+  },
+  {
+    "id": "city-cafe-ramen-vegetarien-au-miso-et-tahini",
+    "original_name": "Ramen végétarien au miso et tahini",
+    "nom": "Ramen végétarien au miso et tahini",
+    "description": "Ramen végétarien au miso et tahini préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "hiver",
+    "mois": "janvier",
+    "mois_numero": 1,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "2 personnes",
+    "estimated_time": 40,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/4224212/pexels-photo-4224212.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Tahini",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Miso",
+        "quantity": "150",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Pâtes",
+        "quantity": "160",
+        "unit": "g secs",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "1",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Porter une grande casserole d’eau salée à ébullition et cuire les pâtes selon leur emballage; réserver une louche d’eau de cuisson.",
+      "Pendant ce temps, préparer et couper les garnitures tahini, miso. Faire revenir les éléments aromatiques dans une poêle avec l’huile.",
+      "Ajouter les ingrédients principaux et cuire jusqu’à tendreté; incorporer la sauce ou le fromage prévu et détendre avec un peu d’eau de cuisson.",
+      "Mélanger avec les pâtes égouttées, rectifier l’assaisonnement et servir aussitôt avec la garniture restante."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "tahini",
+      "miso"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "ramen végétarien au miso et tahini plated finished dish",
+    "pexels_photo_id": 4224212,
+    "pexels_alt": "Savory ramen dish featuring noodles, boiled egg, greens, and tender meat, perfect for a hearty meal.",
+    "pexels_photographer": "alleksana",
+    "pexels_photographer_url": "https://www.pexels.com/@alleksana",
+    "pexels_url": "https://www.pexels.com/photo/delicious-ramen-in-close-up-4224212/"
+  },
+  {
+    "id": "city-cafe-lasagnes-gourmandes-au-potimarron-et-a-la-roquette",
+    "original_name": "Lasagnes gourmandes au potimarron et à la roquette",
+    "nom": "Lasagnes gourmandes au potimarron et à la roquette",
+    "description": "Lasagnes gourmandes au potimarron et à la roquette préparé simplement à la maison, avec des quantités équilibrées et une cuisson adaptée aux ingrédients.",
+    "saison": "automne",
+    "mois": "octobre",
+    "mois_numero": 10,
+    "tag": "déjeuner/dîner",
+    "categorie": "salé",
+    "portions": "4 personnes",
+    "estimated_time": 75,
+    "difficulty": "facile",
+    "image_url": "https://images.pexels.com/photos/31119078/pexels-photo-31119078.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "ingredients": [
+      {
+        "name": "Potimarron",
+        "quantity": "300",
+        "unit": "g",
+        "canonical": true
+      },
+      {
+        "name": "Pâtes",
+        "quantity": "320",
+        "unit": "g secs",
+        "canonical": true
+      },
+      {
+        "name": "Ail",
+        "quantity": "2",
+        "unit": "pièces",
+        "canonical": true
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      },
+      {
+        "name": "Sel et poivre",
+        "quantity": "1",
+        "unit": "c. à soupe",
+        "canonical": true
+      }
+    ],
+    "instructions": [
+      "Porter une grande casserole d’eau salée à ébullition et cuire les pâtes selon leur emballage; réserver une louche d’eau de cuisson.",
+      "Pendant ce temps, préparer et couper les garnitures potimarron. Faire revenir les éléments aromatiques dans une poêle avec l’huile.",
+      "Ajouter les ingrédients principaux et cuire jusqu’à tendreté; incorporer la sauce ou le fromage prévu et détendre avec un peu d’eau de cuisson.",
+      "Mélanger avec les pâtes égouttées, rectifier l’assaisonnement et servir aussitôt avec la garniture restante."
+    ],
+    "astuce": "Préparez et pesez les ingrédients avant de commencer; ajustez le temps de cuisson à la taille réelle des morceaux et vérifiez la cuisson avant de servir.",
+    "cuisson_micro_ondes": false,
+    "sans_four": true,
+    "source": "broco-chou",
+    "dietary_tags": [
+      "végétarien"
+    ],
+    "main_ingredients": [
+      "potimarron"
+    ],
+    "equipment": [
+      "casserole",
+      "poêle",
+      "couteau",
+      "planche à découper"
+    ],
+    "canonical_ingredients_status": "verified",
+    "pexels_query": "lasagna gourmandes au pumpkin et à la roquette plated finished dish",
+    "pexels_photo_id": 31119078,
+    "pexels_alt": "Mouthwatering homemade lasagna served with a fresh spinach salad.",
+    "pexels_photographer": "Augusto Carneiro Junior",
+    "pexels_photographer_url": "https://www.pexels.com/@augustocarneirojr",
+    "pexels_url": "https://www.pexels.com/photo/delicious-homemade-lasagna-on-blue-plate-31119078/"
+  }
+]
