@@ -34,6 +34,7 @@ interface BrocoChouState {
   
   // Actions
   setRecipes: (recipes: Recipe[]) => void
+  setSwipeQueue: (recipes: Recipe[]) => void
   swipeRecipe: (action: 'accepted' | 'rejected' | 'favorite') => void
   undoLastSwipe: () => void
   resetSwipes: () => void
@@ -113,6 +114,8 @@ export const useBrocoChouStore = create<BrocoChouState>()(
         currentRecipeIndex: 0
       })),
 
+      setSwipeQueue: (recipes) => set({ recipes, currentRecipeIndex: 0 }),
+
       swipeRecipe: (action) => {
         const state = get()
         const currentRecipe = state.recipes[state.currentRecipeIndex]
@@ -164,13 +167,14 @@ export const useBrocoChouStore = create<BrocoChouState>()(
         }))
       },
 
-      resetSwipes: () => set({
+      resetSwipes: () => set(state => ({
+        recipes: orderRecipeSuggestions(state.recipeCatalog, state.preferences.includeSeasonalRecipes !== false),
         currentRecipeIndex: 0,
         swipeActions: [],
         acceptedRecipes: [],
         rejectedRecipes: [],
         currentStep: 'envies'
-      }),
+      })),
 
       addRecipeToAccepted: (recipe) => {
         set(state => {

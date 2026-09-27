@@ -17,16 +17,19 @@ interface SwipeDeckProps {
 export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
   const { 
     recipes, 
+    recipeCatalog,
     currentRecipeIndex, 
     swipeRecipe, 
     undoLastSwipe,
     acceptedRecipes,
     preferences,
-    resetSwipes
+    resetSwipes,
+    setSwipeQueue,
   } = useBrocoChouStore()
 
   const [exitDirection, setExitDirection] = useState<"left" | "right" | null>(null)
   const [showOverlay, setShowOverlay] = useState<"accept" | "reject" | null>(null)
+  const [isCompletionRound, setIsCompletionRound] = useState(false)
   const isDraggingRef = useRef(false)
   const isSwipeAnimatingRef = useRef(false)
   const dragX = useMotionValue(0)
@@ -164,10 +167,32 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
   const selectedRecipeCount = selectedMainMeals.length + selectedBreakfasts.length + selectedDesserts.length
   const hasEnoughRecipes = missingRecipeCount === 0
   const remainingLabel = getRemainingLabel(missingMainMeals, missingBreakfasts, missingDesserts)
+  const acceptedRecipeIds = new Set(uniqueAcceptedRecipes.map(recipe => recipe.id))
+  const completionRecipes = recipeCatalog.filter(recipe => {
+    if (acceptedRecipeIds.has(recipe.id)) return false
+    return (missingMainMeals > 0 && isMainMealRecipe(recipe))
+      || (missingBreakfasts > 0 && isBreakfastRecipe(recipe))
+      || (missingDesserts > 0 && isDessertRecipe(recipe))
+  })
+  const completionLabel = `Compl\u00e9ter les ${remainingLabel} manquants`
+
+  const handleCompleteMissing = () => {
+    setIsCompletionRound(true)
+    setSwipeQueue(completionRecipes)
+  }
+  const handleRestart = () => {
+    setIsCompletionRound(false)
+    resetSwipes()
+  }
+  const restartButton = (
+    <Button onClick={handleRestart} variant="ghost" size="sm" className="text-xs text-warm-gray hover:text-charcoal-soft">
+      <RotateCcw className="h-3.5 w-3.5" /> {"Recommencer la s\u00e9lection"}
+    </Button>
+  )
 
   if (hasEnoughRecipes) {
     return (
-      <div className="flex flex-col items-center justify-center h-full px-6 text-center">
+      <div className="relative flex flex-col items-center justify-center h-full px-6 pb-12 text-center">
         <div className="w-20 h-20 rounded-full bg-lavender/50 flex items-center justify-center mb-6">
           <Utensils className="h-10 w-10 text-mauve-taupe" />
         </div>
@@ -183,12 +208,13 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
         >
           Generer mon planning
         </Button>
+        <div className="absolute bottom-2 left-2">{restartButton}</div>
       </div>
     )
   }
   if (!currentRecipe) {
     return (
-      <div className="flex flex-col items-center justify-center h-full px-6 text-center">
+      <div className="relative flex flex-col items-center justify-center h-full px-6 pb-14 text-center">
         <div className="w-20 h-20 rounded-full bg-lavender/50 flex items-center justify-center mb-6">
           <ChefHat className="h-10 w-10 text-mauve-taupe" />
         </div>
@@ -198,12 +224,12 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
         <p className="text-warm-gray mb-6">
           {selectedRecipeCount} recettes sélectionnées. Il manque {remainingLabel} pour compléter la semaine sans répétition.
         </p>
-        <Button
-          onClick={resetSwipes}
-          className="bg-gradient-to-r from-dusty-violet to-mauve-taupe text-white hover:opacity-90"
-        >
-          Recommencer ma sélection
-        </Button>
+        {!isCompletionRound && completionRecipes.length > 0 && (
+          <Button onClick={handleCompleteMissing} className="bg-gradient-to-r from-dusty-violet to-mauve-taupe text-white hover:opacity-90">
+            {completionLabel}
+          </Button>
+        )}
+        <div className="absolute bottom-2 left-2">{restartButton}</div>
       </div>
     )
   }
@@ -290,6 +316,7 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
 
       {/* Action Buttons */}
       <div className="shrink-0 px-4 pb-5 pt-2">
+        <div className="mb-1 flex justify-start">{restartButton}</div>
         <div className="flex items-center justify-center gap-4">
           {/* Undo Button */}
           <button
@@ -340,7 +367,6 @@ export function SwipeDeck({ onViewRecipeDetails, onComplete }: SwipeDeckProps) {
             <Star className="h-5 w-5" />
           </button>
         </div>
-
       </div>
     </div>
   )
