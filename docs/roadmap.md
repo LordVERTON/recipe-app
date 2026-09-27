@@ -42,3 +42,65 @@ This is a living, prioritized audit of Broco-Chou’s current mobile-first recip
 ## Design system observations
 
 The warm, food-oriented palette and rounded cards are cohesive. The next visual step should be a consistent hierarchy: one primary action per screen, supporting actions styled as secondary, and informative status labels rather than decorative dots. Reusing the existing `mauve-taupe`, `sage-mist`, and card tokens will maintain the visual identity while improving scanability.
+
+
+## Catalogue City Café — suivi des imports
+
+Cette section suit l'ajout des recettes issues de la transcription des anciens menus. Le détail des lots se trouve dans `supabase/new-import/city-cafe-import-order.md`. Les lots synchronisés ne doivent pas être réimportés sauf correction documentée.
+
+| Lot | Items source | Thème | Avancement |
+|---|---:|---|---|
+| 01 | 1–9 | Quiches et tartes | Terminé : 9 recettes vérifiées en local et en production |
+| 02 | 10–21 | Bagels, sandwichs, paninis et pains | Terminé : 12 recettes vérifiées en local et en production |
+| 03 | 22–36 | Pâtes, gnocchis, raviolis et risotto | Terminé : 15 recettes vérifiées localement et en production |
+| 04 | 37–41 | Pizzas | Terminé : 5 recettes synchronisées en local et en production |
+| 05 | 42–67 | Végétarien, œufs, brunch et légumes | Terminé : 26 recettes synchronisées en local et en production |
+| 06 | 68–77 | Poulet et dinde | Terminé : 10 recettes synchronisées en local et en production |
+| 07 | 78–87 | Bœuf | Terminé : 10 recettes synchronisées en local et en production |
+| 08 | 88–107 | Porc, veau, agneau, canard et gibier | Terminé : 20 recettes synchronisées en local et en production |
+| 09 | 108–146 | Poissons et fruits de mer | Terminé : 38 recettes synchronisées en local et en production |
+| 10 | 147–158 | Desserts et cookies | Terminé : 12 recettes synchronisées en local et en production |
+
+**Progression : 158 / 158 intitulés source (100,00 %).** La fusion des items 34 et 133 reste enregistrée au manifeste.
+
+### Lot 02 — notes à conserver
+
+- Toutes les recettes du lot 2 sont dimensionnées pour deux personnes ; les ingrédients canoniques sont vérifiés et le lot est synchronisé dans les deux bases.
+- Le type de viande du « kebab » du Berliner n'étant pas précisé, l'interprétation choisie est du bœuf épicé façon kebab, documentée dans la recette.
+- « Hirata » est traité comme un pain bao plié cuit à la vapeur ; l'astuce recommande des pains Hirata du commerce.
+- Certaines images Pexels sont des approximations visuelles : bagel avocat sans bœuf visible, panini sans saumon visible, sandwich rosette sans bagel et roast-beef sans présentation en bagel. Les attributions détaillées sont dans `supabase/new-import/city-cafe-pexels-attribution.json`.
+- Contrôle lot 2 : 12 recettes en local et en production, champs métier identiques ; références canoniques manquantes : 0. Les 9 recettes du lot 1 restent présentes localement.
+- Anomalie préexistante du lot 1 à revoir séparément : le lien photographe d'une attribution Pexels semble incorrect et une photo de quiche au fromage/épinards est approximative pour la quiche thon-curry-fromage frais. Le lot 2 n'a pas modifié ces lignes.
+
+
+
+### Lot 03 — notes à conserver
+
+- Les 15 recettes des items 22–36 sont synchronisées localement et en production ; leurs données métier sont identiques et les ingrédients canoniques sont présents. 30 nouveaux noms d’ingrédients ont été ajoutés.
+- Les spaghettis frais aux gambas de l’item 34 sont la même recette que l’item 133 « Gambas ail et persil avec spaghettis frais » ; la fusion est faite dans `city-cafe-spaghetti-gambas-ail-persil`.
+- « Casarecce à la sicilienne » est interprétée avec thon, olives, câpres et tomate, distincte des fusilli alla Norma à l’aubergine ; les variantes siciliennes diffèrent selon les sources.
+- Pâtes achetées prêtes à l’emploi pour les formats spécialisés (malloreddus, casarecce, triangoli, agnolotti, tagliatelles vertes, ravioli, cannelloni, crozets). Pour les ingrédients rares, les astuces proposent des substitutions quand elles sont adaptées.
+- Certaines images Pexels sont des approximations de garniture : les cannelloni photographiés sont aux épinards/fromage et non au potimarron/chèvre ; l’image du pastitsio montre un gratin de pâtes proche. Les 15 liens répondent HTTP 200 et les photos sont distinctes des lots précédents.
+- Validation : 15 recettes dans chaque base, aucune différence sur les champs métier comparés, aucune référence canonique manquante.
+
+### Lots 04–10 — clôture et contrôles
+
+- Les 122 items source des lots 04–10 sont traités. Avec les lots 01–03, le manifeste compte 158 items source analysés et 157 recettes uniques créées; les items 34 et 133 sont fusionnés.
+- Les lots 04–10 sont synchronisés en local et en production. Contrôle final : 157/157 IDs dans chaque base, aucun écart de champs métier, aucun ingrédient canonique manquant, aucune différence de catégorie canonique.
+- 154 images Pexels distinctes ont une URL attribuée et sont enregistrées dans `supabase/new-import/city-cafe-pexels-attribution.json`. Trois recettes du lot 09 n’ont pas de photo acceptable et gardent `image_url = NULL`. Les appels ont utilisé l’API officielle; aucun contournement antibot.
+- Correction de cohérence appliquée aux deux bases : catégories canoniques « Pâte à pizza » et « Poivre », puis ajout de l’étiquette `category` aux ingrédients JSON des recettes importées pour aligner local et production.
+- Les fichiers SQL de lots 04–10 sont conservés séparément et idempotents; les lots 05 et 06 ont été resynchronisés après normalisation du nom canonique « Huile d’olive ».
+
+### Reste à faire
+
+- Import : aucun lot restant.
+- Relecture culinaire : examiner en priorité les recettes des lots 05–09, dont plusieurs interprétations ont été reconstruites à partir d’intitulés courts. Vérifier sauces, ingrédients caractéristiques, proportions et étapes avant de considérer le catalogue éditorialement final.
+- Images : revoir les attributions signalées comme approximatives dans le manifeste et les photos historiques du lot 01; conserver `NULL` si aucune photo représentative n’est disponible.
+
+### Contrôle des images — 2026-09-27
+
+- Les 157 recettes City Café ont une `image_url` non nulle, identique en local et en production.
+- Les trois entrées auparavant sans photo représentative ont été remplacées après recherche dans l’API Pexels officielle : flétan en papillote, filets de perche et bar rôti aux herbes. Les attributions sont conservées dans `city-cafe-pexels-attribution.json`.
+- Contrôles : 157 URLs Pexels vérifiées HTTP 200, 157 photo IDs uniques, 0 différence de données entre local et production.
+- SQL correctif appliqué aux deux bases : `supabase/new-import/city-cafe-images-completion.sql`.
+- Les autres approximations photo listées dans le manifeste restent à revoir lors de la relecture éditoriale.
