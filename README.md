@@ -634,6 +634,20 @@ L'application est ensuite disponible sur :
 http://localhost:3000
 ```
 
+### Tester sur un téléphone connecté au même Wi-Fi
+
+Avec `.env.local` configuré pour Supabase Cloud, démarrer le serveur accessible sur le réseau local :
+
+```powershell
+npm run dev -- --hostname 0.0.0.0
+```
+
+Sur le PC, ouvrir `http://localhost:3000`. Sur le téléphone, ouvrir `http://192.168.1.5:3000` (adresse Wi-Fi actuelle du PC). Garder le terminal ouvert. Si l'adresse change, consulter `ipconfig`, utiliser l'adresse IPv4 de la carte Wi-Fi et l'ajouter à `allowedDevOrigins` dans `next.config.mjs`, puis redémarrer le serveur.
+
+Autoriser Node.js dans le pare-feu Windows pour les réseaux privés si Windows le demande. Éviter le Wi-Fi invité, qui peut isoler les appareils. Si la page reste inaccessible, vérifier que le pare-feu autorise le port TCP 3000 depuis le réseau local.
+
+Ne pas lancer `supabase:env` pour ce test avec Supabase Cloud : cette commande bascule vers la base locale. Avec Supabase local, une URL `127.0.0.1:54321` pointe vers le téléphone lui-même ; il faut utiliser une adresse Supabase accessible depuis celui-ci. Les fonctionnalités PWA nécessitant HTTPS ne sont pas disponibles sur cette URL HTTP du réseau local.
+
 Construire pour la production :
 
 ```bash
