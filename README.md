@@ -111,6 +111,22 @@ Chaque recette dispose d'une fiche complète sous forme de panneau :
 
 La fiche permet aussi de cocher les ingrédients et les étapes pendant la préparation. C'est utile dans une petite cuisine, sur téléphone, quand on cuisine avec peu de place.
 
+### Création de recettes personnelles
+
+Le bouton **Ajouter ma recette**, accessible depuis les écrans principaux et la rubrique **Mes recettes** du profil, ouvre un formulaire adapté au mobile.
+
+1. Créer un compte ou se connecter avec une adresse e-mail et un mot de passe. Si une confirmation par e-mail est demandée, confirmer son adresse avant de se connecter.
+2. Renseigner le nom, la description facultative, les portions, la durée, la saison, la catégorie et le type de repas.
+3. Ajouter les ingrédients avec leurs quantités et unités. Les suggestions utilisent les noms et alias du catalogue ; un nouvel aliment peut aussi être saisi et sera ajouté à l'enregistrement.
+4. Décrire la préparation, à raison d'une étape par ligne, et ajouter éventuellement une photo JPG, PNG ou WebP de 5 Mo maximum.
+5. Cliquer sur **Enregistrer et soumettre**. La recette apparaît dans **Mes recettes**, où elle peut être consultée et ajoutée au planning.
+
+Le formulaire reste accessible après la connexion. La photo peut être prévisualisée ou retirée avant l'enregistrement, et la fermeture du formulaire est bloquée pendant l'envoi.
+
+Une nouvelle recette reste privée pendant sa validation : son auteur et les administrateurs peuvent la consulter, et son auteur peut déjà l'utiliser dans son planning. Un administrateur peut la publier ou refuser sa publication, avec un message facultatif. Une recette refusée reste disponible pour son auteur. Les recettes personnelles utilisent la source `community`.
+
+Les comptes, recettes et photos sont gérés par Supabase. Le planning, les favoris et les préférences restent enregistrés sur l'appareil, séparément pour chaque compte ; ils ne sont pas synchronisés entre appareils.
+
 ### Génération du planning hebdomadaire
 
 Après avoir sélectionné suffisamment de recettes, Broco-Chou génère un planning sur 7 jours. La logique actuelle :
@@ -173,6 +189,9 @@ La logique des basiques du placard évite de surcharger la liste avec des produi
 
 La page profil regroupe :
 
+- connexion, création de compte et déconnexion ;
+- rubrique **Mes recettes**, statut de validation et ajout au planning ;
+- validation des recettes pour les administrateurs ;
 - nombre de semaines planifiées ;
 - nombre de recettes cuisinées ;
 - nombre de favoris ;
@@ -251,7 +270,11 @@ Le type principal est `Recipe`. Une recette contient notamment :
 - `astuce` : conseil pratique ;
 - `cuisson_micro_ondes` : compatibilité micro-ondes ;
 - `sans_four` : recette réalisable sans four ;
-- `source` : Crous ou Broco-Chou ;
+- `source` : `crous`, `broco-chou`, `instagram` ou `community` ;
+- `createdBy` : identifiant du compte auteur ;
+- `moderationStatus` : `pending`, `approved` ou `rejected` ;
+- `moderationNote` : message de l'administrateur ;
+- `imagePath` : chemin de la photo dans le stockage privé ;
 - `source_pdf` et `source_page` : traçabilité de la source ;
 - `dietary_tags` : tags alimentaires ;
 - `main_ingredients` : ingrédients principaux ;
@@ -282,7 +305,7 @@ Le projet est une application Next.js moderne, construite avec React, TypeScript
 - Framer Motion pour les transitions et les interactions de swipe ;
 - Radix UI pour les primitives d'interface ;
 - Lucide React pour les icônes ;
-- Supabase comme source de données distante optionnelle ;
+- Supabase pour le catalogue, l'authentification et les photos des recettes personnelles ;
 - Vercel Analytics prévu dans les dépendances.
 
 ### Organisation des dossiers
@@ -301,6 +324,11 @@ components/
   weekly-calendar.tsx   Planning hebdomadaire
   grocery-list.tsx      Liste de courses
   profile-page.tsx      Profil utilisateur
+  account-provider.tsx Session, catalogue et planning par compte
+  recipe-account.tsx   Connexion et inscription
+  personal-recipes.tsx Recettes personnelles et modération
+  personal-recipe-form.tsx
+                         Formulaire de création de recette
   recipe-detail-sheet.tsx
                          Fiche recette détaillée
   bottom-navigation.tsx Navigation mobile
@@ -311,6 +339,7 @@ lib/
   store.ts              Store Zustand persistant
   recipe-logic.ts       Scoring, équilibre, anti-répétition
   supabase-recipes.ts   Chargement des recettes Supabase
+  supabase-client.ts    Client Supabase partagé avec session utilisateur
   mock-recipes.ts       Données locales de secours
   recipe-images.ts      Résolution des images de recettes
   utils.ts              Utilitaires UI
@@ -341,7 +370,7 @@ scripts/
 
 ## Persistance locale
 
-Le store Zustand est persisté sous la clé `broco-chou-storage`. Les données conservées localement incluent :
+Le store Zustand est persisté sous la clé `broco-chou-storage` pour les visiteurs et `broco-chou-account-<identifiant>` pour chaque compte connecté. Le changement de compte charge son espace local sans écraser celui du compte précédent. Les données conservées localement incluent :
 
 - actions de swipe ;
 - recettes acceptées ;
@@ -357,7 +386,7 @@ Cette persistance rend l'application pratique au quotidien : l'utilisateur peut 
 
 ## Supabase
 
-Supabase sert de source de données distante pour les recettes. L'application lit une table configurable via variable d'environnement.
+Supabase fournit le catalogue, l'authentification par e-mail et mot de passe, la soumission et la modération des recettes, ainsi que le stockage privé des photos. La lecture du catalogue utilise une table configurable via variable d'environnement ; les fonctions de soumission et de modération ciblent `public.recipes`.
 
 Variables attendues :
 
@@ -366,6 +395,33 @@ NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 NEXT_PUBLIC_SUPABASE_RECIPES_TABLE=recipes
 ```
+
+### Configuration des recettes personnelles
+
+La fonctionnalité nécessite les migrations `20261007190000_personal_recipes.sql` et `20261008120000_recipe_api_grants.sql`, ainsi que le service Storage activé. Le bucket privé `recipe-photos` et ses règles d'accès sont créés par migration ; les photos visibles sont chargées avec des URL signées temporaires.
+
+Pour configurer l'environnement local avec Docker Desktop :
+
+```bash
+npm run supabase:start
+npm exec -- supabase migration up --local
+npm run supabase:env
+npm run dev
+```
+
+Sur une pile locale déjà démarrée avec Storage désactivé, exécuter `npm run supabase:stop`, puis la redémarrer avant d'appliquer les migrations. `supabase:env` configure `.env.local` pour la base locale ; redémarrer Next.js si le serveur était déjà lancé.
+
+Les migrations locales ne sont pas automatiquement appliquées à Supabase Cloud. L'environnement désigné par `.env.local` doit disposer des deux migrations. Voir le [guide de développement Supabase](docs/supabase-local-development.md) pour les commandes locales et les précautions concernant l'environnement distant.
+
+Les administrateurs sont désignés dans `public.recipe_admins` par SQL avec un accès privilégié. Les utilisateurs ne peuvent pas s'attribuer ce rôle ni valider leurs propres soumissions sans être administrateurs.
+
+Pour vérifier localement la soumission, les photos, la validation des champs et les droits d'accès :
+
+```bash
+node scripts/verify-personal-recipes.mjs
+```
+
+Ce script utilise exclusivement la pile locale et supprime son compte, sa recette et sa photo de test.
 
 ### Import de recettes Instagram (développement)
 
@@ -510,16 +566,17 @@ values (
 commit;
 ```
 
-Les colonnes `id`, `created_at` et `updated_at` de `public.ingredients` sont générées automatiquement. Les colonnes `created_at` et `updated_at` de `public.recipes` sont également générées automatiquement. Les valeurs actuellement acceptées pour `source` sont `crous`, `lumora`, `broco-chou` et `instagram`.
+Les colonnes `id`, `created_at` et `updated_at` de `public.ingredients` sont générées automatiquement. Les colonnes `created_at` et `updated_at` de `public.recipes` sont également générées automatiquement. Après application des migrations du dépôt, les valeurs acceptées pour `source` sont `crous`, `broco-chou`, `instagram` et `community`.
 
 `NEXT_PUBLIC_SUPABASE_RECIPES_TABLE` est optionnelle. Si elle n'est pas définie, l'application utilise `recipes`.
 
 ### Schéma principal
 
-La migration crée deux tables :
+Les migrations définissent notamment les tables suivantes :
 
 - `public.recipes` : recettes complètes ;
-- `public.ingredients` : référentiel d'ingrédients.
+- `public.ingredients` : référentiel d'ingrédients ;
+- `public.recipe_admins` : comptes autorisés à modérer les recettes.
 
 La table `recipes` contient :
 
@@ -548,13 +605,13 @@ La table `recipes` contient :
 
 Des index sont prévus sur la saison, le mois, la catégorie, la source, les tags alimentaires, les ingrédients principaux et les ingrédients JSONB.
 
-La Row Level Security est activée, avec des politiques de lecture pour les rôles `anon` et `authenticated`.
+La Row Level Security est activée. Les recettes publiées sont lisibles par les visiteurs ; les soumissions privées sont accessibles à leur auteur et aux administrateurs. Les écritures depuis le navigateur passent par les fonctions validées `submit_recipe` et `review_recipe`.
 
 ## Installation
 
 Prérequis :
 
-- Node.js récent compatible avec Next.js 16 ;
+- Node.js 22 ou supérieur, requis par le client Supabase utilisé ;
 - npm (le lockfile `package-lock.json` est versionné) ;
 - Docker Desktop pour la base Supabase locale ;
 - un projet Supabase uniquement si l'on veut utiliser la base distante.
@@ -602,16 +659,17 @@ Dans `package.json` :
 - `dev` : démarre Next.js en développement ;
 - `build` : compile l'application ;
 - `start` : démarre l'application compilée ;
-- `lint` : lance ESLint sur le projet.
-- `dev` : démarre Next.js en développement ;
+- `lint` : lance ESLint sur le projet ;
 - `supabase:start`, `supabase:status`, `supabase:stop`, `supabase:reset` : gèrent la pile Docker locale ;
+- `supabase:env` : configure `.env.local` pour la pile Supabase locale ;
 - `offline:check` : contrôle que le seed ne dépend d'aucune image Pexels distante.
 
 Dans `scripts/` :
 
 - `generate-supabase-seed.mjs` : génération de seed Supabase côté Node ;
 - `generate_supabase_seed_from_sources.py` : génération de seed depuis des sources de données ;
-- `inspect_xlsx_xml.py` : inspection de fichiers XLSX/XML.
+- `inspect_xlsx_xml.py` : inspection de fichiers XLSX/XML ;
+- `verify-personal-recipes.mjs` : vérification locale des soumissions, photos et permissions, avec nettoyage des données de test.
 
 Ces scripts servent à préparer ou analyser les données recettes utilisées par Supabase.
 
@@ -678,8 +736,9 @@ Le projet est déjà fonctionnel, mais certaines limites existent :
 - la reconnaissance d'ingrédients similaires repose sur une normalisation basique ;
 - le planning cible surtout les dîners et desserts ;
 - les petits-déjeuners sont prévus dans les types, mais pas encore centraux dans le parcours ;
-- l'authentification utilisateur n'est pas encore intégrée ;
-- les données personnelles sont persistées localement dans le navigateur.
+- la modification d'une recette personnelle après soumission n'est pas encore proposée ;
+- le planning, les favoris et les préférences restent locaux au navigateur, séparément pour chaque compte ;
+- la création de compte, la soumission de recettes et les photos nécessitent une connexion à Supabase.
 
 ## Améliorations possibles
 
@@ -701,7 +760,6 @@ Pistes fonctionnelles :
 
 Pistes techniques :
 
-- authentification Supabase ;
 - synchronisation multi-appareils ;
 - tests unitaires sur `recipe-logic.ts` ;
 - tests d'intégration sur la génération de planning ;
@@ -710,7 +768,7 @@ Pistes techniques :
 - recherche plein texte ;
 - pagination ou chargement progressif des recettes ;
 - cache côté client ;
-- dashboard d'administration des recettes ;
+- enrichissement de l'espace de modération des recettes ;
 - pipeline d'import depuis les sources Crous.
 
 ## Licence et attribution
