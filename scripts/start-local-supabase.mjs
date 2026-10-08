@@ -1,11 +1,13 @@
 import { existsSync, mkdirSync, renameSync } from "node:fs"
 import { spawnSync } from "node:child_process"
 import path from "node:path"
+import { createRequire } from "node:module"
 
 const root = process.cwd()
 const tempDirectory = path.join(root, "supabase", ".temp")
 const backupDirectory = path.join(root, "supabase", ".local-start-link-backup")
-const cli = path.join(root, "node_modules", "supabase", "bin", process.platform === "win32" ? "supabase.exe" : "supabase")
+const require = createRequire(import.meta.url)
+const cli = path.join(path.dirname(require.resolve("supabase/package.json")), "dist", "supabase.js")
 const linkedMetadata = ["project-ref", "linked-project.json", "pooler-url"]
 const moved = []
 
@@ -24,7 +26,7 @@ try {
     }
   }
 
-  const result = spawnSync(cli, ["start"], {
+  const result = spawnSync(process.execPath, [cli, "start"], {
     cwd: root,
     stdio: "inherit",
   })

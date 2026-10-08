@@ -1,11 +1,13 @@
 import { execFileSync } from "node:child_process"
 import { existsSync, readFileSync, writeFileSync } from "node:fs"
 import path from "node:path"
+import { createRequire } from "node:module"
 
 const root = process.cwd()
 const target = path.join(root, ".env.local")
-const cli = path.join(root, "node_modules", "supabase", "bin", process.platform === "win32" ? "supabase.exe" : "supabase")
-const output = execFileSync(cli, ["status", "-o", "env"], { cwd: root, encoding: "utf8" })
+const require = createRequire(import.meta.url)
+const cli = path.join(path.dirname(require.resolve("supabase/package.json")), "dist", "supabase.js")
+const output = execFileSync(process.execPath, [cli, "status", "-o", "env"], { cwd: root, encoding: "utf8" })
 
 const values = Object.fromEntries([...output.matchAll(/^([A-Z_]+)=(?:"([^"]*)"|(.*))$/gm)].map(([, key, quoted, plain]) => [key, quoted ?? plain]))
 const required = ["API_URL", "ANON_KEY", "SERVICE_ROLE_KEY"]
