@@ -1,10 +1,16 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useBrocoChouStore } from "@/lib/store";
 import type { Recipe } from "@/lib/types";
-import { fetchSupabaseRecipes } from "@/lib/supabase-recipes";
+import { AccountProvider, useAccount } from './account-provider';
+import { PersonalRecipes } from './personal-recipes';
+import { PersonalRecipeForm } from './personal-recipe-form';
+import { RecipeAccount } from './recipe-account';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from './ui/dialog';
+import { toast } from 'sonner';
+import { Toaster } from './ui/sonner';
 import type { NavTab } from "./bottom-navigation";
 import { BottomNavigation } from "./bottom-navigation";
 import { HomeDashboard } from "./home-dashboard";
@@ -23,34 +29,26 @@ const pageVariants = {
 };
 
 export function BrocoChouApp() {
+  // Keep the creation intent while the account provider reloads after sign-in.
+  const [isRecipeFormOpen, setIsRecipeFormOpen] = useState(false);
+  return <AccountProvider><BrocoChouContent isRecipeFormOpen={isRecipeFormOpen} setIsRecipeFormOpen={setIsRecipeFormOpen} /></AccountProvider>;
+}
+
+function BrocoChouContent({ isRecipeFormOpen, setIsRecipeFormOpen }: { isRecipeFormOpen: boolean; setIsRecipeFormOpen: (open: boolean) => void }) {
+  const { user } = useAccount();
   const [activeTab, setActiveTab] = useState<NavTab>("home");
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [isPlanEditorOpen, setIsPlanEditorOpen] = useState(false);
-  const hasLoadedSupabase = useRef(false);
+  const [planQuery, setPlanQuery] = useState('');
+  const [isSavingRecipe, setIsSavingRecipe] = useState(false);
   const {
     hasCompletedOnboarding,
     generateWeeklyPlan,
     createWeeklyPlan,
     generateGroceryList,
     weeklyPlan,
-    setRecipes,
     addRecipeToAccepted,
   } = useBrocoChouStore();
-
-  useEffect(() => {
-    if (hasLoadedSupabase.current) return;
-    hasLoadedSupabase.current = true;
-
-    fetchSupabaseRecipes()
-      .then(remoteRecipes => {
-        if (remoteRecipes.length > 0) {
-          setRecipes(remoteRecipes);
-        }
-      })
-      .catch(error => {
-        console.warn("Supabase indisponible, recettes locales utilisées.", error);
-      });
-  }, [setRecipes]);
 
   if (!hasCompletedOnboarding) {
     return <Onboarding />;
@@ -73,7 +71,15 @@ export function BrocoChouApp() {
 
   const openPlanEditor = () => {
     if (!weeklyPlan) createWeeklyPlan();
+    setPlanQuery('');
     setIsPlanEditorOpen(true);
+  };
+
+  const planPersonalRecipe = (recipe: Recipe) => {
+    if (!weeklyPlan) createWeeklyPlan();
+    setPlanQuery(recipe.nom);
+    setIsPlanEditorOpen(true);
+    setActiveTab('calendar');
   };
 
   const renderPage = () => {
@@ -89,7 +95,7 @@ export function BrocoChouApp() {
         );
       case "calendar":
         if (isPlanEditorOpen) {
-          return <WeeklyPlanEditor onDone={() => setIsPlanEditorOpen(false)} />;
+          return <WeeklyPlanEditor initialQuery={planQuery} onDone={() => setIsPlanEditorOpen(false)} />;
         }
         return (
           <WeeklyCalendar
@@ -101,7 +107,7 @@ export function BrocoChouApp() {
       case "grocery":
         return <GroceryList onBack={() => setActiveTab("calendar")} />;
       case "profile":
-        return <ProfilePage onOpenPreferences={() => setActiveTab("home")} />;
+        return <><div className="pt-6"><PersonalRecipes onCreate={() => setIsRecipeFormOpen(true)} onView={openRecipeDetails} onPlan={planPersonalRecipe} /></div><ProfilePage onOpenPreferences={() => setActiveTab("home")} /></>;
       default:
         return <HomeDashboard onNavigate={setActiveTab} onViewRecipe={openRecipeDetails} />;
     }
@@ -109,6 +115,8 @@ export function BrocoChouApp() {
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      <Toaster />
+      {activeTab !== 'profile' && <div className="flex justify-end px-6 pt-3"><button className="rounded-lg border px-3 py-2 text-sm font-medium text-deep-plum" onClick={() => setIsRecipeFormOpen(true)}>Ajouter ma recette</button></div>}
       <main className="min-h-0 flex-1 overflow-hidden pb-20">
         <AnimatePresence mode="wait">
           <motion.div
@@ -125,12 +133,25 @@ export function BrocoChouApp() {
         </AnimatePresence>
       </main>
       <BottomNavigation activeTab={activeTab} onTabChange={setActiveTab} />
+      <Dialog open={isRecipeFormOpen} onOpenChange={open => { if (!isSavingRecipe) setIsRecipeFormOpen(open); }}>
+        <DialogContent className="max-h-[90dvh] overflow-y-auto sm:max-w-2xl" showCloseButton={!isSavingRecipe} onInteractOutside={event => event.preventDefault()} onEscapeKeyDown={event => { if (isSavingRecipe) event.preventDefault(); }}>
+          <DialogHeader>
+            <DialogTitle>Ajouter ma recette</DialogTitle>
+            <DialogDescription>Crée ta recette pour l’utiliser dans ton planning. Elle sera publique après validation.</DialogDescription>
+          </DialogHeader>
+          {user ? <PersonalRecipeForm onBusyChange={setIsSavingRecipe} onCancel={() => setIsRecipeFormOpen(false)} onSaved={() => {
+            setIsRecipeFormOpen(false);
+            setActiveTab('profile');
+            toast.success('Recette enregistrée ! Tu peux maintenant l’ajouter à ton planning.');
+          }} /> : <RecipeAccount />}
+        </DialogContent>
+      </Dialog>
       <RecipeDetailSheet
         recipe={selectedRecipe}
         isOpen={selectedRecipe !== null}
         onClose={() => setSelectedRecipe(null)}
         onAddToPlanning={
-          selectedRecipe
+          selectedRecipe && (selectedRecipe.moderationStatus === 'approved' || !selectedRecipe.moderationStatus || selectedRecipe.createdBy === user?.id)
             ? () => {
                 addRecipeToAccepted(selectedRecipe);
                 setSelectedRecipe(null);

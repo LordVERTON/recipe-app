@@ -10,6 +10,7 @@ import { recipeTitle } from "@/lib/recipe-images"
 
 interface WeeklyPlanEditorProps {
   onDone: () => void
+  initialQuery?: string
 }
 
 const mealSlots: { id: MealSlot; label: string; description: string }[] = [
@@ -35,10 +36,10 @@ function getDayLabel(date: Date, short = false) {
   }).format(date)
 }
 
-export function WeeklyPlanEditor({ onDone }: WeeklyPlanEditorProps) {
+export function WeeklyPlanEditor({ onDone, initialQuery = '' }: WeeklyPlanEditorProps) {
   const { weeklyPlan, recipeCatalog, preferences, setMealInPlan, removeMealFromPlan } = useBrocoChouStore()
   const [selectedDay, setSelectedDay] = useState(0)
-  const [query, setQuery] = useState("")
+  const [query, setQuery] = useState(initialQuery)
   const [season, setSeason] = useState<Season | "all">("all")
   const [maxTime, setMaxTime] = useState<number | "all">("all")
   const [diet, setDiet] = useState<"all" | "vegetarien" | "poisson">("all")
@@ -338,7 +339,7 @@ function MealSlotPicker({
       >
         <option value="">Aucune recette prévue</option>
         {options.map(recipe => (
-          <option key={recipe.id} value={recipe.id}>{recipeTitle(recipe)}</option>
+          <option key={recipe.id} value={recipe.id}>{recipeTitle(recipe)}{recipe.moderationStatus === 'pending' ? ' · En attente de validation' : recipe.moderationStatus === 'rejected' ? ' · Privée' : ''}</option>
         ))}
       </select>
       {meal && <p className="mt-2 truncate text-xs text-mauve-taupe">Prévu : {recipeTitle(meal)}</p>}

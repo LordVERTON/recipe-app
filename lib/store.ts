@@ -573,6 +573,7 @@ export const useBrocoChouStore = create<BrocoChouState>()(
     }),
     {
       name: 'broco-chou-storage',
+      skipHydration: true,
       partialize: (state) => ({
         swipeActions: state.swipeActions,
         acceptedRecipes: state.acceptedRecipes,
@@ -588,6 +589,22 @@ export const useBrocoChouStore = create<BrocoChouState>()(
     }
   )
 )
+
+// Each account has its own local planning. The original key remains the guest account.
+export async function switchPlanningAccount(userId: string | null) {
+  const store = useBrocoChouStore
+  const storage = store.persist.getOptions().storage
+  const onboarding = store.getState().hasCompletedOnboarding
+  // Zustand ignores an undefined storage option; use a no-op adapter so this
+  // reset cannot overwrite the previous account's saved planning before hydration.
+  store.persist.setOptions({ storage: { getItem: () => null, setItem: () => {}, removeItem: () => {} } })
+  try {
+    store.setState({ ...store.getInitialState(), hasCompletedOnboarding: onboarding }, true)
+  } finally {
+    store.persist.setOptions({ storage, name: userId ? `broco-chou-account-${userId}` : 'broco-chou-storage' })
+  }
+  await store.persist.rehydrate()
+}
 
 // Helper functions for recipe scoring and selection
 

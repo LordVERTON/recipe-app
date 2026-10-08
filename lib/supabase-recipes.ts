@@ -1,9 +1,8 @@
 import type { Ingredient, Recipe, Season } from "./types"
+import { supabase } from './supabase-client'
 
 type SupabaseRecipeRow = Record<string, unknown>
 
-const defaultUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-const defaultKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 const recipeTable = process.env.NEXT_PUBLIC_SUPABASE_RECIPES_TABLE || "recipes"
 
 const seasonMap: Record<string, Season> = {
@@ -94,11 +93,15 @@ function normalizeCategory(value: unknown): Recipe["categorie"] {
   return category.includes("sucr") ? "sucré" : "salé"
 }
 
-function mapRecipeRow(row: SupabaseRecipeRow, index: number): Recipe {
+export function mapRecipeRow(row: SupabaseRecipeRow, index = 0): Recipe {
   const nom = asString(row.nom ?? row.name ?? row.title, `Recette ${index + 1}`)
   const ingredients = asIngredients(row.ingredients ?? row.ingredient_list ?? row.liste_ingredients)
 
   return {
+    createdBy: asString(row.created_by) || undefined,
+    moderationStatus: asString(row.moderation_status, 'approved') as Recipe['moderationStatus'],
+    moderationNote: asString(row.moderation_note),
+    imagePath: asString(row.image_path) || undefined,
     id: asString(row.id ?? row.recipe_id ?? row.slug, `supabase-${index}`),
     nom,
     description: asString(row.description),
@@ -119,7 +122,7 @@ function mapRecipeRow(row: SupabaseRecipeRow, index: number): Recipe {
     astuce: asString(row.astuce ?? row.tip),
     cuisson_micro_ondes: asBoolean(row.cuisson_micro_ondes ?? row.micro_ondes),
     sans_four: asBoolean(row.sans_four ?? row.no_oven),
-    source: ["broco-chou", "instagram"].includes(asString(row.source, "crous"))
+    source: ["broco-chou", "instagram", "community"].includes(asString(row.source, "crous"))
       ? asString(row.source, "crous") as Recipe["source"]
       : "crous",
     source_pdf: asString(row.source_pdf),
@@ -132,23 +135,19 @@ function mapRecipeRow(row: SupabaseRecipeRow, index: number): Recipe {
 }
 
 export async function fetchSupabaseRecipes(): Promise<Recipe[]> {
-  if (!defaultUrl || !defaultKey) return []
-
-  const endpoint = `${defaultUrl.replace(/\/$/, "")}/rest/v1/${encodeURIComponent(recipeTable)}?select=*&limit=1000`
-  const response = await fetch(endpoint, {
-    headers: {
-      apikey: defaultKey,
-      Authorization: `Bearer ${defaultKey}`,
-    },
-    cache: "no-store",
-  })
-
-  if (!response.ok) {
-    throw new Error(`Supabase recipes fetch failed: ${response.status} ${response.statusText}`)
+  if (!supabase) return []
+  const recipes: Recipe[] = []
+  for (let offset = 0; ; offset += 500) {
+    const { data, error } = await supabase.from(recipeTable).select('*').order('id').range(offset, offset + 499)
+    if (error) throw error
+    recipes.push(...data.map(mapRecipeRow))
+    if (data.length < 500) break
   }
-
-  const rows = await response.json()
-  if (!Array.isArray(rows)) return []
-
-  return rows.map(mapRecipeRow).filter(recipe => recipe.ingredients.length > 0)
+  const paths = recipes.flatMap(recipe => recipe.imagePath ? [recipe.imagePath] : [])
+  if (paths.length) {
+    const { data } = await supabase.storage.from('recipe-photos').createSignedUrls(paths, 7200)
+    const urls = new Map(data?.map(item => [item.path, item.signedUrl]))
+    recipes.forEach(recipe => { if (recipe.imagePath) recipe.imageUrl = urls.get(recipe.imagePath) ?? undefined })
+  }
+  return recipes.filter(recipe => recipe.ingredients.length > 0)
 }
