@@ -65,6 +65,19 @@ npm run supabase:reset
    ```
 5. Commit the migration with the code that needs it. Never edit an already-deployed migration; make a new corrective migration instead.
 
+## Personal recipe form
+
+`Ajouter ma recette` opens the creation modal. Sign in, enter ingredients and preparation steps, and optionally upload a JPG, PNG, or WebP photo (up to 5 MB). Saved recipes appear in `Mes recettes` and can be used in the owner's planning while awaiting moderation.
+
+Photo uploads require the Storage service enabled in `supabase/config.toml`. After changing this setting on an existing local stack, stop and restart it with backups preserved. Apply pending migrations without resetting data:
+
+```powershell
+npm exec -- supabase migration up --local
+node scripts/verify-personal-recipes.mjs
+```
+
+The verification script only targets the local stack and removes its temporary account, recipe, and photo. The app's `.env.local` must point to the same environment where `20261007190000_personal_recipes.sql` and `20261008120000_recipe_api_grants.sql` are applied. For local development, `npm run supabase:env` switches the app to the local stack; restart Next.js afterward. Cloud deployments need both migrations applied separately.
+
 ## Recipe imports
 
 The import UI is served at `/admin/import`. Its API routes are under `app/api/recipe-import/` and write recipe records to Supabase. Before importing:
