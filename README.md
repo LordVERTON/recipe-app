@@ -409,9 +409,9 @@ npm run supabase:env
 npm run dev
 ```
 
-Sur une pile locale déjà démarrée avec Storage désactivé, exécuter `npm run supabase:stop`, puis la redémarrer avant d'appliquer les migrations. `supabase:env` configure `.env.local` pour la base locale ; redémarrer Next.js si le serveur était déjà lancé.
+Sur une pile locale déjà démarrée avec Storage désactivé, exécuter `npm run supabase:stop`, puis la redémarrer avant d'appliquer les migrations. `supabase:env` configure `.env.development.local` pour la base locale et conserve `.env.local` ; redémarrer Next.js si le serveur était déjà lancé. Avec Supabase déjà démarré, `npm run dev:local` combine la configuration locale et le démarrage de Next.js.
 
-Les migrations locales ne sont pas automatiquement appliquées à Supabase Cloud. L'environnement désigné par `.env.local` doit disposer des deux migrations. Voir le [guide de développement Supabase](docs/supabase-local-development.md) pour les commandes locales et les précautions concernant l'environnement distant.
+Les migrations locales ne sont pas automatiquement appliquées à Supabase Cloud. L'environnement sélectionné doit disposer des deux migrations. Voir le [guide de développement Supabase](docs/supabase-local-development.md) pour les commandes locales et le basculement entre Cloud et local. Les comptes Auth locaux sont distincts des comptes Cloud ; créer un compte de test dans l'application après le basculement.
 
 Les administrateurs sont désignés dans `public.recipe_admins` par SQL avec un accès privilégié. Les utilisateurs ne peuvent pas s'attribuer ce rôle ni valider leurs propres soumissions sans être administrateurs.
 
@@ -636,7 +636,7 @@ http://localhost:3000
 
 ### Tester sur un téléphone connecté au même Wi-Fi
 
-Avec `.env.local` configuré pour Supabase Cloud, démarrer le serveur accessible sur le réseau local :
+Après avoir configuré Supabase local avec `npm run supabase:env`, ou Supabase Cloud dans `.env.local` sans surcharge `.env.development.local`, démarrer le serveur accessible sur le réseau local :
 
 ```powershell
 npm run dev -- --hostname 0.0.0.0
@@ -646,7 +646,7 @@ Sur le PC, ouvrir `http://localhost:3000`. Sur le téléphone, ouvrir `http://19
 
 Autoriser Node.js dans le pare-feu Windows pour les réseaux privés si Windows le demande. Éviter le Wi-Fi invité, qui peut isoler les appareils. Si la page reste inaccessible, vérifier que le pare-feu autorise le port TCP 3000 depuis le réseau local.
 
-Ne pas lancer `supabase:env` pour ce test avec Supabase Cloud : cette commande bascule vers la base locale. Avec Supabase local, une URL `127.0.0.1:54321` pointe vers le téléphone lui-même ; il faut utiliser une adresse Supabase accessible depuis celui-ci. Les fonctionnalités PWA nécessitant HTTPS ne sont pas disponibles sur cette URL HTTP du réseau local.
+Avec Supabase local, Next.js relaie les appels du navigateur via `/__supabase` vers le PC : le téléphone peut donc utiliser Auth, le catalogue et Storage sans accéder directement au port 54321. Ce relais est réservé au développement avec une URL Supabase locale. Les fonctionnalités PWA nécessitant HTTPS ne sont pas disponibles sur cette URL HTTP du réseau local.
 
 Construire pour la production :
 
@@ -675,7 +675,8 @@ Dans `package.json` :
 - `start` : démarre l'application compilée ;
 - `lint` : lance ESLint sur le projet ;
 - `supabase:start`, `supabase:status`, `supabase:stop`, `supabase:reset` : gèrent la pile Docker locale ;
-- `supabase:env` : configure `.env.local` pour la pile Supabase locale ;
+- `supabase:env` : configure `.env.development.local` pour la pile Supabase locale, sans modifier `.env.local` ;
+- `dev:local` : configure la pile locale déjà démarrée et lance Next.js ;
 - `offline:check` : contrôle que le seed ne dépend d'aucune image Pexels distante.
 
 Dans `scripts/` :

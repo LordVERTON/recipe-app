@@ -51,7 +51,13 @@ export function AccountProvider({ children }: { children: ReactNode }) {
         })
         if (store.groceryList.length) useBrocoChouStore.getState().generateGroceryList()
       }
-    } catch {
+    } catch (cause) {
+      if (process.env.NODE_ENV === 'development') {
+        console.error('[catalogue] Échec du chargement Supabase', {
+          url: process.env.NEXT_PUBLIC_SUPABASE_URL,
+          error: cause,
+        })
+      }
       if (version === generation.current) setError('Connexion au catalogue impossible. Vérifie ta connexion puis réessaie.')
     }
   }, [])

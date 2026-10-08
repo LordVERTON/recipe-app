@@ -4,7 +4,7 @@ import path from "node:path"
 import { createRequire } from "node:module"
 
 const root = process.cwd()
-const target = path.join(root, ".env.local")
+const target = path.join(root, ".env.development.local")
 const require = createRequire(import.meta.url)
 const cli = path.join(path.dirname(require.resolve("supabase/package.json")), "dist", "supabase.js")
 const output = execFileSync(process.execPath, [cli, "status", "-o", "env"], { cwd: root, encoding: "utf8" })
@@ -12,6 +12,9 @@ const output = execFileSync(process.execPath, [cli, "status", "-o", "env"], { cw
 const values = Object.fromEntries([...output.matchAll(/^([A-Z_]+)=(?:"([^"]*)"|(.*))$/gm)].map(([, key, quoted, plain]) => [key, quoted ?? plain]))
 const required = ["API_URL", "ANON_KEY", "SERVICE_ROLE_KEY"]
 if (!required.every(key => values[key])) throw new Error("Supabase n'a pas retourné les variables locales attendues.")
+if (!["127.0.0.1", "localhost"].includes(new URL(values.API_URL).hostname)) {
+  throw new Error("Configuration refusée : Supabase doit désigner l'instance locale.")
+}
 
 const updates = {
   NEXT_PUBLIC_SUPABASE_URL: values.API_URL,
@@ -23,4 +26,5 @@ const existing = existsSync(target) ? readFileSync(target, "utf8") : ""
 const lines = existing.split(/\r?\n/).filter(line => line && !Object.keys(updates).some(key => line.startsWith(`${key}=`)))
 for (const [key, value] of Object.entries(updates)) lines.push(`${key}=${value}`)
 writeFileSync(target, `${lines.join("\n")}\n`)
-console.log(".env.local configuré pour Supabase local.")
+console.log(".env.development.local configuré pour Supabase local (Auth, catalogue et Storage).")
+console.log("Les valeurs de .env.local sont conservées. Redémarre npm run dev pour appliquer le changement.")
