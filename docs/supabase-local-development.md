@@ -48,7 +48,7 @@ Once the stack is running, `npm run dev:local -- --hostname 0.0.0.0` combines co
 
 Open `http://localhost:3000` on the PC or `http://192.168.1.5:3000` on a phone on the same Wi-Fi (replace the IP with the PC's current address). In development, when Supabase is configured with a loopback HTTP URL, the browser sends Auth, REST and Storage calls through `/__supabase` on the Next.js origin. Next.js forwards them to the local stack. This avoids sending the phone's requests to its own `127.0.0.1`. Cloud configurations and production builds do not enable this proxy.
 
-Create a new account using the app's email/password form. Local accounts and data are separate from Cloud; production credentials do not log into the local stack. Local Auth currently auto-confirms email signups. If you enable email confirmation later, use the local mail inbox and add the exact phone-facing app origin to `auth.additional_redirect_urls` before restarting Supabase.
+Create a new account using the app's email/password form. Local accounts and data are separate from Cloud; production credentials do not log into the local stack. Email confirmation is enabled in the checked-in configuration. Use the local mail inbox for confirmation links and add the exact phone-facing app origin to `auth.additional_redirect_urls` before restarting Supabase.
 
 Local Auth sessions use a separate browser storage key from Cloud sessions. To return development to Cloud, rename `.env.development.local` to `.env.development.disabled.local`, verify the Cloud values in `.env.local`, and restart Next.js. Rename it back to select local again. Production builds keep using their normal environment variables.
 
@@ -124,3 +124,31 @@ npm exec -- supabase migration list
 ## Remote-environment safety
 
 Linking, pushing, or resetting a remote Supabase project can affect shared data. Confirm the project reference and take a backup before using commands such as `supabase db push` or `supabase db reset --linked`. Local commands above do not deploy anything remotely.
+
+## Production email confirmation redirects
+
+The built-in Supabase mailer is retained. Cloud Auth uses
+`https://recipe-app-alpha-wine.vercel.app` as its Site URL and explicit redirect
+allow-list entry. Localhost redirects belong only to the local Auth configuration.
+The `[remotes.production]` profile keeps these settings separate. Before applying
+Cloud configuration, check the selected profile with:
+
+```powershell
+npx supabase config diff --project-ref cbwrvcifxcqyrgtcpvbd
+```
+
+The output must select `[remotes.production]`. The Cloud settings were applied
+and checked against this profile on 2026-10-09. The default confirmation template
+uses Supabase's generated confirmation URL; there is no custom SMTP or template.
+
+Admin-generated temporary signup links were verified against Cloud Auth without
+sending email: the production URL and a requested `http://localhost:3000` both
+returned to the production site with a confirmed session. Temporary accounts were
+deleted. A direct numeric-loopback redirect (`127.0.0.1`) was still accepted by
+Auth even outside the explicit allow list; the app uses the browser origin and
+must be opened on the public production URL for production signups.
+
+This verifies confirmation and redirect behavior, not inbox delivery. Already
+received emails retain their original link text. Request a fresh confirmation
+when checking the current configuration. The built-in mailer's existing recipient
+restrictions and quota remain unchanged.
