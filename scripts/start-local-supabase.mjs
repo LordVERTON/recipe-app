@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, renameSync } from "node:fs"
+import { existsSync, mkdirSync, renameSync, writeFileSync } from "node:fs"
 import { spawnSync } from "node:child_process"
 import path from "node:path"
 import { createRequire } from "node:module"
@@ -10,6 +10,9 @@ const require = createRequire(import.meta.url)
 const cli = path.join(path.dirname(require.resolve("supabase/package.json")), "dist", "supabase.js")
 const linkedMetadata = ["project-ref", "linked-project.json", "pooler-url"]
 const moved = []
+// v14.18 fixes intermittent PGRST303 "JWT issued at future" after idle periods.
+// A Cloud link can cache an older version, independently of the CLI version.
+const localRestVersion = "v14.18"
 
 try {
   // A linked project makes `supabase start` query Supabase Cloud for service
@@ -25,6 +28,9 @@ try {
       moved.push({ source, backup })
     }
   }
+
+  mkdirSync(tempDirectory, { recursive: true })
+  writeFileSync(path.join(tempDirectory, "rest-version"), localRestVersion)
 
   const result = spawnSync(process.execPath, [cli, "start"], {
     cwd: root,
