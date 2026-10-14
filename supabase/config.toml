@@ -49,3 +49,6 @@ project_id = "cbwrvcifxcqyrgtcpvbd"
 [remotes.production.auth]
 site_url = "https://recipe-app-alpha-wine.vercel.app"
 additional_redirect_urls = ["https://recipe-app-alpha-wine.vercel.app"]
+
+[remotes.production.auth.email]
+enable_confirmations = true
