@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { parseEnv } from 'node:util'
 import { createClient } from '@supabase/supabase-js'
+import { confirmLocalTestSignup } from './confirm-local-test-signup.mjs'
 
 // Never load Cloud credentials. All test data is removed in finally.
 const env = parseEnv(readFileSync('.env.development.local', 'utf8'))
@@ -23,7 +24,7 @@ try {
   assert.ifError(signup.error)
   userId = signup.data.user?.id
   assert.ok(userId)
-  assert.ok(signup.data.session, 'This check expects local email auto-confirmation')
+  await confirmLocalTestSignup({ admin, client, email, password, signup })
   assert.ifError((await client.auth.signOut()).error)
   const login = await client.auth.signInWithPassword({ email, password })
   assert.ifError(login.error)
@@ -44,7 +45,7 @@ try {
   assert.ok(signed.data.signedUrl.startsWith(`${origin.origin}/__supabase/`))
   assert.equal((await fetch(signed.data.signedUrl, { signal: AbortSignal.timeout(15000) })).status, 200)
   assert.ifError((await client.auth.signOut()).error)
-  console.log('PASS: local catalogue, signup, login, token refresh, user, role, photo upload/read and logout through Next.js.')
+  console.log('PASS: local catalogue, signup, login blocked before email confirmation, confirmation token, login, token refresh, user, role, photo upload/read and logout through Next.js.')
 } finally {
   if (photoPath) assert.ifError((await admin.storage.from('recipe-photos').remove([photoPath])).error)
   if (userId) assert.ifError((await admin.auth.admin.deleteUser(userId)).error)
