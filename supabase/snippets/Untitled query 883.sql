@@ -1,3 +1,3 @@
 DELETE FROM auth.users
-WHERE email = 'dan.verton@pm.me'
+WHERE email = 'benchaabouneali8@gmail.com'
 RETURNING id, email;
