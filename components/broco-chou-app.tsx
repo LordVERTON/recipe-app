@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useBrocoChouStore } from "@/lib/store";
 import type { Recipe } from "@/lib/types";
@@ -35,7 +35,14 @@ export function BrocoChouApp() {
 }
 
 function BrocoChouContent({ isRecipeFormOpen, setIsRecipeFormOpen }: { isRecipeFormOpen: boolean; setIsRecipeFormOpen: (open: boolean) => void }) {
-  const { user } = useAccount();
+  const { user, isAdmin } = useAccount();
+  const [reviewIntent, setReviewIntent] = useState(false);
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).has('review')) {
+      setReviewIntent(true);
+      setActiveTab('profile');
+    }
+  }, []);
   const [activeTab, setActiveTab] = useState<NavTab>("home");
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [isPlanEditorOpen, setIsPlanEditorOpen] = useState(false);
@@ -50,7 +57,7 @@ function BrocoChouContent({ isRecipeFormOpen, setIsRecipeFormOpen }: { isRecipeF
     addRecipeToAccepted,
   } = useBrocoChouStore();
 
-  if (!hasCompletedOnboarding) {
+  if (!hasCompletedOnboarding && !reviewIntent) {
     return <Onboarding />;
   }
 
@@ -85,7 +92,7 @@ function BrocoChouContent({ isRecipeFormOpen, setIsRecipeFormOpen }: { isRecipeF
   const renderPage = () => {
     switch (activeTab) {
       case "home":
-        return <HomeDashboard onNavigate={setActiveTab} onViewRecipe={openRecipeDetails} />;
+        return <><HomeDashboard onNavigate={setActiveTab} onViewRecipe={openRecipeDetails} />{isAdmin && <PersonalRecipes moderationOnly onCreate={() => setIsRecipeFormOpen(true)} onView={openRecipeDetails} onPlan={planPersonalRecipe} />}</>;
       case "swipe":
         return (
           <SwipeDeck
@@ -109,7 +116,7 @@ function BrocoChouContent({ isRecipeFormOpen, setIsRecipeFormOpen }: { isRecipeF
       case "profile":
         return <><div className="pt-6"><PersonalRecipes onCreate={() => setIsRecipeFormOpen(true)} onView={openRecipeDetails} onPlan={planPersonalRecipe} /></div><ProfilePage onOpenPreferences={() => setActiveTab("home")} /></>;
       default:
-        return <HomeDashboard onNavigate={setActiveTab} onViewRecipe={openRecipeDetails} />;
+        return <><HomeDashboard onNavigate={setActiveTab} onViewRecipe={openRecipeDetails} />{isAdmin && <PersonalRecipes moderationOnly onCreate={() => setIsRecipeFormOpen(true)} onView={openRecipeDetails} onPlan={planPersonalRecipe} />}</>;
     }
   };
 

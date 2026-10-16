@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import Image from 'next/image'
 import { supabase } from '@/lib/supabase-client'
+import type { Recipe } from '@/lib/types'
+import { toast } from 'sonner'
 import { useAccount } from './account-provider'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
@@ -14,9 +16,9 @@ const newLine = (): Line => ({ id: crypto.randomUUID(), name: '', quantity: '', 
 const normalize = (s: string) => s.trim().toLocaleLowerCase('fr').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ')
 const selectStyle = 'mt-1 min-h-10 w-full rounded-md border border-input bg-background px-3 text-sm'
 
-export function PersonalRecipeForm({ onSaved, onCancel, onBusyChange }: { onSaved: () => void; onCancel: () => void; onBusyChange: (busy: boolean) => void }) {
+export function PersonalRecipeForm({ recipe, onSaved, onCancel, onBusyChange }: { recipe?: Recipe; onSaved: () => void; onCancel: () => void; onBusyChange: (busy: boolean) => void }) {
   const { user, refresh } = useAccount()
-  const [lines, setLines] = useState<Line[]>(() => [newLine()])
+  const [lines, setLines] = useState<Line[]>(() => recipe ? recipe.ingredients.map(item => ({ ...newLine(), ...item, quantity: item.quantity ?? '', unit: item.unit ?? '' })) : [newLine()])
   const [foods, setFoods] = useState<Food[]>([])
   const [foodError, setFoodError] = useState(false)
   const [foodAttempt, setFoodAttempt] = useState(0)
@@ -80,15 +82,25 @@ export function PersonalRecipeForm({ onSaved, onCancel, onBusyChange }: { onSave
         const { error } = await supabase.storage.from('recipe-photos').upload(path, photo, { contentType: photo.type })
         if (error) throw new Error('L’envoi de l’image a échoué. Réessaie.')
       }
-      const { error } = await supabase.rpc('submit_recipe', { payload: {
+      const payload = {
         nom: String(form.get('nom')).trim(), description: String(form.get('description')).trim(),
         saison: form.get('saison'), tag: form.get('tag'), categorie: form.get('categorie'),
         servings: Number(form.get('servings')), estimated_time: Number(form.get('estimated_time')),
         ingredients: lines.map(({ name, quantity, unit }) => ({ name: name.trim(), quantity: quantity.trim(), unit: unit.trim() })),
-        instructions, image_path: path,
-      } })
+        instructions, image_path: path ?? recipe?.imagePath,
+      }
+      const { data: recipeId, error } = recipe
+        ? await supabase.rpc('edit_pending_recipe', { recipe_id: recipe.id, payload })
+        : await supabase.rpc('submit_recipe', { payload })
       if (error) throw new Error('La recette n’a pas pu être enregistrée. Vérifie les champs et réessaie.')
       saved = true
+      if (!recipe) {
+        try {
+          const { data: { session } } = await supabase.auth.getSession()
+          const response = await fetch('/api/recipe-notifications', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token}` }, body: JSON.stringify({ recipeId }) })
+          if (!response.ok) throw new Error('notification')
+        } catch { toast.warning('Recette enregistrée. L’invitation des administrateurs reste en attente d’envoi.') }
+      }
       await refresh()
       onSaved()
     } catch (error) {
@@ -101,17 +113,17 @@ export function PersonalRecipeForm({ onSaved, onCancel, onBusyChange }: { onSave
   }
 
   return <form onSubmit={submit} className="space-y-5">
-    <h3 className="text-lg font-semibold">Ma nouvelle recette</h3>
+    <h3 className="text-lg font-semibold">{recipe ? 'Modifier la recette en attente' : 'Ma nouvelle recette'}</h3>
     <p className="text-sm text-warm-gray">Les quantités sont indiquées pour le nombre de portions choisi. Ta recette restera privée jusqu’à sa validation.</p>
     <fieldset disabled={busy} className="space-y-4">
-      <label className="block text-sm">Nom de la recette<Input name="nom" required minLength={2} maxLength={150} /></label>
-      <label className="block text-sm">Description<Textarea name="description" maxLength={2000} /></label>
+      <label className="block text-sm">Nom de la recette<Input name="nom" defaultValue={recipe?.nom} required minLength={2} maxLength={150} /></label>
+      <label className="block text-sm">Description<Textarea name="description" defaultValue={recipe?.description} maxLength={2000} /></label>
       <div className="grid grid-cols-2 gap-3">
-        <label className="text-sm">Portions<Input name="servings" type="number" min={1} max={50} defaultValue={1} required /></label>
-        <label className="text-sm">Durée (minutes)<Input name="estimated_time" type="number" min={1} max={1440} defaultValue={30} required /></label>
-        <label className="text-sm">Saison<select className={selectStyle} name="saison" defaultValue="automne"><option value="hiver">Hiver</option><option value="printemps">Printemps</option><option value="été">Été</option><option value="automne">Automne</option></select></label>
-        <label className="text-sm">Catégorie<select className={selectStyle} name="categorie"><option value="salé">Salé</option><option value="sucré">Sucré</option></select></label>
-        <label className="col-span-2 text-sm">Type de repas<select className={selectStyle} name="tag" defaultValue="dejeuner/diner"><option value="dejeuner/diner">Déjeuner / dîner</option><option value="petit_dejeuner">Petit-déjeuner</option><option value="dessert">Dessert</option><option value="aperitif">Apéritif</option></select></label>
+        <label className="text-sm">Portions<Input name="servings" type="number" min={1} max={50} defaultValue={recipe ? parseInt(recipe.portions, 10) || 1 : 1} required /></label>
+        <label className="text-sm">Durée (minutes)<Input name="estimated_time" type="number" min={1} max={1440} defaultValue={recipe?.estimatedTime ?? 30} required /></label>
+        <label className="text-sm">Saison<select className={selectStyle} name="saison" defaultValue={recipe?.saison ?? "automne"}><option value="hiver">Hiver</option><option value="printemps">Printemps</option><option value="été">Été</option><option value="automne">Automne</option></select></label>
+        <label className="text-sm">Catégorie<select className={selectStyle} name="categorie" defaultValue={recipe?.categorie}><option value="salé">Salé</option><option value="sucré">Sucré</option></select></label>
+        <label className="col-span-2 text-sm">Type de repas<select className={selectStyle} name="tag" defaultValue={recipe?.tag ?? "dejeuner/diner"}><option value="dejeuner/diner">Déjeuner / dîner</option><option value="petit_dejeuner">Petit-déjeuner</option><option value="dessert">Dessert</option><option value="aperitif">Apéritif</option></select></label>
       </div>
       <label className="block text-sm">Photo (facultative, 5 Mo maximum)<Input ref={photoInput} type="file" accept="image/jpeg,image/png,image/webp" onChange={event => {
         const file = event.target.files?.[0] ?? null
@@ -120,6 +132,7 @@ export function PersonalRecipeForm({ onSaved, onCancel, onBusyChange }: { onSave
         }
         setError(''); setPhoto(file)
       }} /></label>
+      {recipe?.imageUrl && !preview && <Image src={recipe.imageUrl} alt="Photo actuelle" width={480} height={240} unoptimized className="max-h-48 rounded-xl object-cover" />}
       {preview && <div><Image src={preview} alt="Aperçu de ta recette" width={480} height={240} unoptimized className="max-h-48 rounded-xl object-cover" /><Button type="button" variant="ghost" onClick={() => { setPhoto(null); if (photoInput.current) photoInput.current.value = ''; }}>Retirer la photo</Button></div>}
       <div className="space-y-3">
         <h4 className="font-semibold">Ingrédients</h4>
@@ -142,9 +155,9 @@ export function PersonalRecipeForm({ onSaved, onCancel, onBusyChange }: { onSave
         })}
         <Button type="button" variant="outline" disabled={lines.length >= 60} onClick={() => setLines(current => [...current, newLine()])}>Ajouter un ingrédient</Button>
       </div>
-      <label className="block text-sm">Préparation (une étape par ligne)<Textarea name="instructions" required rows={7} maxLength={50000} placeholder={'Faire chauffer la poêle.\nAjouter les ingrédients.'} /></label>
+      <label className="block text-sm">Préparation (une étape par ligne)<Textarea name="instructions" defaultValue={recipe?.instructions.join("\n")} required rows={7} maxLength={50000} placeholder={'Faire chauffer la poêle.\nAjouter les ingrédients.'} /></label>
     </fieldset>
     {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
-    <div className="flex flex-wrap gap-2"><Button disabled={busy}>{busy ? 'Enregistrement…' : 'Enregistrer et soumettre'}</Button><Button type="button" variant="outline" disabled={busy} onClick={onCancel}>Annuler</Button></div>
+    <div className="flex flex-wrap gap-2"><Button disabled={busy}>{busy ? 'Enregistrement…' : recipe ? 'Enregistrer les modifications' : 'Enregistrer et soumettre'}</Button><Button type="button" variant="outline" disabled={busy} onClick={onCancel}>Annuler</Button></div>
   </form>
 }

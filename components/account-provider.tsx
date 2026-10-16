@@ -91,11 +91,11 @@ export function AccountProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (!ready) return
-    const timer = setInterval(() => { void refresh() }, 60 * 60 * 1000)
+    const timer = setInterval(() => { void refresh() }, isAdmin ? 30_000 : 60 * 60 * 1000)
     const onFocus = () => { void refresh() }
     window.addEventListener('focus', onFocus)
     return () => { clearInterval(timer); window.removeEventListener('focus', onFocus) }
-  }, [ready, refresh])
+  }, [ready, refresh, isAdmin])
 
   if (!ready) return <p className="p-8 text-center" role="status">Chargement de ton espace…</p>
   return <AccountContext.Provider value={{ user, isAdmin, recipes, error, refresh }}>
