@@ -31,6 +31,13 @@ const pageVariants = {
 export function BrocoChouApp() {
   // Keep the creation intent while the account provider reloads after sign-in.
   const [isRecipeFormOpen, setIsRecipeFormOpen] = useState(false);
+  useEffect(() => {
+    if (sessionStorage.getItem('broco-chou-create-intent') === '1') setIsRecipeFormOpen(true);
+  }, []);
+  useEffect(() => {
+    if (isRecipeFormOpen) sessionStorage.setItem('broco-chou-create-intent', '1');
+    else sessionStorage.removeItem('broco-chou-create-intent');
+  }, [isRecipeFormOpen]);
   return <AccountProvider><BrocoChouContent isRecipeFormOpen={isRecipeFormOpen} setIsRecipeFormOpen={setIsRecipeFormOpen} /></AccountProvider>;
 }
 
@@ -38,11 +45,16 @@ function BrocoChouContent({ isRecipeFormOpen, setIsRecipeFormOpen }: { isRecipeF
   const { user, isAdmin } = useAccount();
   const [reviewIntent, setReviewIntent] = useState(false);
   useEffect(() => {
+    if (new URLSearchParams(window.location.search).has('account')) {
+      setReviewIntent(true);
+      setActiveTab('profile');
+      setIsRecipeFormOpen(true);
+    }
     if (new URLSearchParams(window.location.search).has('review')) {
       setReviewIntent(true);
       setActiveTab('profile');
     }
-  }, []);
+  }, [setIsRecipeFormOpen]);
   const [activeTab, setActiveTab] = useState<NavTab>("home");
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [isPlanEditorOpen, setIsPlanEditorOpen] = useState(false);
@@ -57,7 +69,7 @@ function BrocoChouContent({ isRecipeFormOpen, setIsRecipeFormOpen }: { isRecipeF
     addRecipeToAccepted,
   } = useBrocoChouStore();
 
-  if (!hasCompletedOnboarding && !reviewIntent) {
+  if (!hasCompletedOnboarding && !reviewIntent && !isRecipeFormOpen) {
     return <Onboarding />;
   }
 

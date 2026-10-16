@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
-import { Analytics } from '@vercel/analytics/next'
+import { SiteAnalytics } from '@/components/site-analytics'
+import Link from 'next/link'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -34,7 +35,8 @@ export default function RootLayout({
     <html lang="fr">
       <body className="bg-background font-sans antialiased">
         {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        <footer className="px-6 pb-24 pt-4 text-center text-xs"><Link href="/privacy" className="underline">Confidentialité</Link></footer>
+        <SiteAnalytics />
       </body>
     </html>
   )
