@@ -94,7 +94,9 @@ export function PersonalRecipeForm({ recipe, onSaved, onCancel, onBusyChange }: 
         : await supabase.rpc('submit_recipe', { payload })
       if (error) throw new Error('La recette n’a pas pu être enregistrée. Vérifie les champs et réessaie.')
       saved = true
-      if (!recipe) {
+      const notificationUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+      if (!recipe && process.env.NODE_ENV === 'development' && notificationUrl
+        && ['localhost', '127.0.0.1'].includes(new URL(notificationUrl).hostname)) {
         try {
           const { data: { session } } = await supabase.auth.getSession()
           const response = await fetch('/api/recipe-notifications', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token}` }, body: JSON.stringify({ recipeId }) })
