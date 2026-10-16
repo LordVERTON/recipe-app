@@ -1,7 +1,10 @@
 "use client"
 
-import { useState, type FormEvent } from 'react'
+import { useRef, useState, type FormEvent } from 'react'
 import { supabase } from '@/lib/supabase-client'
+import { AuthCaptcha, captchaRequired } from './auth-captcha'
+import { authReturnUrl } from '@/lib/auth-redirects'
+import Link from 'next/link'
 import { authErrorMessage } from '@/lib/auth-errors'
 import { useAccount } from './account-provider'
 import { Button } from './ui/button'
@@ -9,6 +12,11 @@ import { Input } from './ui/input'
 
 export function RecipeAccount() {
   const { user } = useAccount()
+  const lock = useRef(false)
+  const [forgot, setForgot] = useState(false)
+  const [captchaToken, setCaptchaToken] = useState('')
+  const [challenge, setChallenge] = useState(0)
+  const resetChallenge = () => { setCaptchaToken(''); setChallenge(value => value + 1) }
   const [signup, setSignup] = useState(false)
   const [busy, setBusy] = useState(false)
   const [message, setMessage] = useState('')
@@ -17,39 +25,48 @@ export function RecipeAccount() {
   const [resendAvailableAt, setResendAvailableAt] = useState(0)
 
   async function resendConfirmation() {
-    if (!supabase || busy || !email.trim()) return
+    if (!supabase || lock.current || !email.trim() || (captchaRequired && !captchaToken)) return
     if (Date.now() < resendAvailableAt) {
       setMessage('Patiente une minute entre deux demandes de mail de confirmation.')
       return
     }
+    lock.current = true
     setBusy(true)
     setMessage('')
     try {
       const { error } = await supabase.auth.resend({
         type: 'signup',
         email: email.trim(),
-        options: { emailRedirectTo: window.location.origin },
+        options: { emailRedirectTo: authReturnUrl('/auth/complete', window.location.origin), captchaToken },
       })
       setResendAvailableAt(Date.now() + 60_000)
       setMessage(error
         ? authErrorMessage(error.code, 'Impossible de renvoyer le mail de confirmation. Réessaie plus tard.')
         : 'Si cette adresse correspond à un compte en attente de confirmation, un nouveau mail a été demandé. Vérifie aussi les courriers indésirables.')
     } catch { setMessage('Envoi impossible. Vérifie ta connexion internet.') }
-    finally { setBusy(false) }
+    finally { lock.current = false; setBusy(false); resetChallenge() }
   }
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    if (!supabase || busy) return
+    if (!supabase || lock.current || (captchaRequired && !captchaToken)) return
     const form = new FormData(event.currentTarget)
     const email = String(form.get('email')).trim()
     const password = String(form.get('password'))
+    lock.current = true
     setBusy(true)
     setMessage('')
     try {
+      if (forgot) {
+        if (Date.now() < resendAvailableAt) { setMessage('Patiente une minute entre deux demandes.'); return }
+        setResendAvailableAt(Date.now() + 60_000)
+        const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: authReturnUrl('/auth/reset-password', window.location.origin), captchaToken })
+        setMessage(error ? authErrorMessage(error.code, 'Demande impossible. Réessaie plus tard.') : 'Si un compte correspond à cette adresse, un lien de réinitialisation a été demandé. Vérifie aussi les spams.')
+        return
+      }
       const { data, error } = signup
-        ? await supabase.auth.signUp({ email, password, options: { emailRedirectTo: window.location.origin } })
-        : await supabase.auth.signInWithPassword({ email, password })
+        ? await supabase.auth.signUp({ email, password, options: { emailRedirectTo: authReturnUrl('/auth/complete', window.location.origin), captchaToken } })
+        : await supabase.auth.signInWithPassword({ email, password, options: { captchaToken } })
       if (error) {
         setConfirmationPending(error.code === 'email_not_confirmed')
         setMessage(authErrorMessage(error.code, signup
@@ -61,32 +78,46 @@ export function RecipeAccount() {
         setMessage('Vérifie ta boîte mail et les courriers indésirables pour confirmer ton compte. Si nécessaire, renvoie le mail après une minute.')
       }
     } catch { setMessage('Connexion impossible. Vérifie ta connexion internet.') }
-    finally { setBusy(false) }
+    finally { lock.current = false; setBusy(false); resetChallenge() }
   }
 
   if (!supabase) return <p>La connexion aux comptes n’est pas encore configurée.</p>
   if (user) return <div className="flex flex-wrap items-center justify-between gap-3">
     <p className="min-w-0 break-all text-sm">Connecté : <strong>{user.email}</strong></p>
     <Button variant="outline" disabled={busy} onClick={async () => {
-      if (!supabase) return
+      if (!supabase || lock.current) return
+      lock.current = true
       setBusy(true)
       try {
         const { error } = await supabase.auth.signOut({ scope: 'local' })
         if (error) setMessage('Déconnexion impossible. Réessaie.')
       } catch { setMessage('Déconnexion impossible. Réessaie.') }
-      finally { setBusy(false) }
+      finally { lock.current = false; setBusy(false); resetChallenge() }
     }}>Se déconnecter</Button>
     {message && <p role="status">{message}</p>}
   </div>
   return <form onSubmit={submit} className="space-y-4">
     <p className="text-sm text-warm-gray">Connecte-toi pour créer tes recettes et les utiliser dans ton planning avant leur validation.</p>
     <label className="block text-sm">Adresse e-mail<Input name="email" type="email" autoComplete="email" required maxLength={254} value={email} onChange={event => { setEmail(event.target.value); setConfirmationPending(false); setMessage('') }} /></label>
-    <label className="block text-sm">Mot de passe<Input name="password" type="password" autoComplete={signup ? 'new-password' : 'current-password'} required minLength={signup ? 8 : 1} maxLength={128} /></label>
+    {!forgot && <label className="block text-sm">Mot de passe<Input name="password" type="password" autoComplete={signup ? 'new-password' : 'current-password'} required minLength={signup ? 8 : 1} maxLength={128} /></label>}
+    <AuthCaptcha key={challenge} onToken={setCaptchaToken} />
+    {captchaRequired && <Button type="button" variant="ghost" disabled={busy} onClick={resetChallenge}>Actualiser la vérification</Button>}
     {message && <p role="status" className="text-sm">{message}</p>}
-    {confirmationPending && <Button type="button" variant="outline" disabled={busy} onClick={resendConfirmation}>Renvoyer le mail de confirmation</Button>}
+    {confirmationPending && <Button type="button" variant="outline" disabled={busy || (captchaRequired && !captchaToken)} onClick={resendConfirmation}>Renvoyer le mail de confirmation</Button>}
     <div className="flex flex-wrap gap-2">
-      <Button disabled={busy}>{busy ? 'Connexion…' : signup ? 'Créer mon compte' : 'Se connecter'}</Button>
-      <Button type="button" variant="ghost" disabled={busy} onClick={() => { setSignup(!signup); setMessage('') }}>{signup ? 'J’ai déjà un compte' : 'Créer un compte'}</Button>
+      <Button disabled={busy || (captchaRequired && !captchaToken)}>{busy ? 'Patiente…' : forgot ? 'Demander un lien' : signup ? 'Créer mon compte' : 'Se connecter'}</Button>
+      <Button type="button" variant="ghost" disabled={busy} onClick={() => { setSignup(!signup); setForgot(false); setMessage(''); resetChallenge() }}>{signup ? 'J’ai déjà un compte' : 'Créer un compte'}</Button>
     </div>
+    <Button type="button" variant="ghost" disabled={busy} onClick={() => { setForgot(!forgot); setMessage(''); resetChallenge() }}>{forgot ? 'Retour à la connexion' : 'Mot de passe oublié ?'}</Button>
+    {process.env.NEXT_PUBLIC_GOOGLE_AUTH_ENABLED === 'true' && <Button type="button" variant="outline" disabled={busy} onClick={async () => {
+      if (!supabase || lock.current) return
+      lock.current = true; setBusy(true)
+      try {
+        const { error } = await supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: authReturnUrl('/auth/complete', window.location.origin) } })
+        if (error) setMessage(authErrorMessage(error.code, 'Connexion Google indisponible.'))
+      } catch { setMessage('Connexion Google indisponible sur cet environnement.') }
+      finally { lock.current = false; setBusy(false) }
+    }}>Continuer avec Google</Button>}
+    <p className="text-xs text-warm-gray">Pour savoir comment tes données sont utilisées, consulte la <Link className="underline" href="/privacy">politique de confidentialité</Link>.</p>
   </form>
 }

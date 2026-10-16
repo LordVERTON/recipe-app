@@ -32,7 +32,7 @@ port = 54324
 [auth]
 enabled = true
 site_url = "http://localhost:3000"
-additional_redirect_urls = ["http://localhost:3000", "http://127.0.0.1:3000"]
+additional_redirect_urls = ["http://localhost:3000", "http://localhost:3000/auth/complete", "http://localhost:3000/auth/reset-password", "http://127.0.0.1:3000/auth/complete", "http://127.0.0.1:3000/auth/reset-password"]
 jwt_expiry = 3600
 enable_signup = true
 
@@ -57,7 +57,7 @@ project_id = "cbwrvcifxcqyrgtcpvbd"
 
 [remotes.production.auth]
 site_url = "https://recipe-app-alpha-wine.vercel.app"
-additional_redirect_urls = ["https://recipe-app-alpha-wine.vercel.app"]
+additional_redirect_urls = ["https://recipe-app-alpha-wine.vercel.app", "https://recipe-app-alpha-wine.vercel.app/auth/complete", "https://recipe-app-alpha-wine.vercel.app/auth/reset-password", "http://localhost:3000", "http://localhost:3000/auth/complete", "http://localhost:3000/auth/reset-password", "http://127.0.0.1:3000/auth/complete", "http://127.0.0.1:3000/auth/reset-password"]
 
 [remotes.production.auth.email]
 enable_confirmations = true
