@@ -1,5 +1,19 @@
 # Product & UX/UI roadmap
 
+## Authentification et e-mails transactionnels — 16 octobre 2026
+
+- [ ] Configurer Mailjet SMTP dans Supabase Auth — READY_FOR_CONFIGURATION : compte, expéditeur et secrets à vérifier ; aucun envoi réel.
+- [ ] Vérifier les redirections production et développement — utilitaire testé localement ; recette Cloud en attente.
+- [ ] Tester inscription, confirmation, connexion et réinitialisation — tests locaux réussis ; e-mail externe et quotas Cloud non testés.
+- [ ] Ajouter Google OAuth et Cloudflare Turnstile — READY_FOR_CONFIGURATION : code présent, fournisseurs et tests réels en attente.
+- [ ] Tester les comptes existants et mettre à jour la documentation — documentation disponible ; UUID, identités Google et rôles existants Cloud à vérifier.
+- [ ] Activer les notifications de recettes — READY_FOR_CONFIGURATION : Mailpit et mocks Mailjet testés ; envois réels désactivés, aucun cron installé.
+- [ ] Finaliser `/privacy` — page présente ; responsable, contact, bases légales, durées et transferts à compléter avant publication.
+- [ ] Traiter les vulnérabilités npm avant ouverture publique — BLOCKED pour la validation sécurité production : 12 vulnérabilités dont 1 critique signalées par l'audit ; remédiation hors modification ciblée actuelle.
+
+Procédures et matrice : [authentification](authentication.md), [e-mails](email-delivery.md).
+Aucun déploiement, push, envoi réel ou changement de configuration Cloud effectué.
+
 This is a living, prioritized audit of Broco-Chou’s current mobile-first recipe-planning experience. Completed work is checked so the file can be used as a delivery log as well as a backlog.
 
 ## Now — make planning dependable

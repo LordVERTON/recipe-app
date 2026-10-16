@@ -1,5 +1,9 @@
 # Broco-Chou
 
+## Authentification et e-mails
+
+Le [guide Auth](docs/authentication.md) décrit les parcours, Google et Turnstile. Le [guide e-mails](docs/email-delivery.md) sépare SMTP Supabase et notifications Mailjet. Code prêt à configurer, services externes non validés ; notifications réelles désactivées. La page `/privacy` nécessite encore des informations avant publication.
+
 ## Emails de confirmation en local
 
 Avec Docker Desktop démarré, lance `npm run mailpit`, puis `npm run dev`.

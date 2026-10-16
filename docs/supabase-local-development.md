@@ -198,28 +198,26 @@ Email confirmation is explicitly enabled in both `[auth.email]` and
 this requirement or bypass it for application users. Editing this file does not
 apply settings to the running local stack or deploy Cloud configuration.
 
-The built-in Supabase mailer is retained. Cloud Auth uses
-`https://recipe-app-alpha-wine.vercel.app` as its Site URL and explicit redirect
-allow-list entry. Localhost redirects belong only to the local Auth configuration.
-The `[remotes.production]` profile keeps these settings separate. Before applying
-Cloud configuration, check the selected profile with:
+The 2026-10-09 Cloud redirect check is historical, not a verification of current settings.
+The application now uses exact `/auth/complete` and `/auth/reset-password` returns.
+The local and remote profiles in `supabase/config.toml` prepare the corresponding allow lists;
+restart local Supabase without resetting data when applying local Auth changes.
+Cloud changes must be reviewed separately. Mailpit remains the local SMTP target.
+Mailjet Custom SMTP, Google and Turnstile are not activated by these file changes.
+See [authentication](authentication.md) and [email delivery](email-delivery.md).
+
+Local checks (Node 24+, local stack and Next running):
 
 ```powershell
-npx supabase config diff --project-ref cbwrvcifxcqyrgtcpvbd
+node scripts/verify-auth-email.mjs
+node scripts/verify-local-mailpit.mjs
+node scripts/verify-local-recovery.mjs
+node scripts/verify-local-auth.mjs
+$env:TEST_APP_URL='http://localhost:3000'
+node scripts/verify-personal-recipes.mjs
+node scripts/verify-auth-browser.mjs
 ```
 
-The output must select `[remotes.production]`. The Cloud settings were applied
-and checked against this profile on 2026-10-09. The default confirmation template
-uses Supabase's generated confirmation URL; there is no custom SMTP or template.
-
-Admin-generated temporary signup links were verified against Cloud Auth without
-sending email: the production URL and a requested `http://localhost:3000` both
-returned to the production site with a confirmed session. Temporary accounts were
-deleted. A direct numeric-loopback redirect (`127.0.0.1`) was still accepted by
-Auth even outside the explicit allow list; the app uses the browser origin and
-must be opened on the public production URL for production signups.
-
-This verifies confirmation and redirect behavior, not inbox delivery. Already
-received emails retain their original link text. Request a fresh confirmation
-when checking the current configuration. The built-in mailer's existing recipient
-restrictions and quota remain unchanged.
+The browser check requires Playwright Chromium. Tests guard against Cloud targets,
+create disposable accounts and remove only their own fixtures. Never log callback
+URLs or session objects. Auth tests generate no real external email.
