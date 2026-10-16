@@ -2,7 +2,7 @@
 
 **Objectif :** Découvrir le projet et lancer un environnement local sûr.
 **Dernière mise à jour :** 2026-10-17
-**Statut :** Référence de production `main/e89d109`, documentation consolidée sur une branche dédiée.
+**Statut :** Audit initial de `main/e89d109`, documentation consolidée et livrée sur `main` ; suivi dans le journal de session.
 **Documents liés :** [PRD](docs/PRD.md), [TRD](docs/TRD.md), [Parcours](docs/APP_FLOW.md), [Design](docs/DESIGN_BRIEF.md), [Backend](docs/BACKEND_SCHEMA.md), [Roadmap](docs/IMPLEMENTATION_PLAN.md), [Décisions](docs/DECISIONS.md).
 
 Broco-Chou aide à choisir des recettes, composer sept jours de repas et préparer ses courses. Pensé pour les étudiants et la cuisine du quotidien, ce projet indépendant s'inspire des calendriers du Crous de Lyon ; il n'est pas un service officiel du Crous.

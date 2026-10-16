@@ -167,7 +167,7 @@ Production : [recipe-app-alpha-wine.vercel.app](https://recipe-app-alpha-wine.ve
 
 Lecture Vercel le 2026-10-17 : trois variables publiques Supabase et `RESEND_API_KEY`, chacune ciblant Production et Preview ; pas de `SUPABASE_SERVICE_ROLE_KEY` ni `CRON_SECRET` dans la liste retournée. Valeurs non déchiffrées. Preview peut donc atteindre la même configuration Cloud ; vérifier les cibles sans exporter de secret, et ne jamais supposer l'isolation de ses écritures. `NODE_ENV=production` dans Preview interdit également l'API save et l'envoi Mailpit.
 
-Déployer seulement après revue de branche, contrôles et autorisation du propriétaire. Les migrations SQL ne sont pas exécutées par le build Vercel. Aucune écriture distante ni déploiement pendant cette session.
+Déployer seulement après revue de branche, contrôles et autorisation du propriétaire. Les migrations SQL ne sont pas exécutées par le build Vercel. L'audit initial n'a effectué aucune écriture de production ni déploiement ; la livraison ultérieure autorisée sur `main` et ses contrôles sont consignés dans le [journal de session](IMPLEMENTATION_PLAN.md).
 
 ## Auth et services d'e-mail
 

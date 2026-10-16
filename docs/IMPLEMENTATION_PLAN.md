@@ -122,7 +122,7 @@ Base auditée : `main = origin/main = e89d109`, après fetch, état initial prop
 | --- | --- | --- | --- | --- | --- |
 | OPS-01 | Pile locale, Mailpit, proxy LAN et correctif JWT | P0 | DONE | Docker | Démarrage, env, Mailpit et Auth/JWT vérifiés cette session ; PostgREST v14.18. Téléphone réel non rejoué |
 | OPS-02 | Supprimer uniquement `RESEND_API_KEY` Vercel Production/Preview | P1 | BLOCKED | Autorisation distante explicite | Usage code absent et SMTP intégré vérifiés ; recontrôler cibles/config avant retrait. Aucune valeur exportée, variable encore présente |
-| OPS-03 | Isoler Preview et documenter livraison/retour arrière | P0 | TODO | DB-02 | Vérifier cibles Supabase par environnement, branche Git Vercel et déploiement réellement servi ; pas de staging supposé |
+| OPS-03 | Isoler Preview et documenter livraison/retour arrière | P0 | TODO | DB-02 | Branche Git `main` et déploiement `f1d500e` servis en production vérifiés le 2026-10-17 ; restent cibles Supabase par environnement et procédure de retour arrière, sans staging supposé |
 | OPS-04 | Ajouter des contrôles CI et du monitoring utile | P1 | TODO | SEC-01 | Lint/TypeScript/build et intégration locale sécurisée, erreurs observables sans secrets ; aucun workflow CI versionné actuellement |
 
 ## 12. Documentation et dette technique
@@ -272,6 +272,22 @@ Priorités immédiates : SEC-01 (avis npm), DB-01 (workflow non déployé), AUTH
 **Blocages :** Aucun pour les commits ; les dettes et décisions de production précédemment documentées restent ouvertes.
 
 **Prochaines actions :** Relire les commits puis décider d'un éventuel push ou d'une fusion ; aucune opération distante autorisée par la seule demande de commit.
+
+### 2026-10-17 — Intégration sur main et déploiement Vercel autorisés
+
+**Objectif :** Pousser tous les commits sur `main` et suivre le déploiement de production, conformément à la demande explicite du propriétaire.
+
+**Travaux réalisés :** Fetch et vérification d'un arbre propre ; intégration en avance rapide des trois commits depuis `chore/main-documentation-cleanup`, puis push de `e89d109` à `f1d500e`. Vercel a construit le commit attendu de `main` sur le projet `recipe-app` de l'équipe `vertondan-9283s-projects`. Déploiement `dpl_BrJBdMCv3v3JL8NaN9hCou3zPniV` confirmé `READY`, cible production, URL publique `https://recipe-app-alpha-wine.vercel.app` présente dans ses alias. Build Vercel terminé en 37 s. Un commit documentaire complémentaire consigne ce résultat et suit la même livraison Git.
+
+**Fichiers modifiés :** README (statut de livraison), TRD (distinction audit initial/livraison autorisée), présent journal et critère OPS-03. Aucun code applicatif, variable Vercel, réglage Auth ou migration Supabase modifié pendant cette livraison.
+
+**Tests exécutés :** Vérificateur documentaire réussi avant push ; build Vercel réussi. Harness de session `.temp/verify-production-deployment.mjs` exécuté sur l'URL publique avec Chromium mobile : onboarding, accueil, swipe, création d'un planning local, courses et profil réussis ; 473 recettes publiques chargées, zéro erreur JavaScript. Les requêtes Supabase du navigateur sont limitées à GET/OPTIONS, sans inscription, envoi d'e-mail ni écriture de données Cloud. HTTP : accueil 200, notifications POST/GET sans autorisation 401, import save en production 403, images locales 200. Aucun événement error/fatal retourné pour ce déploiement sur les 30 dernières minutes ; demande initiale de fenêtre 1 h refusée par la rétention Hobby, corrigée en 30 min. Aucun drain de logs configuré, donc observation ponctuelle uniquement.
+
+**Décisions :** Autorisation explicite reçue pour push sur `main` et déploiement frontend ; aucune application implicite de la migration SQL manquante ni suppression de la variable Resend. Aucun nouveau choix architectural.
+
+**Blocages :** Aucun pour cette livraison. Les dettes de sécurité et l'écart de schéma Cloud restent ceux de l'audit ; les tests de production n'exercent pas les parcours nécessitant une écriture réelle ou un compte personnel.
+
+**Prochaines actions :** Traiter SEC-01, préparer séparément DB-01 avec sauvegarde et autorisation dédiée, puis finaliser l'isolation Preview et la restauration. Le suivi du dernier commit documentaire est communiqué dans le rapport de livraison.
 
 ### Modèle pour les futures sessions
 
