@@ -1,10 +1,12 @@
 import assert from 'node:assert/strict'
-import { execFileSync } from 'node:child_process'
+import { readFileSync } from 'node:fs'
+import { parseEnv } from 'node:util'
 import { createClient } from '@supabase/supabase-js'
 
 // Set PLAYWRIGHT_MODULE to an installed playwright module when it is not a dependency.
 const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright')
-const status = JSON.parse(execFileSync(process.execPath, ['node_modules/supabase/dist/supabase.js', 'status', '-o', 'json'], { encoding: 'utf8' }))
+const localEnv = parseEnv(readFileSync('.env.development.local', 'utf8'))
+const status = { API_URL: localEnv.NEXT_PUBLIC_SUPABASE_URL, SERVICE_ROLE_KEY: localEnv.SUPABASE_SERVICE_ROLE_KEY, ANON_KEY: localEnv.NEXT_PUBLIC_SUPABASE_ANON_KEY }
 assert.equal(new URL(status.API_URL).hostname, '127.0.0.1')
 const options = { auth: { persistSession: false, autoRefreshToken: false } }
 const db = createClient(status.API_URL, status.SERVICE_ROLE_KEY, options)

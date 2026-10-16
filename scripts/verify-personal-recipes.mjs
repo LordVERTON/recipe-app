@@ -1,9 +1,11 @@
 import assert from 'node:assert/strict'
-import { execFileSync } from 'node:child_process'
+import { readFileSync } from 'node:fs'
+import { parseEnv } from 'node:util'
 import { createClient } from '@supabase/supabase-js'
 
 // Always use the local stack; never load the app's potentially remote .env.local.
-const status = JSON.parse(execFileSync(process.execPath, ['node_modules/supabase/dist/supabase.js', 'status', '-o', 'json'], { encoding: 'utf8' }))
+const localEnv = parseEnv(readFileSync('.env.development.local', 'utf8'))
+const status = { API_URL: localEnv.NEXT_PUBLIC_SUPABASE_URL, SERVICE_ROLE_KEY: localEnv.SUPABASE_SERVICE_ROLE_KEY, ANON_KEY: localEnv.NEXT_PUBLIC_SUPABASE_ANON_KEY }
 assert.equal(new URL(status.API_URL).hostname, '127.0.0.1')
 const options = { auth: { persistSession: false, autoRefreshToken: false } }
 const admin = createClient(status.API_URL, status.SERVICE_ROLE_KEY, options)
@@ -71,7 +73,7 @@ try {
     assert.ok(invitation)
     const message = await (await fetch(`http://127.0.0.1:54324/api/v1/message/${invitation.ID}`)).json()
     assert.ok(message.Text.includes(recipeId))
-    assert.ok(message.To.some(recipient => recipient.Address === 'admin@brocochou.com'))
+    assert.ok(message.To.some(recipient => recipient.Address === 'admin@example.test'))
     console.log('PASS: authenticated notification API, Mailpit delivery, recipe link, no duplicate notification.')
   }
   const moderatorEmail = `moderator-${suffix}@example.com`
