@@ -30,21 +30,15 @@ peut déclencher l’envoi pour sa recette. Les appels répétés et concurrents
 dédupliqués par une réservation de cinq minutes et un horodatage d’envoi.
 
 En développement avec Supabase local, les invitations sont envoyées à
-`admin@brocochou.com` dans le vrai Mailpit local : http://127.0.0.1:54324.
+`admin@example.test` dans le vrai Mailpit local : http://127.0.0.1:54324.
 Le lien `http://localhost:3000/?review=…` ouvre l’espace de validation et permet
 de se connecter sans passer par l’accueil de présentation.
 
-**Production non activée** : l’installation Resend sur Vercel renvoie encore
-`integration_terms_acceptance_required`. L’adaptateur de production n’est pas
-implémenté tant que le service n’est pas provisionné. Les soumissions restent
-enregistrées et visibles par les administrateurs ; les invitations restent dans
-la file et un avertissement est affiché à l’auteur.
-
-Pour terminer l’activation : résoudre l’acceptation Resend dans l’équipe Vercel,
-provisionner l’intégration, configurer un expéditeur vérifié et l’URL publique,
-puis brancher l’envoi vers les deux adresses de production. Appliquer également
-la migration sur la base hébergée et déployer l’application. Aucune de ces
-opérations de production n’a été effectuée par cette modification.
+**Production non activée** : le transport Mailjet API est implémenté et testé avec mocks.
+Le drapeau `RECIPE_NOTIFICATION_EMAIL_ENABLED` reste faux par défaut.
+L'ancienne configuration Resend n'est pas utilisée. Voir [e-mails](email-delivery.md)
+pour les secrets, la déduplication fournisseur, les limites et l'activation après accord.
+Aucune migration ni activation de production n'a été effectuée.
 
 `GET /api/recipe-notifications` traite jusqu’à 20 invitations non envoyées. Il
 exige `Authorization: Bearer <CRON_SECRET>`. Cette route permet les reprises,
