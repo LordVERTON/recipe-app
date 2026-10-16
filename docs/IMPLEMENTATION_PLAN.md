@@ -255,7 +255,23 @@ Priorités immédiates : SEC-01 (avis npm), DB-01 (workflow non déployé), AUTH
 
 **Blocages :** Autorisation de retrait Vercel et déploiement Cloud non demandés ; aucune restauration ni inscription publique réelle testée. Les échecs offline/catégorie sont conservés comme dettes distinctes, pas réparés par une migration de données implicite.
 
-**Prochaines actions :** Relire la branche avant commit/fusion, sans push automatique ; traiter SEC-01 et préparer la livraison contrôlée DB-01 avec sauvegarde/accord, confirmer la capacité Auth publique, puis les quantités et l'accessibilité. Les modifications sont laissées non commitées pour revue. Le serveur de développement local a été relancé ; le serveur de test du bundle sur 3001 a été arrêté.
+**Prochaines actions :** Relire la branche avant fusion, sans push automatique ; traiter SEC-01 et préparer la livraison contrôlée DB-01 avec sauvegarde/accord, confirmer la capacité Auth publique, puis les quantités et l'accessibilité. À la fin de l'audit initial, les modifications avaient été laissées non commitées pour revue ; leur découpage est consigné dans l'entrée suivante. Le serveur de développement local a été relancé ; le serveur de test du bundle sur 3001 a été arrêté.
+
+### 2026-10-17 — Commits séparés des modifications auditées
+
+**Objectif :** Enregistrer les modifications en cours dans des commits locaux cohérents au format Conventional Commits, à la demande du propriétaire.
+
+**Travaux réalisés :** Séparation de la correction fonctionnelle (`fix(notifications)`), de la consolidation documentaire (`docs(reference)`) et du nouvel outil de vérification (`feat(docs)`). Aucun changement de comportement supplémentaire, push ni déploiement.
+
+**Fichiers modifiés :** `scripts/verify-documentation.mjs` ajouté dans son propre commit avec cette entrée de journal ; les autres modifications sont dans les deux commits précédents.
+
+**Tests exécutés :** `node scripts/verify-documentation.mjs` réussi (sept documents, métadonnées, blocs Markdown, 121 liens locaux et modèle d'environnement) ; `node --check scripts/verify-documentation.mjs` réussi ; vérifications du diff et de l'index sans erreur. Les validations applicatives de l'audit précédent restent la référence ; aucun code applicatif supplémentaire modifié.
+
+**Décisions :** Commits locaux sur `chore/main-documentation-cleanup` : `31f676b` pour la correction des invitations, `8480b1f` pour la documentation, puis un commit distinct pour le vérificateur documentaire. Aucune nouvelle ADR nécessaire.
+
+**Blocages :** Aucun pour les commits ; les dettes et décisions de production précédemment documentées restent ouvertes.
+
+**Prochaines actions :** Relire les commits puis décider d'un éventuel push ou d'une fusion ; aucune opération distante autorisée par la seule demande de commit.
 
 ### Modèle pour les futures sessions
 
