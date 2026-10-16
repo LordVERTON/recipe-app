@@ -1,5 +1,14 @@
 # Broco-Chou
 
+## Emails de confirmation en local
+
+Avec Docker Desktop démarré, lance `npm run mailpit`, puis `npm run dev`.
+Les confirmations Supabase Auth arrivent dans [Mailpit](http://127.0.0.1:54324).
+`npm run mailpit:stop` arrête uniquement la boîte mail ; `npm run mailpit` la relance.
+Redémarre le serveur Next.js s'il tournait déjà pour appliquer la configuration locale.
+La production conserve Supabase Auth et son envoi d'emails.
+Voir le [guide de développement local](docs/supabase-local-development.md) pour les détails.
+
 Broco-Chou est une application de planification de repas pensée pour les étudiants, inspirée des calendriers de recettes du Crous de Lyon. L'objectif est simple : transformer une ressource utile mais statique en version numérique, personnalisable, rapide à prendre en main et vraiment pratique au quotidien.
 
 Le projet reprend l'esprit des calendriers du Crous de Lyon : des recettes de saison, peu coûteuses, faciles, rapides, réalisables avec peu de matériel, accompagnées de listes de courses et de conseils d'organisation. Broco-Chou ajoute une couche interactive : choix des recettes par swipe, génération automatique d'un planning hebdomadaire, score d'équilibre, remplacement de repas, suivi des repas cuisinés et liste de courses regroupée par catégories.

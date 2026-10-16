@@ -46,6 +46,44 @@ Once the stack is running, `npm run dev:local -- --hostname 0.0.0.0` combines co
 
 ## Auth and testing from a phone
 
+### Confirmation emails with Mailpit
+
+With Docker Desktop running:
+
+```powershell
+npm run mailpit
+npm run dev
+```
+
+`npm run mailpit` starts the Mailpit container supplied by the pinned Supabase CLI.
+If the local stack is missing or stopped, it starts Supabase first. It then writes
+the local credentials to `.env.development.local`. Restart an already-running
+Next.js dev server to apply them. Open **http://127.0.0.1:54324**, create an account
+in the app, and click the confirmation link in the captured message. Local Auth
+still requires confirmation; messages are captured locally instead of delivered
+to real recipients. Local accounts are separate from production accounts.
+
+```powershell
+# Stop only Mailpit, leaving the database and other Supabase services running
+npm run mailpit:stop
+
+# Restart the inbox
+npm run mailpit
+
+# Verify delivery and consume a real email confirmation link (cleans up test data)
+npm run mailpit:check
+```
+
+While Mailpit is stopped, local email operations can fail; restart it before
+creating accounts or requesting password resets. `npm run supabase:start` also
+starts Mailpit, and `npm run supabase:stop` stops the whole local stack.
+
+The `[local_smtp]` section configures only the CLI's local inbox. There is no
+custom production SMTP configuration: production continues to use Supabase Auth
+and its email sender. `.env.development.local` is ignored by production builds.
+
+### Local Auth and phone access
+
 Open `http://localhost:3000` on the PC or `http://192.168.1.5:3000` on a phone on the same Wi-Fi (replace the IP with the PC's current address). In development, when Supabase is configured with a loopback HTTP URL, the browser sends Auth, REST and Storage calls through `/__supabase` on the Next.js origin. Next.js forwards them to the local stack. This avoids sending the phone's requests to its own `127.0.0.1`. Cloud configurations and production builds do not enable this proxy.
 
 Create a new account using the app's email/password form. Local accounts and data are separate from Cloud; production credentials do not log into the local stack. Email confirmation is enabled in the checked-in configuration. Use the local mail inbox for confirmation links and add the exact phone-facing app origin to `auth.additional_redirect_urls` before restarting Supabase.
