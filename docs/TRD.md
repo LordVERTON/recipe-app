@@ -78,6 +78,20 @@ flowchart LR
 
 Clé visiteur : `broco-chou-storage` ; compte : `broco-chou-account-<uuid>`. `switchPlanningAccount` utilise temporairement un adaptateur sans écriture pour ne pas écraser l'ancien compte pendant le reset, puis hydrate la nouvelle clé. Aucune migration distante ni synchronisation de plans. Les objets `Date` persistés sont des chaînes JSON ; les consommateurs doivent employer `new Date(...)` avant calcul/comparaison. Le type `GroceryList` existe mais le store persiste directement `GroceryItem[]` sans date de génération.
 
+### To Eat List — état observé et contrat à définir
+
+Le propriétaire a identifié [To Eat List](https://app.notion.com/p/To-Eat-List-4d3b60cd4d4442d5b4f1ff0fa0b2a9b0) comme référentiel durable demandé. Au cours de la revue du 2026-10-17, lecture seule de la page et des trois sources suivantes ; aucune écriture Notion ni configuration de connecteur dans l'application. Les accès du plugin de cette session sont distincts des capacités du code Broco-Chou.
+
+| Source Notion | Identifiant de source | Schéma observé et écart technique |
+| --- | --- | --- |
+| [Recettes](https://app.notion.com/p/2e730fe88d9a4064b54fd0361bc014d4) | `c1c0afd4-a307-432e-89dc-848c69343c25` | Propriétés `Name`, `Repas`, `Tags`, `Ingrédients` (relation), `Durée totale`, `URL`, dates, favoris/essayé. Pas de propriétés dédiées portions, instructions ou ID Broco-Chou dans le schéma lu |
+| [Ingrédients](https://app.notion.com/p/02e2e66e177540f99676a22dc3c40d9d) | `254e9916-b826-4576-bcd7-9665ca19fde8` | `Article`, `Catégorie`, `Rayon`, `Quantité`, relation `Recettes`, remarques et achat. La quantité portée par un ingrédient partagé ne décrit pas à elle seule la quantité par recette |
+| [Meal Plan](https://app.notion.com/p/0015f4cce9f84dfb90c4a5bcc753b5ef) | `ae848e1d-de23-4643-b85b-2689d54b7154` | `Jour`, `Date`, textes `Petit-Déjeuner`, `Déjeuner`, `Dîner`, `Snacks` ; pas de relation recette dans le schéma lu. Source candidate de menus, pas preuve d'une synchronisation des plans navigateur |
+
+Deux lignes de recettes ont été échantillonnées et [une fiche détaillée](https://app.notion.com/p/360173c57e0481f38766fbe5aa7445a6) lue : son corps contient informations culinaires, ingrédients/quantités, étapes et ID métier ; l'image est une URL Pexels externe présente aussi en couverture. Certains libellés d'étapes de cet échantillon paraissent tronqués ; qualité/complétude à contrôler avant toute reprise automatique. L'existence de ces données dans Notion ne prouve aucun transfert depuis l'application actuelle. Les réponses fetch portent une date d'instantané « as of 2026-05-14 », antérieure à cette revue : fraîcheur non garantie. L'échantillon n'est pas un audit de tout le catalogue.
+
+Recherche dans frontend, API, scripts, migrations, dépendances et exemple de configuration : aucun client Notion, mapping d'identifiants Notion/Supabase, flux de synchronisation ni test de restauration To Eat List trouvé. Les correspondances d'ID, blocs de contenu, unités/portions, catégories, médias durables, auteurs/modération, conflits et suppressions restent un contrat à définir. **Exigence produit** : Notion fait autorité et doit rester récupérable indépendamment de Broco-Chou ; **état technique** : non implémenté. Les tâches et critères uniques sont DB-05/06 dans la [roadmap](IMPLEMENTATION_PLAN.md), sans nouvelle architecture imposée ici.
+
 ### Calculs réellement appelés
 
 Le store ordonne les suggestions par saison et mélange aléatoire. Le générateur puise exclusivement dans les recettes acceptées, exclut les doublons, pénalise un ingrédient principal utilisé ≥2 fois de 30 points, ≥3 fois de 50 points supplémentaires ; bonus saison +20, mois +10. Il remplit déjeuner, dîner, petit-déjeuner puis dessert selon préférences, pour aujourd'hui à J+6.
@@ -160,6 +174,14 @@ npm run dev:local -- --hostname 0.0.0.0
 Cette commande exige une pile locale démarrée. Ouvrir `http://<IPv4-du-PC>:3000`, vérifier `ipconfig`, réseau privé et pare-feu Node/TCP 3000, éviter le Wi-Fi invité isolé. `allowedDevOrigins` contient actuellement `172.20.10.3` et `192.168.1.5` : adapter à l'adresse réelle. Le navigateur envoie Auth/REST/Storage à l'origine Next.js via `/__supabase` ; Next.js contacte le loopback du PC. Pas d'accès direct au loopback du téléphone ni de proxy Cloud/production. Ajouter l'origine exacte du téléphone dans `auth.additional_redirect_urls` avant redémarrage local ; les liens Mailpit peuvent sinon revenir vers localhost. Les fonctions navigateur exigeant un contexte HTTPS sécurisé peuvent manquer en HTTP LAN ; aucune PWA n'est livrée.
 
 Pour revenir volontairement à Cloud en développement, renommer `.env.development.local` en `.env.development.disabled.local`, vérifier la cible de `.env.local` et redémarrer. Le remettre à son nom initial réactive le local. Les comptes locaux et Cloud sont distincts. Ne pas utiliser de vraies données personnelles pour les tests.
+
+### Autonomie hors ligne — périmètre de vérification
+
+Le propriétaire confirme que « recipe app » désigne ce dépôt Broco-Chou (`supabase/config.toml` : `project_id="recipe-app"`). Les scripts npm, Supabase CLI, Auth/Storage et Mailpit locaux sont configurés ; les polices utilisent les piles système de `app/globals.css`. Les recherches/rendus isolés et actions du store ont été exécutés sans réseau avec données et stockage fictifs ; aucun serveur frontend ni service Supabase n'a été démarré pour cette revue. L'essai de lecture SQL locale échoue car le moteur Docker Desktop Linux est indisponible. L'autonomie complète reste à vérifier dans OPS-05.
+
+Sur un poste préparé, les dépendances npm et images Docker doivent déjà être présentes. Tester frontend, catalogue, Auth/confirmation Mailpit, création/photo, planning et courses avec WAN coupé, cibles Supabase loopback vérifiées. La première installation npm et le téléchargement des images Docker peuvent demander Internet. Ne pas exécuter de reset ou de seed Cloud pour préparer cet environnement.
+
+Restent liés au réseau : Supabase Cloud lorsque cette cible est choisie, photos Pexels distantes, téléchargements Pexels des imports, opérations Git distantes/Vercel et future synchronisation Notion. `npm.cmd run offline:check` échoue sur les URLs Pexels dans le seed et 12 imports ; les chemins locaux testés passent avant cet échec. Ce contrôle ne mesure pas à lui seul l'autonomie de tous les services. Pas de cache applicatif complet, service worker/PWA ou file de synchronisation hors ligne démontré. [OPS-05 et DEBT-01](IMPLEMENTATION_PLAN.md) suivent les vérifications et corrections ; cette documentation ne déclare pas la version publique utilisable entièrement hors ligne.
 
 ### Production et Preview
 
