@@ -249,6 +249,7 @@ Tests associés relus : [verify-personal-recipes.mjs](../scripts/verify-personal
 | OPS-04 | Ajouter des contrôles CI et du monitoring utile | P1 | TODO | SEC-01 | Lint/TypeScript/build et intégration locale sécurisée, erreurs observables sans secrets ; aucun workflow CI versionné actuellement |
 | OPS-05 | Vérifier le développement local sans Internet de recipe-app/Broco-Chou | P1 | TODO | OPS-01, DEBT-01, dépendances npm et images Docker déjà disponibles | Applicabilité confirmée par le propriétaire. Démarrage frontend et Supabase/Mailpit locaux sans WAN, parcours essentiels testés et dépendances réseau inventoriées ; distinguer poste préparé et première installation. Aucun démarrage, reset ou migration dans cet audit ; moteur Docker local indisponible |
 | OPS-06 | Intégrer les branches validées et publier main | P1 | DONE | Revue des branches et autorisation du propriétaire | Cinq commits de `fix/production-recipe-admins` fusionnés sans conflit dans `4f4d704`, publié sur `origin/main` le 2026-10-17 ; branche documentaire déjà incluse. Lint, TypeScript, build, tests SQL et API locaux réussis. Exclusion de `feat/auth-email-readiness` explicitement confirmée ; bilan de livraison dans le journal ci-dessous |
+| OPS-07 | Intégrer localement le dernier complément de roadmap sur main | P1 | DONE | Demande de fusion du propriétaire, revue Git et documentaire | Commit `d617929` intégré en avance rapide sans conflit depuis `docs/notion-recipe-roadmap-20261017` ; contrôle documentaire et diff réussis. Branche expérimentale exclue ; aucun push ni déploiement pendant cette tâche |
 
 ### Demande F — développement local et hors ligne, périmètre confirmé
 
@@ -608,6 +609,22 @@ Priorités immédiates : SEC-01 (avis npm), AUTH-03 (capacité d'inscription pub
 **Blocages et limites :** Source Haleon exacte et droits textes/images à confirmer avant tout essai d'import ; compatibilité du partage natif iOS/Android à étudier sur appareils réels, collage obligatoire. Provenance externe non enregistrée par la RPC communautaire actuelle, contrat à concevoir. Les tests métier ne sont pas rejoués pour cette modification documentaire : les PASS locaux de soumission/Storage/RLS et la lecture Cloud des huit migrations restent les preuves historiques du journal ; la production n'est pas déclarée validée de bout en bout. Lint, typage et build non relancés car aucun code modifié.
 
 **Prochaines actions :** Relire le commit documentaire avant toute livraison autorisée ; traiter les contrôles TODO de COM-01 et COM-06/SEC-03, puis l'étude/implémentation IMP-08. Demander la source Haleon exacte et les droits pour préciser IMP-09 ; voix COM-07 et capture COM-08 restent suivies séparément.
+
+### 2026-10-17 — Intégration locale du dernier complément de roadmap
+
+**Objectif :** Fusionner les dernières modifications validées sur `main` et gérer les éventuels conflits, à la demande du propriétaire.
+
+**Travaux réalisés :** Arbre initial propre sur `docs/notion-recipe-roadmap-20261017` ; après `git fetch origin`, égalité de `main` et `origin/main` à `01c6520` confirmée. Les branches de documentation et de correctifs précédentes sont déjà incluses. Création de `chore/merge-latest-20261017` depuis main et intégration de `d617929` en avance rapide, sans conflit ; clôture documentaire séparée et intégration locale sur main par `--ff-only`. Aucun changement existant écrasé, historique réécrit ou branche supprimée.
+
+**Fichiers concernés :** `docs/ROADMAP.md` uniquement : complément Notion déjà commité, suivi OPS-07 et présente entrée. Aucun code, dépendance, migration ni diagramme modifié.
+
+**Tests exécutés :** `node scripts/verify-documentation.mjs` : PASS, sept documents, métadonnées, blocs Markdown et 152 liens locaux valides ; `git diff --check` et relecture du diff : PASS. Les diagrammes restent identiques à main avant intégration. Lint, TypeScript, build et tests métier non rejoués pour cette fusion exclusivement documentaire ; leurs résultats précédents restent des preuves historiques.
+
+**Décisions :** La demande autorise la fusion locale. `feat/auth-email-readiness` reste exclue conformément au contrat du dépôt et aux ADR-002/006/007 ; ses sept commits expérimentaux ne constituent pas des modifications validées à intégrer. Aucun push, déploiement ni changement de configuration ou de données distantes ; aucune nouvelle ADR nécessaire.
+
+**Blocages et limites :** Aucun conflit ni échec de contrôle documentaire. Cette intégration locale ne change pas la version publiée sur `origin/main` ni la production ; les limites métier et de sécurité déjà suivies restent ouvertes.
+
+**Prochaines actions :** Publier main et suivre l'éventuel déploiement Vercel après autorisation explicite couvrant ces opérations ; poursuivre les contrôles COM-01/COM-06/SEC-03 selon les priorités existantes.
 
 ### Modèle pour les futures sessions
 
