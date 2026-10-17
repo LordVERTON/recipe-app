@@ -3,7 +3,7 @@
 **Objectif :** Décrire le produit réel, ses utilisateurs et ses perspectives sans confondre livraison et intention.
 **Dernière mise à jour :** 2026-10-17
 **Statut :** EXISTANT audité sur `main` à `e89d109`, complété par le nettoyage de cette branche.
-**Documents liés :** [Parcours](APP_FLOW.md), [Architecture](TRD.md), [Roadmap](IMPLEMENTATION_PLAN.md), [Décisions](DECISIONS.md).
+**Documents liés :** [Parcours](APP_FLOW.md), [Architecture](TRD.md), [Roadmap](ROADMAP.md), [Décisions](DECISIONS.md).
 
 ## Vision et périmètre
 
@@ -57,8 +57,12 @@ Chaque ligne associe une user story, une règle et un critère vérifiable. Les 
 | Inscription / confirmation — EXISTANT, CONFIGURÉ | Comme contributeur, créer un compte e-mail/mot de passe et confirmer avant connexion | `signUp`, redirection vers l'origine du navigateur, pas de session avant confirmation, renvoi après délai 60 s ; ne jamais désactiver la confirmation |
 | Connexion / déconnexion — EXISTANT | Comme utilisateur, retrouver mon espace de navigateur par compte | `signInWithPassword`, sessions Supabase persistées et rafraîchies, `signOut({scope:'local'})`. Pas de Google OAuth, CAPTCHA ou parcours de récupération de mot de passe dans cette UI |
 | Création de recette — EXISTANT | Comme contributeur connecté, saisir les champs, 1–60 ingrédients, 1–50 étapes et une photo facultative | RPC atomique, photo JPG/PNG/WebP ≤5 Mio ; nouvelle recette `community/pending`, ingrédients rapprochés du référentiel ou créés. Erreur de suggestions : saisie manuelle possible ; fermeture bloquée pendant enregistrement |
+| Saisie multimodale — PARTIEL, complément À FAIRE | Comme contributeur, notamment San pour la voix, créer une recette par texte, voix ou photo et corriger avant enregistrement | Texte et fichier photo existent ; aucune transcription ni construction vocale trouvée. Prise de photo mobile à vérifier, sans parcours de capture dédié. Extraction des informations depuis une image à confirmer séparément ; ne pas confondre illustration et recette extraite. Suivi COM-01/07/08 |
 | Modération — EXISTANT | Comme administrateur, examiner, corriger, publier/refuser une soumission | Auteur conservé, édition ne publie pas ; commentaire obligatoire pour refus, au plus 1000 caractères. Réponse concurrente : une seule décision. Auteur garde l'accès après refus ; aucune révision par l'auteur |
 | Notifications — EXISTANT local seulement | Comme administrateur local, recevoir un lien d'examen dans Mailpit | Envoi facultatif après sauvegarde, file SQL durable et reprise manuelle ; aucun transport ni cron de production. Le nettoyage limite l'appel automatique au développement local sans affecter la modération |
+| Référentiel To Eat List — À FAIRE | Comme propriétaire, conserver les recettes dans [To Eat List sur Notion](https://app.notion.com/p/To-Eat-List-4d3b60cd4d4442d5b4f1ff0fa0b2a9b0), source de vérité durable, et les échanger avec Broco-Chou | Exigence confirmée le 2026-10-17 ; aucune synchronisation applicative démontrée. Aller-retour complet, données et médias récupérables même après abandon/suppression de Broco-Chou ; priorité Notion, conflits et suppressions protégées à formaliser, restauration isolée à tester. Pas de garantie fournie par un simple export ponctuel. Suivi DB-05/06, distinct des plans locaux |
+| Menus hebdomadaires — PARTIEL côté artefacts, maintenance À FAIRE | Comme utilisateur, retrouver les plats du menu de la période choisie dans le catalogue et le planning | Import historique de 11 recettes présent, sans preuve de couverture du menu actif. Confirmer source et dates, rapprocher les recettes, compléter les manquantes sans doublon et suivre l'état Notion. Opération récurrente IMP-07 ; aucune automatisation Odélis implicite |
+| Développement hors ligne — PARTIEL, À VÉRIFIER | Comme développeur de recipe-app/Broco-Chou, travailler sans Internet après préparation du poste | Applicabilité confirmée par le propriétaire ; dépendances/npm et images Docker préalablement disponibles, frontend et Supabase/Mailpit locaux à vérifier sans WAN. Contrôle des ressources en échec sur les images distantes ; pas de garantie de fonctionnement intégral hors ligne de l'application publique. Suivi OPS-05 et DEBT-01 |
 
 Sources : [orchestrateur](../components/broco-chou-app.tsx), [store](../lib/store.ts), [profil](../components/profile-page.tsx), [éditeur](../components/weekly-plan-editor.tsx), [formulaire](../components/personal-recipe-form.tsx).
 
@@ -71,7 +75,7 @@ Sources : [orchestrateur](../components/broco-chou-app.tsx), [store](../lib/stor
 | Could Have | Partage et impression des courses | Partage du plan, restes, batch cooking, recherche plein texte, suggestions selon ingrédients disponibles, estimation de coût |
 | Won't Have pour cette version | — | Google OAuth, Turnstile, Mailjet/Resend applicatifs, refonte UI, domaine payant imposé, synchronisation multi-appareil, pipeline Odélis automatique |
 
-Les priorités et statuts opérationnels uniques sont dans [IMPLEMENTATION_PLAN](IMPLEMENTATION_PLAN.md).
+Les priorités et statuts opérationnels uniques sont dans [ROADMAP](ROADMAP.md).
 
 ## Objectifs et KPI proposés
 
@@ -99,4 +103,5 @@ Prévoir minimisation des données, finalité et information des utilisateurs av
 - [À CONFIRMER] Public réellement autorisé à s'inscrire avec le SMTP actuel et calendrier d'ouverture plus large.
 - [À CONFIRMER] Base de portions canonique et comportement attendu quand le nombre de convives change.
 - [À CONFIRMER] Gouvernance éditoriale et délai souhaité pour modérer ; politique de conservation/suppression et contact pour les droits des personnes.
-- [À CONFIRMER] Besoin réel de synchronisation, notifications et automatisation Odélis. Ces inconnues n'empêchent pas la consolidation actuelle.
+- To Eat List comme source de vérité et sauvegarde durable des recettes : besoin confirmé ; contrat de données, règles de confidentialité/conflits/suppressions et restauration à définir et tester avant développement. La synchronisation multi-appareil des plans reste une demande distincte non livrée.
+- [À CONFIRMER] Semaine cible et source active des menus à maintenir, appareils pour voix/prise de photo, besoin éventuel d'extraction depuis une image, notifications et automatisation Odélis.

@@ -3,7 +3,7 @@
 **Objectif :** Expliquer les écrans, appels et transitions effectivement implémentés.
 **Dernière mise à jour :** 2026-10-17
 **Statut :** EXISTANT, preuves de validation dans le journal de session.
-**Documents liés :** [Produit](PRD.md), [Architecture](TRD.md), [Backend](BACKEND_SCHEMA.md), [Roadmap](IMPLEMENTATION_PLAN.md).
+**Documents liés :** [Produit](PRD.md), [Architecture](TRD.md), [Backend](BACKEND_SCHEMA.md), [Roadmap](ROADMAP.md).
 
 ## Sitemap et navigation
 
@@ -181,7 +181,7 @@ stateDiagram-v2
 
 L'auteur garde l'accès aux trois statuts. Les visiteurs voient uniquement `approved`. La décision stocke `reviewed_by`, `reviewed_at` et `moderation_note` sur la recette ; il n'existe pas de table d'historique de toutes les modifications administratives. Les recettes traitées ne peuvent pas être rééditées via ces RPC.
 
-**Écart CONFIGURÉ Cloud au 2026-10-17 :** la migration `20261016180000` n'est pas appliquée. Les diagrammes ci-dessus décrivent le code de `main` et le schéma versionné ; Cloud n'a pas encore la file, l'édition administrative, l'attribution par e-mail ni le refus obligatoirement commenté. Le `submit_recipe` distant initial continue d'enregistrer les recettes privées. Voir [l'inventaire de divergence](BACKEND_SCHEMA.md).
+**État Cloud après livraison autorisée du 2026-10-17 :** les migrations `20261016180000` et `20261017120000` sont appliquées. Le workflow décrit ci-dessus est déployé ; les deux comptes attendus sont reconnus administrateurs et voient la soumission existante sous rôle SQL `authenticated`. La recette reste pending, invisible aux visiteurs ; aucune décision réelle ni envoi d'e-mail n'a servi de test de production. Après changement des droits, recharger le profil pour relire le rôle. Voir [les preuves et limites](BACKEND_SCHEMA.md).
 
 ## États UX
 
@@ -199,4 +199,4 @@ L'auteur garde l'accès aux trois statuts. Les visiteurs voient uniquement `appr
 
 L'import Instagram est manuel : coller la légende, extraire par expressions régulières, corriger, choisir une image locale, enregistrer avec le service serveur en développement. Il ne scrape pas Instagram et n'utilise pas d'IA.
 
-City Café : JSON de lots, générateur SQL, contrôles de synchronisation et d'images exécutables manuellement. Les scripts qui téléchargent des images utilisent l'API officielle Pexels. Aucun cron Vercel, pipeline Odélis ni génération périodique démontré. Historique, lots et anomalies sont conservés dans [IMPLEMENTATION_PLAN](IMPLEMENTATION_PLAN.md) et les artefacts sous `supabase/new-import/`.
+City Café : JSON de lots, générateur SQL, contrôles de synchronisation et d'images exécutables manuellement. Les scripts qui téléchargent des images utilisent l'API officielle Pexels. Aucun cron Vercel, pipeline Odélis ni génération périodique démontré. Historique, lots et anomalies sont conservés dans [ROADMAP](ROADMAP.md) et les artefacts sous `supabase/new-import/`.

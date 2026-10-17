@@ -3,7 +3,7 @@
 **Objectif :** Découvrir le projet et lancer un environnement local sûr.
 **Dernière mise à jour :** 2026-10-17
 **Statut :** Audit initial de `main/e89d109`, documentation consolidée et livrée sur `main` ; suivi dans le journal de session.
-**Documents liés :** [PRD](docs/PRD.md), [TRD](docs/TRD.md), [Parcours](docs/APP_FLOW.md), [Design](docs/DESIGN_BRIEF.md), [Backend](docs/BACKEND_SCHEMA.md), [Roadmap](docs/IMPLEMENTATION_PLAN.md), [Décisions](docs/DECISIONS.md).
+**Documents liés :** [PRD](docs/PRD.md), [TRD](docs/TRD.md), [Parcours](docs/APP_FLOW.md), [Design](docs/DESIGN_BRIEF.md), [Backend](docs/BACKEND_SCHEMA.md), [Roadmap](docs/ROADMAP.md), [Décisions](docs/DECISIONS.md).
 
 Broco-Chou aide à choisir des recettes, composer sept jours de repas et préparer ses courses. Pensé pour les étudiants et la cuisine du quotidien, ce projet indépendant s'inspire des calendriers du Crous de Lyon ; il n'est pas un service officiel du Crous.
 
@@ -16,7 +16,7 @@ Broco-Chou aide à choisir des recettes, composer sept jours de repas et prépar
 - Recherche et filtres dans l'éditeur, choix des créneaux et suivi des repas cuisinés.
 - Courses regroupées, cases à cocher, copie, partage et impression.
 - Comptes e-mail/mot de passe, confirmation Supabase, recettes personnelles et photos privées.
-- Modération administrative ; le workflow enrichi est présent dans le code mais sa dernière migration reste absente de Cloud lors de l'audit.
+- Modération administrative ; workflow enrichi et droits des deux comptes attendus déployés dans Supabase Cloud le 2026-10-17, accès SQL/RLS vérifiés.
 
 Plans, favoris, préférences, courses et historique restent dans le navigateur, séparément par compte. Comptes, recettes et photos sont dans Supabase.
 
@@ -67,7 +67,7 @@ Ouvrir `http://<IPv4-du-PC>:3000`, adapter `allowedDevOrigins` et les redirectio
 | `node scripts/verify-documentation.mjs` | Sept documents, métadonnées et liens locaux |
 | `npm run offline:check` | Détecter les ressources non autonomes ; échec connu sur les URLs Pexels des imports |
 
-Autres tests, prérequis Playwright, résultats et échecs : [journal de validation](docs/IMPLEMENTATION_PLAN.md). Pour une migration locale additive : `npm exec -- supabase migration up --local`. `npm run supabase:reset` détruit les données locales et rejoue les seeds : ce n'est pas une commande normale de démarrage. Ne jamais exécuter de reset distant.
+Autres tests, prérequis Playwright, résultats et échecs : [journal de validation](docs/ROADMAP.md). Pour une migration locale additive : `npm exec -- supabase migration up --local`. `npm run supabase:reset` détruit les données locales et rejoue les seeds : ce n'est pas une commande normale de démarrage. Ne jamais exécuter de reset distant.
 
 ## Architecture et déploiement
 
@@ -92,12 +92,12 @@ Au 2026-10-17 : SMTP intégré Supabase confirmé en lecture seule, confirmation
 | [APP_FLOW](docs/APP_FLOW.md) | Quels écrans, états et appels ? |
 | [DESIGN_BRIEF](docs/DESIGN_BRIEF.md) | Quels tokens, composants et règles UX ? |
 | [BACKEND_SCHEMA](docs/BACKEND_SCHEMA.md) | Quelles tables, RPC, permissions et divergences Cloud ? |
-| [IMPLEMENTATION_PLAN](docs/IMPLEMENTATION_PLAN.md) | Quelles tâches, dettes, preuves et historique City Café ? |
+| [ROADMAP](docs/ROADMAP.md) | Quelles tâches, dettes, preuves et historique City Café ? |
 | [DECISIONS](docs/DECISIONS.md) | Pourquoi ces choix et quelles propositions restent ouvertes ? |
 
 ## Limites et contributions
 
-Pas de synchronisation multi-appareil, d'écran complet régime/budget, de récupération de compte dans l'UI ni de pipeline Odélis périodique. Quantités/portions, invalidation des courses, accessibilité et dépendances demandent encore des corrections. L'audit npm signale 12 alertes dont une critique ; le workflow SQL enrichi du 16 octobre n'est pas déployé dans Cloud. Ces constats sont suivis dans la roadmap, sans modification distante automatique.
+Pas de synchronisation multi-appareil, d'écran complet régime/budget, de récupération de compte dans l'UI ni de pipeline Odélis périodique. Quantités/portions, invalidation des courses, accessibilité et dépendances demandent encore des corrections. L'audit npm signale 12 alertes dont une critique. L'écart SQL de modération est corrigé par la livraison autorisée du 2026-10-17 ; aucun e-mail de modération n'est envoyé en production. Les validations et limites sont suivies dans la roadmap.
 
 Pour contribuer : lire [AGENTS.md](AGENTS.md), partir de `main`, conserver Auth/RLS/données, utiliser Conventional Commits et mettre à jour documentation et journal avec les tests. Ne pas importer automatiquement `feat/auth-email-readiness`.
 

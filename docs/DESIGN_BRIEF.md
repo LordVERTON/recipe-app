@@ -3,7 +3,7 @@
 **Objectif :** Maintenir l'identité existante et distinguer composants livrés et améliorations futures.
 **Dernière mise à jour :** 2026-10-17
 **Statut :** EXISTANT relevé dans les sources ; conformité d'accessibilité [À CONFIRMER].
-**Documents liés :** [Produit](PRD.md), [Parcours](APP_FLOW.md), [Architecture](TRD.md), [Roadmap](IMPLEMENTATION_PLAN.md).
+**Documents liés :** [Produit](PRD.md), [Parcours](APP_FLOW.md), [Architecture](TRD.md), [Roadmap](ROADMAP.md).
 
 ## Identité et source de vérité
 
@@ -87,4 +87,4 @@ Avant future modification UI : tester clavier, lecteur d'écran/noms des command
 - Safe areas mobiles, remplacement de destination explicite, confirmation du recommencement.
 - Harmonisation des couleurs de viewport et suppression future du CSS générique seulement après vérification des imports.
 
-Ces pistes sont HORS PÉRIMÈTRE du nettoyage actuel ; leur suivi reste dans [IMPLEMENTATION_PLAN](IMPLEMENTATION_PLAN.md).
+Ces pistes sont HORS PÉRIMÈTRE du nettoyage actuel ; leur suivi reste dans [ROADMAP](ROADMAP.md).
