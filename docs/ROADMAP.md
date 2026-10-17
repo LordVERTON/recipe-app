@@ -195,6 +195,7 @@ Tests associés relus : [verify-personal-recipes.mjs](../scripts/verify-personal
 | OPS-03 | Isoler Preview et documenter livraison/retour arrière | P0 | TODO | DB-02 | Branche Git `main` et déploiement `f1d500e` servis en production vérifiés le 2026-10-17 ; restent cibles Supabase par environnement et procédure de retour arrière, sans staging supposé |
 | OPS-04 | Ajouter des contrôles CI et du monitoring utile | P1 | TODO | SEC-01 | Lint/TypeScript/build et intégration locale sécurisée, erreurs observables sans secrets ; aucun workflow CI versionné actuellement |
 | OPS-05 | Vérifier le développement local sans Internet de recipe-app/Broco-Chou | P1 | TODO | OPS-01, DEBT-01, dépendances npm et images Docker déjà disponibles | Applicabilité confirmée par le propriétaire. Démarrage frontend et Supabase/Mailpit locaux sans WAN, parcours essentiels testés et dépendances réseau inventoriées ; distinguer poste préparé et première installation. Aucun démarrage, reset ou migration dans cet audit ; moteur Docker local indisponible |
+| OPS-06 | Intégrer les branches validées et publier main | P1 | DONE | Revue des branches et autorisation du propriétaire | Cinq commits de `fix/production-recipe-admins` fusionnés sans conflit dans `4f4d704`, publié sur `origin/main` le 2026-10-17 ; branche documentaire déjà incluse. Lint, TypeScript, build, tests SQL et API locaux réussis. Exclusion de `feat/auth-email-readiness` explicitement confirmée ; bilan de livraison dans le journal ci-dessous |
 
 ### Demande F — développement local et hors ligne, périmètre confirmé
 
@@ -504,6 +505,32 @@ Priorités immédiates : SEC-01 (avis npm), AUTH-03 (capacité d'inscription pub
 **Blocages :** Aucun pour les commits locaux. Les limites et tâches métier déjà ouvertes restent inchangées.
 
 **Prochaines actions :** Relire les commits avant une éventuelle intégration ; push et livraison restent à autoriser séparément.
+
+### 2026-10-17 — Fusion des branches validées sur main
+
+**Objectif :** Réunir sur `main` les derniers correctifs et mises à jour validés, puis publier sur GitHub après accord explicite du propriétaire.
+
+**Travaux réalisés :** État initial propre sur `fix/production-recipe-admins`, récupération distante et égalité `main = origin/main = 3014530` vérifiées. `chore/main-documentation-cleanup` est déjà ancêtre de main. Création de `chore/integrate-main-20261017` depuis `origin/main` ; fusion sans conflit des cinq commits `4a6e740`, `9ef23ac`, `f3c118a`, `9a079d3` et `8b014c0` dans `4f4d704`. Avance de main par `--ff-only`, puis `git push origin main` autorisé et réussi ; lecture de la référence distante confirmant le même SHA. Aucun historique réécrit ni branche supprimée.
+
+**Fichiers concernés :** Migration corrective administrateur, test SQL de mise à niveau, README/AGENTS, sept documents canoniques et vérificateur documentaire repris des commits existants ; seul ce journal et la ligne OPS-06 sont ajoutés pour la clôture. Aucun changement du parcours Auth, des dépendances ou de la configuration distante.
+
+**Tests exécutés :**
+
+| Contrôle | Environnement | Résultat / limite |
+| --- | --- | --- |
+| `npm.cmd run lint` | Local, résultat de fusion | PASS, quatre avertissements `<img>` préexistants |
+| `npm.cmd run build` puis `node node_modules/typescript/bin/tsc --noEmit` séparé | Local | PASS ; le build seul ignore toujours les erreurs de types |
+| `node scripts/verify-recipe-review-migrations.mjs` | Base Docker locale éphémère | PASS : mise à niveau, préservation recette/auteur/photo et anciens administrateurs, ajout idempotent, confirmation obligatoire, RLS et validation. Premier essai refusé par la sandbox ; relance autorisée réussie et base de test supprimée |
+| `node scripts/verify-personal-recipes.mjs` | Supabase Auth/Storage/API locaux, garde loopback | PASS : soumission, photo, confidentialité, édition, refus motivé, décision concurrente, droits et file ; comptes/recette/photo de test nettoyés par le script. Premier essai bloqué par l'écriture de télémétrie CLI en sandbox, relance autorisée réussie. Option `TEST_APP_URL` non activée : endpoint Next.js et livraison Mailpit non rejoués |
+| `node --check scripts/verify-recipe-review-migrations.mjs`, `node scripts/verify-documentation.mjs`, `git diff --check` | Local | PASS ; sept documents, 148 liens locaux avant ajout de cette entrée, diagrammes inchangés |
+| `git ls-remote --heads origin main`, ancêtres Git | GitHub, lecture seule après push | PASS : `4f4d70408e8bff6f53ae4fc6b4e1703679ae556f` publié ; branches correctifs et documentation incluses |
+| API Vercel projet/déploiement, résolution du domaine et requête HTTP HEAD | Production, lecture seule | PASS : projet `recipe-app`, équipe attendue, déploiement `dpl_7eRqeCRH4j7qKVJwrUfirY2ckjUh` en `READY`, branche `main`, SHA `4f4d704`, alias public associé et HTTP 200. Première requête HTTP bloquée en sandbox, relance autorisée réussie. Ce contrôle ne valide pas tous les parcours de production |
+
+**Décisions :** Le propriétaire confirme explicitement le maintien de l'exclusion de `feat/auth-email-readiness` et autorise le push sur `origin/main` avec son éventuel déploiement Vercel automatique. Ses sept commits expérimentaux (Mailjet, Google OAuth, Turnstile et parcours associés) restent hors fusion, conformément aux ADR-002/006/007. Aucune nouvelle architecture ni ADR. Aucune migration Cloud appliquée pendant cette tâche : leur livraison antérieure est documentée séparément.
+
+**Blocages et limites :** Aucun conflit. Pas de test navigateur rejoué ni de décision de modération sur une recette réelle ; les dettes et alertes déjà suivies restent ouvertes. Le commit de fusion est déployé en production ; la clôture documentaire est livrée dans un commit séparé, sans changement applicatif.
+
+**Prochaines actions :** Poursuivre SEC-01 et les parcours mobile/ordinateur de UX-09 dans des tâches distinctes. Conserver la branche expérimentale exclue tant qu'aucune nouvelle décision explicite ne remplace les ADR concernées.
 
 ### Modèle pour les futures sessions
 
