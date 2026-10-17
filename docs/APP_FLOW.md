@@ -181,7 +181,7 @@ stateDiagram-v2
 
 L'auteur garde l'accès aux trois statuts. Les visiteurs voient uniquement `approved`. La décision stocke `reviewed_by`, `reviewed_at` et `moderation_note` sur la recette ; il n'existe pas de table d'historique de toutes les modifications administratives. Les recettes traitées ne peuvent pas être rééditées via ces RPC.
 
-**Écart CONFIGURÉ Cloud au 2026-10-17 :** la migration `20261016180000` n'est pas appliquée. Les diagrammes ci-dessus décrivent le code de `main` et le schéma versionné ; Cloud n'a pas encore la file, l'édition administrative, l'attribution par e-mail ni le refus obligatoirement commenté. Le `submit_recipe` distant initial continue d'enregistrer les recettes privées. Voir [l'inventaire de divergence](BACKEND_SCHEMA.md).
+**État Cloud après livraison autorisée du 2026-10-17 :** les migrations `20261016180000` et `20261017120000` sont appliquées. Le workflow décrit ci-dessus est déployé ; les deux comptes attendus sont reconnus administrateurs et voient la soumission existante sous rôle SQL `authenticated`. La recette reste pending, invisible aux visiteurs ; aucune décision réelle ni envoi d'e-mail n'a servi de test de production. Après changement des droits, recharger le profil pour relire le rôle. Voir [les preuves et limites](BACKEND_SCHEMA.md).
 
 ## États UX
 

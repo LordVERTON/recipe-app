@@ -21,7 +21,7 @@
 - Ne pas réintroduire Mailjet, Resend, Google OAuth ou Turnstile sans nouvelle décision explicite. Ne pas fusionner automatiquement la branche expérimentale. Conserver Mailpit pour le local ; `supabase.auth.resend` n'est pas le service Resend.
 - Ne jamais afficher, exporter dans une réponse ou versionner les secrets, JWT ou liens de session. Éviter les sorties CLI de statut contenant des clés ; filtrer avant affichage. Les clés de service restent côté serveur et ne doivent jamais être `NEXT_PUBLIC_`.
 - Préserver RLS, droits administrateur, auteurs et médias. Ne pas supprimer tables/fonctions/migrations parce qu'elles semblent inutilisées. Ne pas réécrire une migration déjà appliquée ; créer une migration corrective et la tester localement.
-- Le planning est local par compte ; ne pas annoncer de synchronisation Cloud inexistante. Le workflow SQL final n'est pas entièrement déployé dans Cloud au dernier audit : vérifier avant toute intervention.
+- Le planning est local par compte ; ne pas annoncer de synchronisation Cloud inexistante. Les migrations SQL se déploient séparément du frontend : vérifier l'historique Cloud avant toute intervention. Livraison du workflow et correction administrateur du 2026-10-17 consignées dans le journal.
 
 ## Git et revue
 

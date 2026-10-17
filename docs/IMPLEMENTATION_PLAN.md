@@ -73,13 +73,14 @@ Base auditée : `main = origin/main = e89d109`, après fetch, état initial prop
 | COM-03 | Notifications Mailpit facultatives sans appel voué à échouer en production | P1 | DONE | COM-01 | Garde développement loopback ajoutée au formulaire ; test API/Mailpit et déduplication réussis. Outbox/RPC historiques conservées |
 | COM-04 | Modification par l'auteur après soumission et espace de modération enrichi | P2 | TODO | Décision de cycle de révision | Aucune édition auteur aujourd'hui ; définir droits, retour pending et traçabilité avant implémentation |
 | COM-05 | Notifications applicatives ou e-mails de décision en production | P2 | TODO | AUTH-03, décision produit | Aucun transport/cron actuel ; à concevoir seulement si besoin confirmé, sans dépendance ajoutée ici |
+| COM-06 | Rétablir les deux comptes administrateurs attendus en production | P0 | DONE | DB-01, autorisation distante reçue | Deux comptes reconnus par `is_recipe_admin()` après livraison ; lecture sous rôle SQL `authenticated` de la soumission existante et des auteurs réussie pour chacun, visiteurs exclus. Confirmation visuelle dans les sessions personnelles à effectuer par le propriétaire |
 
 ## 7. Base de données / Supabase
 
 | ID | Description | Priorité | Statut | Dépendances | Critères d'acceptation / preuve |
 | --- | --- | --- | --- | --- | --- |
-| DB-01 | Traiter l'écart Cloud/versionné du workflow enrichi | P0 | TODO | Revue SQL, sauvegarde et autorisation distante | Examiner impacts/grants, tester sur copie isolée puis prévoir livraison contrôlée de `20261016180000` ; ne pas appliquer automatiquement |
-| DB-02 | Sauvegarde et restauration base + photos | P0 | TODO | Accès exploitation | Procédure documentée, rétention connue et restauration testée sur cible isolée ; aucun reset distant |
+| DB-01 | Traiter l'écart Cloud/versionné du workflow enrichi | P0 | DONE | Revue SQL, sauvegarde et autorisation distante reçue | `db push --linked --skip-vault --yes` : `20261016180000` puis `20261017120000` appliquées ; huit versions présentes et simulation finale à jour. Empreintes recettes/ingrédients/anciens admins/identités Auth/photos identiques avant-après ; détails et limites au journal |
+| DB-02 | Sauvegarde et restauration base + photos | P0 | TODO | Accès exploitation | Export ciblé public + historique réalisé avant DB-01 dans dossier local protégé ; compléter sauvegarde complète/objets Storage, rétention et restauration testée sur cible isolée. Aucun reset distant |
 | DB-03 | Diagnostiquer catégorie locale de `tomate` | P1 | TODO | Aucune | Contrôle sync 2026-10-17 : locale « Épicerie, condiments et produits sucrés », Cloud « Fruits, légumes et légumineuses ». Ligne locale datée 2026-10-08, antérieure aux tests ; ne pas corriger Cloud |
 | DB-04 | Synchronisation multi-appareil des plans/favoris/préférences | P2 | TODO | Décision produit et conflits | HORS PÉRIMÈTRE actuel ; définir modèle, RLS et migration des données navigateur |
 
@@ -288,6 +289,59 @@ Priorités immédiates : SEC-01 (avis npm), DB-01 (workflow non déployé), AUTH
 **Blocages :** Aucun pour cette livraison. Les dettes de sécurité et l'écart de schéma Cloud restent ceux de l'audit ; les tests de production n'exercent pas les parcours nécessitant une écriture réelle ou un compte personnel.
 
 **Prochaines actions :** Traiter SEC-01, préparer séparément DB-01 avec sauvegarde et autorisation dédiée, puis finaliser l'isolation Preview et la restauration. Le suivi du dernier commit documentaire est communiqué dans le rapport de livraison.
+
+### 2026-10-17 — Diagnostic des administrateurs de production et correction préparée
+
+**Objectif :** Expliquer l'absence de validation dans les espaces des deux comptes signalés et préparer un correctif sûr.
+
+**Travaux réalisés :** Arbre initial propre ; `main` local et distant vérifiés à `3014530` par `git ls-remote`, branche `fix/production-recipe-admins` créée depuis main. Audit Cloud ciblé via API de gestion, `read_only=true`, `begin read only` et `rollback` : les deux comptes existent et sont confirmés, aucun membership `recipe_admins`, une recette pending de l'auteur signalé ; six migrations présentes, workflow et table des e-mails absents. La migration historique autorise déjà le second administrateur et le Proton du propriétaire, mais pas son compte Gmail actuel. Nouvelle migration additive/idempotente ajoutant le Gmail, sans modification de l'ancienne migration. Test de mise à niveau depuis le schéma initial, sans copie de données de production.
+
+**Fichiers modifiés :** `supabase/migrations/20261017120000_add_recipe_moderator_email.sql`, `scripts/verify-recipe-review-migrations.mjs`, BACKEND_SCHEMA, TRD et présente roadmap/journal. Diagnostics de session dans `supabase/.temp` ignoré ; aucun secret exporté ni versionné. Aucun code d'interface ni dépendance modifié.
+
+**Tests exécutés :**
+
+| Contrôle | Environnement | Résultat |
+| --- | --- | --- |
+| Audit ciblé comptes, compteurs, schéma et historique | Cloud, lecture seule | Cause confirmée ; recette existante toujours pending, aucune décision de modération exécutée |
+| `node scripts/verify-recipe-review-migrations.mjs` | Base éphémère dans Docker local, contrats Auth/Storage réduits | PASS après correction d'une interpolation dans l'assertion du nouveau script ; migration atomique des six versions initiales vers les deux nouvelles, ligne recette inchangée, rattrapage outbox, anciens administrateurs conservés, ajout idempotent, confirmation obligatoire, visibilité inter-comptes et approbation ; base supprimée dans les deux exécutions |
+| `node scripts/verify-personal-recipes.mjs` | Supabase Auth/Storage/API locaux réels, gardes loopback et fixtures fictives nettoyées | PASS : soumission, photo, vie privée, édition, refus motivé, décision concurrente, droits e-mail et file |
+| `npx supabase migration up --local` | Supabase local uniquement | PASS : seule `20261017120000` appliquée, aucune réinitialisation ni seed |
+| `npm run lint` | Local | PASS, quatre avertissements `<img>` préexistants, aucune erreur |
+| `npm run build` puis `npx tsc --noEmit` séparé | Local, build de production | PASS pour les deux ; aucune livraison Vercel |
+| `node --check scripts/verify-recipe-review-migrations.mjs`, `node scripts/verify-documentation.mjs`, `git diff --check` | Local | PASS ; sept documents conservés, diagrammes inchangés |
+
+**Décisions :** Conserver les droits existants et ajouter une adresse plutôt que réécrire une migration ; aucune nouvelle architecture ni ADR nécessaire. La correction d'interface n'est pas nécessaire : la validation est déjà conditionnée au rôle SQL. Pas de publication automatique de la recette personnelle. Les tests n'emploient jamais les comptes réels comme fixtures.
+
+**Blocages :** Application des deux migrations et vérification des nouveaux droits en production à autoriser explicitement selon AGENTS ; sauvegarde sécurisée préalable encore à réaliser. COM-06 et DB-01 restent TODO. L'audit ne constitue pas une connexion avec les sessions personnelles ni un test de restauration Cloud.
+
+**Prochaines actions :** Après accord dédié, sauvegarder les éléments concernés et appliquer `20261016180000` puis `20261017120000` au seul projet Cloud attendu avec suivi de versions ; vérifier les droits/recette en lecture seule, puis recharger le profil et valider ensemble dans l'interface. La synchronisation Git et tout déploiement frontend demeurent des opérations distinctes à autoriser.
+
+### 2026-10-17 — Application autorisée des migrations de modération en production
+
+**Objectif :** Appliquer les deux migrations testées, selon la demande explicite du propriétaire après connexion à la CLI Supabase, puis vérifier les droits des deux comptes.
+
+**Travaux réalisés :** Projet lié confirmé `cbwrvcifxcqyrgtcpvbd`, préfixe de six migrations et simulation listant exclusivement `20261016180000` puis `20261017120000`. Export par `supabase db dump --linked` du schéma public et des données `public,supabase_migrations`, dans `supabase/.temp/production-review-backup-20261017`, ignoré par Git et ACL limitée au compte Windows. Dumps terminés avec code 0 ; présence des objets, recettes et historique vérifiée, tailles et SHA-256 relevés sans afficher les données. Empreintes de contrôle avant application. Push autorisé exécuté avec `npx supabase db push --linked --skip-vault --yes` : deux migrations appliquées, aucun seed/rôle additionnel ni changement Vault. Pas de push Git ni de redéploiement frontend.
+
+**Fichiers modifiés :** README, AGENTS (état du déploiement SQL), BACKEND_SCHEMA, APP_FLOW, TRD, DECISIONS (conséquences des décisions inchangées) et présente roadmap/journal. Les migrations et le test local préparés précédemment sont inchangés. Harness et sauvegardes de session uniquement sous `supabase/.temp`, aucun secret ou dump ajouté à Git.
+
+**Tests exécutés :**
+
+| Contrôle | Environnement | Résultat |
+| --- | --- | --- |
+| `db push --linked --dry-run` avant livraison | Cloud, simulation | Exactement les deux migrations autorisées ; six versions initiales confirmées |
+| Exports schéma et données/historique, contrôle fichiers et exclusion Git | Cloud lecture seule → fichiers locaux protégés | PASS ; export ciblé, pas de copie des octets Storage ni de restauration complète. L'assertion initiale du marqueur de fin a été adaptée : les commentaires du dump de schéma sont retirés par défaut, sa présence n'est pas un critère valide |
+| `db push --linked --skip-vault --yes` | Supabase production | PASS, deux versions appliquées dans l'ordre ; aucune publication de recette |
+| Empreintes et compteurs avant/après | Cloud, transactions en lecture seule | PASS : 474 recettes dont une pending ; recettes, ingrédients, anciens memberships, identités Auth (id/e-mail/confirmation) et métadonnées des photos inchangés |
+| `is_recipe_admin()` et SELECT recettes/auteurs, identité SQL des deux comptes sous rôle `authenticated` | Cloud, `begin read only` et `rollback` | PASS pour les deux comptes, recette de l'auteur attendu visible. Premier essai refusé car le rôle de l'API `read_only=true` ne peut pas faire `SET ROLE` ; rejoué via connexion normale, toujours en transaction SQL explicitement READ ONLY, sans écriture |
+| Lecture sous rôle `anon`, RLS des nouvelles tables, privilèges helper, rattrapage file | Cloud, lecture seule | PASS : admin faux et zéro pending pour visiteurs ; RLS active ; helper interne inaccessible à anon/authenticated ; une entrée pending non envoyée |
+| `db push --linked --skip-vault --dry-run` final | Cloud, simulation | PASS : `upToDate=true`, aucune migration restante ; huit versions présentes |
+| `node scripts/verify-documentation.mjs`, `git diff --check` | Documentation locale | PASS ; sept documents conservés, diagrammes inchangés. Tests applicatifs, lint, TypeScript et build réussis lors de la préparation précédente, sans changement de code depuis |
+
+**Décisions :** Autorisation explicite limitée à la livraison SQL reçue et exécutée ; DB-01/COM-06 passent DONE sur preuves Cloud. Aucun nouveau choix architectural. Notifications de production toujours sans transport, la recette reste à modérer dans l'interface. Les sauvegardes ciblées ne clôturent pas DB-02 (restauration complète et photos).
+
+**Blocages :** Aucun pour les migrations et les droits SQL. Pas de test navigateur utilisant les sessions personnelles ni de décision réelle de modération automatisée.
+
+**Prochaines actions :** Recharger le profil de production et examiner/valider la recette depuis l'un des deux comptes ; conserver les changements locaux pour revue et intégration Git séparée. Poursuivre SEC-01 et DB-02 dans des tâches distinctes.
 
 ### Modèle pour les futures sessions
 

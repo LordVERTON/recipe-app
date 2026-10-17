@@ -120,7 +120,7 @@ Conserver PostgreSQL/RLS et RPC validées, bucket de photos privé, rôle admini
 
 ### Alternatives considérées
 
-Écriture directe navigateur ou rôle de métadonnées utilisateur : non retenus. Le déploiement de la migration du workflow enrichi est une opération distincte encore non réalisée dans Cloud.
+Écriture directe navigateur ou rôle de métadonnées utilisateur : non retenus. Le déploiement SQL est distinct du frontend ; workflow et correction d'adresse administrateur appliqués dans Cloud le 2026-10-17 après autorisation, avec vérification des droits et de la visibilité RLS.
 
 ### Conséquences
 
@@ -149,7 +149,7 @@ Retirer toute la file et son trigger : ferait perdre le parcours local et néces
 
 ### Conséquences
 
-La soumission et la modération restent indépendantes de l'envoi. Aucun e-mail de modération ou de décision en production ; la file versionnée peut croître si déployée. Les administrateurs consultent l'interface. La migration créant cette file est absente de Cloud lors de l'audit.
+La soumission et la modération restent indépendantes de l'envoi. Aucun e-mail de modération ou de décision en production ; les administrateurs consultent l'interface. Absente lors de l'audit initial, la file est déployée avec la livraison autorisée du 2026-10-17 et peut croître sans transport ni purge. Cela ne change pas la décision de conserver les notifications au local.
 
 ### Références
 

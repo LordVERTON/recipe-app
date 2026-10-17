@@ -16,7 +16,7 @@ Broco-Chou aide à choisir des recettes, composer sept jours de repas et prépar
 - Recherche et filtres dans l'éditeur, choix des créneaux et suivi des repas cuisinés.
 - Courses regroupées, cases à cocher, copie, partage et impression.
 - Comptes e-mail/mot de passe, confirmation Supabase, recettes personnelles et photos privées.
-- Modération administrative ; le workflow enrichi est présent dans le code mais sa dernière migration reste absente de Cloud lors de l'audit.
+- Modération administrative ; workflow enrichi et droits des deux comptes attendus déployés dans Supabase Cloud le 2026-10-17, accès SQL/RLS vérifiés.
 
 Plans, favoris, préférences, courses et historique restent dans le navigateur, séparément par compte. Comptes, recettes et photos sont dans Supabase.
 
@@ -97,7 +97,7 @@ Au 2026-10-17 : SMTP intégré Supabase confirmé en lecture seule, confirmation
 
 ## Limites et contributions
 
-Pas de synchronisation multi-appareil, d'écran complet régime/budget, de récupération de compte dans l'UI ni de pipeline Odélis périodique. Quantités/portions, invalidation des courses, accessibilité et dépendances demandent encore des corrections. L'audit npm signale 12 alertes dont une critique ; le workflow SQL enrichi du 16 octobre n'est pas déployé dans Cloud. Ces constats sont suivis dans la roadmap, sans modification distante automatique.
+Pas de synchronisation multi-appareil, d'écran complet régime/budget, de récupération de compte dans l'UI ni de pipeline Odélis périodique. Quantités/portions, invalidation des courses, accessibilité et dépendances demandent encore des corrections. L'audit npm signale 12 alertes dont une critique. L'écart SQL de modération est corrigé par la livraison autorisée du 2026-10-17 ; aucun e-mail de modération n'est envoyé en production. Les validations et limites sont suivies dans la roadmap.
 
 Pour contribuer : lire [AGENTS.md](AGENTS.md), partir de `main`, conserver Auth/RLS/données, utiliser Conventional Commits et mettre à jour documentation et journal avec les tests. Ne pas importer automatiquement `feat/auth-email-readiness`.
 
