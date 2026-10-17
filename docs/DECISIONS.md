@@ -3,7 +3,7 @@
 **Objectif :** Expliquer les choix confirmés et conserver les propositions encore ouvertes.
 **Dernière mise à jour :** 2026-10-17
 **Statut :** Registre établi pendant l'audit ; dates ci-dessous = date de formalisation, sans date historique inventée.
-**Documents liés :** [Produit](PRD.md), [Architecture](TRD.md), [Backend](BACKEND_SCHEMA.md), [Roadmap](IMPLEMENTATION_PLAN.md).
+**Documents liés :** [Produit](PRD.md), [Architecture](TRD.md), [Backend](BACKEND_SCHEMA.md), [Roadmap](ROADMAP.md).
 
 ## ADR-001 — Conserver Next.js et l'hébergement Vercel
 
@@ -178,7 +178,7 @@ Une recherche du mot `resend` doit préserver `supabase.auth.resend`, qui est un
 
 ### Références
 
-[TRD : état e-mail](TRD.md), [configuration](../supabase/config.toml), [roadmap](IMPLEMENTATION_PLAN.md).
+[TRD : état e-mail](TRD.md), [configuration](../supabase/config.toml), [roadmap](ROADMAP.md).
 
 ## ADR-008 — Retirer la variable Vercel Resend après accord
 
@@ -203,7 +203,7 @@ Recontrôler code, SMTP et cibles juste avant l'opération. Une suppression de v
 
 ### Références
 
-[TRD](TRD.md), [journal d'audit](IMPLEMENTATION_PLAN.md).
+[TRD](TRD.md), [journal d'audit](ROADMAP.md).
 
 ## ADR-009 — Imports manuels traçables et seeds locaux
 
@@ -228,7 +228,7 @@ Ne pas réimporter sans correction documentée ; relire proportions, interpréta
 
 ### Références
 
-[new-import](../supabase/new-import/), [IMPLEMENTATION_PLAN](IMPLEMENTATION_PLAN.md), [BACKEND_SCHEMA](BACKEND_SCHEMA.md).
+[new-import](../supabase/new-import/), [ROADMAP](ROADMAP.md), [BACKEND_SCHEMA](BACKEND_SCHEMA.md).
 
 ## ADR-010 — Sept documents canoniques et maintenance par session
 
@@ -253,4 +253,4 @@ Les tâches historiquement cochées mais partielles redeviennent TODO avec leur 
 
 ### Références
 
-[README](../README.md), [AGENTS](../AGENTS.md), [IMPLEMENTATION_PLAN](IMPLEMENTATION_PLAN.md).
+[README](../README.md), [AGENTS](../AGENTS.md), [ROADMAP](ROADMAP.md).

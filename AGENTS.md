@@ -3,11 +3,11 @@
 **Objectif :** Préserver la production et maintenir une référence documentaire fiable après chaque tâche.
 **Dernière mise à jour :** 2026-10-17
 **Statut :** Règles opérationnelles applicables à tout le dépôt.
-**Documents liés :** [README](README.md), [PRD](docs/PRD.md), [TRD](docs/TRD.md), [Roadmap](docs/IMPLEMENTATION_PLAN.md), [Décisions](docs/DECISIONS.md).
+**Documents liés :** [README](README.md), [PRD](docs/PRD.md), [TRD](docs/TRD.md), [Roadmap](docs/ROADMAP.md), [Décisions](docs/DECISIONS.md).
 
 ## Démarrage obligatoire
 
-1. Lire README, `docs/PRD.md`, `docs/TRD.md` et `docs/IMPLEMENTATION_PLAN.md`.
+1. Lire README, `docs/PRD.md`, `docs/TRD.md` et `docs/ROADMAP.md`.
 2. Lire la référence spécialisée : UI → `docs/DESIGN_BRIEF.md` ; données → `docs/BACKEND_SCHEMA.md` ; parcours → `docs/APP_FLOW.md` ; architecture → `docs/DECISIONS.md`.
 3. Examiner `git status`, branche et historique ; préserver tous changements non sauvegardés. Vérifier l'état d'`origin/main` avant une branche issue de production.
 4. Identifier ce qui est EXISTANT, TESTÉ, CONFIGURÉ, `[À CONFIRMER]`, À FAIRE ou HORS PÉRIMÈTRE. Le dépôt et les migrations sont les références ; leur présence ne prouve pas leur déploiement.
@@ -45,7 +45,7 @@ Préférer de petits commits cohérents. Séparer documentation, modification fo
 1. Exécuter les contrôles adaptés. Pour un changement de code : lint, `npx tsc --noEmit` séparé (le build ignore les erreurs de types), build et tests pertinents selon le TRD.
 2. Pour Auth, recettes ou Storage : utiliser Supabase/Mailpit locaux, vérifier les gardes loopback et le nettoyage des fixtures. Playwright n'est pas une dépendance du projet ; utiliser une installation externe si disponible.
 3. Pour la documentation : conserver exactement sept fichiers Markdown dans `docs`, vérifier liens, métadonnées, diagrammes et `node scripts/verify-documentation.mjs`. Mettre les détails techniques à leur emplacement canonique.
-4. Mettre à jour les documents affectés et la tâche correspondante dans `docs/IMPLEMENTATION_PLAN.md`, avec preuve avant passage à DONE. Ne pas cocher un test non exécuté ou un déploiement seulement prévu.
+4. Mettre à jour les documents affectés et la tâche correspondante dans `docs/ROADMAP.md`, avec preuve avant passage à DONE. Ne pas cocher un test non exécuté ou un déploiement seulement prévu.
 5. Ajouter au journal une entrée datée : objectif, travaux, fichiers, tests/environnements/résultats, décisions, blocages et prochaines actions. Ajouter une ADR si un choix architectural change ; une proposition reste Proposed.
 6. Vérifier `git diff --check`, relire le diff et signaler les échecs sans les masquer. Un contrôle préexistant en échec doit être distingué d'une régression introduite.
 

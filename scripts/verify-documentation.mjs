@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import path from 'node:path'
 
-const documents = ['PRD.md', 'TRD.md', 'APP_FLOW.md', 'DESIGN_BRIEF.md', 'BACKEND_SCHEMA.md', 'IMPLEMENTATION_PLAN.md', 'DECISIONS.md']
+const documents = ['PRD.md', 'TRD.md', 'APP_FLOW.md', 'DESIGN_BRIEF.md', 'BACKEND_SCHEMA.md', 'ROADMAP.md', 'DECISIONS.md']
 assert.deepEqual(readdirSync('docs').sort(), [...documents].sort(), 'docs doit contenir exactement les sept documents canoniques')
 let links = 0
 for (const file of ['README.md', 'AGENTS.md', ...documents.map(name => `docs/${name}`)]) {

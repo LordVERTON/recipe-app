@@ -3,7 +3,7 @@
 **Objectif :** Décrire le produit réel, ses utilisateurs et ses perspectives sans confondre livraison et intention.
 **Dernière mise à jour :** 2026-10-17
 **Statut :** EXISTANT audité sur `main` à `e89d109`, complété par le nettoyage de cette branche.
-**Documents liés :** [Parcours](APP_FLOW.md), [Architecture](TRD.md), [Roadmap](IMPLEMENTATION_PLAN.md), [Décisions](DECISIONS.md).
+**Documents liés :** [Parcours](APP_FLOW.md), [Architecture](TRD.md), [Roadmap](ROADMAP.md), [Décisions](DECISIONS.md).
 
 ## Vision et périmètre
 
@@ -75,7 +75,7 @@ Sources : [orchestrateur](../components/broco-chou-app.tsx), [store](../lib/stor
 | Could Have | Partage et impression des courses | Partage du plan, restes, batch cooking, recherche plein texte, suggestions selon ingrédients disponibles, estimation de coût |
 | Won't Have pour cette version | — | Google OAuth, Turnstile, Mailjet/Resend applicatifs, refonte UI, domaine payant imposé, synchronisation multi-appareil, pipeline Odélis automatique |
 
-Les priorités et statuts opérationnels uniques sont dans [IMPLEMENTATION_PLAN](IMPLEMENTATION_PLAN.md).
+Les priorités et statuts opérationnels uniques sont dans [ROADMAP](ROADMAP.md).
 
 ## Objectifs et KPI proposés
 

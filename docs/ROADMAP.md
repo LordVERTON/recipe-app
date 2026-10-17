@@ -1,4 +1,4 @@
-# Broco-Chou — Plan d'implémentation et journal
+# Broco-Chou — Roadmap et journal
 
 **Objectif :** Tenir un suivi unique des livraisons, dettes, imports, décisions et vérifications.
 **Dernière mise à jour :** 2026-10-17
@@ -211,6 +211,7 @@ Tests associés relus : [verify-personal-recipes.mjs](../scripts/verify-personal
 | --- | --- | --- | --- | --- | --- |
 | DOC-01 | Consolider les quatre guides et le README | P1 | DONE | Audit complet | Sept documents, README/AGENTS/.env.example, inventaire de reprise, 121 liens locaux et dix diagrammes validés ; anciens guides supprimés après contrôle |
 | DOC-02 | Journal et décisions maintenus après chaque tâche | P1 | DONE | AGENTS | Contrat racine et ADR formalisés, modèle ci-dessous ; statut futur à tenir à jour |
+| DOC-03 | Renommer le suivi canonique en ROADMAP.md | P1 | DONE | DOC-02 | Fichier renommé avec contenu antérieur conservé, références README/AGENTS/sept documents et inventaire du vérificateur actualisés ; contrôle documentaire et `git diff --check` réussis le 2026-10-17 |
 | DEBT-01 | Ressources hors ligne cohérentes avec les seeds | P1 | TODO | CAT-02 | `offline:check` échoue sur URL Pexels dans seed/imports. Ne pas effacer les attributions ni changer les sources pour masquer l'échec |
 | DEBT-02 | Évaluer code non branché et doublons de style/hooks | P2 | TODO | ALG-06, UXD-01 | `recipe-logic` avancé, planning-summary et CSS générique à qualifier avant retrait ; ne pas supprimer sur seul nom |
 | DEBT-03 | Sortir `ignoreBuildErrors` et consolider les validations | P1 | TODO | CI et typage vert | Build ne doit plus masquer TypeScript après décision/tests ; aucune modification de cette option dans cette mission |
@@ -435,7 +436,7 @@ Priorités immédiates : SEC-01 (avis npm), AUTH-03 (capacité d'inscription pub
 
 **Travaux réalisés :** Lecture des références produit, techniques, parcours et design, de `components/swipe-deck.tsx` et des actions du store. Les deux comportements sont déjà implémentés dans les sources ; ajout des lignes UX-07/UX-08 avec preuve de code, conditions et limites, sans développement supplémentaire. Les recettes déjà acceptées sont exclues du complément et la sélection est conservée ; le recommencement est une action distincte qui efface acceptations/refus mais conserve les favoris.
 
-**Fichiers modifiés :** `docs/IMPLEMENTATION_PLAN.md` uniquement pour cette tâche ; changements non sauvegardés préexistants préservés sur `fix/production-recipe-admins`.
+**Fichiers modifiés :** `docs/ROADMAP.md` uniquement pour cette tâche ; changements non sauvegardés préexistants préservés sur `fix/production-recipe-admins`.
 
 **Tests exécutés :** Lecture statique du composant et du store ; `node scripts/verify-documentation.mjs` et `git diff --check` en local : PASS. Sept documents conservés, métadonnées et liens vérifiés, diagrammes inchangés. Aucun code applicatif modifié ; lint, TypeScript, build et tests navigateur non exécutés pour cette tâche documentaire.
 
@@ -451,7 +452,7 @@ Priorités immédiates : SEC-01 (avis npm), AUTH-03 (capacité d'inscription pub
 
 **Travaux réalisés :** Lecture des références canoniques, Git, composants, store, client/mapping Supabase, imports et scripts de vérification. Maintien de la roadmap unique et des anciens ID ; ajout de UX-09, COM-07/08, DB-05/06, IMP-07 et OPS-05 avec sous-tâches cochées seulement sur une vérification précisée. Réponse du propriétaire : To Eat List est la page Notion indiquée, recipe-app désigne ce dépôt ; F inclus après cette confirmation. Lecture seule de cette page, des schémas Recettes/Ingrédients/Meal Plan, de deux lignes de recettes, d'une fiche détaillée et de huit jours de menus échantillonnés. Aucun accès ni changement de la To Do List d'origine. Compétence `notion:notion-research-documentation` appliquée pour relier les preuves Notion et locales ; aucune écriture Notion.
 
-**Fichiers modifiés :** `docs/IMPLEMENTATION_PLAN.md`, `docs/PRD.md`, `docs/TRD.md`. Les modifications antérieures, y compris UX-07/08 et le suivi de modération, sont conservées sur `fix/production-recipe-admins` ; aucune branche de production créée ni fichier applicatif modifié.
+**Fichiers modifiés :** `docs/ROADMAP.md`, `docs/PRD.md`, `docs/TRD.md`. Les modifications antérieures, y compris UX-07/08 et le suivi de modération, sont conservées sur `fix/production-recipe-admins` ; aucune branche de production créée ni fichier applicatif modifié.
 
 **Tests exécutés :**
 
@@ -471,6 +472,38 @@ Priorités immédiates : SEC-01 (avis npm), AUTH-03 (capacité d'inscription pub
 **Blocages :** Semaine cible et source active des menus non confirmées ; quota de requêtes Notion épuisé ; couverture Notion limitée et instantanés datés ; Docker local indisponible. Pas de sauvegarde/restauration To Eat List, de synchronisation applicative ou de tests des modes voix/capture réellement exécutés. Aucune garantie de production nouvelle.
 
 **Prochaines actions :** Suivre l'ordre A–F ci-dessus : restaurer l'environnement de test, vérifier les parcours existants ; définir DB-05/06 et démontrer la récupération durable ; confirmer la période/source IMP-07 ; compléter ensuite voix/photo et autonomie hors ligne. La lecture du menu ciblé pourra être reprise après rétablissement de l'accès aux requêtes Notion. Aucun push ni déploiement réalisé.
+
+### 2026-10-17 — Renommage du document de suivi en ROADMAP.md
+
+**Objectif :** Renommer `IMPLEMENTATION_PLAN.md` en `ROADMAP.md` à la demande du propriétaire.
+
+**Travaux réalisés :** Renommage dans `docs`, titre ajusté, références et libellés actualisés dans README, AGENTS et les documents canoniques ; inventaire du script de vérification documentaire adapté. Comparaison avant/après confirmant la conservation du contenu préexistant hors remplacement du nom et l'absence de modification des diagrammes. DOC-03 consigne la clôture.
+
+**Fichiers modifiés :** `docs/ROADMAP.md` (renommage), README, AGENTS, les six autres documents de `docs` et `scripts/verify-documentation.mjs`. Changements utilisateur préexistants conservés sur la branche courante.
+
+**Tests exécutés :** `node scripts/verify-documentation.mjs`, `node --check scripts/verify-documentation.mjs` et `git diff --check` en local : PASS ; exactement sept documents et 148 liens locaux valides, diagrammes conservés. `npm.cmd run lint` : PASS avec quatre avertissements `<img>` préexistants ; `npm.cmd run build` : PASS ; contrôle TypeScript séparé `node node_modules/typescript/bin/tsc --noEmit` : PASS. Aucun test métier ou navigateur rejoué pour ce renommage ; aucune donnée ou configuration distante modifiée.
+
+**Décisions :** `docs/ROADMAP.md` devient le nom canonique unique du suivi ; les chemins cités dans les entrées précédentes sont actualisés vers ce nom. Aucun changement d'architecture ni ADR nécessaire.
+
+**Blocages :** Aucun pour le renommage.
+
+**Prochaines actions :** Utiliser `docs/ROADMAP.md` pour le suivi des prochaines tâches. Aucun push ni déploiement réalisé.
+
+### 2026-10-17 — Commits séparés des modifications en cours
+
+**Objectif :** Enregistrer les changements existants dans des commits conventionnels distincts, à la demande du propriétaire.
+
+**Travaux réalisés :** Revue des changements sur `fix/production-recipe-admins` et séparation par sujet : correction SQL et test de migration, bilan documentaire Supabase, suivi du swipe, demandes produit/Notion/hors ligne, puis renommage du suivi. Contenu préexistant préservé ; seuls les détails de cette clôture sont ajoutés au journal.
+
+**Fichiers modifiés :** Présent journal ; les autres fichiers en cours sont enregistrés dans leurs commits respectifs, sans nouvelle modification fonctionnelle.
+
+**Tests exécutés :** `npm.cmd run lint` : PASS avec quatre avertissements `<img>` préexistants ; `npm.cmd run build` puis contrôle séparé `node node_modules/typescript/bin/tsc --noEmit` : PASS. Syntaxe des deux scripts de vérification, contrôle documentaire (sept documents, 148 liens locaux) et `git diff --check` : PASS. Test `verify-recipe-review-migrations.mjs` : premier essai bloqué par les permissions Docker de la sandbox, nouvel essai autorisé hors sandbox PASS ; mise à niveau et droits vérifiés dans une base locale éphémère, supprimée en fin de test. Aucun test navigateur ni test API Auth/Storage complet rejoué pour cette mise en commits.
+
+**Décisions :** Conserver la branche courante et séparer les sujets dans l'historique ; aucune nouvelle architecture ni ADR. Aucun push, déploiement ou accès Cloud effectué pendant cette tâche ; l'état distant documenté provient des opérations antérieures.
+
+**Blocages :** Aucun pour les commits locaux. Les limites et tâches métier déjà ouvertes restent inchangées.
+
+**Prochaines actions :** Relire les commits avant une éventuelle intégration ; push et livraison restent à autoriser séparément.
 
 ### Modèle pour les futures sessions
 

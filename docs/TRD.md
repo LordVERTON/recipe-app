@@ -3,7 +3,7 @@
 **Objectif :** Décrire les composants, environnements, conventions et limites techniques vérifiés.
 **Dernière mise à jour :** 2026-10-17
 **Statut :** EXISTANT audité depuis `main/e89d109` ; configuration Cloud lue sans modification.
-**Documents liés :** [Produit](PRD.md), [Parcours](APP_FLOW.md), [Schéma backend](BACKEND_SCHEMA.md), [Design](DESIGN_BRIEF.md), [Roadmap et tests](IMPLEMENTATION_PLAN.md), [ADR](DECISIONS.md).
+**Documents liés :** [Produit](PRD.md), [Parcours](APP_FLOW.md), [Schéma backend](BACKEND_SCHEMA.md), [Design](DESIGN_BRIEF.md), [Roadmap et tests](ROADMAP.md), [ADR](DECISIONS.md).
 
 ## Stack et organisation
 
@@ -90,7 +90,7 @@ Le propriétaire a identifié [To Eat List](https://app.notion.com/p/To-Eat-List
 
 Deux lignes de recettes ont été échantillonnées et [une fiche détaillée](https://app.notion.com/p/360173c57e0481f38766fbe5aa7445a6) lue : son corps contient informations culinaires, ingrédients/quantités, étapes et ID métier ; l'image est une URL Pexels externe présente aussi en couverture. Certains libellés d'étapes de cet échantillon paraissent tronqués ; qualité/complétude à contrôler avant toute reprise automatique. L'existence de ces données dans Notion ne prouve aucun transfert depuis l'application actuelle. Les réponses fetch portent une date d'instantané « as of 2026-05-14 », antérieure à cette revue : fraîcheur non garantie. L'échantillon n'est pas un audit de tout le catalogue.
 
-Recherche dans frontend, API, scripts, migrations, dépendances et exemple de configuration : aucun client Notion, mapping d'identifiants Notion/Supabase, flux de synchronisation ni test de restauration To Eat List trouvé. Les correspondances d'ID, blocs de contenu, unités/portions, catégories, médias durables, auteurs/modération, conflits et suppressions restent un contrat à définir. **Exigence produit** : Notion fait autorité et doit rester récupérable indépendamment de Broco-Chou ; **état technique** : non implémenté. Les tâches et critères uniques sont DB-05/06 dans la [roadmap](IMPLEMENTATION_PLAN.md), sans nouvelle architecture imposée ici.
+Recherche dans frontend, API, scripts, migrations, dépendances et exemple de configuration : aucun client Notion, mapping d'identifiants Notion/Supabase, flux de synchronisation ni test de restauration To Eat List trouvé. Les correspondances d'ID, blocs de contenu, unités/portions, catégories, médias durables, auteurs/modération, conflits et suppressions restent un contrat à définir. **Exigence produit** : Notion fait autorité et doit rester récupérable indépendamment de Broco-Chou ; **état technique** : non implémenté. Les tâches et critères uniques sont DB-05/06 dans la [roadmap](ROADMAP.md), sans nouvelle architecture imposée ici.
 
 ### Calculs réellement appelés
 
@@ -98,7 +98,7 @@ Le store ordonne les suggestions par saison et mélange aléatoire. Le générat
 
 Le score d'équilibre du store totalise saison 20, variété d'ingrédients 20, protéines 20, légumes 15, desserts 10 et non-répétition 15. C'est un indicateur heuristique dépendant de tags et sous-chaînes. `lib/recipe-logic.ts` expose aussi score avancé, répétition à 21/30 jours, conseils et suggestions ; `scoreRecipe`, `sortRecipesForSwipe` et `preventRepetition` ne pilotent pas le swipe actuel. `planning-summary.tsx` utilise conseils/répétition mais n'est pas monté par l'orchestrateur. Ne pas présenter ces helpers comme garanties de filtrage alimentaire.
 
-Quantités : fractions simples ou préfixes numériques, multiplication par `householdSize`, addition de mêmes suffixes d'unité ; sinon concaténation. Pas de conversion inter-unités et pas de division par portions d'origine. Voir les dettes précises dans la [roadmap](IMPLEMENTATION_PLAN.md).
+Quantités : fractions simples ou préfixes numériques, multiplication par `householdSize`, addition de mêmes suffixes d'unité ; sinon concaténation. Pas de conversion inter-unités et pas de division par portions d'origine. Voir les dettes précises dans la [roadmap](ROADMAP.md).
 
 ## Environnements et démarrage
 
@@ -181,7 +181,7 @@ Le propriétaire confirme que « recipe app » désigne ce dépôt Broco-Chou (`
 
 Sur un poste préparé, les dépendances npm et images Docker doivent déjà être présentes. Tester frontend, catalogue, Auth/confirmation Mailpit, création/photo, planning et courses avec WAN coupé, cibles Supabase loopback vérifiées. La première installation npm et le téléchargement des images Docker peuvent demander Internet. Ne pas exécuter de reset ou de seed Cloud pour préparer cet environnement.
 
-Restent liés au réseau : Supabase Cloud lorsque cette cible est choisie, photos Pexels distantes, téléchargements Pexels des imports, opérations Git distantes/Vercel et future synchronisation Notion. `npm.cmd run offline:check` échoue sur les URLs Pexels dans le seed et 12 imports ; les chemins locaux testés passent avant cet échec. Ce contrôle ne mesure pas à lui seul l'autonomie de tous les services. Pas de cache applicatif complet, service worker/PWA ou file de synchronisation hors ligne démontré. [OPS-05 et DEBT-01](IMPLEMENTATION_PLAN.md) suivent les vérifications et corrections ; cette documentation ne déclare pas la version publique utilisable entièrement hors ligne.
+Restent liés au réseau : Supabase Cloud lorsque cette cible est choisie, photos Pexels distantes, téléchargements Pexels des imports, opérations Git distantes/Vercel et future synchronisation Notion. `npm.cmd run offline:check` échoue sur les URLs Pexels dans le seed et 12 imports ; les chemins locaux testés passent avant cet échec. Ce contrôle ne mesure pas à lui seul l'autonomie de tous les services. Pas de cache applicatif complet, service worker/PWA ou file de synchronisation hors ligne démontré. [OPS-05 et DEBT-01](ROADMAP.md) suivent les vérifications et corrections ; cette documentation ne déclare pas la version publique utilisable entièrement hors ligne.
 
 ### Production et Preview
 
@@ -189,7 +189,7 @@ Production : [recipe-app-alpha-wine.vercel.app](https://recipe-app-alpha-wine.ve
 
 Lecture Vercel le 2026-10-17 : trois variables publiques Supabase et `RESEND_API_KEY`, chacune ciblant Production et Preview ; pas de `SUPABASE_SERVICE_ROLE_KEY` ni `CRON_SECRET` dans la liste retournée. Valeurs non déchiffrées. Preview peut donc atteindre la même configuration Cloud ; vérifier les cibles sans exporter de secret, et ne jamais supposer l'isolation de ses écritures. `NODE_ENV=production` dans Preview interdit également l'API save et l'envoi Mailpit.
 
-Déployer seulement après revue de branche, contrôles et autorisation du propriétaire. Les migrations SQL ne sont pas exécutées par le build Vercel. L'audit initial n'a effectué aucune écriture de production ni déploiement ; la livraison ultérieure autorisée sur `main` et ses contrôles sont consignés dans le [journal de session](IMPLEMENTATION_PLAN.md).
+Déployer seulement après revue de branche, contrôles et autorisation du propriétaire. Les migrations SQL ne sont pas exécutées par le build Vercel. L'audit initial n'a effectué aucune écriture de production ni déploiement ; la livraison ultérieure autorisée sur `main` et ses contrôles sont consignés dans le [journal de session](ROADMAP.md).
 
 ## Auth et services d'e-mail
 
@@ -220,7 +220,7 @@ Notifications de modération : transport local Mailpit, outbox durable et repris
 
 `tsconfig.json` active `strict` et `noEmit`. Attention : `next.config.mjs` a `typescript.ignoreBuildErrors=true` ; un build réussi ne remplace donc pas `npx tsc --noEmit`. Images `unoptimized:true` et plusieurs `<img>` expliquent quatre avertissements ESLint. Aucun runner unitaire ni commande `test` ; scripts d'intégration Node et un test navigateur Playwright externe. Ne pas installer une nouvelle dépendance applicative pour les rejouer.
 
-Commandes : `npm ci`, `npm run lint`, `npx tsc --noEmit`, `npm run build`, `npm run offline:check`, `node scripts/verify-documentation.mjs` puis tests locaux décrits dans le [journal](IMPLEMENTATION_PLAN.md). Après changement de branche, les types générés sous `.next` peuvent encore mentionner les routes expérimentales : régénérer les artefacts avant d'attribuer ces erreurs au code de `main`.
+Commandes : `npm ci`, `npm run lint`, `npx tsc --noEmit`, `npm run build`, `npm run offline:check`, `node scripts/verify-documentation.mjs` puis tests locaux décrits dans le [journal](ROADMAP.md). Après changement de branche, les types générés sous `.next` peuvent encore mentionner les routes expérimentales : régénérer les artefacts avant d'attribuer ces erreurs au code de `main`.
 
 Pour la livraison de modération DB-01/COM-06 : `node scripts/verify-recipe-review-migrations.mjs` reconstruit les six migrations initiales dans une base éphémère du conteneur Docker local, puis applique ensemble le workflow et la correction d'adresse. Il contrôle préservation des lignes, droits, confirmation obligatoire, visibilité RLS, validation par un autre compte et nettoyage de sa base. Ses contrats Auth/Storage réduits complètent le test API `verify-personal-recipes.mjs` sur la pile locale réelle ; aucune donnée Cloud n'est copiée dans les fixtures. Livraison autorisée et contrôles Cloud en lecture seule : [BACKEND_SCHEMA](BACKEND_SCHEMA.md).
 

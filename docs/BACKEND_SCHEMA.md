@@ -3,11 +3,11 @@
 **Objectif :** Référencer le schéma versionné, ses permissions et les écarts observés dans Supabase Cloud.
 **Dernière mise à jour :** 2026-10-17
 **Statut :** Huit migrations présentes dans Cloud après livraison autorisée ; droits administrateur et visibilité RLS vérifiés en lecture seule.
-**Documents liés :** [Architecture](TRD.md), [Parcours](APP_FLOW.md), [Roadmap](IMPLEMENTATION_PLAN.md), [Décisions](DECISIONS.md).
+**Documents liés :** [Architecture](TRD.md), [Parcours](APP_FLOW.md), [Roadmap](ROADMAP.md), [Décisions](DECISIONS.md).
 
 ## Portée et état de production
 
-**Ne pas assimiler le schéma versionné au schéma déjà déployé.** Audit initial du projet `cbwrvcifxcqyrgtcpvbd` via API de gestion, requêtes de métadonnées enveloppées dans `begin read only`, sans lecture de comptes ni de recettes privées. Région retournée : `eu-west-1`. Après le diagnostic ciblé, le propriétaire a autorisé l'application des deux migrations manquantes ; l'état actuel ci-dessous est confirmé après livraison. Les preuves sont résumées dans le [journal](IMPLEMENTATION_PLAN.md).
+**Ne pas assimiler le schéma versionné au schéma déjà déployé.** Audit initial du projet `cbwrvcifxcqyrgtcpvbd` via API de gestion, requêtes de métadonnées enveloppées dans `begin read only`, sans lecture de comptes ni de recettes privées. Région retournée : `eu-west-1`. Après le diagnostic ciblé, le propriétaire a autorisé l'application des deux migrations manquantes ; l'état actuel ci-dessous est confirmé après livraison. Les preuves sont résumées dans le [journal](ROADMAP.md).
 
 | Migration | Effet versionné | Historique Cloud au 2026-10-17 |
 | --- | --- | --- |

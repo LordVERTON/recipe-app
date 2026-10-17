@@ -3,7 +3,7 @@
 **Objectif :** Découvrir le projet et lancer un environnement local sûr.
 **Dernière mise à jour :** 2026-10-17
 **Statut :** Audit initial de `main/e89d109`, documentation consolidée et livrée sur `main` ; suivi dans le journal de session.
-**Documents liés :** [PRD](docs/PRD.md), [TRD](docs/TRD.md), [Parcours](docs/APP_FLOW.md), [Design](docs/DESIGN_BRIEF.md), [Backend](docs/BACKEND_SCHEMA.md), [Roadmap](docs/IMPLEMENTATION_PLAN.md), [Décisions](docs/DECISIONS.md).
+**Documents liés :** [PRD](docs/PRD.md), [TRD](docs/TRD.md), [Parcours](docs/APP_FLOW.md), [Design](docs/DESIGN_BRIEF.md), [Backend](docs/BACKEND_SCHEMA.md), [Roadmap](docs/ROADMAP.md), [Décisions](docs/DECISIONS.md).
 
 Broco-Chou aide à choisir des recettes, composer sept jours de repas et préparer ses courses. Pensé pour les étudiants et la cuisine du quotidien, ce projet indépendant s'inspire des calendriers du Crous de Lyon ; il n'est pas un service officiel du Crous.
 
@@ -67,7 +67,7 @@ Ouvrir `http://<IPv4-du-PC>:3000`, adapter `allowedDevOrigins` et les redirectio
 | `node scripts/verify-documentation.mjs` | Sept documents, métadonnées et liens locaux |
 | `npm run offline:check` | Détecter les ressources non autonomes ; échec connu sur les URLs Pexels des imports |
 
-Autres tests, prérequis Playwright, résultats et échecs : [journal de validation](docs/IMPLEMENTATION_PLAN.md). Pour une migration locale additive : `npm exec -- supabase migration up --local`. `npm run supabase:reset` détruit les données locales et rejoue les seeds : ce n'est pas une commande normale de démarrage. Ne jamais exécuter de reset distant.
+Autres tests, prérequis Playwright, résultats et échecs : [journal de validation](docs/ROADMAP.md). Pour une migration locale additive : `npm exec -- supabase migration up --local`. `npm run supabase:reset` détruit les données locales et rejoue les seeds : ce n'est pas une commande normale de démarrage. Ne jamais exécuter de reset distant.
 
 ## Architecture et déploiement
 
@@ -92,7 +92,7 @@ Au 2026-10-17 : SMTP intégré Supabase confirmé en lecture seule, confirmation
 | [APP_FLOW](docs/APP_FLOW.md) | Quels écrans, états et appels ? |
 | [DESIGN_BRIEF](docs/DESIGN_BRIEF.md) | Quels tokens, composants et règles UX ? |
 | [BACKEND_SCHEMA](docs/BACKEND_SCHEMA.md) | Quelles tables, RPC, permissions et divergences Cloud ? |
-| [IMPLEMENTATION_PLAN](docs/IMPLEMENTATION_PLAN.md) | Quelles tâches, dettes, preuves et historique City Café ? |
+| [ROADMAP](docs/ROADMAP.md) | Quelles tâches, dettes, preuves et historique City Café ? |
 | [DECISIONS](docs/DECISIONS.md) | Pourquoi ces choix et quelles propositions restent ouvertes ? |
 
 ## Limites et contributions

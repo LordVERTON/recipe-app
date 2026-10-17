@@ -3,7 +3,7 @@
 **Objectif :** Expliquer les écrans, appels et transitions effectivement implémentés.
 **Dernière mise à jour :** 2026-10-17
 **Statut :** EXISTANT, preuves de validation dans le journal de session.
-**Documents liés :** [Produit](PRD.md), [Architecture](TRD.md), [Backend](BACKEND_SCHEMA.md), [Roadmap](IMPLEMENTATION_PLAN.md).
+**Documents liés :** [Produit](PRD.md), [Architecture](TRD.md), [Backend](BACKEND_SCHEMA.md), [Roadmap](ROADMAP.md).
 
 ## Sitemap et navigation
 
@@ -199,4 +199,4 @@ L'auteur garde l'accès aux trois statuts. Les visiteurs voient uniquement `appr
 
 L'import Instagram est manuel : coller la légende, extraire par expressions régulières, corriger, choisir une image locale, enregistrer avec le service serveur en développement. Il ne scrape pas Instagram et n'utilise pas d'IA.
 
-City Café : JSON de lots, générateur SQL, contrôles de synchronisation et d'images exécutables manuellement. Les scripts qui téléchargent des images utilisent l'API officielle Pexels. Aucun cron Vercel, pipeline Odélis ni génération périodique démontré. Historique, lots et anomalies sont conservés dans [IMPLEMENTATION_PLAN](IMPLEMENTATION_PLAN.md) et les artefacts sous `supabase/new-import/`.
+City Café : JSON de lots, générateur SQL, contrôles de synchronisation et d'images exécutables manuellement. Les scripts qui téléchargent des images utilisent l'API officielle Pexels. Aucun cron Vercel, pipeline Odélis ni génération périodique démontré. Historique, lots et anomalies sont conservés dans [ROADMAP](ROADMAP.md) et les artefacts sous `supabase/new-import/`.
