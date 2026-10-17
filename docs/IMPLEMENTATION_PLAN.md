@@ -21,6 +21,8 @@ Base auditée : `main = origin/main = e89d109`, après fetch, état initial prop
 | UX-04 | Afficher plage de dates et aujourd'hui sans couleur seule | P1 | DONE | ALG-01 | Accueil et calendrier utilisent dates réelles et texte/aria ; `home-dashboard.tsx`, `weekly-calendar.tsx` |
 | UX-05 | Uniformiser prévention des actions destructives | P1 | TODO | ALG-02 | Retrait avec confirmation/annulation déjà livré ; étendre au recommencement swipe et remplacement lors d'un déplacement. Ancienne case globale cochée, requalifiée partielle |
 | UX-06 | Mesurer activation, sélection et retours utilisateurs | P2 | TODO | SEC-04 | Définitions du PRD validées, collecte minimisée et événements testés ; aucun KPI métier mesuré actuellement |
+| UX-07 | Compléter les plats/desserts manquants après avoir parcouru toutes les recettes | P1 | DONE | ALG-04 | EXISTANT dans [swipe-deck.tsx](../components/swipe-deck.tsx) : si les quotas ne sont pas atteints et des candidats restent disponibles, bouton « Compléter les … manquants » avec nombres/types manquants ; relance les cartes de swipe avec les recettes non sélectionnées, y compris refusées, des seuls types déficitaires (plats, desserts et petits-déjeuners si activés). Conserve les choix acceptés et les favoris, sans doublon d'acceptation. Preuve : lecture du code le 2026-10-17 ; parcours navigateur ciblé non exécuté. Limite actuelle : un seul passage de complément par montage du composant |
+| UX-08 | Garder « Recommencer la sélection » discret en bas à gauche, comme une action « Annuler » | P1 | DONE | UX-07 | EXISTANT dans [swipe-deck.tsx](../components/swipe-deck.tsx) : bouton secondaire `ghost`, taille `sm`, texte `text-xs` gris ; aligné à gauche dans la zone basse pendant le swipe et positionné `bottom-2 left-2` sur les écrans de fin. L'action principale reste le complément ou la génération du planning. Preuve : lecture du code le 2026-10-17 ; placement visuel mobile/desktop à vérifier en navigateur. La confirmation du recommencement reste à traiter dans UX-05 |
 
 ## 2. Recettes et catalogue
 
@@ -342,6 +344,22 @@ Priorités immédiates : SEC-01 (avis npm), DB-01 (workflow non déployé), AUTH
 **Blocages :** Aucun pour les migrations et les droits SQL. Pas de test navigateur utilisant les sessions personnelles ni de décision réelle de modération automatisée.
 
 **Prochaines actions :** Recharger le profil de production et examiner/valider la recette depuis l'un des deux comptes ; conserver les changements locaux pour revue et intégration Git séparée. Poursuivre SEC-01 et DB-02 dans des tâches distinctes.
+
+### 2026-10-17 — Suivi du complément de sélection et du recommencement discret
+
+**Objectif :** Ajouter à la roadmap la demande de complément des plats/desserts après épuisement des cartes et de recommencement discret en bas à gauche, après vérification de l'existant.
+
+**Travaux réalisés :** Lecture des références produit, techniques, parcours et design, de `components/swipe-deck.tsx` et des actions du store. Les deux comportements sont déjà implémentés dans les sources ; ajout des lignes UX-07/UX-08 avec preuve de code, conditions et limites, sans développement supplémentaire. Les recettes déjà acceptées sont exclues du complément et la sélection est conservée ; le recommencement est une action distincte qui efface acceptations/refus mais conserve les favoris.
+
+**Fichiers modifiés :** `docs/IMPLEMENTATION_PLAN.md` uniquement pour cette tâche ; changements non sauvegardés préexistants préservés sur `fix/production-recipe-admins`.
+
+**Tests exécutés :** Lecture statique du composant et du store ; `node scripts/verify-documentation.mjs` et `git diff --check` en local : PASS. Sept documents conservés, métadonnées et liens vérifiés, diagrammes inchangés. Aucun code applicatif modifié ; lint, TypeScript, build et tests navigateur non exécutés pour cette tâche documentaire.
+
+**Décisions :** Consigner l'existant avec statut DONE sur preuve de code, conformément aux règles de suivi ; aucune nouvelle architecture ni ADR. Aucun push, déploiement ou changement de configuration distante effectué.
+
+**Blocages :** Aucun pour le suivi documentaire. Le complément n'est proposé qu'avant le premier passage de complément et s'il existe des candidats ; la position réellement affichée et le comportement en production ne sont pas validés par cette lecture.
+
+**Prochaines actions :** Vérifier en navigateur mobile/desktop l'épuisement des cartes avec plats/desserts manquants, la conservation des choix, l'absence de doublons et la visibilité du recommencement ; poursuivre UX-05 pour sa confirmation.
 
 ### Modèle pour les futures sessions
 
