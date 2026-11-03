@@ -1,6 +1,7 @@
 "use client"
 
 import { useRef, useState, type FormEvent } from 'react'
+import Link from 'next/link'
 import { supabase } from '@/lib/supabase-client'
 import { authErrorMessage } from '@/lib/auth-errors'
 import { useAccount } from './account-provider'
@@ -101,5 +102,6 @@ export function RecipeAccount() {
       <Button type="button" variant="ghost" disabled={busy} onClick={() => { setSignup(!signup); setForgot(false); setMessage(''); setConfirmationPending(false) }}>{signup ? 'J’ai déjà un compte' : 'Créer un compte'}</Button>
     </div>
     <Button type="button" variant="ghost" disabled={busy} onClick={() => { setForgot(!forgot); setMessage(''); setConfirmationPending(false) }}>{forgot ? 'Retour à la connexion' : 'Mot de passe oublié ?'}</Button>
+    <p className="text-xs text-warm-gray"><Link className="underline" href="/privacy">Confidentialité et données personnelles</Link></p>
   </form>
 }
