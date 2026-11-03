@@ -54,7 +54,6 @@ function BrocoChouContent({ isRecipeFormOpen, setIsRecipeFormOpen }: { isRecipeF
     createWeeklyPlan,
     generateGroceryList,
     weeklyPlan,
-    addRecipeToAccepted,
   } = useBrocoChouStore();
 
   if (!hasCompletedOnboarding && !reviewIntent) {
@@ -102,7 +101,7 @@ function BrocoChouContent({ isRecipeFormOpen, setIsRecipeFormOpen }: { isRecipeF
         );
       case "calendar":
         if (isPlanEditorOpen) {
-          return <WeeklyPlanEditor initialQuery={planQuery} onDone={() => setIsPlanEditorOpen(false)} />;
+          return <WeeklyPlanEditor key={planQuery} initialQuery={planQuery} onViewRecipe={openRecipeDetails} onDone={() => setIsPlanEditorOpen(false)} />;
         }
         return (
           <WeeklyCalendar
@@ -160,9 +159,8 @@ function BrocoChouContent({ isRecipeFormOpen, setIsRecipeFormOpen }: { isRecipeF
         onAddToPlanning={
           selectedRecipe && (selectedRecipe.moderationStatus === 'approved' || !selectedRecipe.moderationStatus || selectedRecipe.createdBy === user?.id)
             ? () => {
-                addRecipeToAccepted(selectedRecipe);
+                planPersonalRecipe(selectedRecipe);
                 setSelectedRecipe(null);
-                setActiveTab("swipe");
               }
             : undefined
         }

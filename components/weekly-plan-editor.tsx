@@ -1,16 +1,19 @@
 "use client"
 
-import { useMemo, useState } from "react"
+import { useMemo, useRef, useState } from "react"
 import { AlertTriangle, Check, ChevronLeft, ChevronRight, PencilLine, Plus, RotateCcw, Search, X } from "lucide-react"
 import { useBrocoChouStore } from "@/lib/store"
 import type { MealSlot, PlannedMeal, Recipe, Season } from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { recipeTitle } from "@/lib/recipe-images"
+import { normalizeRecipeSearch } from "@/lib/recipe-search"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "./ui/dialog"
 
 interface WeeklyPlanEditorProps {
   onDone: () => void
   initialQuery?: string
+  onViewRecipe: (recipe: Recipe) => void
 }
 
 const mealSlots: { id: MealSlot; label: string; description: string }[] = [
@@ -36,10 +39,15 @@ function getDayLabel(date: Date, short = false) {
   }).format(date)
 }
 
-export function WeeklyPlanEditor({ onDone, initialQuery = '' }: WeeklyPlanEditorProps) {
+export function WeeklyPlanEditor({ onDone, initialQuery = '', onViewRecipe }: WeeklyPlanEditorProps) {
   const { weeklyPlan, recipeCatalog, preferences, setMealInPlan, removeMealFromPlan } = useBrocoChouStore()
   const [selectedDay, setSelectedDay] = useState(0)
   const [query, setQuery] = useState(initialQuery)
+  const [visibleCount, setVisibleCount] = useState(20)
+  const searchInput = useRef<HTMLInputElement>(null)
+  const [selectedSlot, setSelectedSlot] = useState<MealSlot>(preferences.mealSlots[0] ?? 'dejeuner')
+  const [pendingReplacement, setPendingReplacement] = useState<{ recipe: Recipe; meal: PlannedMeal; date: Date; slot: MealSlot } | null>(null)
+  const [feedback, setFeedback] = useState('')
   const [season, setSeason] = useState<Season | "all">("all")
   const [maxTime, setMaxTime] = useState<number | "all">("all")
   const [diet, setDiet] = useState<"all" | "vegetarien" | "poisson">("all")
@@ -66,16 +74,17 @@ export function WeeklyPlanEditor({ onDone, initialQuery = '' }: WeeklyPlanEditor
   }, [recipeCatalog, weeklyPlan])
 
   const filteredRecipes = useMemo(() => {
-    const normalizedQuery = query.trim().toLocaleLowerCase("fr-FR")
+    const words = normalizeRecipeSearch(query).split(' ').filter(Boolean)
     return recipes.filter(recipe => {
-      const matchesQuery = !normalizedQuery || recipeTitle(recipe).toLocaleLowerCase("fr-FR").includes(normalizedQuery)
+      const title = normalizeRecipeSearch(recipeTitle(recipe))
+      const matchesQuery = words.every(word => title.includes(word))
       const matchesSeason = season === "all" || recipe.saison === season
       const matchesTime = maxTime === "all" || (recipe.estimatedTime ?? Number.POSITIVE_INFINITY) <= maxTime
       const tags = recipe.dietary_tags?.map(tag => tag.toLocaleLowerCase("fr-FR")) ?? []
       const matchesDiet = diet === "all" || (diet === "vegetarien" ? tags.includes("végétarien") : tags.includes("poisson"))
       const matchesEquipment = equipment === "all" || recipe.equipment?.some(item => item === equipment)
       return matchesQuery && matchesSeason && matchesTime && matchesDiet && matchesEquipment
-    })
+    }).sort((a, b) => recipeTitle(a).localeCompare(recipeTitle(b), 'fr'))
   }, [diet, equipment, maxTime, query, recipes, season])
 
   const equipmentOptions = useMemo(() => Array.from(new Set(recipes.flatMap(recipe => recipe.equipment ?? []))).sort(), [recipes])
@@ -90,9 +99,16 @@ export function WeeklyPlanEditor({ onDone, initialQuery = '' }: WeeklyPlanEditor
   const visibleMealSlots = mealSlots.filter(slot => preferences.mealSlots.includes(slot.id))
   const slotsToDisplay = visibleMealSlots.length > 0 ? visibleMealSlots : mealSlots
 
-  const updateSlot = (slot: MealSlot, recipeId: string) => {
-    const recipe = recipes.find(candidate => candidate.id === recipeId)
-    if (recipe) setMealInPlan(activeDate, slot, recipe)
+  const activeSlot = slotsToDisplay.find(slot => slot.id === selectedSlot) ?? slotsToDisplay[0]
+  const addRecipe = (recipe: Recipe) => {
+    const meal = getMeal(activeSlot.id)
+    if (weeklyPlan.meals.some(planned => planned.recipeId === recipe.id)) return
+    if (meal) {
+      setPendingReplacement({ recipe, meal, date: activeDate, slot: activeSlot.id })
+      return
+    }
+    setMealInPlan(activeDate, activeSlot.id, recipe)
+    setFeedback(`${recipeTitle(recipe)} ajouté au ${activeSlot.label.toLowerCase()} du ${getDayLabel(activeDate)}.`)
   }
 
   const requestRemoval = (slot: MealSlot) => {
@@ -127,57 +143,6 @@ export function WeeklyPlanEditor({ onDone, initialQuery = '' }: WeeklyPlanEditor
           Tes changements sont enregistrés automatiquement. La liste de courses sera actualisée quand tu la régénéreras.
         </p>
 
-        <div className="mt-4 rounded-2xl bg-card p-3 broco-chou-shadow">
-          <label className="sr-only" htmlFor="recipe-search">Rechercher une recette</label>
-          <div className="flex items-center gap-2 rounded-xl border border-soft-sand bg-warm-ivory px-3">
-            <Search className="h-4 w-4 text-warm-gray" />
-            <input
-              id="recipe-search"
-              type="search"
-              value={query}
-              onChange={event => setQuery(event.target.value)}
-              placeholder="Rechercher une recette"
-              className="min-h-10 w-full bg-transparent text-sm text-charcoal-soft outline-none placeholder:text-warm-gray"
-            />
-          </div>
-          <div className="mt-2 grid grid-cols-2 gap-2">
-            <label className="text-xs text-warm-gray">
-              Saison
-              <select value={season} onChange={event => setSeason(event.target.value as Season | "all")} className="mt-1 min-h-10 w-full rounded-lg border border-soft-sand bg-warm-ivory px-2 text-sm text-charcoal-soft">
-                <option value="all">Toutes</option>
-                <option value="hiver">Hiver</option>
-                <option value="printemps">Printemps</option>
-                <option value="été">Été</option>
-                <option value="automne">Automne</option>
-              </select>
-            </label>
-            <label className="text-xs text-warm-gray">
-              Temps maximum
-              <select value={maxTime} onChange={event => setMaxTime(event.target.value === "all" ? "all" : Number(event.target.value))} className="mt-1 min-h-10 w-full rounded-lg border border-soft-sand bg-warm-ivory px-2 text-sm text-charcoal-soft">
-                <option value="all">Sans limite</option>
-                <option value="20">20 minutes</option>
-                <option value="40">40 minutes</option>
-                <option value="60">1 heure</option>
-              </select>
-            </label>
-            <label className="text-xs text-warm-gray">
-              Régime
-              <select value={diet} onChange={event => setDiet(event.target.value as typeof diet)} className="mt-1 min-h-10 w-full rounded-lg border border-soft-sand bg-warm-ivory px-2 text-sm text-charcoal-soft">
-                <option value="all">Tous</option>
-                <option value="vegetarien">Végétarien</option>
-                <option value="poisson">Poisson</option>
-              </select>
-            </label>
-            <label className="text-xs text-warm-gray">
-              Équipement
-              <select value={equipment} onChange={event => setEquipment(event.target.value)} className="mt-1 min-h-10 w-full rounded-lg border border-soft-sand bg-warm-ivory px-2 text-sm text-charcoal-soft">
-                <option value="all">Tout équipement</option>
-                {equipmentOptions.map(item => <option key={item} value={item}>{item}</option>)}
-              </select>
-            </label>
-          </div>
-          <p className="mt-2 text-xs text-warm-gray">{filteredRecipes.length} recettes correspondent aux filtres.</p>
-        </div>
       </header>
 
       <div className="mb-5 px-4">
@@ -242,15 +207,90 @@ export function WeeklyPlanEditor({ onDone, initialQuery = '' }: WeeklyPlanEditor
                 key={slot.id}
                 slot={slot}
                 meal={meal?.recipe}
-                recipes={filteredRecipes.filter(recipe =>
-                  recipe.id === meal?.recipeId || !weeklyPlan.meals.some(plannedMeal => plannedMeal.recipeId === recipe.id)
-                )}
-                onChange={recipeId => updateSlot(slot.id, recipeId)}
+                selected={slot.id === activeSlot.id}
+                onSelect={() => { setSelectedSlot(slot.id); setFeedback(''); searchInput.current?.focus() }}
                 onClear={() => requestRemoval(slot.id)}
               />
             )
           })}
         </div>
+        <section className="mt-6" aria-labelledby="recipe-results-title">
+          <h2 id="recipe-results-title" className="text-lg font-semibold text-charcoal-soft">Choisir un plat</h2>
+          <p className="mt-1 text-sm text-warm-gray">Pour le {activeSlot.label.toLowerCase()} du {getDayLabel(activeDate)}. Choisis un autre créneau ci-dessus si besoin.</p>
+        <div className="mt-4 rounded-2xl bg-card p-3 broco-chou-shadow">
+          <label className="sr-only" htmlFor="recipe-search">Rechercher une recette</label>
+          <div className="flex items-center gap-2 rounded-xl border border-soft-sand bg-warm-ivory px-3">
+            <Search className="h-4 w-4 text-warm-gray" />
+            <input
+              ref={searchInput}
+              id="recipe-search"
+              type="search"
+              value={query}
+              onChange={event => { setQuery(event.target.value); setVisibleCount(20); setFeedback('') }}
+              placeholder="Quel plat veux-tu cuisiner ?"
+              className="min-h-10 w-full bg-transparent text-sm text-charcoal-soft outline-none placeholder:text-warm-gray"
+            />
+          </div>
+          <details className="mt-3">
+          <summary className="cursor-pointer text-sm font-medium text-mauve-taupe">Filtres{[season, maxTime, diet, equipment].filter(value => value !== 'all').length > 0 ? ' actifs' : ' (facultatifs)'}</summary>
+          <div className="mt-2 grid grid-cols-2 gap-2">
+            <label className="text-xs text-warm-gray">
+              Saison
+              <select value={season} onChange={event => setSeason(event.target.value as Season | "all")} className="mt-1 min-h-10 w-full rounded-lg border border-soft-sand bg-warm-ivory px-2 text-sm text-charcoal-soft">
+                <option value="all">Toutes</option>
+                <option value="hiver">Hiver</option>
+                <option value="printemps">Printemps</option>
+                <option value="été">Été</option>
+                <option value="automne">Automne</option>
+              </select>
+            </label>
+            <label className="text-xs text-warm-gray">
+              Temps maximum
+              <select value={maxTime} onChange={event => setMaxTime(event.target.value === "all" ? "all" : Number(event.target.value))} className="mt-1 min-h-10 w-full rounded-lg border border-soft-sand bg-warm-ivory px-2 text-sm text-charcoal-soft">
+                <option value="all">Sans limite</option>
+                <option value="20">20 minutes</option>
+                <option value="40">40 minutes</option>
+                <option value="60">1 heure</option>
+              </select>
+            </label>
+            <label className="text-xs text-warm-gray">
+              Régime
+              <select value={diet} onChange={event => setDiet(event.target.value as typeof diet)} className="mt-1 min-h-10 w-full rounded-lg border border-soft-sand bg-warm-ivory px-2 text-sm text-charcoal-soft">
+                <option value="all">Tous</option>
+                <option value="vegetarien">Végétarien</option>
+                <option value="poisson">Poisson</option>
+              </select>
+            </label>
+            <label className="text-xs text-warm-gray">
+              Équipement
+              <select value={equipment} onChange={event => setEquipment(event.target.value)} className="mt-1 min-h-10 w-full rounded-lg border border-soft-sand bg-warm-ivory px-2 text-sm text-charcoal-soft">
+                <option value="all">Tout équipement</option>
+                {equipmentOptions.map(item => <option key={item} value={item}>{item}</option>)}
+              </select>
+            </label>
+          </div>
+          </details>
+          {(query || [season, maxTime, diet, equipment].some(value => value !== 'all')) && <button type="button" onClick={() => { setQuery(''); setSeason('all'); setMaxTime('all'); setDiet('all'); setEquipment('all'); searchInput.current?.focus() }} className="mt-2 min-h-11 text-sm text-mauve-taupe">Effacer la recherche et les filtres</button>}
+        </div>
+          <p role="status" className="my-3 text-sm text-deep-plum">{feedback || `${filteredRecipes.length} recette${filteredRecipes.length > 1 ? 's' : ''} trouvée${filteredRecipes.length > 1 ? 's' : ''}`}</p>
+          {filteredRecipes.length === 0 ? <p className="rounded-2xl bg-card p-4 text-sm text-charcoal-soft">Aucune recette trouvée. Essaie un autre nom ou efface les filtres.</p> : (
+            <ul className="grid gap-3 md:grid-cols-2">
+              {filteredRecipes.slice(0, visibleCount).map(recipe => {
+                const planned = weeklyPlan.meals.find(meal => meal.recipeId === recipe.id)
+                return <li key={recipe.id} className="min-w-0 rounded-2xl bg-card p-4 broco-chou-shadow">
+                  <h3 className="break-words font-semibold text-charcoal-soft">{recipeTitle(recipe)}</h3>
+                  <p className="mt-1 text-sm text-warm-gray">{recipe.estimatedTime ? `${recipe.estimatedTime} min · ` : ''}{recipe.portions}{recipe.moderationStatus === 'pending' ? ' · En attente de validation' : recipe.moderationStatus === 'rejected' ? ' · Privée' : ''}</p>
+                  {planned && <p className="mt-2 text-sm text-deep-plum">Déjà prévu : {mealSlots.find(slot => slot.id === planned.mealSlot)?.label}, {getDayLabel(new Date(planned.dayDate))}</p>}
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    <Button type="button" variant="outline" onClick={() => onViewRecipe(recipe)} aria-label={`Voir la recette ${recipeTitle(recipe)}`}>Voir la recette</Button>
+                    <Button type="button" disabled={!!planned} onClick={() => addRecipe(recipe)} aria-label={`Choisir ${recipeTitle(recipe)}`} className="min-h-11 bg-mauve-taupe text-white hover:bg-deep-plum">{planned ? 'Déjà au planning' : getMeal(activeSlot.id) ? 'Remplacer ce repas' : 'Choisir ce plat'}</Button>
+                  </div>
+                </li>
+              })}
+            </ul>
+          )}
+          {filteredRecipes.length > visibleCount && <Button type="button" variant="outline" className="mt-4 min-h-11 w-full" onClick={() => setVisibleCount(count => count + 20)}>Afficher plus de recettes</Button>}
+        </section>
       </main>
 
       <div className="px-6 pt-6">
@@ -292,6 +332,23 @@ export function WeeklyPlanEditor({ onDone, initialQuery = '' }: WeeklyPlanEditor
           </div>
         </div>
       )}
+      <Dialog open={!!pendingReplacement} onOpenChange={open => { if (!open) setPendingReplacement(null) }}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Remplacer ce repas ?</DialogTitle>
+            <DialogDescription>{pendingReplacement && `${recipeTitle(pendingReplacement.meal.recipe)} sera remplacé par ${recipeTitle(pendingReplacement.recipe)} pour le ${mealSlots.find(slot => slot.id === pendingReplacement.slot)?.label.toLowerCase()} du ${getDayLabel(pendingReplacement.date)}.`}</DialogDescription>
+          </DialogHeader>
+          <div className="flex gap-3">
+            <Button variant="outline" onClick={() => setPendingReplacement(null)}>Annuler</Button>
+            <Button onClick={() => {
+              if (!pendingReplacement) return
+              setMealInPlan(pendingReplacement.date, pendingReplacement.slot, pendingReplacement.recipe)
+              setFeedback(`${recipeTitle(pendingReplacement.recipe)} ajouté en remplacement.`)
+              setPendingReplacement(null)
+            }}>Confirmer le remplacement</Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }
@@ -299,19 +356,18 @@ export function WeeklyPlanEditor({ onDone, initialQuery = '' }: WeeklyPlanEditor
 function MealSlotPicker({
   slot,
   meal,
-  recipes,
-  onChange,
+  selected,
+  onSelect,
   onClear,
 }: {
   slot: (typeof mealSlots)[number]
   meal?: Recipe
-  recipes: Recipe[]
-  onChange: (recipeId: string) => void
+  selected: boolean
+  onSelect: () => void
   onClear: () => void
 }) {
-  const options = meal && !recipes.some(recipe => recipe.id === meal.id) ? [meal, ...recipes] : recipes
   return (
-    <section className="rounded-2xl bg-card p-4 broco-chou-shadow">
+    <section className={cn("min-w-0 rounded-2xl border bg-card p-4 broco-chou-shadow", selected ? 'border-mauve-taupe' : 'border-transparent')}>
       <div className="mb-3 flex items-center justify-between gap-3">
         <div>
           <h3 className="font-semibold text-charcoal-soft">{slot.label}</h3>
@@ -330,19 +386,15 @@ function MealSlotPicker({
           <span className="inline-flex items-center gap-1 text-xs text-mauve-taupe"><Plus className="h-3.5 w-3.5" /> À choisir</span>
         )}
       </div>
-      <label className="sr-only" htmlFor={`meal-${slot.id}`}>{slot.label}</label>
-      <select
-        id={`meal-${slot.id}`}
-        value={meal?.id ?? ""}
-        onChange={event => onChange(event.target.value)}
-        className="min-h-11 w-full rounded-xl border border-soft-sand bg-warm-ivory px-3 text-sm text-charcoal-soft outline-none focus:border-dusty-violet focus:ring-2 focus:ring-dusty-violet/30"
+      <button
+        type="button"
+        aria-pressed={selected}
+        onClick={onSelect}
+        className="min-h-11 w-full rounded-xl border border-soft-sand bg-warm-ivory px-3 py-2 text-left text-sm text-charcoal-soft focus-visible:ring-2 focus-visible:ring-dusty-violet"
       >
-        <option value="">Aucune recette prévue</option>
-        {options.map(recipe => (
-          <option key={recipe.id} value={recipe.id}>{recipeTitle(recipe)}{recipe.moderationStatus === 'pending' ? ' · En attente de validation' : recipe.moderationStatus === 'rejected' ? ' · Privée' : ''}</option>
-        ))}
-      </select>
-      {meal && <p className="mt-2 truncate text-xs text-mauve-taupe">Prévu : {recipeTitle(meal)}</p>}
+        Choisir pour {slot.label.toLowerCase()}
+      </button>
+      <p className="mt-2 break-words text-sm text-mauve-taupe">{meal ? `Prévu : ${recipeTitle(meal)}` : 'Aucune recette prévue'}</p>
     </section>
   )
 }
