@@ -8,6 +8,8 @@ const localSupabase = process.env.NODE_ENV === "development"
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Keep the repository's maintained AGENTS.md stable across dev starts.
+  agentRules: false,
   allowedDevOrigins: ["172.20.10.3", "192.168.1.5"],
   // The browser uses the Next.js origin, including when opened from a phone.
   // Only local development can expose this proxy; Cloud URLs stay direct.

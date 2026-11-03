@@ -7,12 +7,21 @@ const root = process.cwd()
 const target = path.join(root, ".env.development.local")
 const require = createRequire(import.meta.url)
 const cli = path.join(path.dirname(require.resolve("supabase/package.json")), "dist", "supabase.js")
-const output = execFileSync(process.execPath, [cli, "status", "-o", "env"], { cwd: root, encoding: "utf8" })
-
-const values = Object.fromEntries([...output.matchAll(/^([A-Z_]+)=(?:"([^"]*)"|(.*))$/gm)].map(([, key, quoted, plain]) => [key, quoted ?? plain]))
+let values
+try {
+  const output = execFileSync(process.execPath, [cli, "status", "-o", "json"], {
+    cwd: root, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"],
+  })
+  values = JSON.parse(output)
+} catch {
+  // An execFileSync error contains stdout, potentially including local secrets.
+  throw new Error("Statut Supabase local indisponible. Démarre Docker et npx supabase start, puis réessaie.")
+}
 const required = ["API_URL", "ANON_KEY", "SERVICE_ROLE_KEY"]
 if (!required.every(key => values[key])) throw new Error("Supabase n'a pas retourné les variables locales attendues.")
-if (!["127.0.0.1", "localhost"].includes(new URL(values.API_URL).hostname)) {
+const apiUrl = new URL(values.API_URL)
+if (apiUrl.protocol !== 'http:' || apiUrl.username || apiUrl.password
+  || !["127.0.0.1", "localhost"].includes(apiUrl.hostname)) {
   throw new Error("Configuration refusée : Supabase doit désigner l'instance locale.")
 }
 

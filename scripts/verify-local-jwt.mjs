@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { parseEnv } from 'node:util'
 import { createClient } from '@supabase/supabase-js'
-import { confirmLocalTestSignup } from './confirm-local-test-signup.mjs'
+import { confirmLocalTestSignup, removeLocalTestSignupMail } from './confirm-local-test-signup.mjs'
 
 // Exercise real Auth-issued JWTs; anonymous keys alone cannot expose this bug.
 // Only local credentials are loaded. No existing account is modified.
@@ -50,4 +50,5 @@ try {
     assert.ifError((await admin.auth.admin.deleteUser(userId)).error)
     console.log('Temporary local account removed.')
   }
+  await removeLocalTestSignupMail(email)
 }

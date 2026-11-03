@@ -22,3 +22,19 @@ export async function confirmLocalTestSignup({ admin, client, email, password, s
   assert.ok(verified.data.session)
   assert.equal(verified.data.user.id, signup.data.user.id)
 }
+
+// Delete only messages addressed to this test's unique fictitious account.
+// Never clear the inbox or select a message by subject alone.
+export async function removeLocalTestSignupMail(email) {
+  assert.match(email, /^(?:local-auth|jwt-check)-[a-f0-9-]+@example\.com$/)
+  const inbox = 'http://127.0.0.1:54324'
+  const result = await fetch(`${inbox}/api/v1/search?query=${encodeURIComponent(`to:${email}`)}`, { signal: AbortSignal.timeout(10000) })
+  assert.ok(result.ok, 'Local Mailpit search failed during fixture cleanup')
+  const messages = (await result.json()).messages ?? []
+  const ids = messages.filter(message => message.To.some(to => to.Address === email)).map(message => message.ID)
+  if (!ids.length) return
+  const removed = await fetch(`${inbox}/api/v1/messages`, {
+    method: 'DELETE', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ IDs: ids }), signal: AbortSignal.timeout(10000),
+  })
+  assert.ok(removed.ok, 'Local Mailpit fixture cleanup failed')
+}

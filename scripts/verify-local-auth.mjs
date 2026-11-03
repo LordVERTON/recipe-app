@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { parseEnv } from 'node:util'
 import { createClient } from '@supabase/supabase-js'
-import { confirmLocalTestSignup } from './confirm-local-test-signup.mjs'
+import { confirmLocalTestSignup, removeLocalTestSignupMail } from './confirm-local-test-signup.mjs'
 
 // Never load Cloud credentials. All test data is removed in finally.
 const env = parseEnv(readFileSync('.env.development.local', 'utf8'))
@@ -49,4 +49,5 @@ try {
 } finally {
   if (photoPath) assert.ifError((await admin.storage.from('recipe-photos').remove([photoPath])).error)
   if (userId) assert.ifError((await admin.auth.admin.deleteUser(userId)).error)
+  await removeLocalTestSignupMail(email)
 }
