@@ -1,5 +1,6 @@
 import type { Ingredient, Recipe, Season } from "./types"
 import { supabase } from './supabase-client'
+import { restoreRecipePreparation } from './recipe-preparation'
 
 type SupabaseRecipeRow = Record<string, unknown>
 
@@ -97,7 +98,7 @@ export function mapRecipeRow(row: SupabaseRecipeRow, index = 0): Recipe {
   const nom = asString(row.nom ?? row.name ?? row.title, `Recette ${index + 1}`)
   const ingredients = asIngredients(row.ingredients ?? row.ingredient_list ?? row.liste_ingredients)
 
-  return {
+  return restoreRecipePreparation({
     createdBy: asString(row.created_by) || undefined,
     moderationStatus: asString(row.moderation_status, 'approved') as Recipe['moderationStatus'],
     moderationNote: asString(row.moderation_note),
@@ -131,7 +132,7 @@ export function mapRecipeRow(row: SupabaseRecipeRow, index = 0): Recipe {
     main_ingredients: asStringArray(row.main_ingredients ?? row.ingredients_principaux),
     equipment: asStringArray(row.equipment ?? row.equipement),
     canonical_ingredients_status: asString(row.canonical_ingredients_status, "verified") as Recipe["canonical_ingredients_status"],
-  }
+  })
 }
 
 export async function fetchSupabaseRecipes(): Promise<Recipe[]> {

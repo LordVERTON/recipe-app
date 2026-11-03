@@ -1,7 +1,6 @@
 "use client"
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { useRef, useState } from "react"
 import { X, Clock, Users, ChefHat, Leaf, Fish, Flame, Microwave, Check, Star, Calendar, AlertCircle } from "lucide-react"
 import type { Recipe } from "@/lib/types"
 import { SEASONS_FR } from "@/lib/types"
@@ -9,6 +8,8 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { getRecipeImageUrl, recipeTitle } from "@/lib/recipe-images"
 import { RecipeImage } from './recipe-image'
+import { Dialog, DialogContent, DialogTitle } from './ui/dialog'
+import { hasBriefPreparation, preparationSteps, restoreRecipePreparation } from '@/lib/recipe-preparation'
 
 interface RecipeDetailSheetProps {
   recipe: Recipe | null
@@ -26,12 +27,15 @@ interface RecipeChecks {
 const emptyRecipeChecks = new Set<number>()
 
 export function RecipeDetailSheet({ 
-  recipe, 
+  recipe: inputRecipe,
   isOpen, 
   onClose,
   onAddToPlanning,
   onAddToFavorites 
 }: RecipeDetailSheetProps) {
+  const recipe = inputRecipe ? restoreRecipePreparation(inputRecipe) : null
+  const steps = preparationSteps(recipe?.instructions ?? [])
+  const returnFocus = useRef<HTMLElement | null>(null)
   const [checkedStepsState, setCheckedStepsState] = useState<RecipeChecks>({ recipeId: null, items: new Set() })
   const [checkedIngredientsState, setCheckedIngredientsState] = useState<RecipeChecks>({ recipeId: null, items: new Set() })
   const checkedSteps = checkedStepsState.recipeId === recipe?.id ? checkedStepsState.items : emptyRecipeChecks
@@ -64,25 +68,13 @@ export function RecipeDetailSheet({
   if (!recipe) return null
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <>
-          {/* Backdrop */}
-          <motion.div
-            className="fixed inset-0 bg-charcoal-soft/40 z-50"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={onClose}
-          />
-
-          {/* Sheet */}
-          <motion.div
-            className="fixed inset-x-0 bottom-0 z-50 max-h-[90vh] overflow-hidden rounded-t-3xl bg-warm-ivory"
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+    <Dialog open={isOpen} onOpenChange={open => { if (!open) onClose() }}>
+          <DialogContent
+            showCloseButton={false}
+            onOpenAutoFocus={() => { returnFocus.current = document.activeElement instanceof HTMLElement ? document.activeElement : null }}
+            onCloseAutoFocus={event => { event.preventDefault(); returnFocus.current?.focus() }}
+            aria-describedby={undefined}
+            className="top-auto bottom-0 block max-h-[90dvh] w-full max-w-full translate-y-0 gap-0 overflow-hidden rounded-t-3xl border-0 bg-warm-ivory p-0 sm:max-w-3xl"
           >
             {/* Handle */}
             <div className="flex justify-center py-3">
@@ -99,7 +91,7 @@ export function RecipeDetailSheet({
             </button>
 
             {/* Content */}
-            <div className="overflow-y-auto max-h-[calc(90vh-3rem)] pb-safe hide-scrollbar">
+            <div className="overflow-y-auto max-h-[calc(90dvh-3rem)] pb-safe">
               {/* Header Section */}
               <div className="px-6 pb-4">
                 {/* Source Badge */}
@@ -118,9 +110,9 @@ export function RecipeDetailSheet({
                 </div>
 
                 {/* Title */}
-                <h2 className="text-2xl font-bold text-charcoal-soft mb-3 text-pretty">
+                <DialogTitle className="text-2xl font-bold text-charcoal-soft mb-3 text-pretty">
                   {recipeTitle(recipe)}
-                </h2>
+                </DialogTitle>
 
                 {/* Meta Info */}
                 <div className="flex flex-wrap items-center gap-4 text-sm text-warm-gray">
@@ -234,6 +226,7 @@ export function RecipeDetailSheet({
                       </div>
                       <span className="text-sm">
                         {ing.quantity && <span className="font-medium">{ing.quantity} </span>}
+                        {ing.unit && <span>{ing.unit} </span>}
                         {ing.name}
                       </span>
                     </button>
@@ -254,11 +247,17 @@ export function RecipeDetailSheet({
                     </button>
                   )}
                 </div>
-                <div className="space-y-3">
-                  {recipe.instructions.map((step, index) => (
+                {steps.length > 0 ? <>
+                {hasBriefPreparation(steps) && <p className="mb-3 rounded-xl bg-lavender/30 p-3 text-sm text-deep-plum">Cette préparation est très succincte. Vérifie les ingrédients et les indications de cuisson avant de commencer.</p>}
+                <p role="status" className="mb-3 text-sm text-warm-gray">{checkedSteps.size} / {steps.length} étapes terminées</p>
+                <ol className="space-y-3">
+                  {steps.map((step, index) => (
+                    <li key={index}>
                     <button
-                      key={index}
+                      type="button"
                       onClick={() => toggleStep(index)}
+                      aria-pressed={checkedSteps.has(index)}
+                      aria-label={`Étape ${index + 1} : ${step}`}
                       className={cn(
                         "w-full flex items-start gap-3 p-4 rounded-xl transition-all text-left",
                         checkedSteps.has(index) 
@@ -278,17 +277,14 @@ export function RecipeDetailSheet({
                           index + 1
                         )}
                       </div>
-                      <p className={cn(
-                        "text-sm leading-relaxed pt-1",
-                        checkedSteps.has(index) 
-                          ? "text-warm-gray line-through" 
-                          : "text-charcoal-soft"
-                      )}>
+                      <span className="min-w-0 flex-1 whitespace-pre-line break-words text-base leading-7 text-charcoal-soft">
                         {step}
-                      </p>
+                      </span>
                     </button>
+                    </li>
                   ))}
-                </div>
+                </ol>
+                </> : <p className="rounded-xl bg-card p-4 text-sm text-charcoal-soft">Les étapes de préparation ne sont pas encore renseignées pour cette recette.</p>}
               </div>
 
               {/* Tips Section */}
@@ -334,9 +330,7 @@ export function RecipeDetailSheet({
                 )}
               </div>
             </div>
-          </motion.div>
-        </>
-      )}
-    </AnimatePresence>
+          </DialogContent>
+    </Dialog>
   )
 }
