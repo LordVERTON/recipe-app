@@ -24,7 +24,7 @@ Une fusion globale réintroduirait les services exclus et une documentation obso
 
 ### Conséquences
 
-Complément limité à ADR-002 pour la récupération demandée ; ADR-006/007 et l'exclusion OAuth/Turnstile demeurent. Aucun nouveau fournisseur, secret, package, réglage distant ou migration. Contact, conservation et gestion complète du compte restent à traiter dans SEC-04/AUTH-04. La délivrabilité Cloud garde les restrictions du SMTP existant. Les branches sans fonctionnalité supplémentaire ne sont pas modifiées ; l'intégration sur main reste locale tant qu'un push/déploiement n'est pas demandé.
+Complément limité à ADR-002 pour la récupération demandée ; ADR-006/007 et l'exclusion OAuth/Turnstile demeurent. Aucun nouveau fournisseur, secret, package, réglage distant ou migration. Complément confirmé ensuite le 2026-11-03 : responsable/contact public fournis, revue manuelle après six mois d'inactivité et conservation des recettes publiées après anonymisation lors d'une fermeture. Mise en œuvre opérationnelle et gestion complète du compte restent SEC-04/AUTH-04 ; aucune purge automatique implicitement autorisée. La délivrabilité Cloud garde les restrictions du SMTP existant. Les branches sans fonctionnalité supplémentaire ne sont pas modifiées ; l'intégration sur main reste locale tant qu'un push/déploiement n'est pas demandé.
 
 ### Références
 
