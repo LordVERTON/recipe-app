@@ -17,6 +17,7 @@ Broco-Chou aide à choisir des recettes, composer sept jours de repas et prépar
 - Préparations numérotées, lisibles même après avoir été cochées ; textes Crous restaurés depuis les quatre PDF d'origine.
 - Courses regroupées, cases à cocher, copie, partage et impression.
 - Comptes e-mail/mot de passe, confirmation Supabase, recettes personnelles et photos privées.
+- Récupération de mot de passe par e-mail et page d'information sur les données personnelles ; aucun nouveau fournisseur d'authentification ou d'e-mail.
 - Modération administrative ; workflow enrichi et droits des deux comptes attendus déployés dans Supabase Cloud le 2026-10-17, accès SQL/RLS vérifiés.
 
 Plans, favoris, préférences, courses et historique restent dans le navigateur, séparément par compte. Comptes, recettes et photos sont dans Supabase.
@@ -66,6 +67,8 @@ Ouvrir `http://<IPv4-du-PC>:3000`, adapter `allowedDevOrigins` et les redirectio
 | `node scripts/verify-personal-recipes.mjs` | Soumission, photos et droits dans la seule base locale |
 | `node scripts/verify-documentation.mjs` | Sept documents, métadonnées et liens locaux |
 | `node scripts/verify-preparations.mjs` | Corrections Crous, intégrité des étapes et préservation des modifications d'auteur |
+| `node scripts/verify-local-recovery.mjs` | Session de récupération, changement de mot de passe et invalidation du lien sur Supabase local |
+| `node scripts/verify-auth-recovery-browser.mjs` | Parcours récupération et confidentialité, vrai e-mail Mailpit, ordinateur/mobile via Playwright externe |
 | `node scripts/audit-preparation-catalog.mjs` | Audit anonyme en lecture seule du catalogue local ; `--remote-readonly` cible explicitement le catalogue public Cloud |
 | `node scripts/verify-planning-browser.mjs` | Parcours planning et préparation sur ordinateur et mobile émulé, avec Playwright externe |
 | `npm run offline:check` | Vérifier les 299 chemins photo locaux, le repli partagé et l'absence de police/CSS/script CDN obligatoire ; les photos Pexels restent facultatives |
@@ -100,7 +103,7 @@ Au 2026-10-17 : SMTP intégré Supabase confirmé en lecture seule, confirmation
 
 ## Limites et contributions
 
-Pas de synchronisation multi-appareil, d'écran complet régime/budget, de récupération de compte dans l'UI ni de pipeline Odélis périodique. Quantités/portions, invalidation des courses, accessibilité et dépendances demandent encore des corrections. Audit npm du 2026-11-02 : zéro alerte de production, 11 alertes modérées dans l'outillage de développement, sans correction forcée incompatible. L'écart SQL de modération est corrigé par la livraison autorisée du 2026-10-17 ; aucun e-mail de modération n'est envoyé en production. Les validations et limites sont suivies dans la roadmap.
+Pas de synchronisation multi-appareil, d'écran complet régime/budget, de gestion complète du compte ni de pipeline Odélis périodique. La récupération utilise l'envoi Supabase existant et ses limites ; la page de confidentialité reste à compléter pour les coordonnées du responsable et la conservation détaillée. Quantités/portions, invalidation des courses, accessibilité et dépendances demandent encore des corrections. Audit npm du 2026-11-02 : zéro alerte de production, 11 alertes modérées dans l'outillage de développement, sans correction forcée incompatible. L'écart SQL de modération est corrigé par la livraison autorisée du 2026-10-17 ; aucun e-mail de modération n'est envoyé en production. Les validations et limites sont suivies dans la roadmap.
 
 Pour contribuer : lire [AGENTS.md](AGENTS.md), partir de `main`, conserver Auth/RLS/données, utiliser Conventional Commits et mettre à jour documentation et journal avec les tests. Ne pas importer automatiquement `feat/auth-email-readiness`.
 

@@ -50,6 +50,8 @@ Ombre `.broco-chou-shadow` : `0 4px 20px rgba(155,100,169,0.08), 0 1px 3px rgba(
 | Planning | Sélecteur de dates, « Aujourd'hui », nombre de repas, statut cuisiné/sauté. Éditeur : recherche principale, filtres facultatifs repliés, boutons de créneaux et résultats explicites en deux colonnes sur ordinateur. Titres complets, 20 résultats puis affichage supplémentaire ; confirmation de remplacement, confirmation/annulation du retrait |
 | Courses | Six catégories repliables, cases visuelles, barre de progression, copier/partager/imprimer, bouton basiques. État coché : coche et texte barré en plus de couleur |
 | Formulaire personnel | Champs désactivés pendant envoi, preview et retrait de photo, listes d'ingrédients, suggestions datalist, erreur inline, succès toast |
+| Compte et récupération | « Mot de passe oublié ? », demande e-mail avec message générique/délai, puis deux champs de nouveau mot de passe et message de reprise ou réussite. Retour à la connexion ; aucun bouton OAuth/CAPTCHA ajouté |
+| Confidentialité | Page lisible `max-w-3xl`, sections factuelles, liens depuis compte/footer ; limites de contact et de conservation explicites |
 | Modération | Libellés pending/approved/rejected, auteur, examen, correction, commentaire obligatoire pour refus et boutons de décision ; erreurs ne ferment pas le contexte |
 
 Les états default/hover/focus/active/disabled sont principalement des classes utilitaires. Loading/error/success sont composés par chaque écran ; ne pas annoncer un système de variantes uniforme déjà implémenté. Voir [APP_FLOW](APP_FLOW.md) pour les états vide, non connecté et erreur réseau.

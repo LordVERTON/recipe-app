@@ -11,6 +11,9 @@
 | --- | --- |
 | `/` | `app/page.tsx` → `BrocoChouApp` → `AccountProvider`. Onboarding puis cinq onglets React : Accueil, Swipe, Planning, Courses, Profil. Ces onglets ne sont pas cinq routes |
 | `/?review=<id>` | Ouvre le profil sans onboarding pour la connexion/modération ; le paramètre n'accorde aucun droit et ne sélectionne pas une fiche précise |
+| `/?account=1` | Ouvre la connexion dans le profil sans onboarding ; aucun privilège attribué par ce paramètre |
+| `/auth/reset-password` | Formulaire de nouveau mot de passe seulement avec session de récupération vérifiée ; sinon message de lien invalide |
+| `/privacy` | Information factuelle sur compte, recettes, planning local, hébergement et limites de conservation/contact |
 | `/admin/import` | Page d'import accessible sans garde Auth ; texte « Développement uniquement ». Seul l'enregistrement serveur est interdit en production |
 | `POST /api/recipe-import/parse` | Analyse une légende collée, sans téléchargement Instagram et sans Auth |
 | `GET /api/recipe-import/images?query=…` | Recherche six images dans les fichiers locaux, sans appel à Pexels |
@@ -19,7 +22,7 @@
 | `GET /api/recipe-notifications` | Reprise manuelle avec `CRON_SECRET` ; aucun cron versionné |
 | `/__supabase/:path*` | Réécriture Next.js uniquement en développement avec URL Supabase HTTP loopback, pas une API applicative |
 
-Pas de `/login`, `/signup`, `/auth/callback`, `/privacy`, page publique par recette, sitemap dynamique ni route OAuth dans cette base. Le schéma exact des endpoints est dans [BACKEND_SCHEMA](BACKEND_SCHEMA.md).
+Pas de `/login`, `/signup`, `/auth/callback`, page publique par recette, sitemap dynamique ni route OAuth dans cette base. Le schéma exact des endpoints est dans [BACKEND_SCHEMA](BACKEND_SCHEMA.md).
 
 ## Première visite, découverte et planning
 
@@ -131,7 +134,11 @@ sequenceDiagram
   R-->>U: Espace local du compte
 ```
 
-Le formulaire utilise une adresse e-mail ≤254 caractères et un mot de passe 8–128 à l'inscription. Erreur `email_not_confirmed` : bouton de renvoi via `auth.resend({type:'signup'})`, délai UI de 60 secondes. Le bouton reste cliquable entre tentatives mais affiche le délai restant sous forme de message. La déconnexion utilise `scope:'local'` et recharge l'espace visiteur ; elle ne supprime pas ses plans sauvegardés. Pas de parcours UI de récupération, de MFA ou de connexion sociale, même si TOTP est activé dans la configuration locale.
+Le formulaire utilise une adresse e-mail ≤254 caractères et un mot de passe 8–128 à l'inscription. Erreur `email_not_confirmed` : bouton de renvoi via `auth.resend({type:'signup'})`, délai UI de 60 secondes. Le bouton reste cliquable entre tentatives mais affiche le délai restant sous forme de message. La déconnexion utilise `scope:'local'` et recharge l'espace visiteur ; elle ne supprime pas ses plans sauvegardés. Pas de MFA dans l'UI ni de connexion sociale, même si TOTP est activé dans la configuration locale.
+
+Depuis « Mot de passe oublié ? », `resetPasswordForEmail` demande un e-mail de récupération avec retour vers l'origine actuelle, déjà autorisée dans la configuration existante. Le retour racine détecte l'événement `PASSWORD_RECOVERY` et affiche `AuthReturn` ; `/auth/reset-password` utilise le même composant. Le SDK consomme le fragment de session, puis l'URL est nettoyée sans en afficher les valeurs. L'écran vérifie utilisateur, intention de récupération en mémoire et JWT signé avec méthode OTP récente ; une session ordinaire persistée ne suffit pas. Deux mots de passe identiques de 8–128 caractères sont requis ; après `updateUser`, déconnexion locale et lien vers `/?account=1`, avec rechargement pour quitter le retour racine. Les liens invalides/consommés et sessions absentes ont un message de reprise. Aucun SMTP, OAuth, CAPTCHA ou configuration distante ajouté.
+
+La page `/privacy` est accessible depuis le compte et le footer. Elle décrit les données et commandes existantes, sans revendiquer une politique juridique finalisée ; contact et conservation détaillée restent à compléter. `SiteAnalytics` exclut `/auth/…` ainsi que le retour de récupération à la racine, avant et après consommation du fragment.
 
 La production utilise actuellement l'envoi intégré Supabase vérifié par lecture de la configuration ; le local capture dans Mailpit. Procédures et limites dans [TRD](TRD.md). Une session expirée/refusée est gérée par les événements Auth et les erreurs d'enregistrement ; il n'existe pas de page dédiée « session expirée ».
 

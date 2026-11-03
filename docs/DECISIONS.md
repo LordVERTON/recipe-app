@@ -5,6 +5,31 @@
 **Statut :** Registre établi pendant l'audit ; dates ci-dessous = date de formalisation, sans date historique inventée.
 **Documents liés :** [Produit](PRD.md), [Architecture](TRD.md), [Backend](BACKEND_SCHEMA.md), [Roadmap](ROADMAP.md).
 
+## ADR-012 — Intégrer seulement récupération et confidentialité de la branche expérimentale
+
+**Statut :** Accepted
+**Date :** 2026-11-03
+
+### Contexte
+
+L'audit des branches trouve sept commits expérimentaux mêlant récupération, confidentialité, Mailjet, Google OAuth et Turnstile. Le propriétaire demande explicitement « Intégrer uniquement récupération de mot de passe et confidentialité, sans Mailjet/OAuth/Turnstile ».
+
+### Décision
+
+Porter seulement ces deux fonctionnalités sur la branche d'intégration actuelle, en adaptant leurs composants/tests aux services existants. Garder la branche expérimentale et ses références intactes ; aucun merge global ni cherry-pick. Préserver inscription, confirmation, sessions et SMTP existants. Utiliser le retour racine déjà autorisé pour la récupération, avec session vérifiée et intention en mémoire ; exclure ces retours d'Analytics. Publier une page d'information factuelle sur les données, sans inventer les coordonnées du responsable, durées ou conformité juridique.
+
+### Alternatives considérées
+
+Une fusion globale réintroduirait les services exclus et une documentation obsolète. Reprendre seulement les pages sans leurs preuves de session permettrait d'afficher le formulaire avec une session ordinaire. Élargir la configuration distante n'est pas nécessaire avec le retour racine.
+
+### Conséquences
+
+Complément limité à ADR-002 pour la récupération demandée ; ADR-006/007 et l'exclusion OAuth/Turnstile demeurent. Aucun nouveau fournisseur, secret, package, réglage distant ou migration. Contact, conservation et gestion complète du compte restent à traiter dans SEC-04/AUTH-04. La délivrabilité Cloud garde les restrictions du SMTP existant. Les branches sans fonctionnalité supplémentaire ne sont pas modifiées ; l'intégration sur main reste locale tant qu'un push/déploiement n'est pas demandé.
+
+### Références
+
+[Récupération](../components/auth-return.tsx), [compte](../components/recipe-account.tsx), [confidentialité](../app/privacy/page.tsx), [test navigateur](../scripts/verify-auth-recovery-browser.mjs), [TRD](TRD.md), [journal](ROADMAP.md).
+
 ## ADR-011 — Restaurer les préparations Crous par corrections ciblées
 
 **Statut :** Accepted
