@@ -1,9 +1,34 @@
 # Broco-Chou — Décisions d'architecture
 
 **Objectif :** Expliquer les choix confirmés et conserver les propositions encore ouvertes.
-**Dernière mise à jour :** 2026-10-17
+**Dernière mise à jour :** 2026-11-03
 **Statut :** Registre établi pendant l'audit ; dates ci-dessous = date de formalisation, sans date historique inventée.
 **Documents liés :** [Produit](PRD.md), [Architecture](TRD.md), [Backend](BACKEND_SCHEMA.md), [Roadmap](ROADMAP.md).
+
+## ADR-011 — Restaurer les préparations Crous par corrections ciblées
+
+**Statut :** Accepted
+**Date :** 2026-11-03
+
+### Contexte
+
+L'extraction historique a perdu les passages en gras et décalé certaines colonnes de recettes. Les quatre PDF d'origine sont disponibles. La demande autorise la correction locale et les commits, sans écriture de production.
+
+### Décision
+
+Versionner un jeu de corrections éditoriales traçables par ID/source/page, empreintes des PDF et textes d'origine. Appliquer ces corrections dans le mapping et la consultation des fiches anciennes uniquement si le texte correspond à l'import défectueux connu. Préserver toute correction ultérieure, les recettes communautaires et leurs auteurs. Neuf listes d'ingrédients/portions et deux titres sont également restaurés ; cinq adaptations de restes sont explicitement identifiées. Réutiliser l'éditeur, le store et Dialog existants pour le choix manuel et la consultation.
+
+### Alternatives considérées
+
+Réécrire les seeds ou une migration appliquée ferait perdre la référence historique. Une écriture Cloud ou une synchronisation Notion demanderait une opération de livraison distincte. Ajouter seulement des points aux phrases tronquées masquerait les informations perdues.
+
+### Conséquences
+
+Le frontend corrigé doit encore être livré ; les données SQL brutes ne changent pas et les autres consommateurs ne bénéficient pas de cette restauration. Une correction durable de ces données nécessitera un script ciblé avec préconditions, sauvegarde et autorisation. Le fichier augmente le bundle de données et conserve volontairement l'ancien texte pour éviter d'écraser une révision récente. Le générateur Python utilise l'installation PyMuPDF externe existante ; aucune dépendance applicative ajoutée. La relecture culinaire City Café et la saisie des consignes personnelles manquantes restent distinctes.
+
+### Références
+
+[Données](../lib/data/crous-preparations.json), [application des corrections](../lib/recipe-preparation.ts), [reconstruction](../scripts/restore-crous-preparations.py), [TRD](TRD.md), [preuves](ROADMAP.md).
 
 ## ADR-001 — Conserver Next.js et l'hébergement Vercel
 

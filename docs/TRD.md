@@ -1,7 +1,7 @@
 # Broco-Chou — Architecture technique
 
 **Objectif :** Décrire les composants, environnements, conventions et limites techniques vérifiés.
-**Dernière mise à jour :** 2026-11-02
+**Dernière mise à jour :** 2026-11-03
 **Statut :** EXISTANT audité depuis `main/e89d109` ; configuration Cloud lue sans modification.
 **Documents liés :** [Produit](PRD.md), [Parcours](APP_FLOW.md), [Schéma backend](BACKEND_SCHEMA.md), [Design](DESIGN_BRIEF.md), [Roadmap et tests](ROADMAP.md), [ADR](DECISIONS.md).
 
@@ -41,6 +41,18 @@ Ces choix sont conservés pour stabilité et coûts minimaux. Aucun nouveau fram
 | `docs/` | Sept références canoniques ; aucune seconde roadmap |
 
 ## Architecture
+
+### Préparations et choix manuel — 2026-11-03
+
+`WeeklyPlanEditor` conserve le store local existant : choisir date/créneau, rechercher, consulter puis ajouter le résultat. `normalizeRecipeSearch` neutralise accents, ligatures, ponctuation et casse ; chaque mot doit figurer dans le titre, indépendamment de l'ordre. Filtres repliés par défaut et cumulables, résultats alphabétiques par groupes de 20. Les recettes déjà planifiées restent visibles avec leur destination et leur choix désactivé ; un remplacement est confirmé dans Dialog avant l'appel à `setMealInPlan`. Les accès depuis une fiche et Mes recettes ouvrent ce même éditeur. Aucun service de recherche ni stockage distant ajouté.
+
+L'audit des PDF Crous a identifié des passages en gras omis et des colonnes de recettes décalées. [crous-preparations.json](../lib/data/crous-preparations.json) conserve 300 préparations, 1 358 étapes, quatre empreintes SHA-256 des sources, les pages et les anciens textes servant de garde. Neuf listes d'ingrédients/portions associées au mauvais plat sont restaurées ; elles restent `partial`, sans prétendre à une validation canonique. Deux titres tronqués sont complétés. Cinq adaptations éditoriales explicites rendent les recettes indépendantes des restes d'un jour précédent ; les sous-titres sont replacés devant l'étape concernée.
+
+[restoreRecipePreparation](../lib/recipe-preparation.ts) applique ces corrections uniquement aux recettes `crous` d'ID, source PDF, titre et ancien texte connus, au mapping Supabase et à la consultation d'une ancienne fiche persistée. Les ingrédients et portions ont aussi leurs gardes ; toute modification ultérieure gagne. Les recettes communautaires restent intactes. La base et les seeds ne sont pas modifiés : les autres clients, dont Notion, gardent les anciennes données tant qu'une correction durable distincte n'est pas préparée et autorisée. Ce choix est consigné dans [ADR-011](DECISIONS.md#adr-011--restaurer-les-préparations-crous-par-corrections-ciblées).
+
+Reconstruction sans accès réseau/base : `py scripts/restore-crous-preparations.py --source-dir <dossier-des-quatre-PDF> --check` compare le fichier versionné, avec PyMuPDF installé dans l'environnement Python externe existant. Le dossier des PDF est fourni explicitement ; il n'est pas supposé présent sur chaque poste. `--catalog <export-json>` sert à la première construction depuis un export anonyme en lecture seule ; sans ce paramètre, les données d'origine du fichier versionné servent d'entrée. Aucune dépendance npm ajoutée, aucun générateur historique/seed réécrit.
+
+Contrôles : `node scripts/verify-preparations.mjs` vérifie toutes les étapes/gardes ; `node scripts/audit-preparation-catalog.mjs` audite le catalogue local anonymement, `--remote-readonly` lit seulement le catalogue public du projet Cloud attendu. Ce dernier n'utilise jamais la clé de service. `node scripts/verify-planning-browser.mjs`, avec `PLAYWRIGHT_MODULE` vers l'installation externe, teste ordinateur et Pixel 7 émulé, réseau externe bloqué et profil visiteur vierge : recherche/filtres/vide, jour/créneau, consultation intégrale et clavier/focus, ajout/remplacement/annulation, unicité, retrait/annulation, courses et rechargement. Aucune fixture SQL ni compte créé par ce test ; seul son navigateur reçoit un plan local. Les contrôles structurels ne constituent pas une recette exécutée en cuisine ni une relecture culinaire exhaustive City Café (CAT-02).
 
 ```mermaid
 flowchart LR

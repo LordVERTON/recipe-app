@@ -1,7 +1,7 @@
 # Broco-Chou — Référence UI et UX
 
 **Objectif :** Maintenir l'identité existante et distinguer composants livrés et améliorations futures.
-**Dernière mise à jour :** 2026-11-02
+**Dernière mise à jour :** 2026-11-03
 **Statut :** EXISTANT relevé dans les sources ; conformité d'accessibilité [À CONFIRMER].
 **Documents liés :** [Produit](PRD.md), [Parcours](APP_FLOW.md), [Architecture](TRD.md), [Roadmap](ROADMAP.md).
 
@@ -44,10 +44,10 @@ Ombre `.broco-chou-shadow` : `0 4px 20px rgba(155,100,169,0.08), 0 1px 3px rgba(
 | Cards | Primitives `ui/card` et sections métier, surfaces card, border soft-sand, rayons/ombre. Actif par fond/icône et parfois bordure ; erreur/succès ajoutés par texte du parent |
 | Inputs / textarea / select | Bord input, labels reliés ou enveloppants, focus ring. Invalidité via contraintes HTML et message `role=alert`. Les selects métier sont parfois natifs, pas systématiquement Radix |
 | Dialog | Radix pour création/édition de recette : `max-h-[90dvh]`, scroll, `sm:max-w-2xl`. Ouverture depuis compte visiteur puis formulaire après connexion ; fermeture interdite pendant sauvegarde |
-| Sheet recette | Panneau Framer Motion spécifique dans `recipe-detail-sheet.tsx`, fond obscurci, ouverture depuis bas, hauteur max 90vh. N'utilise pas automatiquement les garanties de focus d'un Sheet Radix ; audit clavier à faire |
+| Sheet recette | Dialog Radix existant réutilisé dans `recipe-detail-sheet.tsx`, ancré en bas, hauteur max 90dvh et largeur max 48rem sur ordinateur. Défilement visible, Échap, focus contenu et retour au déclencheur. Préparation en liste ordonnée, texte 16 px/interligne 28 px ; coche accessible `aria-pressed`, sans barrer les consignes |
 | Navigation | Cinq onglets en bas fixes, labels pour quatre ; bouton Swipe rond 56 px, remonté. Indicateur ponctuel animé sur les autres onglets ; pas `aria-current` dans le code actuel, nom accessible du bouton Swipe à corriger |
 | Recipe card / swipe | Image et informations essentielles, trois couches de cartes, overlays textuels d'acceptation/refus ; boutons annuler/refuser/accepter/favori. Les cartes internes du swipe ont leur rendu propre ; l'ancien `recipe-card.tsx` jamais monté est supprimé |
-| Planning | Sélecteur de dates, « Aujourd'hui », nombre de repas, statut cuisiné/sauté. Éditeur : recherche, filtres et grille de créneaux, menus natifs ; confirmation et annulation du retrait |
+| Planning | Sélecteur de dates, « Aujourd'hui », nombre de repas, statut cuisiné/sauté. Éditeur : recherche principale, filtres facultatifs repliés, boutons de créneaux et résultats explicites en deux colonnes sur ordinateur. Titres complets, 20 résultats puis affichage supplémentaire ; confirmation de remplacement, confirmation/annulation du retrait |
 | Courses | Six catégories repliables, cases visuelles, barre de progression, copier/partager/imprimer, bouton basiques. État coché : coche et texte barré en plus de couleur |
 | Formulaire personnel | Champs désactivés pendant envoi, preview et retrait de photo, listes d'ingrédients, suggestions datalist, erreur inline, succès toast |
 | Modération | Libellés pending/approved/rejected, auteur, examen, correction, commentaire obligatoire pour refus et boutons de décision ; erreurs ne ferment pas le contexte |
@@ -60,7 +60,7 @@ Les breakpoints Tailwind non redéfinis servent de référence : `sm` 40rem, `md
 
 Swipe : largeur `min(88vw,360px)`, hauteur `clamp(280px,52vh,500px)`, conteneur `100svh`. Navigation fixe z40, modales/panneaux z50, contenu avec marge basse pour la barre. `pb-safe` est utilisé dans la navigation sans définition dédiée trouvée : vérifier la safe area réelle sur iOS. Dialog photo/formulaire peut défiler, éviter tout bouton critique hors écran.
 
-Animations observées : transitions d'onglet 0,2 s ; swipe rotation ±16 degrés sur ±240 px, validation au déplacement >100 px ou vitesse >500 ; sortie 0,22 s ; springs pour cartes et panneau, progression courses 0,3 s. Aucun `useReducedMotion` ni media query `prefers-reduced-motion` trouvé : réduction des animations À FAIRE.
+Animations observées : transitions d'onglet 0,2 s ; swipe rotation ±16 degrés sur ±240 px, validation au déplacement >100 px ou vitesse >500 ; sortie 0,22 s ; springs pour cartes, animations Dialog pour la fiche, progression courses 0,3 s. Réduction globale des animations encore À FAIRE.
 
 Impression : media print met fond blanc, masque `nav`, `button`, `.pb-24`, force `.print-grocery` visible et enlève ses ombres. Vérifier le résultat complet ; certaines classes masquées d'ancêtres peuvent affecter des écrans. Seules les courses ont une action d'impression livrée ; pas d'export de plan.
 

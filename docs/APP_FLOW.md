@@ -1,7 +1,7 @@
 # Broco-Chou — Parcours et workflows
 
 **Objectif :** Expliquer les écrans, appels et transitions effectivement implémentés.
-**Dernière mise à jour :** 2026-11-02
+**Dernière mise à jour :** 2026-11-03
 **Statut :** EXISTANT, preuves de validation dans le journal de session.
 **Documents liés :** [Produit](PRD.md), [Architecture](TRD.md), [Backend](BACKEND_SCHEMA.md), [Roadmap](ROADMAP.md).
 
@@ -50,8 +50,8 @@ flowchart TD
 2. La file de swipe est initialement mélangée et limitée à la saison si activée. Accepter et favori alimentent les choix ; favori alimente aussi les favoris. Refuser avance la file. Annuler enlève la dernière recette des trois listes. Les contrôles pendant l'animation évitent plusieurs avances simultanées.
 3. Il faut sept recettes par créneau souhaité, avec un pool commun pour déjeuner/dîner. Le passage de complément peut proposer hors saison et reprendre des recettes refusées ; il exclut seulement les acceptées et vise les types manquants. Pas de recherche ni de filtres détaillés dans le swipe.
 4. `generateWeeklyPlan` n'ajoute que des recettes explicitement acceptées. La génération utilise les créneaux du profil, saison/mois et variété des ingrédients ; elle n'appelle pas `scoreRecipe`.
-5. L'éditeur permet une semaine vide sans attendre le swipe complet. Dates locales, aujourd'hui à J+6 au moment de la création ; le plan ne se décale pas chaque nuit. Recherche par titre, saison, durée, régime végétarien/poisson, équipement. Les choix ne sont pas filtrés par type de créneau. Une recette déjà planifiée ailleurs est exclue.
-6. Chaque ajout/remplacement/retrait est enregistré immédiatement ; bouton « Voir mon planning » ferme l'éditeur. Le retrait demande confirmation et offre une annulation. Aucun archivage automatique de semaines n'est livré.
+5. L'éditeur permet une semaine vide sans attendre le swipe complet. Choisir un jour, puis « Choisir pour déjeuner/dîner/… », rechercher le plat et utiliser « Choisir ce plat » dans les résultats. La recherche accepte accents omis, casse et mots dans un autre ordre. Les filtres facultatifs sont repliés ; 20 résultats alphabétiques sont affichés, puis « Afficher plus de recettes ». Aucun résultat : proposition d'autre nom ou d'effacement. Les choix ne sont pas filtrés par type de créneau ; les recettes déjà planifiées restent visibles mais désactivées, avec leur date/créneau.
+6. Chaque ajout/remplacement/retrait est enregistré immédiatement ; bouton « Voir mon planning » ferme l'éditeur. Un remplacement demande confirmation avant toute modification. Le retrait demande confirmation et offre une annulation. Dates locales sur sept jours à la création, sans déplacement automatique du plan chaque nuit ni archivage automatique.
 
 ## Catalogue et propriété des états
 
@@ -101,7 +101,8 @@ stateDiagram-v2
 Ces états sont ceux de `PlannedMeal.status` ; le store accepte aussi les statuts typés via `updateMealStatus`. Le diagramme décrit les actions de l'interface, pas une contrainte PostgreSQL.
 
 - La fiche affiche image, provenance et informations culinaires, ingrédients/étapes cochables, conseil éventuel et référence source/page. Les coches de préparation restent dans le composant, sans persistance. Depuis le 2026-11-02, `RecipeImage` partage le repli local des photos indisponibles entre fiche, swipe, calendrier, photo actuelle du formulaire et import ; les vraies URLs et attributions restent conservées. Le navigateur avec trafic externe bloqué vérifie le repli dans fiche/calendrier et la consultation des données locales.
-- Depuis la fiche, « Ajouter au planning » ajoute à `acceptedRecipes` et ramène au swipe. Depuis « Mes recettes », l'action crée le plan si nécessaire puis ouvre l'éditeur avec le titre recherché.
+- Depuis la fiche ou « Mes recettes », « Ajouter au planning » crée le plan si nécessaire puis ouvre l'éditeur avec le titre recherché pour choisir le jour/créneau. La recherche permet aussi « Voir la recette » avant le choix.
+- Préparation : liste ordonnée, corps 16 px/interligne 28 px, retours à la ligne préservés et compteur d'étapes cochées. Le texte coché reste lisible sans être barré. La fiche réutilise Dialog pour le focus, Échap et retour au déclencheur. Les corrections Crous sont appliquées au mapping du catalogue, et à la lecture d'une ancienne fiche persistée ; les auteurs communautaires et corrections ultérieures restent prioritaires. Les trois préparations locales très succinctes sont signalées sans ajout de consignes supposées. Voir [TRD](TRD.md) pour les sources et gardes.
 - Marquer cuisiné ajoute une entrée d'historique uniquement à la transition vers `cuisine`. Revenir puis remarquer cuisiné peut créer une nouvelle entrée. Sauter ne crée pas une entrée `skipped` dans l'historique actuel.
 - Déplacer conserve le créneau, remplace le repas qui l'occupait à destination et invalide la liste. Retirer/remplacer/ajouter/sauter invalident également les courses. Le retour de `saute` à `planifie`, la génération automatique d'un nouveau plan et le changement de nombre de personnes n'invalident pas toujours une liste existante : dette connue.
 - La génération des courses parcourt tous les repas sauf `saute`, normalise les noms, regroupe selon les six catégories et multiplie les quantités par `householdSize`. Addition seulement pour les suffixes d'unité identiques ; sinon texte `x + y`. Pas de conversion kg/g, litre/ml ni correction par portions de recette.

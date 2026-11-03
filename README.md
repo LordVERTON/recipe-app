@@ -1,7 +1,7 @@
 # Broco-Chou
 
 **Objectif :** Découvrir le projet et lancer un environnement local sûr.
-**Dernière mise à jour :** 2026-11-02
+**Dernière mise à jour :** 2026-11-03
 **Statut :** Audit initial de `main/e89d109`, documentation consolidée et livrée sur `main` ; suivi dans le journal de session.
 **Documents liés :** [PRD](docs/PRD.md), [TRD](docs/TRD.md), [Parcours](docs/APP_FLOW.md), [Design](docs/DESIGN_BRIEF.md), [Backend](docs/BACKEND_SCHEMA.md), [Roadmap](docs/ROADMAP.md), [Décisions](docs/DECISIONS.md).
 
@@ -13,7 +13,8 @@ Broco-Chou aide à choisir des recettes, composer sept jours de repas et prépar
 
 - Découverte par swipe, sélection et favoris.
 - Planning sur aujourd'hui à J+6, génération à partir des recettes choisies ou édition manuelle.
-- Recherche et filtres dans l'éditeur, choix des créneaux et suivi des repas cuisinés.
+- Recherche de plats par nom, résultats lisibles et choix manuel du jour/créneau ; filtres facultatifs et confirmation de remplacement.
+- Préparations numérotées, lisibles même après avoir été cochées ; textes Crous restaurés depuis les quatre PDF d'origine.
 - Courses regroupées, cases à cocher, copie, partage et impression.
 - Comptes e-mail/mot de passe, confirmation Supabase, recettes personnelles et photos privées.
 - Modération administrative ; workflow enrichi et droits des deux comptes attendus déployés dans Supabase Cloud le 2026-10-17, accès SQL/RLS vérifiés.
@@ -64,6 +65,9 @@ Ouvrir `http://<IPv4-du-PC>:3000`, adapter `allowedDevOrigins` et les redirectio
 | `npm run mailpit:check` | Tester livraison et confirmation locales avec nettoyage |
 | `node scripts/verify-personal-recipes.mjs` | Soumission, photos et droits dans la seule base locale |
 | `node scripts/verify-documentation.mjs` | Sept documents, métadonnées et liens locaux |
+| `node scripts/verify-preparations.mjs` | Corrections Crous, intégrité des étapes et préservation des modifications d'auteur |
+| `node scripts/audit-preparation-catalog.mjs` | Audit anonyme en lecture seule du catalogue local ; `--remote-readonly` cible explicitement le catalogue public Cloud |
+| `node scripts/verify-planning-browser.mjs` | Parcours planning et préparation sur ordinateur et mobile émulé, avec Playwright externe |
 | `npm run offline:check` | Vérifier les 299 chemins photo locaux, le repli partagé et l'absence de police/CSS/script CDN obligatoire ; les photos Pexels restent facultatives |
 
 Autres tests, prérequis Playwright, résultats et échecs : [journal de validation](docs/ROADMAP.md). Avec CLI 3, une migration additive locale utilise `npm exec -- supabase migration up` (cible locale par défaut, lire `--help` avant toute opération). `npm run supabase:reset` détruit les données locales et rejoue les seeds : ce n'est pas une commande normale de démarrage. Ne jamais exécuter de reset distant.

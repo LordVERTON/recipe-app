@@ -1,7 +1,7 @@
 # Broco-Chou — Roadmap et journal
 
 **Objectif :** Tenir un suivi unique des livraisons, dettes, imports, décisions et vérifications.
-**Dernière mise à jour :** 2026-11-02
+**Dernière mise à jour :** 2026-11-03
 **Statut :** Roadmap consolidée ; les DONE correspondent à une preuve de code ou un test identifié, pas à une garantie de déploiement Cloud.
 **Documents liés :** [PRD](PRD.md), [TRD](TRD.md), [Parcours](APP_FLOW.md), [Design](DESIGN_BRIEF.md), [Backend](BACKEND_SCHEMA.md), [Décisions](DECISIONS.md).
 
@@ -19,7 +19,7 @@ Pour cette revue, `[x]` signifie que le périmètre précis de la case a une vé
 
 | Demande | État réel retenu | Suivi canonique |
 | --- | --- | --- |
-| A — Recherche et planning manuel | Partiel : logique et rendu vérifiés en mémoire ; amélioration UX et parcours mobile/ordinateur à valider | CAT-01, ALG-02, UX-09 |
+| A — Recherche et planning manuel | Interface épurée implémentée et parcours navigateur ordinateur/mobile émulé TESTÉS le 2026-11-03 ; retour ergonomique du propriétaire restant | CAT-01, ALG-02, UX-09 |
 | B — Validation administrateur | Implémentée dans l'UI et les RPC/RLS ; rendu vérifié ici, tests SQL complets non rejoués et vérification visuelle de production restante | COM-02, COM-06, SEC-03 ; détail B en section 6 |
 | C — Texte, voix, photo | Partiel : formulaire texte et fichier photo existants ; voix absente, capture mobile et tests complets à faire | COM-01, COM-07, COM-08 |
 | D — To Eat List comme référentiel durable | Stockages identifiés et schémas Notion lus ; aucune synchronisation applicative trouvée, restauration non prouvée | DB-05, DB-06 |
@@ -52,15 +52,16 @@ Les trois fiches ont été lues via le connecteur Notion le 2026-10-17, sans éc
 | UX-06 | Mesurer activation, sélection et retours utilisateurs | P2 | TODO | SEC-04 | Définitions du PRD validées, collecte minimisée et événements testés ; aucun KPI métier mesuré actuellement |
 | UX-07 | Compléter les plats/desserts manquants après avoir parcouru toutes les recettes | P1 | DONE | ALG-04 | EXISTANT dans [swipe-deck.tsx](../components/swipe-deck.tsx) : si les quotas ne sont pas atteints et des candidats restent disponibles, bouton « Compléter les … manquants » avec nombres/types manquants ; relance les cartes de swipe avec les recettes non sélectionnées, y compris refusées, des seuls types déficitaires (plats, desserts et petits-déjeuners si activés). Conserve les choix acceptés et les favoris, sans doublon d'acceptation. Preuve : lecture du code le 2026-10-17 ; parcours navigateur ciblé non exécuté. Limite actuelle : un seul passage de complément par montage du composant |
 | UX-08 | Garder « Recommencer la sélection » discret en bas à gauche, comme une action « Annuler » | P1 | DONE | UX-07 | EXISTANT dans [swipe-deck.tsx](../components/swipe-deck.tsx) : bouton secondaire `ghost`, taille `sm`, texte `text-xs` gris ; aligné à gauche dans la zone basse pendant le swipe et positionné `bottom-2 left-2` sur les écrans de fin. L'action principale reste le complément ou la génération du planning. Preuve : lecture du code le 2026-10-17 ; placement visuel mobile/desktop à vérifier en navigateur. La confirmation du recommencement reste à traiter dans UX-05 |
-| UX-09 | Améliorer la lisibilité de la recherche et valider le parcours de sélection manuelle | P1 | TODO | CAT-01, ALG-02 | Réutiliser l'éditeur existant ; valider recherche, résultats, état vide, choix de date/créneau, ajout/remplacement et persistance sur mobile et ordinateur, ainsi que l'ergonomie avec le propriétaire. Aucun second éditeur à créer |
+| UX-09 | Améliorer la lisibilité de la recherche et valider le parcours de sélection manuelle | P1 | IN_PROGRESS | Retour ergonomique du propriétaire | Implémentation et tests locaux terminés : résultats explicites, accents/mots, filtres repliés, état vide, choix jour/créneau, remplacement confirmé, unicité, retrait/annulation, courses et persistance. `verify-planning-browser.mjs` PASS ordinateur et Pixel 7 émulé ; rendu inspecté. Retour sur appareil réel/ergonomie du propriétaire encore à recueillir, sans blocage de la livraison locale |
 
 ### Demande A — recherche et planification manuelle
 
 - [x] Rechercher parmi les recettes du catalogue par titre, sans sensibilité à la casse ni aux espaces périphériques, et afficher les résultats/nombre ou zéro résultat : rendu React de [WeeklyPlanEditor](../components/weekly-plan-editor.tsx) avec catalogue fictif et deux requêtes, vérifié en mémoire durant cette revue.
 - [x] Créer un planning vide puis ajouter manuellement une recette à une date et un créneau, remplacer ce plat et refuser son doublon ailleurs : actions réelles de [store.ts](../lib/store.ts) exécutées en mémoire ; aucun swipe ni générateur requis.
 - [x] Sérialiser le planning modifié dans l'adaptateur de persistance : contenu JSON vérifié dans un stockage fictif en mémoire. Cela ne prouve pas une synchronisation Cloud ni un rechargement du navigateur.
-- [ ] UX-09 — confirmer une interface épurée et des résultats lisibles avec le propriétaire ; la recherche actuelle alimente les menus déroulants par créneau, sans liste globale de cartes. Les filtres existants restent CAT-01 ; une recherche avant swipe relève de UX-03.
-- [ ] UX-09 — vérifier les interactions, le rechargement et le rendu réel sur mobile et ordinateur, clavier inclus. Le rendu React isolé n'exécute pas les événements du navigateur et ne valide pas le responsive.
+- [x] UX-09 — implémenter la recherche épurée dans l'éditeur existant : résultats explicites, aperçu, choix du créneau et filtres facultatifs repliés ; 20 résultats alphabétiques puis affichage supplémentaire. Preuve : composants et test navigateur du 2026-11-03.
+- [x] UX-09 — vérifier interactions, clavier, rechargement et rendu dans Chromium sur ordinateur et Pixel 7 émulé : PASS `verify-planning-browser.mjs`, aucune erreur JS ni débordement horizontal ; focus de la fiche restauré et état persistant contrôlé.
+- [ ] UX-09 — recueillir le retour ergonomique du propriétaire et vérifier le téléphone physique. La recherche avant swipe reste UX-03, distincte.
 
 ## 2. Recettes et catalogue
 
@@ -71,6 +72,8 @@ Les trois fiches ont été lues via le connecteur Notion le 2026-10-17, sans éc
 | CAT-03 | Déduplication avancée et référentiel plus robuste | P2 | TODO | DB-03 | Noms/alias, variantes et catégories contrôlés sans fusion destructive ; préserver les ID source et relations |
 | CAT-04 | Recettes selon ingrédients disponibles, anti-gaspillage, restes et batch cooking | P2 | TODO | UX-02, GRO-01 | Scénarios métier validés avant développement ; pas de promesse de coût/stock automatique |
 | CAT-05 | Favoris mieux intégrés et gestion complète | P2 | TODO | UX-03 | Gestion au-delà de l'aperçu des cinq favoris, accès au planning explicite |
+| CAT-06 | Restaurer et rendre lisibles les préparations Crous | P1 | DONE | PDF originaux et garde sur l'ancien texte | 300 préparations / 1 358 étapes reconstruites depuis quatre PDF avec empreintes et pages, neuf listes d'ingrédients/portions et deux titres corrigés, cinq adaptations indépendantes des restes. Gardes, régénération et fiche navigateur TESTÉES localement le 2026-11-03 ; audit anonyme Cloud de 491 recettes en lecture seule, aucune préparation vide ni fin d'étape importée suspecte après correction. Corrections frontend locales seulement ; base brute inchangée. Relecture culinaire City Café reste CAT-02 |
+| CAT-07 | Corriger durablement les anciens textes Crous dans les sources de données | P1 | TODO | Revue des corrections CAT-06 et autorisation d'écriture distante | Préparer sauvegarde et mise à jour ciblée avec préconditions, préserver les éditions récentes et vérifier les consommateurs dont Notion. Le correctif frontend CAT-06 fonctionne localement sans cette écriture ; aucune synchronisation ni correction SQL brute effectuée |
 
 ## 3. Algorithme de planification
 
@@ -703,6 +706,37 @@ Photos indisponibles : composant RecipeImage commun aux cinq surfaces, repli loc
 Analytics/Windows : warning 2375 historique non reproduit lors du redémarrage final ; Vector a été observé en boucle de redémarrage, collecte complète de logs non validée. Tous les services applicatifs requis testés répondent ; aucune ouverture Docker TCP ni désactivation Analytics pour masquer le symptôme. L'émulation Android ne valide pas le sélecteur natif du téléphone ; COM-09 reste IN_PROGRESS. Les essais restrictifs ne prouvent pas la disponibilité hors WAN des services publics.
 
 **Décisions et prochaines actions :** Préserver les fichiers incertains et toutes les sources/données ; aucun téléchargement massif, nouveau fournisseur, PWA, service worker ou synchronisation Notion. Confirmer OPS-05 avec coupure WAN réelle et redémarrage Docker Desktop, puis suivre le correctif amont minimatch de SEC-01 et la confirmation galerie sur le téléphone réel. Toute livraison de ce diff agrège le correctif photo préexistant : revue et autorisation séparées nécessaires. Aucun commit créé par cette mission, HEAD inchangé ; aucun push, merge ou déploiement.
+
+### 2026-11-03 — Préparations complètes et recherche manuelle dans le planning
+
+**Objectif :** Rendre les consignes de préparation lisibles et complètes, épurer la recherche pour choisir un plat précis dans le planning, puis commiter séparément les travaux nouveaux et les modifications déjà présentes.
+
+**État initial et préservation :** Branche `chore/local-offline-cleanup-20261102`, HEAD/main/origin-main `c5ddf83`. SHA GitHub confirmé en lecture seule par `git ls-remote` ; aucun changement expérimental intégré. Les travaux photo/hors ligne préexistants ont été conservés puis répartis en cinq commits conventionnels : `fc639d8` photo Android, `214adb5` composants/dépendances inutilisés, `0366ec6` repli photo hors ligne, `40e510a` outillage local/CLI/fixtures, `df6d6c7` documentation associée. Les nouveaux changements sont ensuite séparés en correction des préparations, fonctionnalité de recherche/planning et documentation. Aucun reset, rebase, changement distant ni écrasement des travaux du propriétaire.
+
+**Travaux réalisés :** Audit anonyme local de 460 recettes : 251 présentaient des fins d'étapes suspectes. Les quatre PDF originaux, retrouvés dans le dossier Python voisin, montrent des passages en gras omis et des colonnes décalées lors de l'extraction. Reconstruction des 300 préparations Crous (1 358 étapes), garde sur les textes d'origine, empreintes SHA-256 et pages ; correction de neuf listes d'ingrédients/portions décalées, de deux titres tronqués et de la page du cheesecake au saumon. Cinq adaptations éditoriales explicites rendent les plats indépendants des restes du calendrier. Aucun générateur historique, seed, migration ou donnée SQL modifié. Trois recettes personnelles locales très succinctes sont signalées sans consigne inventée ; les auteurs et leurs éditions restent préservés.
+
+Fiche : liste ordonnée, corps 16 px/interligne 28 px, progression, texte coché conservant sa lisibilité, unités affichées, Dialog existant avec Échap et retour du focus. Planning : choix du jour/créneau, recherche par mots sans accents/casse/ordre imposé, filtres repliés et cumulables, résultats alphabétiques par groupes de 20, état vide et effacement, consultation préalable, ajout direct et remplacement confirmé ; doublons visibles mais désactivés avec leur destination. Depuis la fiche, l'action ouvre désormais l'éditeur du planning avec le plat recherché.
+
+**Fichiers :** `lib/data/crous-preparations.json`, `lib/recipe-preparation.ts`, `lib/recipe-search.ts`, mapping Supabase, fiche, éditeur et orchestrateur ; scripts de reconstruction, audit anonyme et vérifications préparation/planning, test offline adapté ; README, PRD, TRD, APP_FLOW, DESIGN_BRIEF, DECISIONS et ROADMAP actualisés. ADR-011 Accepted ; exactement sept documents dans docs, diagrammes inchangés. Captures et exports de diagnostic locaux ignorés sous `supabase/.temp` ; aucun secret ni donnée personnelle exporté dans les artefacts versionnés.
+
+**Tests exécutés :**
+
+| Contrôle | Environnement et résultat |
+| --- | --- |
+| `npm run lint` | PASS final, zéro erreur ; avertissement `<img>` préexistant dans `RecipeImage` conservé |
+| `npm run build`, puis `npx --no-install tsc --noEmit` séparé | PASS final ; Next 16.4.4, aucune validation de production déduite du build |
+| `node scripts/verify-preparations.mjs` | PASS : 300 préparations/1 358 étapes, neuf listes/portions, gardes sur modifications récentes d'ingrédients/portions et exclusion communautaire ; texte vide, caractères parasites et fins d'étapes contrôlés |
+| `py -X utf8 scripts/restore-crous-preparations.py --source-dir ../script-python --check` | PASS : résultat versionné identique à la reconstruction depuis les quatre PDF ; PyMuPDF externe existant, aucune écriture base |
+| `node scripts/audit-preparation-catalog.mjs` | PASS, lecture anonyme locale : 460 recettes, 300 préparations réparées par le frontend, aucune préparation vide ni fin d'étape importée suspecte, trois préparations personnelles très succinctes |
+| Même audit avec `--remote-readonly` | PASS en lecture anonyme Cloud : 491 recettes publiques, 298 préparations changées par les corrections préparées, aucune préparation vide, succincte ou fin d'étape importée suspecte après application en mémoire. Aucun auteur/session ni écriture distante ; le frontend corrigé n'est pas déployé |
+| `verify-planning-browser.mjs`, Playwright externe | PASS final ordinateur 1440×1000 et Pixel 7 émulé : pagination 20/40, recherche accents/mots, filtres et vide, jour J+2/dîner, étape complète et clavier, focus, fiche → éditeur, remplacement annulé/confirmé, unicité, retrait/annulation, courses et rechargement ; aucune erreur JS/React, aucun débordement horizontal. Captures relues |
+| `verify-offline-browser.mjs` | PASS ordinateur et mobile émulé : 460 recettes locales réelles, swipe/favori, recherche/filtres, planning, fiche, courses et persistance ; véritable photo Pexels bloquée et repli local lisible ; zéro erreur JS |
+| `npm run offline:check`, `node --check` des nouveaux MJS/tests adaptés | PASS ; 299 chemins locaux, repli et cinq surfaces protégées |
+| `node scripts/verify-documentation.mjs`, `git diff --check`, revue des diffs | PASS ; sept documents, métadonnées/liens et blocs Markdown valides, aucun nouveau diagramme ; contrôle rejoué avant clôture |
+
+**Échecs intermédiaires corrigés :** Premiers tests supposant des filtres visibles alors qu'ils sont repliés, puis contrôle de focus avant la fin du cycle de fermeture : sélecteurs/attente corrigés. L'affichage a révélé que les champs vides ajoutés par le mapping empêchaient la garde d'ingrédients : comparaison normalisée et test représentatif ajoutés. Le contrôle des erreurs console a détecté un titre Dialog portant un ID personnalisé incompatible avec l'ID interne Radix : ID généré rétabli, erreurs supprimées. Deux noms de variables `module` interdits par ESLint ont été renommés. Un essai a été perturbé par le rechargement de développement pendant une génération ; parcours final rejoué après stabilisation. Les refus réseau sandbox de GitHub/Cloud ont été suivis de lectures explicitement autorisées. Ces échecs ne sont pas masqués par les PASS finaux.
+
+**Décisions, limites et prochaines actions :** Implémentation locale et tests terminés ; aucune écriture Cloud, aucun push ni déploiement. Le planning reste local par compte. Les corrections sont appliquées par le frontend aux seuls anciens textes reconnus ; la base brute et Notion restent inchangés (CAT-07 TODO). CAT-06 est DONE pour la restauration/présentation testées ; CAT-02 reste ouvert pour la relecture culinaire City Café, qu'un contrôle structurel ne remplace pas. UX-09 reste IN_PROGRESS pour le retour ergonomique du propriétaire sur appareil physique, malgré le parcours technique testé. Recommandation : relire sur le téléphone réel, puis préparer une livraison frontend autorisée et, séparément, une correction durable des données avec sauvegarde/préconditions. Les tests Auth/Storage complets du nettoyage précédent ne sont pas rejoués ici : aucun contrat Auth/RLS/Storage n'a changé pendant les nouveaux développements.
 
 ### Modèle pour les futures sessions
 
