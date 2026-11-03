@@ -206,6 +206,12 @@ Lecture Vercel le 2026-10-17 : trois variables publiques Supabase et `RESEND_API
 
 Déployer seulement après revue de branche, contrôles et autorisation du propriétaire. Les migrations SQL ne sont pas exécutées par le build Vercel. L'audit initial n'a effectué aucune écriture de production ni déploiement ; la livraison ultérieure autorisée sur `main` et ses contrôles sont consignés dans le [journal de session](ROADMAP.md).
 
+### Livraison frontend du 2026-11-03
+
+GitHub main et production Vercel ont reçu `f7f94f5`, déploiement `dpl_EZXZXnJy3t9Zk6wwX4KY1uUejkiE`, READY et alias public vérifié. Le premier push de `c3ef539` a été refusé par GH007 : après accord explicite, les 14 commits non publiés ont été recréés avec `91118246+LordVERTON@users.noreply.github.com`, arbres/messages/dates conservés. L'ancien main est sauvegardé localement dans `backup/main-before-noreply-20261103` ; les autres branches restent intactes. Le push de main est une avance rapide depuis l'ancienne production, sans force et sans désactiver la protection GitHub. Ne pas réintroduire les anciennes métadonnées privées en publiant globalement les branches de sauvegarde.
+
+Contrôle public en profils vierges ordinateur et Pixel 7 émulé : `/privacy` et contact/règle des six mois, 491 recettes publiques, recherche sans accents, étape complète de la blanquette, ajout au planning du seul navigateur et refus de récupération sans session ; zéro erreur JS. Le navigateur n'autorise que GET/HEAD vers l'application et GET/HEAD/OPTIONS vers le catalogue Supabase ; tous les autres appels, notamment les écritures et Analytics, sont bloqués. Aucun compte, mot de passe ou média réel n'a servi de fixture. Les tests complets Auth/Mailpit/Storage restent locaux et les limites SMTP ne sont pas levées. Aucune migration ni configuration Vercel/Supabase modifiée ; la clôture documentaire ajoute seulement les preuves, sans nouveau code applicatif.
+
 ## Auth et services d'e-mail
 
 Lecture effective de l'API de gestion Supabase le 2026-10-17, paramètres non secrets uniquement : `site_url` et `uri_allow_list` = URL Vercel ; `mailer_autoconfirm=false` ; `smtp_host/port` absents ; utilisateur et mot de passe SMTP non configurés ; `hook_send_email_enabled=false` ; `smtp_max_frequency=60` ; `rate_limit_email_sent=2`. Cela confirme actuellement l'envoi intégré, sans SMTP externe. Les fichiers versionnés seuls n'auraient pas suffi.

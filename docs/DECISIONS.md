@@ -49,7 +49,7 @@ Réécrire les seeds ou une migration appliquée ferait perdre la référence hi
 
 ### Conséquences
 
-Le frontend corrigé doit encore être livré ; les données SQL brutes ne changent pas et les autres consommateurs ne bénéficient pas de cette restauration. Une correction durable de ces données nécessitera un script ciblé avec préconditions, sauvegarde et autorisation. Le fichier augmente le bundle de données et conserve volontairement l'ancien texte pour éviter d'écraser une révision récente. Le générateur Python utilise l'installation PyMuPDF externe existante ; aucune dépendance applicative ajoutée. La relecture culinaire City Café et la saisie des consignes personnelles manquantes restent distinctes.
+Le frontend corrigé est livré le 2026-11-03 (`f7f94f5`) ; les données SQL brutes ne changent pas et les autres consommateurs ne bénéficient pas de cette restauration. Une correction durable de ces données nécessitera un script ciblé avec préconditions, sauvegarde et autorisation. Le fichier augmente le bundle de données et conserve volontairement l'ancien texte pour éviter d'écraser une révision récente. Le générateur Python utilise l'installation PyMuPDF externe existante ; aucune dépendance applicative ajoutée. La relecture culinaire City Café et la saisie des consignes personnelles manquantes restent distinctes.
 
 ### Références
 

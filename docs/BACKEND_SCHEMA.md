@@ -1,7 +1,7 @@
 # Broco-Chou — Base de données et contrats backend
 
 **Objectif :** Référencer le schéma versionné, ses permissions et les écarts observés dans Supabase Cloud.
-**Dernière mise à jour :** 2026-10-23
+**Dernière mise à jour :** 2026-11-03
 **Statut :** Huit migrations présentes dans Cloud après livraison autorisée ; droits administrateur et visibilité RLS vérifiés en lecture seule.
 **Documents liés :** [Architecture](TRD.md), [Parcours](APP_FLOW.md), [Roadmap](ROADMAP.md), [Décisions](DECISIONS.md).
 
@@ -46,7 +46,7 @@ Les logs agrégés sur une fenêtre glissante de 24 heures montrent trois upload
 
 Après le nouvel essai confirmé par le propriétaire, une lecture ciblée sur vingt minutes montre les prérequêtes `OPTIONS` de l'endpoint d'upload en HTTP 200, aucun `POST` d'upload reçu, mais des signatures et nettoyages Storage réussis. Une requête de contrôle `OPTIONS`, sans fichier ni clé, confirme CORS pour l'origine publique et les en-têtes du SDK. Cela oriente vers le transfert du fichier par le navigateur ; aucun refus RLS n'est démontré. Les premiers essais de logs ont parfois retourné HTTP 500/erreur backend ; la fenêtre ciblée a ensuite abouti. L'absence de ligne n'est pas une preuve absolue d'absence de requête.
 
-La création/photo par auteur ordinaire et la modération passent sur Supabase isolé local (ports 55321/55322, Mailpit 55324), ainsi que le parcours navigateur ordinateur et l'émulation Android/Chrome. Aucune migration corrective ni modification des droits n'est justifiée. Le formulaire lit désormais la photo puis envoie une copie `Blob` en mémoire et distingue un échec de lecture, d'envoi ou de RPC. C'est un contournement local de la piste de transfert galerie, cohérente avec [l'incident Chromium de fichiers sélectionnés](https://issues.chromium.org/issues/40123366), sans preuve que le téléphone rencontre ce bug précis. La correction n'est pas déployée ; la confirmation sur appareil réel reste COM-09 du [journal](ROADMAP.md).
+La création/photo par auteur ordinaire et la modération passent sur Supabase isolé local (ports 55321/55322, Mailpit 55324), ainsi que le parcours navigateur ordinateur et l'émulation Android/Chrome. Aucune migration corrective ni modification des droits n'est justifiée. Le formulaire lit désormais la photo puis envoie une copie `Blob` en mémoire et distingue un échec de lecture, d'envoi ou de RPC. C'est un contournement de la piste de transfert galerie, cohérente avec [l'incident Chromium de fichiers sélectionnés](https://issues.chromium.org/issues/40123366), sans preuve que le téléphone rencontre ce bug précis. Le correctif frontend est déployé le 2026-11-03 avec `f7f94f5`, sans modification SQL/Storage ; la confirmation sur appareil réel reste COM-09 du [journal](ROADMAP.md).
 
 ## Architecture et relations
 
