@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type FormEvent } from 'react'
 import Image from 'next/image'
 import { supabase } from '@/lib/supabase-client'
 import type { Recipe } from '@/lib/types'
+import { recipeSubmissionErrorMessage } from '@/lib/recipe-submission-errors'
 import { toast } from 'sonner'
 import { useAccount } from './account-provider'
 import { Button } from './ui/button'
@@ -23,6 +24,7 @@ export function PersonalRecipeForm({ recipe, onSaved, onCancel, onBusyChange }: 
   const [foodError, setFoodError] = useState(false)
   const [foodAttempt, setFoodAttempt] = useState(0)
   const [photo, setPhoto] = useState<File | null>(null)
+  const [photoError, setPhotoError] = useState('')
   const photoInput = useRef<HTMLInputElement>(null)
   const [preview, setPreview] = useState('')
   const [busy, setBusy] = useState(false)
@@ -72,16 +74,29 @@ export function PersonalRecipeForm({ recipe, onSaved, onCancel, onBusyChange }: 
     setBusy(true)
     onBusyChange(true)
     setError('')
+    setPhotoError('')
     let path: string | undefined
     let saved = false
+    let stage: 'photo' | 'recipe' = photo ? 'photo' : 'recipe'
     try {
       if (photo) {
         const extensions: Record<string, string> = { 'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp' }
         if (!extensions[photo.type] || photo.size > 5 * 1024 * 1024) throw new Error('Image : choisis un fichier JPG, PNG ou WebP de 5 Mo maximum.')
+        let uploadPhoto: Blob
+        try {
+          // Gallery Files can be unreadable by the mobile browser's network
+          // process. Send an in-memory copy, bounded above to 5 MiB.
+          const bytes = await photo.arrayBuffer()
+          if (!bytes.byteLength || bytes.byteLength !== photo.size) throw new Error('incomplete photo')
+          uploadPhoto = new Blob([bytes], { type: photo.type })
+        } catch {
+          throw new Error('La photo n’est pas accessible. Sélectionne-la à nouveau dans ta galerie puis réessaie (référence : photo/lecture).')
+        }
         path = `${user.id}/${crypto.randomUUID()}.${extensions[photo.type]}`
-        const { error } = await supabase.storage.from('recipe-photos').upload(path, photo, { contentType: photo.type })
-        if (error) throw new Error('L’envoi de l’image a échoué. Réessaie.')
+        const { error } = await supabase.storage.from('recipe-photos').upload(path, uploadPhoto, { contentType: photo.type })
+        if (error) throw new Error(recipeSubmissionErrorMessage(error, 'photo'))
       }
+      stage = 'recipe'
       const payload = {
         nom: String(form.get('nom')).trim(), description: String(form.get('description')).trim(),
         saison: form.get('saison'), tag: form.get('tag'), categorie: form.get('categorie'),
@@ -92,7 +107,7 @@ export function PersonalRecipeForm({ recipe, onSaved, onCancel, onBusyChange }: 
       const { data: recipeId, error } = recipe
         ? await supabase.rpc('edit_pending_recipe', { recipe_id: recipe.id, payload })
         : await supabase.rpc('submit_recipe', { payload })
-      if (error) throw new Error('La recette n’a pas pu être enregistrée. Vérifie les champs et réessaie.')
+      if (error) throw new Error(recipeSubmissionErrorMessage(error, 'recipe'))
       saved = true
       const notificationUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
       if (!recipe && process.env.NODE_ENV === 'development' && notificationUrl
@@ -110,7 +125,9 @@ export function PersonalRecipeForm({ recipe, onSaved, onCancel, onBusyChange }: 
         // Cleanup must not hide the save error if the network is unavailable.
         try { await supabase.storage.from('recipe-photos').remove([path]) } catch { /* Retry the submission after reconnecting. */ }
       }
-      setError(error instanceof Error ? error.message : 'Enregistrement impossible. Réessaie.')
+      const message = error instanceof Error ? error.message : 'Enregistrement impossible. Réessaie.'
+      if (stage === 'photo') setPhotoError(message)
+      else setError(message)
     } finally { setBusy(false); onBusyChange(false) }
   }
 
@@ -127,15 +144,16 @@ export function PersonalRecipeForm({ recipe, onSaved, onCancel, onBusyChange }: 
         <label className="text-sm">Catégorie<select className={selectStyle} name="categorie" defaultValue={recipe?.categorie}><option value="salé">Salé</option><option value="sucré">Sucré</option></select></label>
         <label className="col-span-2 text-sm">Type de repas<select className={selectStyle} name="tag" defaultValue={recipe?.tag ?? "dejeuner/diner"}><option value="dejeuner/diner">Déjeuner / dîner</option><option value="petit_dejeuner">Petit-déjeuner</option><option value="dessert">Dessert</option><option value="aperitif">Apéritif</option></select></label>
       </div>
-      <label className="block text-sm">Photo (facultative, 5 Mo maximum)<Input ref={photoInput} type="file" accept="image/jpeg,image/png,image/webp" onChange={event => {
+      <label className="block text-sm">Photo (facultative, 5 Mo maximum)<Input ref={photoInput} type="file" accept="image/jpeg,image/png,image/webp" aria-invalid={!!photoError} aria-describedby={photoError ? 'recipe-photo-error' : undefined} onChange={event => {
         const file = event.target.files?.[0] ?? null
         if (file && (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type) || file.size > 5242880)) {
-          setError('Choisis une image JPG, PNG ou WebP de 5 Mo maximum.'); event.target.value = ''; setPhoto(null); return
+          setPhotoError('Choisis une image JPG, PNG ou WebP de 5 Mo maximum.'); event.target.value = ''; setPhoto(null); return
         }
-        setError(''); setPhoto(file)
+        setError(''); setPhotoError(''); setPhoto(file)
       }} /></label>
+      {photoError && <p id="recipe-photo-error" role="alert" className="text-sm text-destructive">{photoError}</p>}
       {recipe?.imageUrl && !preview && <Image src={recipe.imageUrl} alt="Photo actuelle" width={480} height={240} unoptimized className="max-h-48 rounded-xl object-cover" />}
-      {preview && <div><Image src={preview} alt="Aperçu de ta recette" width={480} height={240} unoptimized className="max-h-48 rounded-xl object-cover" /><Button type="button" variant="ghost" onClick={() => { setPhoto(null); if (photoInput.current) photoInput.current.value = ''; }}>Retirer la photo</Button></div>}
+      {preview && <div><Image src={preview} alt="Aperçu de ta recette" width={480} height={240} unoptimized className="max-h-48 rounded-xl object-cover" /><Button type="button" variant="ghost" onClick={() => { setPhoto(null); setPhotoError(''); if (photoInput.current) photoInput.current.value = ''; }}>Retirer la photo</Button></div>}
       <div className="space-y-3">
         <h4 className="font-semibold">Ingrédients</h4>
         <p className="text-sm text-warm-gray">Choisis un nom générique proposé (par exemple « tomate ») ou saisis un nouvel aliment. Il sera ajouté au catalogue lors de l’enregistrement.</p>
