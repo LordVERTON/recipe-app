@@ -1,7 +1,7 @@
 # Broco-Chou — Référence UI et UX
 
 **Objectif :** Maintenir l'identité existante et distinguer composants livrés et améliorations futures.
-**Dernière mise à jour :** 2026-10-17
+**Dernière mise à jour :** 2026-11-02
 **Statut :** EXISTANT relevé dans les sources ; conformité d'accessibilité [À CONFIRMER].
 **Documents liés :** [Produit](PRD.md), [Parcours](APP_FLOW.md), [Architecture](TRD.md), [Roadmap](ROADMAP.md).
 
@@ -9,7 +9,7 @@
 
 Identité douce, chaleureuse et culinaire : fonds crème, surfaces arrondies, accents mauve/violet, sauge et typographie familière. L'application est conçue pour le téléphone, avec améliorations ponctuelles sur grand écran. Aucune refonte visuelle dans cette mission.
 
-Le layout importe [app/globals.css](../app/globals.css), également déclaré dans `components.json` (shadcn `new-york`, base neutral, variables CSS). [styles/globals.css](../styles/globals.css) est un fichier générique non importé par le layout : ses tokens oklch/Geist et son mode sombre ne définissent pas la charte déployée. Ne pas mélanger les deux jeux de variables. Aucun sélecteur de thème n'est monté par le layout courant.
+Le layout importe [app/globals.css](../app/globals.css), également déclaré dans `components.json` (shadcn `new-york`, base neutral, variables CSS). L'ancien `styles/globals.css`, non importé et sans référence dynamique, a été supprimé le 2026-11-02. Les six primitives utilisées restent dans `components/ui/`. Aucun sélecteur de thème n'est monté par le layout courant ; `next-themes` reste nécessaire au Toaster Sonner.
 
 ## Tokens réels
 
@@ -46,7 +46,7 @@ Ombre `.broco-chou-shadow` : `0 4px 20px rgba(155,100,169,0.08), 0 1px 3px rgba(
 | Dialog | Radix pour création/édition de recette : `max-h-[90dvh]`, scroll, `sm:max-w-2xl`. Ouverture depuis compte visiteur puis formulaire après connexion ; fermeture interdite pendant sauvegarde |
 | Sheet recette | Panneau Framer Motion spécifique dans `recipe-detail-sheet.tsx`, fond obscurci, ouverture depuis bas, hauteur max 90vh. N'utilise pas automatiquement les garanties de focus d'un Sheet Radix ; audit clavier à faire |
 | Navigation | Cinq onglets en bas fixes, labels pour quatre ; bouton Swipe rond 56 px, remonté. Indicateur ponctuel animé sur les autres onglets ; pas `aria-current` dans le code actuel, nom accessible du bouton Swipe à corriger |
-| Recipe card / swipe | Image et informations essentielles, trois couches de cartes, overlays textuels d'acceptation/refus ; boutons annuler/refuser/accepter/favori. Les cartes internes du swipe ont leur rendu propre, distinct de `recipe-card.tsx` |
+| Recipe card / swipe | Image et informations essentielles, trois couches de cartes, overlays textuels d'acceptation/refus ; boutons annuler/refuser/accepter/favori. Les cartes internes du swipe ont leur rendu propre ; l'ancien `recipe-card.tsx` jamais monté est supprimé |
 | Planning | Sélecteur de dates, « Aujourd'hui », nombre de repas, statut cuisiné/sauté. Éditeur : recherche, filtres et grille de créneaux, menus natifs ; confirmation et annulation du retrait |
 | Courses | Six catégories repliables, cases visuelles, barre de progression, copier/partager/imprimer, bouton basiques. État coché : coche et texte barré en plus de couleur |
 | Formulaire personnel | Champs désactivés pendant envoi, preview et retrait de photo, listes d'ingrédients, suggestions datalist, erreur inline, succès toast |

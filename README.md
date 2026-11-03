@@ -1,7 +1,7 @@
 # Broco-Chou
 
 **Objectif :** Découvrir le projet et lancer un environnement local sûr.
-**Dernière mise à jour :** 2026-10-17
+**Dernière mise à jour :** 2026-11-02
 **Statut :** Audit initial de `main/e89d109`, documentation consolidée et livrée sur `main` ; suivi dans le journal de session.
 **Documents liés :** [PRD](docs/PRD.md), [TRD](docs/TRD.md), [Parcours](docs/APP_FLOW.md), [Design](docs/DESIGN_BRIEF.md), [Backend](docs/BACKEND_SCHEMA.md), [Roadmap](docs/ROADMAP.md), [Décisions](docs/DECISIONS.md).
 
@@ -22,23 +22,22 @@ Plans, favoris, préférences, courses et historique restent dans le navigateur,
 
 ## Stack et prérequis
 
-Next.js 16.2.6, React 19.2.6, TypeScript 5.7.3, Tailwind CSS 4.3.0, shadcn/ui/Radix, Framer Motion, Zustand, Supabase JS 2.117.3 et CLI 2.120.0, PostgreSQL/RLS, Storage, Vercel. Versions résolues du lockfile ; détail dans le [TRD](docs/TRD.md).
+Next.js 16.4.4, React 19.2.6, TypeScript 5.7.3, Tailwind CSS 4.3.3, shadcn/ui/Radix, Framer Motion, Zustand, Supabase JS 2.117.3 et CLI **3.0.0**, PostgreSQL/RLS, Storage, Vercel. Versions résolues du lockfile ; détail dans le [TRD](docs/TRD.md).
 
-Installer Node.js ≥22 et npm ; démarrer Docker Desktop pour Supabase local. L'installation initiale peut télécharger des images Docker.
+Installer Node.js ≥22.13 et npm ; démarrer Docker Desktop avec conteneurs Linux. Préparer avec Internet les dépendances npm, le binaire Windows du CLI et les images Docker avant de travailler hors ligne.
 
 ## Démarrage local — PowerShell
 
 Depuis la racine du dépôt :
 
 ```powershell
-npm ci
-npm run supabase:start
-npm run supabase:env
-npm run mailpit
+npx supabase start
 npm run dev
 ```
 
-Ouvrir [Next.js](http://localhost:3000), [Studio](http://127.0.0.1:54323) et [Mailpit](http://127.0.0.1:54324). Supabase API utilise 54321, PostgreSQL 54322. `supabase:start` démarre déjà Mailpit ; `mailpit` permet aussi de le relancer seul.
+Sur un nouveau poste, exécuter d'abord `npm ci` avec Internet, puis, après le premier démarrage Supabase, `npm run supabase:env` une fois pour préparer `.env.development.local`. Les deux commandes ci-dessus suffisent ensuite tant que cette configuration reste valide. Elles utilisent les dépendances installées, sans installation nécessaire au démarrage.
+
+Ouvrir [Next.js](http://localhost:3000), [Studio](http://127.0.0.1:54323) et [Mailpit](http://127.0.0.1:54324). Supabase API utilise 54321, PostgreSQL 54322. Supabase démarre aussi Mailpit ; `npm run mailpit` permet de le relancer seul. `npm run supabase:start` reste une alternative conservant le correctif PostgREST historique.
 
 `supabase:env` écrit les clés de la pile locale dans `.env.development.local`, préserve `.env.local` et ne contacte pas Cloud. Redémarrer Next.js si déjà lancé. Les comptes locaux sont distincts des comptes de production ; les confirmations sont capturées par Mailpit. Le seed local autorise l'adresse d'administrateur de développement sans créer de compte ni mot de passe.
 
@@ -65,9 +64,9 @@ Ouvrir `http://<IPv4-du-PC>:3000`, adapter `allowedDevOrigins` et les redirectio
 | `npm run mailpit:check` | Tester livraison et confirmation locales avec nettoyage |
 | `node scripts/verify-personal-recipes.mjs` | Soumission, photos et droits dans la seule base locale |
 | `node scripts/verify-documentation.mjs` | Sept documents, métadonnées et liens locaux |
-| `npm run offline:check` | Détecter les ressources non autonomes ; échec connu sur les URLs Pexels des imports |
+| `npm run offline:check` | Vérifier les 299 chemins photo locaux, le repli partagé et l'absence de police/CSS/script CDN obligatoire ; les photos Pexels restent facultatives |
 
-Autres tests, prérequis Playwright, résultats et échecs : [journal de validation](docs/ROADMAP.md). Pour une migration locale additive : `npm exec -- supabase migration up --local`. `npm run supabase:reset` détruit les données locales et rejoue les seeds : ce n'est pas une commande normale de démarrage. Ne jamais exécuter de reset distant.
+Autres tests, prérequis Playwright, résultats et échecs : [journal de validation](docs/ROADMAP.md). Avec CLI 3, une migration additive locale utilise `npm exec -- supabase migration up` (cible locale par défaut, lire `--help` avant toute opération). `npm run supabase:reset` détruit les données locales et rejoue les seeds : ce n'est pas une commande normale de démarrage. Ne jamais exécuter de reset distant.
 
 ## Architecture et déploiement
 
@@ -97,7 +96,7 @@ Au 2026-10-17 : SMTP intégré Supabase confirmé en lecture seule, confirmation
 
 ## Limites et contributions
 
-Pas de synchronisation multi-appareil, d'écran complet régime/budget, de récupération de compte dans l'UI ni de pipeline Odélis périodique. Quantités/portions, invalidation des courses, accessibilité et dépendances demandent encore des corrections. L'audit npm signale 12 alertes dont une critique. L'écart SQL de modération est corrigé par la livraison autorisée du 2026-10-17 ; aucun e-mail de modération n'est envoyé en production. Les validations et limites sont suivies dans la roadmap.
+Pas de synchronisation multi-appareil, d'écran complet régime/budget, de récupération de compte dans l'UI ni de pipeline Odélis périodique. Quantités/portions, invalidation des courses, accessibilité et dépendances demandent encore des corrections. Audit npm du 2026-11-02 : zéro alerte de production, 11 alertes modérées dans l'outillage de développement, sans correction forcée incompatible. L'écart SQL de modération est corrigé par la livraison autorisée du 2026-10-17 ; aucun e-mail de modération n'est envoyé en production. Les validations et limites sont suivies dans la roadmap.
 
 Pour contribuer : lire [AGENTS.md](AGENTS.md), partir de `main`, conserver Auth/RLS/données, utiliser Conventional Commits et mettre à jour documentation et journal avec les tests. Ne pas importer automatiquement `feat/auth-email-readiness`.
 

@@ -1,7 +1,7 @@
 # Broco-Chou — Architecture technique
 
 **Objectif :** Décrire les composants, environnements, conventions et limites techniques vérifiés.
-**Dernière mise à jour :** 2026-10-17
+**Dernière mise à jour :** 2026-11-02
 **Statut :** EXISTANT audité depuis `main/e89d109` ; configuration Cloud lue sans modification.
 **Documents liés :** [Produit](PRD.md), [Parcours](APP_FLOW.md), [Schéma backend](BACKEND_SCHEMA.md), [Design](DESIGN_BRIEF.md), [Roadmap et tests](ROADMAP.md), [ADR](DECISIONS.md).
 
@@ -11,22 +11,22 @@ Versions résolues par [package-lock.json](../package-lock.json), qui fait foi p
 
 | Technologie | Version résolue | Rôle |
 | --- | --- | --- |
-| Next.js | 16.2.6 | App Router, pages et handlers API ; développement Webpack |
+| Next.js | 16.4.4 | Version déjà installée par le propriétaire avant ce nettoyage ; App Router et développement Webpack |
 | React / React DOM | 19.2.6 | Interface et état des composants |
 | TypeScript | 5.7.3 | Typage strict, alias `@/*` vers racine |
-| Tailwind CSS / `@tailwindcss/postcss` | 4.3.0 | Styles utilitaires et tokens CSS |
+| Tailwind CSS / `@tailwindcss/postcss` | 4.3.3 | Correctifs compatibles appliqués ensemble |
 | Zustand | 5.0.13 | Store client et middleware persist |
 | Framer Motion | 12.38.0 | Swipe et transitions |
 | `@supabase/supabase-js` | 2.117.3 | Auth, REST, RPC, Storage |
-| Supabase CLI | 2.120.0 | Développement local et migrations |
+| Supabase CLI | 3.0.0 | Version locale du propriétaire conservée et testée ; aucune restauration de v2 |
 | Radix Dialog | 1.1.15 | Exemple de primitive shadcn/ui ; les versions Radix diffèrent par paquet |
 | Lucide React | 0.564.0 | Icônes |
-| React Hook Form / resolvers / Zod | 7.75.0 / 3.10.0 / 3.25.76 | Outillage de formulaires disponible ; le formulaire personnel utilise FormData et validation manuelle |
+| Formulaires | FormData et validation manuelle | React Hook Form / resolvers / Zod retirés : aucun consommateur actif ni script associé |
 | Vercel Analytics | 1.6.1 | Composant chargé uniquement en production |
-| ESLint / typescript-eslint | 10.10.0 / 8.70.0 | Analyse statique |
-| PostCSS | 8.5.14 | Traitement CSS ; versions transitives à examiner séparément |
+| ESLint / typescript-eslint | 10.14.0 / 8.72.1 | Rétablissement après rétrogradation locale en 4.0.0 / 8.14.0 ; plugin Next aligné en 16.4.4 |
+| PostCSS | 8.5.32 | Correctifs compatibles, ancienne installation locale 8.5.23 |
 
-Autres dépendances conservées : date-fns 4.1.0, react-day-picker, Sonner, Vaul, Recharts, embla-carousel, cmdk, next-themes, class-variance-authority, clsx et tailwind-merge. Leur présence dans les primitives ne prouve pas une fonction métier utilisée. Le manifeste est nommé `my-project` version `0.1.0`, privé, et annonce `npm@12.0.2`. Node ≥22 est le prérequis documenté ; cette session utilise Node 26.8.2. PostgreSQL local : major 17 ; PostgREST local forcé à `v14.18` par le script de démarrage.
+Autres dépendances actives conservées : Sonner 1.7.4, next-themes 0.4.6 (Toaster), class-variance-authority, clsx et tailwind-merge 3.6.0. Date-fns, react-day-picker, Vaul, Recharts, embla-carousel, cmdk et input-otp ne servaient qu'aux primitives jamais montées et sont retirés. Les trois Radix actifs (Dialog, Slot, Switch) restent à leurs versions existantes. Le manifeste est nommé `my-project` version `0.1.0`, privé, et annonce `npm@12.0.2`. Node ≥22.13 est maintenant déclaré dans `engines` pour ESLint ; tests sur Node 26.8.2, pas sur chaque version minimale. PostgreSQL local : major 17 ; PostgREST local `v14.18` conservé.
 
 Ces choix sont conservés pour stabilité et coûts minimaux. Aucun nouveau framework ni SDK d'e-mail ajouté. `shadcn/ui` est du code dans `components/ui/`, pas un service distant.
 
@@ -34,12 +34,10 @@ Ces choix sont conservés pour stabilité et coûts minimaux. Aucun nouveau fram
 | --- | --- |
 | `app/` | Layout, `/`, import manuel et API |
 | `components/` | Orchestrateur, compte, écrans et primitives UI |
-| `hooks/` | Hooks UI ; certains doublons historiques dans `components/ui/` |
 | `lib/` | Types, store, calculs, mapping Supabase, images et notifications |
 | `public/` | Icônes, images locales et placeholders |
 | `scripts/` | Exploitation locale, contrôles et préparation des imports |
 | `supabase/` | Configuration, migrations, seeds, imports sources et snippets historiques |
-| `styles/` | CSS générique historique ; seul `app/globals.css` est importé par le layout |
 | `docs/` | Sept références canoniques ; aucune seconde roadmap |
 
 ## Architecture
@@ -104,17 +102,14 @@ Quantités : fractions simples ou préfixes numériques, multiplication par `hou
 
 ### Local Windows / PowerShell
 
-Prérequis : Node ≥22, npm, Docker Desktop démarré avec conteneurs Linux. Les dépendances incluent la CLI épinglée ; première exécution susceptible de télécharger les images Docker.
+Prérequis : Node ≥22.13, npm, Docker Desktop démarré avec conteneurs Linux. Préparer les dépendances et images avec Internet ; la CLI est épinglée en 3.0.0, son binaire Windows doit être installé.
 
 ```powershell
-npm ci
-npm run supabase:start
-npm run supabase:env
-npm run mailpit
+npx supabase start
 npm run dev
 ```
 
-Les commandes sont séquentielles ; Next.js peut tourner dans un second terminal. `supabase:start` démarre aussi Mailpit. `mailpit` le relance si nécessaire et configure l'application locale. Redémarrer Next.js après un changement d'environnement. Sans Supabase configuré, la découverte avec mocks reste utilisable ; le compte et la soumission sont indisponibles.
+Première préparation avec Internet : `npm ci`, premier `npx supabase start`, puis `npm run supabase:env`. Ensuite les deux commandes ci-dessus suffisent ; Next.js peut tourner dans un second terminal. Aucun nouveau script npm de démarrage ajouté. `npm run supabase:start` reste une alternative testée ; Mailpit est déjà démarré par Supabase. Redémarrer Next.js après un changement d'environnement. Sans Supabase configuré, la découverte avec mocks reste utilisable ; le compte et la soumission sont indisponibles.
 
 | Service local | Adresse |
 | --- | --- |
@@ -175,13 +170,21 @@ Cette commande exige une pile locale démarrée. Ouvrir `http://<IPv4-du-PC>:300
 
 Pour revenir volontairement à Cloud en développement, renommer `.env.development.local` en `.env.development.disabled.local`, vérifier la cible de `.env.local` et redémarrer. Le remettre à son nom initial réactive le local. Les comptes locaux et Cloud sont distincts. Ne pas utiliser de vraies données personnelles pour les tests.
 
-### Autonomie hors ligne — périmètre de vérification
+### Autonomie hors ligne — résultats du 2026-11-02
 
-Le propriétaire confirme que « recipe app » désigne ce dépôt Broco-Chou (`supabase/config.toml` : `project_id="recipe-app"`). Les scripts npm, Supabase CLI, Auth/Storage et Mailpit locaux sont configurés ; les polices utilisent les piles système de `app/globals.css`. Les recherches/rendus isolés et actions du store ont été exécutés sans réseau avec données et stockage fictifs ; aucun serveur frontend ni service Supabase n'a été démarré pour cette revue. L'essai de lecture SQL locale échoue car le moteur Docker Desktop Linux est indisponible. L'autonomie complète reste à vérifier dans OPS-05.
+Les polices sont des piles système, sans Google Fonts/CDN obligatoire. Notion n'a aucun client ou appel au démarrage dans le code audité ; son futur chantier DB-05/06 est préservé. Le catalogue vient réellement du Supabase local configuré, sans copie automatique de Cloud. Les comptes locaux sont distincts de la production.
 
-Sur un poste préparé, les dépendances npm et images Docker doivent déjà être présentes. Tester frontend, catalogue, Auth/confirmation Mailpit, création/photo, planning et courses avec WAN coupé, cibles Supabase loopback vérifiées. La première installation npm et le téléchargement des images Docker peuvent demander Internet. Ne pas exécuter de reset ou de seed Cloud pour préparer cet environnement.
+Test exécuté : démarrage de `npm run dev` avec le préchargement Node [restrict-external-network.mjs](../scripts/restrict-external-network.mjs), qui refuse DNS, TCP et fetch hors loopback, sans modifier Windows. Son autocontrôle rejette une adresse externe de test et laisse Mailpit local répondre. Chromium bloque séparément toutes ses requêtes hors localhost/127.0.0.1. [verify-offline-browser.mjs](../scripts/verify-offline-browser.mjs) valide 460 recettes réelles, swipe/favori, recherche et filtre de saison, planning manuel, fiche/ingrédients, courses et persistance après rechargement, sur ordinateur et Android émulé. Zéro erreur JavaScript ; les erreurs réseau Pexels provoquées sont attendues. Auth/confirmation/JWT et upload/lecture Storage passent aussi avec le préchargement Node. Les scénarios photo non-admin ordinateur/Android et modération passent avec leurs fixtures locales nettoyées.
 
-Restent liés au réseau : Supabase Cloud lorsque cette cible est choisie, photos Pexels distantes, téléchargements Pexels des imports, opérations Git distantes/Vercel et future synchronisation Notion. `npm.cmd run offline:check` échoue sur les URLs Pexels dans le seed et 12 imports ; les chemins locaux testés passent avant cet échec. Ce contrôle ne mesure pas à lui seul l'autonomie de tous les services. Pas de cache applicatif complet, service worker/PWA ou file de synchronisation hors ligne démontré. [OPS-05 et DEBT-01](ROADMAP.md) suivent les vérifications et corrections ; cette documentation ne déclare pas la version publique utilisable entièrement hors ligne.
+Supabase a été arrêté proprement avec sauvegarde normale des volumes, puis redémarré via CLI 3 avec HTTP(S)_PROXY vers un port local indisponible et NO_PROXY loopback. Succès sans téléchargement d'image observé ; huit migrations et empreintes du catalogue/ingrédients/identités/photos existants préservées. Ce proxy ne bloque pas le réseau propre du moteur Docker ni tous les transports possibles du binaire CLI. **Coupure physique WAN, redémarrage Docker Desktop et sélecteur Android natif : NON TESTÉS** ; OPS-05 reste IN_PROGRESS. Aucun reset, seed ou changement de migration appliqué à la base existante.
+
+Les 299 chemins photo locaux du seed/imports sont vérifiés par le résolveur réel. Les 168 URLs Pexels présentes dans 13 fichiers SQL sont conservées avec leurs attributions ; elles sont facultatives grâce à [RecipeImage](../components/recipe-image.tsx), commun au swipe, calendrier, fiche, photo actuelle du formulaire et import. Une erreur affiche `/placeholder.jpg` sans boucle de rechargement ; un changement d'URL essaie la nouvelle photo. Les fichiers locaux explicites gardent priorité ; aucune vraie photo ni attribution remplacée en base. L'aperçu de fichier choisi reste un Blob local via Next Image. `offline:check` vérifie ces garanties au lieu d'exiger la suppression des URLs sources ; il ne prouve pas seul un fonctionnement sans WAN.
+
+À précharger : `node_modules` (Next/SWC, Tailwind/Oxide, Supabase CLI Windows compris), Docker Desktop et les images des services locaux. Les images effectivement utilisées peuvent être listées sans secrets par `docker ps --filter name=recipe-app --format '{{.Image}}'` ; aucune purge de celles des autres projets. `supabase/.temp/doc-tools` et l'installation Playwright externe ont été conservés pour les validations sans téléchargement. Supabase Cloud, téléchargement de photos Pexels, npm/Git distants, Vercel et la future synchronisation Notion nécessitent Internet par conception. Analytics Vercel reste limité au rendu de production et facultatif. Ni PWA, service worker, cache applicatif ni synchronisation différée ajoutés.
+
+Pour terminer OPS-05 sur Windows : fermer les serveurs de test, garder les modules/images et `.env.development.local` loopback ; arrêter normalement Supabase, couper le WAN en conservant localhost, démarrer Docker Desktop puis `npx supabase start` et `npm run dev`. Ouvrir localhost:3000, Studio/Mailpit, rejouer les tests locaux et contrôler la console ; refaire un arrêt/redémarrage complet. Ne pas réinitialiser la base. Pour rejouer le test automatisé sans couper le WAN, définir `PLAYWRIGHT_MODULE` vers l'installation externe, puis `node scripts/verify-offline-browser.mjs` ; `TEST_MOBILE=1` sélectionne l'émulation Android. Le fichier `restrict-external-network.mjs` peut être préchargé par `NODE_OPTIONS=--import=./scripts/restrict-external-network.mjs` dans le seul terminal de test, puis retirer cette variable en fermant ce terminal.
+
+Windows/Analytics : Vector a été observé en redémarrage répété ; le warning TCP 2375 signalé n'a pas été reproduit lors du redémarrage final. API, PostgreSQL, Auth, Storage, Studio et Mailpit ont passé indépendamment de cette collecte de logs. Aucun accès Docker TCP non authentifié activé, aucune fonctionnalité désactivée. La collecte Analytics locale complète reste À CONFIRMER.
 
 ### Production et Preview
 
@@ -218,9 +221,71 @@ Notifications de modération : transport local Mailpit, outbox durable et repris
 
 ## Qualité, Git et exigences non fonctionnelles
 
-`tsconfig.json` active `strict` et `noEmit`. Attention : `next.config.mjs` a `typescript.ignoreBuildErrors=true` ; un build réussi ne remplace donc pas `npx tsc --noEmit`. Images `unoptimized:true` et plusieurs `<img>` expliquent quatre avertissements ESLint. Aucun runner unitaire ni commande `test` ; scripts d'intégration Node et un test navigateur Playwright externe. Ne pas installer une nouvelle dépendance applicative pour les rejouer.
+### Inventaire et nettoyage local du 2026-11-02
+
+Inventaire récursif incluant fichiers suivis, non suivis et ignorés : environ 50 188 fichiers, **1 258 757 683 octets** au premier relevé (tailles logiques, pas allocation NTFS ni volumes Docker). 810 fichiers dans l'index Git ; ce nombre inclut les fichiers supprimés tant qu'ils ne sont pas indexés. Le relevé réexécutable [audit-workspace.mjs](../scripts/audit-workspace.mjs) ne lit jamais le contenu des secrets pour son inventaire ; il signale les dossiers illisibles et les liens non parcourus. Les candidats sans chemin d'import ne constituent pas à eux seuls une autorisation de suppression.
+
+| Élément initial | Taille mesurée | Usage / décision et preuve |
+| --- | --- | --- |
+| `node_modules` | 669 481 250 o | Exécution locale/hors ligne ; conservé. Retrait ciblé des paquets inutilisés via npm, jamais de suppression globale |
+| `supabase` | 180 355 386 o | Migrations, seeds, sources, diagnostics et sauvegarde protégée ; conservés |
+| `.next` | 156 156 832 o au premier relevé | Généré ; 210 304 214 o mesurés après tests puis supprimés avant régénération. Les caches reconstruits ne sont pas un gain permanent à additionner |
+| `public` | 146 126 890 o, 625 fichiers | Médias utiles/compatibilité historique ; tous conservés. 180 doublons binaires représentant 44 897 890 o conservés faute de preuve d'absence de référence historique en base |
+| `.git` | 105 161 361 o | Historique ; conservé intégralement |
+| `supabase/.temp/doc-tools` | 177 703 795 o (inclus dans supabase) | Mermaid déjà installé pour validation hors ligne ; conservé |
+| Sauvegarde de production protégée | 846 602 o (incluse dans supabase) | Sauvegarde existante, non ouverte ni supprimée |
+| 55 fichiers UI/hooks sans consommateur et CSS générique | 192 021 o | Supprimés : 51 primitives/hooks UI, deux hooks dupliqués, ancienne RecipeCard, ThemeProvider orphelin et `styles/globals.css`. Vérification des imports Next, scripts, chaînes et documentation ; aucune route supprimée |
+| `tsconfig.tsbuildinfo` / bytecode Python de session | 129 490 / 4 986 o au nettoyage | Générés, retirés sans affecter les sources ; TypeScript peut recréer son cache |
+| `planning-summary.tsx`, `recipe-logic.ts` | 8 601 / 11 083 o | Non montés mais liés aux algorithmes/backlog ALG-06 ; conservés comme incertains |
+| `.env*.local`, sources d'import, migrations/seeds, volumes | Tailles non pertinentes pour une suppression | Conservés. Empreintes locales avant/après : recettes, ingrédients, identités et métadonnées photos inchangés ; tests séparés des octets des photos fictives |
+
+Les six primitives actives sont Button, Dialog, Input, Sonner, Switch, Textarea. Aucun écran, filtre, route API, service Supabase, rôle, média ni chantier Notion retiré. La liste exhaustive des suppressions reste `git diff --name-status`. Les petits outils ajoutés utilisent les dépendances existantes ; aucune nouvelle bibliothèque de nettoyage. `agentRules:false` empêche Next 16.4 de réécrire automatiquement le contrat AGENTS au démarrage ; le bloc injecté pendant l'essai a été retiré, contrat original préservé.
+
+| Mise à jour locale | Avant → après | Justification / limite |
+| --- | --- | --- |
+| ESLint | 4.0.0 → 10.14.0 | La v4 ignorait la configuration plate ; le premier succès lint était trompeur. Vérification réelle des TS/TSX rétablie |
+| typescript-eslint | 8.14.0 → 8.72.1 | Compatibilité ESLint 10 et TypeScript 5.7 vérifiée dans les peerDependencies |
+| Plugin ESLint Next | 16.2.6 → 16.4.4 | Alignement sur Next installé |
+| Tailwind / plugin PostCSS | 4.3.0 → 4.3.3 | Correctifs compatibles, mises à jour ensemble |
+| PostCSS direct | 8.5.23 → 8.5.32 | Correctifs compatibles |
+| Next / React / Supabase JS / CLI | 16.4.4 / 19.2.6 / 2.117.3 / 3.0.0 inchangés pendant cette mission | Next et CLI déjà actualisés localement par le propriétaire ; pas de retour vers les versions Git historiques |
+| 36 dépendances directes sans consommateur | Retirées | 25 Radix non utilisés, resolvers, Autoprefixer (Tailwind 4 fournit son traitement), cmdk, date-fns, embla, input-otp, day-picker, Hook Form, panels, Recharts, Vaul, Zod. Lockfile maintenu par npm |
+
+Mises à jour différées : React 19.3.1, Supabase JS 2.118.0 et versions récentes des Radix actifs n'apportaient pas de correctif nécessaire à cette mission ; Framer Motion 14, Lucide 1 et TypeScript 7 impliquent une revue de compatibilité. Aucun `npm audit fix --force`. Audit initial : 17 alertes (2 low, 14 moderate, 1 high), contre 11 moderate ensuite, toutes dans l'outillage de développement autour de [minimatch / amplification des globparts](https://github.com/advisories/GHSA-g3hv-75wg-m249). `npm audit --omit=dev` : zéro vulnérabilité. Les rétrogradations ESLint 4/typescript-eslint 8.14 proposées par npm ne sont pas une correction acceptable ; pas d'override forcé vers un nouveau major transitive. SEC-01 reste IN_PROGRESS. Le lockfile a 284 entrées de paquets contre 578 initialement ; la simulation `npm ci --dry-run --offline --ignore-scripts --allow-remote=all --no-audit` passe sans réinstallation. Une simulation n'est pas une restauration depuis un cache npm vide.
+
+CLI 3 : `status -o json` contient toujours API_URL, ANON_KEY et SERVICE_ROLE_KEY, ainsi que des clés modernes supplémentaires ; le générateur d'environnement valide le loopback HTTP et capture les sorties sans exposer un échec CLI contenant des secrets. Les variables utiles résultantes sont identiques au fichier local précédent. `start`, `stop`, statut JSON, `migration list`, wrapper et tests passent. `migration list` cible localement par défaut, même si sa colonne historique s'appelle `remote` ; le résultat testé indique explicitement `target.kind=local`. [Changements v3](https://github.com/supabase/cli/releases/tag/v3.0.0) : `--remote` sélectionne désormais l'hébergé, `--local` est accepté mais obsolète ; les commandes v2 des entrées historiques restent des preuves datées et ne doivent pas être recopiées comme procédure actuelle sans `--help`.
+
+### Scripts historiques conservés après audit
+
+Tous les MJS passent `node --check` et les deux Python passent l'analyse AST sans exécution ni génération. Les générateurs n'ont pas été lancés pour éviter d'écraser les artefacts ; compatibilité métier/source complète non revendiquée. Les scripts ne sont pas importés au démarrage de l'application.
+
+| Script(s) | Rôle / références et reconstruction | Réseau / décision |
+| --- | --- | --- |
+| `draft-city-cafe-catalog.mjs` | Prépare les lots 05–10 depuis les intitulés, préserve les choix déjà présents dans les JSON ; chaîne générateur/manifeste | Sans fournisseur ; garder pour reconstruction, pas réexécuté |
+| `generate-city-cafe-import.mjs` | JSON des lots → SQL, ingrédients et attributions, lit les autres lots | Sans réseau ; garder, génération non rejouée |
+| `generate-city-cafe-category-repair.mjs` | Lots → correction des catégories canoniques ; SQL historique conservé | Sans réseau ; garder pour réparation |
+| `enrich-city-cafe-pexels.mjs` | Recherche photo officielle, met à jour lots et attributions | API Pexels + clé, Internet ; garder, jamais exécuté au démarrage |
+| `refine-city-cafe-desserts.mjs` | Raffinement éditorial du lot 10 avant génération SQL | Sans réseau ; garder pour reconstruction |
+| `refresh-city-cafe-missing-images.mjs` | Complète les trois images du lot 09 et la correction SQL | API Pexels, Internet ; garder, pas de téléchargement massif |
+| `mark-city-cafe-batch.mjs`, `reject-city-cafe-image.mjs` | Statut du manifeste/ordre et rejet contrôlé d'une sélection photo | Sans réseau ; garder pour maintenance |
+| `generate-supabase-seed.mjs` | Mocks → seed local, peut remplacer le seed complet | Sans réseau ; garder, ne pas le substituer au générateur XLSX |
+| `generate_supabase_seed_from_sources.py` | XLSX + ingrédients + import hebdomadaire → seed ; arguments de chemins disponibles | Sources externes au dépôt, anciens chemins Windows non portables ; garder, restauration depuis ces sources À CONFIRMER |
+| `inspect_xlsx_xml.py` | Inspection XLSX/XML sans bibliothèque tierce | Fichier local requis ; garder pour diagnostic |
+| `verify-city-cafe-batch.mjs` | Cohérence JSON/SQL par lot, IDs, champs et images | Sans réseau ; garde éditoriale conservée |
+| `verify-city-cafe-image-urls.mjs` | HEAD des vraies images avec timeout | Internet ; garder, non rejoué sans besoin de télécharger/sonder 157 photos |
+| `verify-city-cafe-sync.mjs` | Comparaison local/Cloud et attributions ; dépend de Docker et d'une clé serveur distante | Lecture réseau explicite ; garder, pas exécuté pour ce nettoyage local |
+| `start-local-supabase.mjs`, `write-local-supabase-env.mjs`, `mailpit.mjs` | Démarrage, environnement et boîte locale ; référencés dans package.json | Docker/loopback, testés v3 ; garder |
+| `confirm-local-test-signup.mjs`, `verify-local-auth.mjs`, `verify-local-jwt.mjs`, `verify-local-mailpit.mjs` | Contrats Auth/JWT/proxy/confirmation et nettoyage des comptes/mails fictifs | Loopback uniquement ; rejoués, garder |
+| `verify-personal-recipes.mjs`, `verify-recipe-review-browser.mjs`, `verify-recipe-review-migrations.mjs`, `verify-recipe-photo-browser.mjs` | RLS, photos, modération, base éphémère et correctif Android existant | Loopback + Playwright externe ; rejoués, garder |
+| `verify-documentation.mjs`, `verify-offline-assets.mjs` | Sept documents/liens et ressources locales | Sans réseau ; garder et actualiser avec le projet |
+
+Les snippets SQL, diagnostics et sauvegardes ignorés dont l'utilité n'est pas démontrée négativement restent en place ; aucun dossier d'archives ajouté. Les commandes de synchronisation Notion et les droits/identifiants de production ne sont pas modifiés.
+
+`tsconfig.json` active `strict` et `noEmit`. Attention : `next.config.mjs` a `typescript.ignoreBuildErrors=true` ; un build réussi ne remplace donc pas `npx tsc --noEmit`. Images `unoptimized:true` conservé ; le repli partagé concentre désormais le seul avertissement ESLint `<img>`, sans désactiver la règle. Aucun runner unitaire ni commande `test` ; scripts d'intégration Node et un test navigateur Playwright externe. Ne pas installer une nouvelle dépendance applicative pour les rejouer.
 
 Commandes : `npm ci`, `npm run lint`, `npx tsc --noEmit`, `npm run build`, `npm run offline:check`, `node scripts/verify-documentation.mjs` puis tests locaux décrits dans le [journal](ROADMAP.md). Après changement de branche, les types générés sous `.next` peuvent encore mentionner les routes expérimentales : régénérer les artefacts avant d'attribuer ces erreurs au code de `main`.
+
+Photo utilisateur : [verify-recipe-photo-browser.mjs](../scripts/verify-recipe-photo-browser.mjs) utilise une installation Playwright externe indiquée par `PLAYWRIGHT_MODULE`, `TEST_APP_URL` (défaut `http://localhost:3000`) et facultativement `TEST_SUPABASE_WORKDIR` pour une pile isolée. `TEST_MOBILE=1` active l'émulation Android/Chrome Pixel 7 ; sinon le viewport est un ordinateur 1440×1000. Les hôtes navigateur/API sont contraints au loopback ; le proxy frontend doit retourner le même ingrédient que la pile testée, et les requêtes navigateur externes sont bloquées. Aucun `.env.local` n'est chargé par le script. Il crée un compte fictif confirmé, vérifie explicitement l'absence de rôle admin, teste formats/taille, lecture de fichier refusée, refus Storage et RPC simulés, nettoyage du fichier après refus de sauvegarde, conservation des champs, nouvelle tentative, octets exacts de la photo stockée et relecture après rafraîchissement. Le transport de notification est simulé pour éviter l'envoi de mails de test vers le Mailpit codé en dur sur 54324. Compte, recettes et photos sont nettoyés en `finally`. L'émulation ne valide pas le sélecteur natif ni les permissions Android du téléphone réel. Pour un conflit de ports avec un autre projet, isoler la configuration et les migrations sur d'autres ports ; ne pas arrêter ni modifier l'autre pile.
 
 Pour la livraison de modération DB-01/COM-06 : `node scripts/verify-recipe-review-migrations.mjs` reconstruit les six migrations initiales dans une base éphémère du conteneur Docker local, puis applique ensemble le workflow et la correction d'adresse. Il contrôle préservation des lignes, droits, confirmation obligatoire, visibilité RLS, validation par un autre compte et nettoyage de sa base. Ses contrats Auth/Storage réduits complètent le test API `verify-personal-recipes.mjs` sur la pile locale réelle ; aucune donnée Cloud n'est copiée dans les fixtures. Livraison autorisée et contrôles Cloud en lecture seule : [BACKEND_SCHEMA](BACKEND_SCHEMA.md).
 
@@ -232,14 +297,14 @@ Branche de travail issue de `main`, aucun merge/cherry-pick expérimental, petit
 | SEO | Métadonnées françaises et icône ; application client et pas de page recette indexable dédiée. Cible à définir |
 | Responsive | UI mobile, adaptations `sm/md/lg`, détails dans le design ; aucun audit exhaustif d'appareils |
 | Accessibilité | WCAG 2.2 AA est un objectif ; zoom bloqué dans viewport, contrôles iconiques sans labels et absence de réduction des animations restent à traiter |
-| Sécurité | RLS, RPC et Storage privés ; audit npm 2026-10-17 : 12 alertes, dont Next critique. Analyse/correction séparée avec tests, pas de `audit fix --force` automatique |
+| Sécurité | RLS, RPC et Storage privés ; audit npm 2026-11-02 : zéro alerte de production, 11 moderate dans l'outillage de développement ; SEC-01 reste en cours, pas de correction forcée incompatible |
 | Résilience | Mocks/dernier état en erreur, conservation des recettes malgré notification échouée ; pas de garantie hors ligne intégrale |
 | Disponibilité | Dépend de Vercel/Supabase et de leurs offres ; aucun SLO/SLA applicatif mesuré |
 
 ## Procédure de migration et diagnostic
 
-Créer une nouvelle migration horodatée via `npm exec -- supabase migration new describe_the_change`. Ne jamais réécrire une migration déjà appliquée. Appliquer d'abord avec `npm exec -- supabase migration up --local`, inspecter Studio puis les tests. `npm run supabase:reset` détruit les seules données locales et rejoue migrations, `seed.sql` et `seed-local-admin.sql` ; réservé à une reconstruction locale assumée et sauvegardée, non exécuté par cette mission.
+Créer une nouvelle migration horodatée via `npm exec -- supabase migration new describe_the_change`. Ne jamais réécrire une migration déjà appliquée. Appliquer d'abord avec `npm exec -- supabase migration up`, inspecter Studio puis les tests. `npm run supabase:reset` détruit les seules données locales et rejoue migrations, `seed.sql` et `seed-local-admin.sql` ; réservé à une reconstruction locale assumée et sauvegardée, non exécuté par cette mission.
 
 Erreur catalogue : vérifier Docker, cible locale, `supabase:env`, migrations/grants et redémarrage Next.js ; démarrer Supabase seul ne remplace pas une URL Cloud. Storage désactivé : activer dans TOML, arrêter/redémarrer avec volumes préservés, appliquer les migrations locales. Erreur JWT après veille : PostgREST 14.18 et procédure ci-dessus, sans reset distant.
 
-`supabase migration list` compare l'historique au projet lié ; `--local` et `--linked` sont des cibles distinctes. L'ancienne procédure README de `db query --linked --file` et `db push --linked --yes` reste une opération privilégiée, manuelle, dépendante de la version CLI et soumise à accord ; ce n'est pas une commande d'installation locale. La livraison autorisée du 2026-10-17 a utilisé `db push --linked --skip-vault --yes` après contrôle de la cible, simulation et export sécurisé, puis vérification des données/droits et simulation finale sans migration restante. Aucune application de seed ni changement Vault. Ne jamais lancer `db reset --linked` ni un seed avec `truncate` sur Cloud.
+Avec CLI 3, `supabase migration list` compare par défaut les fichiers à la base locale ; `--remote` sélectionne explicitement le projet lié. Les anciens `--local`/`--linked` sont obsolètes (le premier est sans effet). L'ancienne procédure README de `db query --linked --file` et `db push --linked --yes` reste une opération privilégiée, manuelle, dépendante de la version CLI et soumise à accord ; ce n'est pas une commande d'installation locale. La livraison autorisée du 2026-10-17 a utilisé `db push --linked --skip-vault --yes` après contrôle de la cible, simulation et export sécurisé, puis vérification des données/droits et simulation finale sans migration restante. Aucune application de seed ni changement Vault. Ne jamais lancer `db reset --linked` ni un seed avec `truncate` sur Cloud.

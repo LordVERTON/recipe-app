@@ -1,7 +1,7 @@
 # Broco-Chou — Base de données et contrats backend
 
 **Objectif :** Référencer le schéma versionné, ses permissions et les écarts observés dans Supabase Cloud.
-**Dernière mise à jour :** 2026-10-17
+**Dernière mise à jour :** 2026-10-23
 **Statut :** Huit migrations présentes dans Cloud après livraison autorisée ; droits administrateur et visibilité RLS vérifiés en lecture seule.
 **Documents liés :** [Architecture](TRD.md), [Parcours](APP_FLOW.md), [Roadmap](ROADMAP.md), [Décisions](DECISIONS.md).
 
@@ -37,6 +37,16 @@ Les 474 recettes, dont une pending, sont inchangées. La migration enrichie a ra
 La reconstruction isolée des six migrations initiales et leur mise à niveau sont vérifiables par [verify-recipe-review-migrations.mjs](../scripts/verify-recipe-review-migrations.mjs). Ce test crée et supprime une base éphémère dans le conteneur local connu ; il emploie des contrats Auth/Storage réduits et des comptes fictifs. Le test API complet [verify-personal-recipes.mjs](../scripts/verify-personal-recipes.mjs) couvre séparément Supabase Auth et Storage locaux. Ces validations ne constituent pas une restauration de sauvegarde Cloud ni une validation de production après migration.
 
 Autre observation : les ACL Cloud accordent aussi `EXECUTE` à `anon` sur `submit_recipe`, `review_recipe`, `recipe_submission_authors`, en plus de `authenticated/service_role`. Les gardes internes Auth/admin continuent de s'appliquer. Les migrations retirent `PUBLIC` mais ne révoquent pas toujours les grants nominatifs hérités de l'environnement. Ne pas annoncer que le grant seul interdit toute invocation anonyme ; contrôler privilèges effectifs et gardes avant future migration.
+
+### Lecture ciblée Storage et soumission du 2026-10-23
+
+Signalement initial annoncé sur ordinateur, ensuite corrigé par le propriétaire : création d'une recette par un utilisateur non administrateur sur **Android avec Chrome**, photo issue de la galerie. Message « L'envoi de l'image a échoué. Réessaie », correspondant à un échec du SDK Storage avant le RPC de création. L'audit Cloud en lecture seule confirme les huit migrations, les trois policies Storage décrites ci-dessous, la RLS active et le bucket privé JPG/PNG/WebP de 5 Mio. Les définitions distantes de `submit_recipe` et `save_community_recipe` correspondent au workflow versionné ; elles sont `SECURITY DEFINER`, propriété de `postgres`. La création n'exige pas de rôle administrateur, contrairement à l'édition pending.
+
+Les logs agrégés sur une fenêtre glissante de 24 heures montrent trois uploads `storage.object.upload` en HTTP 200 et trois appels `submit_recipe` en HTTP 200, sans échec observé de ces opérations. Le rôle technique `authenticated` ne permet pas de distinguer un administrateur applicatif d'un auteur ordinaire ; ces succès ne prouvent pas le parcours du compte signalé. Aucun contenu de photo, identifiant de compte ou jeton n'a été exporté. Les droits de table issus d'`information_schema.role_table_grants` ne sont pas conclusifs avec le rôle de lecture de l'API de gestion.
+
+Après le nouvel essai confirmé par le propriétaire, une lecture ciblée sur vingt minutes montre les prérequêtes `OPTIONS` de l'endpoint d'upload en HTTP 200, aucun `POST` d'upload reçu, mais des signatures et nettoyages Storage réussis. Une requête de contrôle `OPTIONS`, sans fichier ni clé, confirme CORS pour l'origine publique et les en-têtes du SDK. Cela oriente vers le transfert du fichier par le navigateur ; aucun refus RLS n'est démontré. Les premiers essais de logs ont parfois retourné HTTP 500/erreur backend ; la fenêtre ciblée a ensuite abouti. L'absence de ligne n'est pas une preuve absolue d'absence de requête.
+
+La création/photo par auteur ordinaire et la modération passent sur Supabase isolé local (ports 55321/55322, Mailpit 55324), ainsi que le parcours navigateur ordinateur et l'émulation Android/Chrome. Aucune migration corrective ni modification des droits n'est justifiée. Le formulaire lit désormais la photo puis envoie une copie `Blob` en mémoire et distingue un échec de lecture, d'envoi ou de RPC. C'est un contournement local de la piste de transfert galerie, cohérente avec [l'incident Chromium de fichiers sélectionnés](https://issues.chromium.org/issues/40123366), sans preuve que le téléphone rencontre ce bug précis. La correction n'est pas déployée ; la confirmation sur appareil réel reste COM-09 du [journal](ROADMAP.md).
 
 ## Architecture et relations
 

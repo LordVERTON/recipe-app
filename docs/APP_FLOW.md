@@ -1,7 +1,7 @@
 # Broco-Chou — Parcours et workflows
 
 **Objectif :** Expliquer les écrans, appels et transitions effectivement implémentés.
-**Dernière mise à jour :** 2026-10-17
+**Dernière mise à jour :** 2026-11-02
 **Statut :** EXISTANT, preuves de validation dans le journal de session.
 **Documents liés :** [Produit](PRD.md), [Architecture](TRD.md), [Backend](BACKEND_SCHEMA.md), [Roadmap](ROADMAP.md).
 
@@ -100,7 +100,7 @@ stateDiagram-v2
 
 Ces états sont ceux de `PlannedMeal.status` ; le store accepte aussi les statuts typés via `updateMealStatus`. Le diagramme décrit les actions de l'interface, pas une contrainte PostgreSQL.
 
-- La fiche affiche image, provenance et informations culinaires, ingrédients/étapes cochables, conseil éventuel et référence source/page. Les coches de préparation restent dans le composant, sans persistance.
+- La fiche affiche image, provenance et informations culinaires, ingrédients/étapes cochables, conseil éventuel et référence source/page. Les coches de préparation restent dans le composant, sans persistance. Depuis le 2026-11-02, `RecipeImage` partage le repli local des photos indisponibles entre fiche, swipe, calendrier, photo actuelle du formulaire et import ; les vraies URLs et attributions restent conservées. Le navigateur avec trafic externe bloqué vérifie le repli dans fiche/calendrier et la consultation des données locales.
 - Depuis la fiche, « Ajouter au planning » ajoute à `acceptedRecipes` et ramène au swipe. Depuis « Mes recettes », l'action crée le plan si nécessaire puis ouvre l'éditeur avec le titre recherché.
 - Marquer cuisiné ajoute une entrée d'historique uniquement à la transition vers `cuisine`. Revenir puis remarquer cuisiné peut créer une nouvelle entrée. Sauter ne crée pas une entrée `skipped` dans l'historique actuel.
 - Déplacer conserve le créneau, remplace le repas qui l'occupait à destination et invalide la liste. Retirer/remplacer/ajouter/sauter invalident également les courses. Le retour de `saute` à `planifie`, la génération automatique d'un nouveau plan et le changement de nombre de personnes n'invalident pas toujours une liste existante : dette connue.
@@ -166,6 +166,10 @@ sequenceDiagram
 ```
 
 La photo est prévisualisable et retirable avant sauvegarde. Le formulaire demande 1–50 portions, 1–1440 minutes, 1–60 ingrédients et 1–50 étapes. Pendant sauvegarde : champs désactivés, fermeture extérieure interdite et Échap/fermeture bloqués. Si le RPC échoue après upload, tentative de suppression de la photo ; un échec réseau peut laisser un fichier orphelin. Une photo remplacée par l'administrateur n'est pas automatiquement supprimée.
+
+Correction locale du 2026-10-23, après clarification du signalement sur Android/Chrome depuis la galerie : le formulaire lit les octets de la photo, vérifie qu'ils sont complets, puis transmet un `Blob` en mémoire au SDK Storage au lieu du `File` fourni par la galerie. La limite de 5 Mio et le MIME sont préservés, sans conversion, compression ni assouplissement des droits. Un fichier illisible donne une référence `photo/lecture` et invite à le sélectionner à nouveau.
+
+Les erreurs de format/taille et d'envoi apparaissent immédiatement sous le champ photo, associé par `aria-describedby` et marqué invalide. Les refus d'envoi et de sauvegarde portent une référence distincte `photo/<code ou statut>` ou `recette/<code ou statut>` ; aucune erreur serveur brute n'est affichée. Session refusée, taille et format refusés, droits Storage et erreur réseau ont des messages différenciés. Les champs restent présents pour réessayer ; le nettoyage après échec de RPC est conservé. Le test navigateur ordinateur et l'émulation Android/Chrome avec auteur non administrateur couvrent ces erreurs, leur correction, les octets sauvegardés et la lecture après rechargement. Non déployé ; confirmation sur le téléphone réel encore requise, voir COM-09.
 
 La sauvegarde en base réussit indépendamment d'une notification. Après le nettoyage, le navigateur n'appelle l'envoi automatique qu'en développement local ; la file SQL est conservée partout. L'API reste authentifiée et renvoie une indisponibilité hors local si elle est appelée directement. Aucun e-mail de décision à l'auteur n'est livré.
 

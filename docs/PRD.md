@@ -1,7 +1,7 @@
 # Broco-Chou — Produit et exigences
 
 **Objectif :** Décrire le produit réel, ses utilisateurs et ses perspectives sans confondre livraison et intention.
-**Dernière mise à jour :** 2026-10-17
+**Dernière mise à jour :** 2026-11-02
 **Statut :** EXISTANT audité sur `main` à `e89d109`, complété par le nettoyage de cette branche.
 **Documents liés :** [Parcours](APP_FLOW.md), [Architecture](TRD.md), [Roadmap](ROADMAP.md), [Décisions](DECISIONS.md).
 
@@ -62,7 +62,7 @@ Chaque ligne associe une user story, une règle et un critère vérifiable. Les 
 | Notifications — EXISTANT local seulement | Comme administrateur local, recevoir un lien d'examen dans Mailpit | Envoi facultatif après sauvegarde, file SQL durable et reprise manuelle ; aucun transport ni cron de production. Le nettoyage limite l'appel automatique au développement local sans affecter la modération |
 | Référentiel To Eat List — À FAIRE | Comme propriétaire, conserver les recettes dans [To Eat List sur Notion](https://app.notion.com/p/To-Eat-List-4d3b60cd4d4442d5b4f1ff0fa0b2a9b0), source de vérité durable, et les échanger avec Broco-Chou | Exigence confirmée le 2026-10-17 ; aucune synchronisation applicative démontrée. Aller-retour complet, données et médias récupérables même après abandon/suppression de Broco-Chou ; priorité Notion, conflits et suppressions protégées à formaliser, restauration isolée à tester. Pas de garantie fournie par un simple export ponctuel. Suivi DB-05/06, distinct des plans locaux |
 | Menus hebdomadaires — PARTIEL côté artefacts, maintenance À FAIRE | Comme utilisateur, retrouver les plats du menu de la période choisie dans le catalogue et le planning | Import historique de 11 recettes présent, sans preuve de couverture du menu actif. Confirmer source et dates, rapprocher les recettes, compléter les manquantes sans doublon et suivre l'état Notion. Opération récurrente IMP-07 ; aucune automatisation Odélis implicite |
-| Développement hors ligne — PARTIEL, À VÉRIFIER | Comme développeur de recipe-app/Broco-Chou, travailler sans Internet après préparation du poste | Applicabilité confirmée par le propriétaire ; dépendances/npm et images Docker préalablement disponibles, frontend et Supabase/Mailpit locaux à vérifier sans WAN. Contrôle des ressources en échec sur les images distantes ; pas de garantie de fonctionnement intégral hors ligne de l'application publique. Suivi OPS-05 et DEBT-01 |
+| Développement hors ligne — TESTÉ sous restriction réseau, confirmation physique À FAIRE | Comme développeur, travailler sans Internet après préparation du poste | Démarrage Next.js avec DNS/TCP/fetch Node externes bloqués, parcours navigateur avec requêtes externes refusées, Supabase/Mailpit/Storage locaux réels vérifiés ; photos distantes facultatives avec repli local. Modules/images préchargés indispensables ; WAN physiquement coupé et redémarrage Docker Desktop non testés. OPS-05 reste IN_PROGRESS ; aucune garantie hors ligne pour le site public |
 
 Sources : [orchestrateur](../components/broco-chou-app.tsx), [store](../lib/store.ts), [profil](../components/profile-page.tsx), [éditeur](../components/weekly-plan-editor.tsx), [formulaire](../components/personal-recipe-form.tsx).
 
