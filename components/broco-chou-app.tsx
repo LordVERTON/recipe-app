@@ -21,6 +21,8 @@ import { ProfilePage } from "./profile-page";
 import { Onboarding } from "./onboarding";
 import { RecipeDetailSheet } from "./recipe-detail-sheet";
 import { WeeklyPlanEditor } from "./weekly-plan-editor";
+import { hasRecoveryCallback } from '@/lib/auth-recovery-state';
+import { AuthReturn } from './auth-return';
 
 const pageVariants = {
   initial: { opacity: 0, y: 10 },
@@ -31,6 +33,11 @@ const pageVariants = {
 export function BrocoChouApp() {
   // Keep the creation intent while the account provider reloads after sign-in.
   const [isRecipeFormOpen, setIsRecipeFormOpen] = useState(false);
+  const [recoveryRequested, setRecoveryRequested] = useState(false);
+  useEffect(() => {
+    if (hasRecoveryCallback()) setRecoveryRequested(true);
+  }, []);
+  if (recoveryRequested) return <AuthReturn recovery />;
   return <AccountProvider><BrocoChouContent isRecipeFormOpen={isRecipeFormOpen} setIsRecipeFormOpen={setIsRecipeFormOpen} /></AccountProvider>;
 }
 
@@ -38,7 +45,8 @@ function BrocoChouContent({ isRecipeFormOpen, setIsRecipeFormOpen }: { isRecipeF
   const { user, isAdmin } = useAccount();
   const [reviewIntent, setReviewIntent] = useState(false);
   useEffect(() => {
-    if (new URLSearchParams(window.location.search).has('review')) {
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('review') || params.has('account')) {
       setReviewIntent(true);
       setActiveTab('profile');
     }

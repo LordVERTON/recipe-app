@@ -1,6 +1,16 @@
 /** Only expose actionable Auth errors; never display raw provider messages. */
 export function authErrorMessage(code: string | undefined, fallback: string) {
   switch (code) {
+    case 'otp_expired':
+    case 'otp_disabled':
+      return 'Ce lien est invalide, expiré ou déjà utilisé. Demande un nouveau lien.'
+    case 'weak_password':
+      return 'Choisis un mot de passe plus robuste, avec au moins huit caractères.'
+    case 'same_password':
+      return 'Choisis un mot de passe différent du précédent.'
+    case 'session_not_found':
+    case 'session_expired':
+      return 'Ta session a expiré. Connecte-toi à nouveau.'
     case 'email_not_confirmed':
       return 'Confirme ton adresse e-mail avant de te connecter. Tu peux renvoyer le mail ci-dessous.'
     case 'over_email_send_rate_limit':
