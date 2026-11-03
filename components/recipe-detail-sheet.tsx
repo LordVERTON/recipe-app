@@ -7,7 +7,8 @@ import type { Recipe } from "@/lib/types"
 import { SEASONS_FR } from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { getFallbackRecipeImageUrl, getRecipeImageUrl, recipeTitle } from "@/lib/recipe-images"
+import { getRecipeImageUrl, recipeTitle } from "@/lib/recipe-images"
+import { RecipeImage } from './recipe-image'
 
 interface RecipeDetailSheetProps {
   recipe: Recipe | null
@@ -189,14 +190,10 @@ export function RecipeDetailSheet({
 
               {/* Image */}
               <div className="mx-6 h-48 rounded-2xl bg-gradient-to-br from-lavender/40 to-dusty-violet/30 overflow-hidden mb-6">
-                <img
+                <RecipeImage
                   src={getRecipeImageUrl(recipe)}
                   alt={recipeTitle(recipe)}
                   className="h-full w-full object-cover"
-                  onError={event => {
-                    event.currentTarget.onerror = null
-                    event.currentTarget.src = getFallbackRecipeImageUrl()
-                  }}
                 />
               </div>
 

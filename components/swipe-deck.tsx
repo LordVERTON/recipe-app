@@ -7,7 +7,8 @@ import { useBrocoChouStore } from "@/lib/store"
 import type { Recipe } from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { getFallbackRecipeImageUrl, getRecipeImageUrl, recipeTitle } from "@/lib/recipe-images"
+import { getRecipeImageUrl, recipeTitle } from "@/lib/recipe-images"
+import { RecipeImage } from './recipe-image'
 
 interface SwipeDeckProps {
   onViewRecipeDetails: (recipe: Recipe) => void
@@ -453,15 +454,11 @@ function RecipeCardContent({ recipe, isBackground, onViewDetails, showOverlay, a
 
       {/* Image Section */}
       <div className="relative h-[52%] bg-lavender/30">
-        <img
+        <RecipeImage
           src={imageSrc}
           alt={recipeTitle(recipe)}
           className="absolute inset-0 h-full w-full object-cover"
           loading={isBackground ? "lazy" : "eager"}
-          onError={event => {
-            event.currentTarget.onerror = null
-            event.currentTarget.src = getFallbackRecipeImageUrl()
-          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal-soft/25 via-transparent to-transparent" />
       </div>

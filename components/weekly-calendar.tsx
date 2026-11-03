@@ -7,7 +7,8 @@ import { useBrocoChouStore } from "@/lib/store"
 import type { Recipe, PlannedMeal } from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { getFallbackRecipeImageUrl, getRecipeImageUrl, recipeTitle } from "@/lib/recipe-images"
+import { getRecipeImageUrl, recipeTitle } from "@/lib/recipe-images"
+import { RecipeImage } from './recipe-image'
 
 function isSameCalendarDay(first: Date | string, second: Date | string) {
   const firstDate = new Date(first)
@@ -363,14 +364,10 @@ function MealCard({ meal, onView, onToggleCooked, onToggleSkipped, onMove }: Mea
               ? "bg-sage-mist/30"
               : "bg-dusty-violet/20"
           )}>
-            <img
+            <RecipeImage
               src={imageSrc}
               alt={recipeTitle(recipe)}
               className="h-full w-full object-cover"
-              onError={event => {
-                event.currentTarget.onerror = null
-                event.currentTarget.src = getFallbackRecipeImageUrl()
-              }}
             />
           </div>
 

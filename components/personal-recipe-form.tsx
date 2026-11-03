@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import Image from 'next/image'
+import { RecipeImage } from './recipe-image'
 import { supabase } from '@/lib/supabase-client'
 import type { Recipe } from '@/lib/types'
 import { recipeSubmissionErrorMessage } from '@/lib/recipe-submission-errors'
@@ -152,7 +153,7 @@ export function PersonalRecipeForm({ recipe, onSaved, onCancel, onBusyChange }: 
         setError(''); setPhotoError(''); setPhoto(file)
       }} /></label>
       {photoError && <p id="recipe-photo-error" role="alert" className="text-sm text-destructive">{photoError}</p>}
-      {recipe?.imageUrl && !preview && <Image src={recipe.imageUrl} alt="Photo actuelle" width={480} height={240} unoptimized className="max-h-48 rounded-xl object-cover" />}
+      {recipe?.imageUrl && !preview && <RecipeImage src={recipe.imageUrl} alt="Photo actuelle" width={480} height={240} className="max-h-48 rounded-xl object-cover" />}
       {preview && <div><Image src={preview} alt="Aperçu de ta recette" width={480} height={240} unoptimized className="max-h-48 rounded-xl object-cover" /><Button type="button" variant="ghost" onClick={() => { setPhoto(null); setPhotoError(''); if (photoInput.current) photoInput.current.value = ''; }}>Retirer la photo</Button></div>}
       <div className="space-y-3">
         <h4 className="font-semibold">Ingrédients</h4>
