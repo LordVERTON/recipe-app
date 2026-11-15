@@ -5,6 +5,33 @@
 **Statut :** Registre établi pendant l'audit ; dates ci-dessous = date de formalisation, sans date historique inventée.
 **Documents liés :** [Produit](PRD.md), [Architecture](TRD.md), [Backend](BACKEND_SCHEMA.md), [Roadmap](ROADMAP.md).
 
+## ADR-013 — Isoler le prototype OCR dans le navigateur et le développement
+
+**Statut :** Accepted pour le prototype local ; intégration utilisateur finale non décidée
+**Date :** 2026-11-03
+
+### Contexte
+
+Le propriétaire autorise une expérimentation réelle par images/texte, sans API payante, envoi des photos, service GPU/Python, changement de production ou SQL. La qualité manuscrite doit être mesurée avant d’intégrer la soumission. L’import Instagram privilégié existant n’est pas un endpoint utilisateur.
+
+### Décision
+
+Employer le SDK officiel `@paddleocr/paddleocr-js` 0.4.2 et PP-OCRv6_small, français, dans une route refusée côté serveur hors développement. Importer le SDK au lancement explicite ; injecter une fabrique de Worker module statique, copie inchangée du Worker officiel. Épingler ORT 1.24.3 pour ses WASM car cette version est embarquée dans le Worker. Héberger archives et runtimes sur le même origin, préparés explicitement depuis un manifeste taille/SHA-256 ; ne pas versionner les binaires. Les alias navigateur et la référence ORT analysée par Turbopack sont adaptés sans modifier les modules npm.
+
+Conserver les données en mémoire, séparer prétraitement, résultats bruts, ordre/fusion, analyseur pur et brouillon spécialisé. Garder l’ancien contrat de légende dans une fonction partagée distincte. Conversion explicite vers un contrat de préremplissage avec absences et notes conservées, aucune invocation Supabase. Réinitialisation libère Worker/URL ; moteur réutilisé dans une session. Limites et protocole canoniques dans TRD, preuve de réalisation dans ROADMAP.
+
+### Alternatives considérées
+
+OCR hébergé et modèle génératif exclus par la demande ; Unlimited-OCR trop lourd pour ce périmètre. Rebundler sans adaptation le Worker par défaut échoue dans Turbopack sur un artefact ORT ; injecter la fabrique officielle permet son exécution locale. Un repli principal explicite reste disponible, sans promesse de fluidité. Pas de nouveau runner, convertisseur HEIC, détection automatique de document ou PWA pour cette phase. Tiny n’est pas ajouté sans mesure justifiant une seconde famille de ressources.
+
+### Conséquences
+
+68 169 423 octets (65,01 Mio) de fichiers préparés hors Git, notices comprises, en plus des dépendances npm/chunks Next. Première préparation avec Internet ; OCR sans CDN ensuite, testé avec refus réseau externe. Le modèle n’est pas spécialisé dans la cursive française ; les quatre photos réelles et les appareils réels restent à mesurer. Risques de mémoire sur mobile et hypothèse de lecture mono-colonne explicités. Migration SQL, accès Cloud, Auth, catalogue/modération et routes de sauvegarde ne sont pas modifiés. L’ADR ne vaut pas autorisation de publication ou de soumission automatique.
+
+### Références
+
+[Route](../app/dev/ocr/page.tsx), [moteur](../lib/ocr/engine.ts), [manifestes](../scripts/ocr-assets.lock.json), [TRD](TRD.md#prototype-ocr-local--imp-10), [roadmap](ROADMAP.md), [SDK officiel](https://github.com/PaddlePaddle/PaddleOCR/blob/main/docs/version3.x/inference_deployment/cross_platform/browser.en.md).
+
 ## ADR-012 — Intégrer seulement récupération et confidentialité de la branche expérimentale
 
 **Statut :** Accepted

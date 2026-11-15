@@ -75,6 +75,10 @@ Ouvrir `http://<IPv4-du-PC>:3000`, adapter `allowedDevOrigins` et les redirectio
 
 Autres tests, prérequis Playwright, résultats et échecs : [journal de validation](docs/ROADMAP.md). Avec CLI 3, une migration additive locale utilise `npm exec -- supabase migration up` (cible locale par défaut, lire `--help` avant toute opération). `npm run supabase:reset` détruit les données locales et rejoue les seeds : ce n'est pas une commande normale de démarrage. Ne jamais exécuter de reset distant.
 
+## Prototype OCR expérimental local
+
+Après `npm ci`, préparer une fois les ressources avec Internet par `npm run ocr:prepare`, puis `npm run ocr:check` sans réseau. Démarrer normalement avec `npm run dev` et ouvrir `/dev/ocr`. Cette page renvoie 404 en mode production, y compris avec `npm run start`. Les binaires ignorés dans `public/ocr/` occupent 65,01 Mio ; aucune page normale ne charge le moteur. Aucun compte requis, aucun enregistrement de recette. Précision manuscrite et appareils réels restent à valider. Architecture, limites et protocole dans le [TRD](docs/TRD.md#prototype-ocr-local--imp-10), preuves dans la roadmap.
+
 ## Architecture et déploiement
 
 ```mermaid

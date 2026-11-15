@@ -1,7 +1,7 @@
 # Broco-Chou — Roadmap et journal
 
 **Objectif :** Tenir un suivi unique des livraisons, dettes, imports, décisions et vérifications.
-**Dernière mise à jour :** 2026-11-03
+**Dernière mise à jour :** 2026-11-15
 **Statut :** Roadmap consolidée ; les DONE correspondent à une preuve de code ou un test identifié, pas à une garantie de déploiement Cloud.
 **Documents liés :** [PRD](PRD.md), [TRD](TRD.md), [Parcours](APP_FLOW.md), [Design](DESIGN_BRIEF.md), [Backend](BACKEND_SCHEMA.md), [Décisions](DECISIONS.md).
 
@@ -179,6 +179,35 @@ Tests associés relus : [verify-personal-recipes.mjs](../scripts/verify-personal
 | IMP-07 | Maintenir les plats des menus hebdomadaires — données/contenus, opération récurrente | P1 | BLOCKED | Semaine cible et source active à confirmer ; DB-05 pour contrôle de synchronisation | Un import historique de 11 recettes et une base Notion Meal Plan sont identifiés. Pour chaque période : récupérer le menu daté, rapprocher les recettes existantes, compléter uniquement les manquantes, vérifier disponibilité au planning et état To Eat List. Aucun ajout de données pendant cette mission ; ne dépend pas d'un pipeline Odélis automatique |
 | IMP-08 | Import utilisateur depuis une URL et, si compatible, le partage mobile | P1 | TODO | Contrôles manuels COM-01, workflow COM-02/DB-01, revue SEC-02/03, droits sources et étude PWA | [Demande Notion](https://app.notion.com/p/3fc173c57e0481e1bebbfabef18af206). Collage toujours disponible ; extraction publique autorisée, fiche préremplie modifiable sans invention, provenance/déduplication, photos sûres et soumission `community/pending` via workflow existant. Critères techniques et matrice plateformes ci-dessous ; aucune fonctionnalité URL/partage livrée |
 | IMP-09 | Préparer l'import idempotent des recettes Haleon dans Supabase | P2 | TODO | Source Haleon exacte à confirmer ; droits textes/images, inventaire Supabase, DB-02, revue du schéma/provenance | [Demande Notion](https://app.notion.com/p/3fc173c57e048118b492e60b29d5d9de). Priorité à réévaluer après identification de la source. Inventaire, mapping, simulation sans écriture, rapports, import répété sans doublon et restauration validés uniquement en local avant proposition de livraison ; aucun import réel pendant cette mission |
+| IMP-10 | Prototype OCR local d’une recette par images ou texte | P1 | IN_PROGRESS | SDK officiel, ressources préparées, validation humaine et appareils réels | OCR WASM réel, captures ordonnables, fusion, parseur local, brouillon éditable et confirmation sans sauvegarde implémentés et testés sur synthétiques ; aucune migration ni intégration de soumission. Qualité manuscrite et téléphones réels encore à valider ; détail et preuves ci-dessous |
+
+### IMP-10 — OCR local expérimental (P1, IN_PROGRESS)
+
+Mission du 2026-11-03, distincte d’IMP-08 (liens/partage mobile) et de la photo d’illustration COM-08. Branche locale `feat/ocr-local-prototype`, référence `main=origin/main=7429042` vérifiée après fetch, répertoire initial propre. Prototype d’une seule recette par session ; aucun enregistrement automatique ni changement de production. Architecture et protocole des photos A–D dans [TRD](TRD.md#prototype-ocr-local--imp-10), décision [ADR-013](DECISIONS.md#adr-013--isoler-le-prototype-ocr-dans-le-navigateur-et-le-développement).
+
+**Implémenté et vérifié localement :**
+
+- [x] Route `/dev/ocr` réservée au développement côté serveur ; requête directe en production locale renvoie 404. Navigation principale inchangée, absence de ressources OCR sur l’accueil vérifiée.
+- [x] Import JPEG/PNG/WebP, aperçu, ordre/retrait de captures, limites de nombre/taille/résolution, erreurs de fichier corrompu et repli clair pour HEIC. Appareil photo demandé via `capture`, galerie proposée ; sélecteur natif mobile réel non validé.
+- [x] PaddleOCR.js officiel 0.4.2, PP-OCRv6_small français, OCR WASM réel dans le Worker officiel avec ressources locales. Préparation figée SHA-256 et licences, binaires hors Git. Moteur réutilisé, chargement différé, réinitialisation et repli principal.
+- [x] Texte/score/polygone/index source/ordre conservés, transcription corrigeable, analyse sans réseau. Fusion déterministe avec tests de chevauchements exacts/flous, quantités distinctes protégées, répétitions internes conservées.
+- [x] OCR réel de deux captures synthétiques : ordre corrigé dans l’UI, trois lignes communes retirées, étapes conservées, modèles téléchargés seulement une fois. Brouillon manuel préservé si nouvelle analyse annulée.
+- [x] Parsing pur : unités/fractions/intervalles/groupes/facultatifs, absences explicites, extraction partielle dans les phrases ; 12 groupes de tests Node. Ancien contrat d’import Instagram conservé, route save inchangée.
+- [x] Brouillon contrôlé, champs/ingrédients/étapes modifiables, validation locale selon bornes formulaire/RPC, relecture puis contrat de préremplissage ; aucun appel Supabase, aucune création d’ingrédient ou photo distante.
+
+**À valider :**
+
+- [ ] Photos réelles A/B manuscrites et captures réelles C/D, non fournies dans cette session : qualité de transcription française, quantités, unités, facultatifs et extraction depuis les phrases. Ne pas annoncer de fiabilité manuscrite.
+- [ ] Android/Chrome et Safari iOS réels : caméra/galerie, EXIF, mémoire, latence et confort. Pixel 7 est une émulation sur PC, pas une mesure Android.
+- [ ] WebGPU avec adaptateur compatible : essai headless effectué, refus explicite sans adaptateur, aucune inférence GPU validée.
+- [ ] Arrêt/redémarrage complet du poste et des services avec WAN physiquement déconnecté. Le fonctionnement OCR avec réseau externe refusé est vérifié séparément ; ne pas confondre avec cette validation physique ni une PWA/site public intégralement hors ligne.
+
+**À développer ensuite, hors de cette phase :**
+
+- [ ] Préremplir définitivement `PersonalRecipeForm` avec les absences/notes/provenance préservées, puis `submit_recipe` existant après une vraie confirmation Auth ; tests locaux complets de confidentialité/modération requis.
+- [ ] Rapprocher les doublons avec les recettes Supabase visibles, protéger reprise/concurrence sans révéler les recettes privées.
+- [ ] Importer plusieurs recettes distinctes dans une session ; choisir le cycle de vie des brouillons avant toute persistance.
+- [ ] Évaluer un moteur spécialisé manuscrit ou tiny seulement si les mesures réelles justifient la complexité/les ressources supplémentaires.
 
 ### IMP-08 — import depuis un lien et partage mobile (P1, TODO)
 
@@ -256,6 +285,7 @@ Tests associés relus : [verify-personal-recipes.mjs](../scripts/verify-personal
 | OPS-07 | Intégrer localement le dernier complément de roadmap sur main | P1 | DONE | Demande de fusion du propriétaire, revue Git et documentaire | Commit `d617929` intégré en avance rapide sans conflit depuis `docs/notion-recipe-roadmap-20261017` ; contrôle documentaire et diff réussis. Branche expérimentale exclue ; aucun push ni déploiement pendant cette tâche |
 | OPS-08 | Intégrer les travaux validés et auditer toutes les branches actives | P1 | DONE | Demande de fusion locale et périmètre supplémentaire confirmé | Production/origin-main `c5ddf83` vérifiée en lecture seule ; main avancé sans conflit à `fc79664` avec les huit commits recettes/planning/photo/hors ligne et le portage limité récupération/confidentialité (`c61ed41`, `d898acb`). Lint/types/build, Auth/JWT, Mailpit/récupération et planning ordinateur/mobile émulé PASS. Branches sources préservées, aucun push/déploiement ; journal et clôture documentaire du 2026-11-03 |
 | OPS-09 | Publier main et vérifier la livraison frontend autorisée | P1 | DONE | Autorisations explicites de publication et copies noreply | GH007 résolu par 14 copies de commits non publiés aux arbres/messages/dates identiques, ancien main sauvegardé et protection GitHub conservée. Push non forcé de `f7f94f5`, production Vercel READY et alias public correct ; contrôles anonymes ordinateur/mobile de confidentialité, catalogue, recherche, préparation et planning PASS. Aucune migration, configuration distante ni écriture de données Cloud ; preuve au journal |
+| OPS-10 | Committer séparément les travaux OCR puis publier main | P1 | IN_PROGRESS | Demande explicite du propriétaire du 2026-11-15, contrôles locaux | Découpage logique/refactor/laboratoire/tests/documentation ; contrôles locaux réussis, intégration et push sans forçage à confirmer. IMP-10 reste IN_PROGRESS pour les photos et appareils réels ; aucune validation Vercel déduite du push |
 
 ### Demande F — développement local et hors ligne, périmètre confirmé
 
@@ -816,6 +846,65 @@ Fiche : liste ordonnée, corps 16 px/interligne 28 px, progression, texte coché
 **Fichiers de clôture :** README, PRD, APP_FLOW, BACKEND_SCHEMA, DECISIONS, TRD et ROADMAP. La correction photo n'est plus étiquetée non déployée ; COM-09 reste IN_PROGRESS pour l'essai galerie du téléphone réel. CAT-06 et OPS-09 rendent explicites le frontend livré et la base brute non corrigée. Les scripts et le mapping Git de diagnostic restent ignorés sous `supabase/.temp`, sans secret ou lien de session versionné. Le commit documentaire de clôture utilise noreply et est publié séparément, avec suivi du déploiement automatique de ce contenu documentaire seulement.
 
 **Limites et prochaines actions :** Aucun nouveau fournisseur Mailjet/OAuth/Turnstile, aucune migration, aucun réglage Auth/SMTP/RLS/Storage. Récupération complète et galerie testées localement, mais aucun mail de récupération ni changement de mot de passe d'un utilisateur réel en production ; délivrabilité SMTP et téléphone physique restent à vérifier par le propriétaire. La revue manuelle à six mois et l'anonymisation sont des règles décidées, sans purge/ordonnanceur livré ; SEC-04 reste IN_PROGRESS pour la procédure opérationnelle et les détails prestataires/bases applicables. Les corrections Crous sont appliquées dans l'application, pas dans la base brute ou Notion (CAT-07). La livraison frontend autorisée est accomplie ; priorité suivante : essai propriétaire sur téléphone et préparation locale de la revue/anonymisation avant tout traitement réel.
+
+### 2026-11-03 — Prototype OCR local IMP-10, sans soumission
+
+**Objectif :** Reconnaître une recette par photo/captures avec un vrai moteur local, fusionner, analyser et corriger un brouillon avant toute future intégration à la soumission existante.
+
+**Audit et périmètre :** Dépôt initial propre sur `main`, `origin/main` actualisé et identique à `7429042be99da70fc20a4a96be8bb7cdf9b2655a`. Branche `feat/ocr-local-prototype` créée depuis cette référence. Lecture d’AGENTS, des huit références README/docs, du manifeste/lockfile, du formulaire, du compte/orchestrateur, des imports, types, mapping/recherche/erreurs, configuration Next et contrôle des ressources. Documentation officielle et sources npm du SDK vérifiées ; les quatre photos réelles n’ont pas été fournies ni identifiées comme fixtures autorisées. Compétences de revue React et de vérification de parcours utilisées. Aucun sous-agent, service OCR ou LLM externe.
+
+**Travaux et fichiers :** Route serveur `app/dev/ocr/page.tsx` refusée hors développement ; interface `components/ocr/` avec photo/galerie/captures/texte, ordre/retrait, progression par phase/image, transcription et résultats bruts, édition contrôlée et confirmation locale. `lib/ocr/` sépare types, images, Worker/SDK, ordre/fusion, parsing et conversion/validation. Analyseur historique extrait sans changer le contrat API ni la sauvegarde privilégiée. `scripts/prepare-ocr-assets.mjs` et `ocr-assets.lock.json` figent URL, taille et SHA-256 des archives ONNX/YAML, Worker, runtime et notices. `verify-ocr.mjs`, fixtures synthétiques et `verify-ocr-browser.mjs` couvrent les fonctions pures et le vrai parcours. Adaptations browser-only Webpack/Turbopack dans `next.config.mjs`, scripts npm et ignore des ressources dans `.gitignore`/ESLint ; vérification OCR optionnelle raccordée à `offline:check`. README et les sept documents canoniques actualisés, aucune documentation parallèle.
+
+**Dépendances et décisions :** Ajout nécessaire du SDK officiel 0.4.2 (Apache-2.0), PP-OCRv6_small, français ; ORT direct 1.24.3 (MIT) épinglé car le Worker embarque cette version. Modèles tar : 9 891 840 + 21 319 680 octets, avec `inference.onnx`, YAML et dictionnaire reconnus. Worker 11 341 486 octets ; JSEP WASM 25 014 754 octets et module 46 595 octets réellement utilisés en WASM, y compris par le repli principal. Les deux artefacts WASM de base initialement préparés n’étaient pas chargés : retirés du manifeste et du cache de cette mission. Notices 555 068 octets ; total final **68 169 423 octets (65,01 Mio)**, hors npm/chunks Next. Binaires ignorés, préparation explicite, empreintes et licences versionnées ; pas de CDN d’exécution. Décision ADR-013 acceptée pour le prototype seulement, intégration finale non décidée. Aucun autre framework, runner, convertisseur, moteur tiny ou PWA ajouté.
+
+**Tests exécutés et résultats :** Windows/PowerShell, Node 26.8.2, Next 16.4.4, Chromium 156.0.8078.4 headless via Playwright externe existant. Les essais de performance ci-dessous ont parfois partagé le CPU : ce sont des observations de prototype, pas des benchmarks mobiles.
+
+| Contrôle | Résultat réel |
+| --- | --- |
+| `npm run lint` | PASS, seul avertissement `<img>` préexistant dans `recipe-image.tsx` |
+| `npx tsc --noEmit` séparé | PASS ; erreurs de types non masquées par le build |
+| `npm run build` | PASS final Turbopack ; routes attendues, aucun déploiement |
+| `npm run offline:check`, `npm run ocr:check` | PASS : 299 chemins photo, repli local, absence de CDN obligatoire et intégrité des 65,01 Mio OCR |
+| `node --import=./scripts/restrict-external-network.mjs scripts/prepare-ocr-assets.mjs` | PASS : ressources déjà présentes réutilisées, aucun réseau externe nécessaire après préparation |
+| `npm run test:ocr` | PASS, 12 groupes : liste classique, unités/fractions/décimales/intervalles/facultatif, phrases et limites sans invention, groupes/bruit, omissions/OCR ambigu, ancien contrat, conversion/validation, fusion exacte/floue/conservation/ordre/vides/pages, géométrie et limites fichiers |
+| `verify-ocr-browser.mjs`, ordinateur et Pixel 7 émulé | PASS sur synthétiques : texte sans modèle, correction/confirmation locale, galerie, HEIC/taille/décodage refusés, vrai OCR WASM/Worker local, deux captures réordonnées, trois lignes communes retirées, modèle réutilisé, brouillon conservé si reparse annulé, aucun débordement ni erreur JS observée |
+| Serveur `npm run dev -- --port 3100` avec préchargement `restrict-external-network.mjs` et navigateur refusant les requêtes externes | PASS : OCR réel avec/sans prétraitement et repli principal, zéro requête externe tentée et zéro POST du prototype. Modèles/Worker/WASM chargés uniquement sur localhost |
+| `verify-ocr-browser.mjs --cancel` sous les mêmes restrictions | PASS : réinitialisation pendant une prédiction active, Worker terminé, sources/aperçus/texte/brouillon effacés, pas de résultat tardif ni erreur de libération observée |
+| `verify-ocr-browser.mjs --webgpu` | Essai effectué ; aucun adaptateur WebGPU fourni par Chromium headless, message de refus correct. **Aucune inférence GPU validée** |
+| Build servi via `npm run start -- --port 3101`, script `--production` | PASS : accès direct `/dev/ocr` → HTTP 404 et aucune interface OCR ; pages normales sans modèles/SDK |
+| API historique locale parse et recherche d’images | PASS : légende synthétique → 200 avec contrat antérieur, vide → 400 ; recherche locale → 200, imports serveur `fs/path` préservés |
+| `node scripts/verify-preparations.mjs` | PASS : 1 358 étapes, 300 recettes, neuf listes restaurées et gardes de préservation |
+| `verify-planning-browser.mjs` | PARTIEL : premier dépassement de délai après rechargement ; reprise → PASS du parcours bureau complet sur 460 recettes, puis délai d’attente mobile. Serveur : proxy local `socket hang up/ECONNRESET`. Tentative sur copie intacte d’`origin/main` → `ECONNREFUSED 127.0.0.1:54321` dès le prérequis API. Environnement Supabase devenu indisponible ; aucune validation complète mobile/Auth/Storage/modération déduite, ni régression applicative déclarée sans preuve |
+| `node scripts/verify-documentation.mjs`, `git diff --check` | PASS, exactement sept documents, liens/métadonnées/blocs et diff vérifiés |
+
+**Mesures observées :** Images de test créées dans Canvas, chacune 1 200×1 600 px, texte imprimé synthétique. Les temps incluent l’import différé et le chargement du SDK/modèles dans « chargement », la préparation dans « total ». Premier essai simple prétraité : 10,69 s / 12,03 s / 23,03 s (chargement/OCR/total). Dernier essai Worker prétraité avec réseau externe refusé : **17,83 s / 15,31 s / 33,47 s** ; deux captures ensuite avec le moteur réutilisé : **0 s / 22,05 s / 22,53 s**. Variante originale, mêmes restrictions : 24,39 s / 20,17 s / 44,88 s, puis deux captures 0 s / 15,36 s / 15,61 s. Repli principal final : 18,81 s / 19,30 s / 38,47 s ; interface moins fluide attendue, aucune promesse mobile. Émulation Pixel 7 sur le même PC : 9,59 s / 24,95 s / 34,78 s, puis deux captures 0 s / 22,91 s / 23,62 s. Le minuteur UI à 100 ms continue en mode Worker (320 ticks dans l’essai prétraité final). Mémoire et CPU précis non mesurés ; aucun chiffre de précision manuscrite. Les rapports/captures ignorés sont dans `supabase/.temp/`, sans images réelles de l’utilisateur.
+
+**Incidents résolus et limites :** L’import initial d’OpenCV bloquait la compilation sur `fs`, puis le Worker par défaut bloquait Turbopack sur `ort.bundle.min.mjs` ; adaptations explicites dans la configuration, repli principal et Worker réel vérifiés ensuite. Double libération ORT au reset du repli principal corrigée par nettoyage idempotent et test rejoué sans cette erreur. Les premiers essais du harnais ont aussi révélé des labels enveloppant des listes/textarea et un comptage tardif de signature Storage provenant de l’accueil ; labels explicites et pages de test isolées. Encodage d’un script lors d’un passage PowerShell/Python corrigé et diff relu. Avertissements non bloquants de cache Webpack (`Unable to snapshot resolve dependencies`) observés en développement, cause non attribuée ; build de production réussi. L’installation npm signale 11 alertes moderate, contre 11 avant ; audit détaillé des nouvelles transitives non rejoué, aucun correctif forcé. Les scripts d’installation protobufjs restent bloqués par la politique npm existante, sans échec constaté du runtime. Copie de baseline temporaire, jonction et copie de configuration locale nettoyées après le contrôle ; dépendances du dépôt préservées. Le build contient encore de gros artefacts OCR différés, poids mesurés dans TRD ; absence de chargement sur l’accueil vérifiée, pas d’absence totale dans l’artefact de livraison revendiquée.
+
+**Sécurité, blocages et suite :** Aucune insertion de recette/ingrédient, photo Storage, migration, changement Auth/RLS/RPC, configuration distante, push ou publication ; aucun appel à save depuis le prototype. Archives modèles uniquement téléchargées pour préparation locale. OCR vérifié sans réseau externe après préparation, mais WAN physiquement coupé/redémarrage complet et appareils réels restent à faire. IMP-10 demeure IN_PROGRESS pour la qualité des photos manuscrites A/B et captures réelles C/D, Android et Safari iOS. Prochaine tâche : appliquer le protocole manuel du TRD, mesurer les quantités et omissions, décider la qualité acceptable puis intégrer le contrat au formulaire existant et seulement ensuite `submit_recipe`/modération avec tests locaux complets. Le planning mobile complet devra être rejoué après rétablissement de Supabase local. Aucune livraison autorisée par ce travail.
+
+### 2026-11-15 — Commits séparés du prototype OCR et publication autorisée
+
+**Objectif :** Enregistrer séparément et conventionnellement toutes les modifications en cours, puis les pousser sur `main`, conformément à la demande explicite du propriétaire. Cette demande autorise la publication Git du prototype ; la route reste réservée au développement.
+
+**Travaux et fichiers :** Fetch de `origin/main`, référence initiale `7429042` identique à main et à la branche `feat/ocr-local-prototype`, aucun commit divergent. Changements existants préservés et relus, sans modification fonctionnelle ajoutée pendant cette préparation. Commits distincts : `36eb1bc` logique OCR (`lib/ocr`), `f9d209a` refactor de la route parse, `37b8cfc` laboratoire et ressources/dépendances, `f108f21` tests, puis README et les sept références canoniques dans un commit documentaire. Adresse GitHub noreply utilisée pour les nouveaux commits afin de conserver la protection des e-mails privés. Aucune autre branche expérimentale intégrée.
+
+**Tests exécutés et résultats :** Windows/PowerShell, Chromium 156.0.8078.4 via Playwright externe existant, aucun ajout d'outillage au projet.
+
+| Contrôle rejoué | Résultat et portée |
+| --- | --- |
+| `npm run lint`, `npm run build`, `npx.cmd tsc --noEmit` séparé | PASS ; avertissement `<img>` préexistant seulement, build Turbopack de production local. Les commandes npm groupées ont d'abord été refusées par la politique PowerShell ; les vérificateurs concernés ont ensuite été exécutés directement avec Node, sans modifier cette politique |
+| `node scripts/verify-ocr.mjs` | PASS : 12 groupes, parsing, ancien contrat, conversion, fusion, géométrie et limites de fichiers |
+| `node scripts/verify-offline-assets.mjs` | PASS : 299 chemins photo et intégrité des 68 169 423 octets OCR préparés, sans réseau pour le contrôle |
+| `node scripts/verify-preparations.mjs` | PASS : 1 358 étapes, 300 recettes Crous et neuf listes restaurées ; gardes des corrections préservées |
+| `verify-ocr-browser.mjs --cancel`, ordinateur | PASS : texte/correction/confirmation, fichiers invalides, vrai OCR WASM/Worker, ordre/fusion de deux captures, réutilisation des modèles, brouillon conservé et interruption active. Serveur Node et Chromium refusant le réseau externe ; zéro appel externe et zéro écriture HTTP pendant le parcours OCR |
+| `verify-ocr-browser.mjs`, Pixel 7 émulé | PASS du même parcours, sans essai d'interruption supplémentaire ; zéro erreur JS, débordement, appel externe ou écriture HTTP observé |
+| `verify-ocr-browser.mjs --production`, serveur local sur 3101 | PASS : GET direct `/dev/ocr` renvoie 404, aucune interface ni ressource OCR chargée sur l'accueil |
+| Documentation, syntaxe des nouveaux scripts et diff | PASS : exactement sept documents, 196 liens locaux ; 11 diagrammes Mermaid parsés et rendus dans Chromium ; `node --check`, `verify-documentation.mjs` et `git diff --check` |
+
+**Décisions et limites :** Aucune nouvelle ADR ; ADR-013 conservée. IMP-10 reste IN_PROGRESS pour les images manuscrites et appareils réels, WebGPU et coupure physique WAN. Auth/Mailpit/Storage/modération et planning complet ne sont pas rejoués pour cette publication ; leurs anciennes preuves ne sont pas transformées en nouvelle validation. Aucune migration ni configuration distante modifiée. Les avertissements de cache Webpack déjà documentés restent observés en développement, sans échec du build ni des parcours OCR.
+
+**Publication et prochaines actions :** Intégration en avance rapide puis push normal sur `main` autorisés et préparés ; résultat Git à consigner après exécution. Aucun état Vercel ni comportement public nouveau confirmé par ces contrôles locaux. Prochaine tâche produit : protocole manuel IMP-10 sur photos et téléphones réels, avant intégration au formulaire de soumission.
 
 ### Modèle pour les futures sessions
 

@@ -260,6 +260,8 @@ La condition de suppression utilise les recettes visibles par RLS dans la sous-r
 
 Sans Auth ; entrée JSON `{caption:string}`. Découpe ingrédients/préparation par titres reconnus et regex, nettoie puces/numérotation, infère un titre ; pas de scraping ni LLM. Sortie 200 `{title,ingredients:[{name,quantity?}],instructions:string[],description}` (description tronquée à 500). 400 si légende vide ; JSON invalide/type incorrect peut produire 500 non maîtrisé. Aucun plafond de taille ou rate limiter dédié. Source : [parse/route.ts](../app/api/recipe-import/parse/route.ts).
 
+Le prototype OCR IMP-10 n’appelle aucune de ces API : analyse et conversion restent dans le navigateur. L’analyseur historique de l’API parse est extrait dans `parseInstagramCaption` de [lib/ocr/parse.ts](../lib/ocr/parse.ts), avec son contrat conservé. Les brouillons OCR ont un type temporaire distinct ; aucun changement de table, RPC, droits ou de la route de sauvegarde privilégiée. Détail dans [TRD](TRD.md#prototype-ocr-local--imp-10).
+
 ### `GET /api/recipe-import/images?query=<texte>`
 
 Sans Auth ; runtime Node, lit `public/assets/recipe_images/pexels`, classe fichiers jpg/jpeg/png par tokens du nom, retourne six résultats même si pertinence faible. 200 `{photos:[{id,alt,photographer,photographer_url,url,src:{large}}]}` ; ID texte de fichier local, URL relative, photographe générique. 400 si recherche vide ; erreur disque potentiellement 500. La page utilise un type Photo avec ID numérique historique sans validation runtime ; pas d'appel Pexels ni clé API requise. Source : [images/route.ts](../app/api/recipe-import/images/route.ts).

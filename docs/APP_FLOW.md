@@ -14,6 +14,7 @@
 | `/?account=1` | Ouvre la connexion dans le profil sans onboarding ; aucun privilège attribué par ce paramètre |
 | `/auth/reset-password` | Formulaire de nouveau mot de passe seulement avec session de récupération vérifiée ; sinon message de lien invalide |
 | `/privacy` | Information factuelle sur compte, recettes, planning local, hébergement et limites de conservation/contact |
+| `/dev/ocr` | Prototype OCR et brouillon en mémoire, uniquement `NODE_ENV=development` ; refus serveur 404 en production, aucun appel Supabase |
 | `/admin/import` | Page d'import accessible sans garde Auth ; texte « Développement uniquement ». Seul l'enregistrement serveur est interdit en production |
 | `POST /api/recipe-import/parse` | Analyse une légende collée, sans téléchargement Instagram et sans Auth |
 | `GET /api/recipe-import/images?query=…` | Recherche six images dans les fichiers locaux, sans appel à Pexels |
@@ -23,6 +24,18 @@
 | `/__supabase/:path*` | Réécriture Next.js uniquement en développement avec URL Supabase HTTP loopback, pas une API applicative |
 
 Pas de `/login`, `/signup`, `/auth/callback`, page publique par recette, sitemap dynamique ni route OAuth dans cette base. Le schéma exact des endpoints est dans [BACKEND_SCHEMA](BACKEND_SCHEMA.md).
+
+## Numérisation expérimentale locale — IMP-10
+
+Depuis `/dev/ocr` en développement uniquement, trois modes conservant le même brouillon : appareil photo mobile si disponible/galerie, captures multiples et texte collé. La navigation principale n’ajoute aucun accès. Aucun compte requis, aucune transmission ou sauvegarde. Rechargement/réinitialisation effacent les données en mémoire. La préparation des ressources est décrite dans le [TRD](TRD.md#prototype-ocr-local--imp-10).
+
+1. Attente d’une entrée → sélection (JPEG/PNG/WebP, 4 images maximum) et aperçus ordonnables/retirables. Caméra native demandée avec `capture=environment`, disponibilité selon navigateur ; galerie toujours proposée. HEIC, fichier trop grand, vide ou corrompu : erreur explicite, nouvelle sélection possible.
+2. Lancement explicite → préparation de chaque image → import dynamique du SDK et chargement du moteur/modèles locaux au premier essai → reconnaissance dans le Worker officiel. Progression par numéro d’image, sans pourcentage estimé. Réinitialisation reste disponible pendant le traitement ; erreurs, ressources absentes ou délai dépassé permettent de recommencer. WASM par défaut, options de comparaison original/prétraité et repli principal visibles dans le laboratoire.
+3. Affichage du texte fusionné, des images reconnues et des résultats bruts par page (ligne, score, zone, ordre). Les chevauchements de frontières sont retirés seulement s’ils sont suffisamment fiables ; aucune déduplication globale. Lignes sous 0,85 mises en évidence, toutes à relire. Le score n’est pas une garantie. L’utilisateur corrige la transcription avant analyse ; le texte collé commence directement ici, sans moteur OCR.
+4. Analyse TypeScript locale → brouillon modifiable : titre candidat, description, portions, durées indiquées, groupes d’ingrédients/quantités/unités, étapes et observations initiales. Valeurs absentes laissées inconnues. Les noms dans les phrases ne sont extraits que partiellement avec avertissement. Texte non classé et source restent consultables. Ajout/retrait d’ingrédients et d’étapes, saison/catégorie/type à choisir.
+5. Revenir au texte ou refaire l’OCR conserve les corrections du brouillon. Remplacer une transcription ou relancer le parsing demande confirmation ; annuler garde les corrections. Une case de relecture puis validation locale des bornes du formulaire produit le contrat de préremplissage. Toute nouvelle modification invalide cette confirmation. **Confirmer signifie uniquement vérifier le brouillon local**, sans `submit_recipe`, création d’aliment, Storage ni modération.
+
+Intégration au vrai `PersonalRecipeForm`, soumission/modération existantes, doublons Supabase et import de plusieurs recettes sont une phase distincte. Aucune fiabilité manuscrite ni performance de téléphone réel déduite des tests synthétiques. Protocole des quatre images et preuves dans TRD/ROADMAP.
 
 ## Première visite, découverte et planning
 

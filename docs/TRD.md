@@ -2,7 +2,7 @@
 
 **Objectif :** Décrire les composants, environnements, conventions et limites techniques vérifiés.
 **Dernière mise à jour :** 2026-11-03
-**Statut :** EXISTANT audité depuis `main/e89d109` ; configuration Cloud lue sans modification.
+**Statut :** Socle audité depuis `main/e89d109` ; prototype OCR local ajouté depuis `main/7429042`. Configuration Cloud conservée, preuves et limites au journal.
 **Documents liés :** [Produit](PRD.md), [Parcours](APP_FLOW.md), [Schéma backend](BACKEND_SCHEMA.md), [Design](DESIGN_BRIEF.md), [Roadmap et tests](ROADMAP.md), [ADR](DECISIONS.md).
 
 ## Stack et organisation
@@ -334,6 +334,80 @@ Branche de travail issue de `main`, aucun merge/cherry-pick expérimental, petit
 | Sécurité | RLS, RPC et Storage privés ; audit npm 2026-11-02 : zéro alerte de production, 11 moderate dans l'outillage de développement ; SEC-01 reste en cours, pas de correction forcée incompatible |
 | Résilience | Mocks/dernier état en erreur, conservation des recettes malgré notification échouée ; pas de garantie hors ligne intégrale |
 | Disponibilité | Dépend de Vercel/Supabase et de leurs offres ; aucun SLO/SLA applicatif mesuré |
+
+## Prototype OCR local — IMP-10
+
+### Frontière et architecture
+
+Le prototype `/dev/ocr` exige `NODE_ENV=development` dans son [composant serveur](../app/dev/ocr/page.tsx) ; `notFound()` produit une réponse 404 avec le build de production, y compris Preview. Aucun lien ajouté à la navigation principale. [L’interface](../components/ocr/ocr-prototype.tsx) ne monte ni AccountProvider ni client Supabase ; elle ne fait aucun POST. Elle garde sources, texte et brouillon en mémoire React, sans Storage, localStorage, télémétrie ou persistance. Un rechargement perd le travail. Aucun changement des RPC, migrations, Auth ou permissions.
+
+```mermaid
+flowchart TD
+  F[Fichiers locaux ou appareil photo] --> I[Orientation et prétraitement Canvas]
+  I --> E[Import dynamique du SDK au premier lancement]
+  E --> W[Worker module officiel et modèles du même origin]
+  W --> O[Lignes texte, score, polygone et image source]
+  O --> M[Ordre de lecture et fusion des chevauchements]
+  M --> T[Transcription corrigeable]
+  P[Texte collé] --> T
+  T --> A[Parseur TypeScript pur]
+  A --> B[Brouillon éditable et validation locale]
+  B --> C[Contrat de préremplissage, sans RPC]
+```
+
+[engine.ts](../lib/ocr/engine.ts) importe `@paddleocr/paddleocr-js` seulement lors du premier lancement de la reconnaissance. Le SDK 0.4.2 a été vérifié dans les types et les sources installées : `PaddleOCR.create({lang:'fr',ocrVersion:'PP-OCRv6'})` sélectionne `PP-OCRv6_small_det/rec` ; `predict(Blob)` renvoie un tableau dont les `items` ont `text`, `score`, `poly: [number,number][]`, plus `image`, `metrics` et `runtime`. Les scores ne sont pas calibrés ; toutes les lignes, même celles sous 0,85, sont conservées et affichées. Aucune police de visualisation supplémentaire.
+
+Le mode Worker officiel fonctionne réellement avec le `next dev --webpack` courant **en injectant `worker.createWorker`** vers la copie locale inchangée du Worker publié. La fabrique par défaut du SDK est encore analysée par le bundler : Turbopack échouait sur une référence nue `ort.bundle.min.mjs`. [next.config.mjs](../next.config.mjs) la résout vers l’artefact npm correspondant ; les références Node dormantes d’OpenCV `fs/path/crypto` reçoivent des modules vides uniquement dans les bundles navigateur. Webpack utilise `resolve.fallback`, Turbopack des alias avec condition `browser`. Le comportement serveur des imports Node est préservé. Pas de modification de `node_modules`, de changement de commande build ni d’autre bundler ajouté. Ces adaptations sont liées au SDK épinglé, à recontrôler lors d’une mise à jour.
+
+Le Worker embarque **ORT 1.24.3**, quelle que soit la dépendance semver installée. `onnxruntime-web` est donc aussi déclaré directement et épinglé à **1.24.3** pour servir les WASM compatibles. `numThreads:1`, proxy ORT désactivé : pas de nouveau COOP/COEP global. WASM par défaut ; WebGPU sélectionnable exige un adaptateur et échoue explicitement sinon (pas de repli automatique annoncé). Un repli sur le fil principal est proposé explicitement si le Worker est indisponible : il peut bloquer l’interface, ne constitue pas une solution mobile validée. Réinitialisation/unmount terminent le Worker, rejettent les traitements en attente et libèrent les URL d’objets. Délais maximaux : chargement 120 s, prédiction 180 s ; pas de faux pourcentage, progression par image. Le moteur reste initialisé entre essais ; changement de runtime ou réinitialisation le libère.
+
+### Ressources, licences et préparation reproductible
+
+Internet est requis seulement pour `npm ci` et la première préparation explicite `npm run ocr:prepare`. [prepare-ocr-assets.mjs](../scripts/prepare-ocr-assets.mjs) utilise le [manifeste figé](../scripts/ocr-assets.lock.json) : taille et SHA-256 de chaque fichier, sources npm ou URLs officielles. Les archives sont du tar non compressé, contenant chacune `inference.onnx` et `inference.yml` avec `Global.model_name` concordant, format vérifié lors de l’audit. Le dictionnaire linguistique est inclus dans le YAML de reconnaissance (150 579 octets) ; aucun téléchargement français séparé. Pas de conversion Python ni GPU nécessaire.
+
+| Fichier dans `public/ocr/0.4.2/` | Octets | Usage |
+| --- | ---: | --- |
+| `PP-OCRv6_small_det.tar` | 9 891 840 | Détection ; ONNX 9 880 512 octets et YAML 885 octets |
+| `PP-OCRv6_small_rec.tar` | 21 319 680 | Reconnaissance multilingue ; ONNX 21 159 378 octets et dictionnaire/YAML |
+| `worker.js` | 11 341 486 | Worker officiel autonome, OpenCV et ORT JS inclus |
+| `ort-wasm-simd-threaded.jsep.wasm` et `.mjs` | 25 014 754 + 46 595 | Runtime réellement chargé dans les tests Worker et repli principal, backend WASM |
+| Notices dans `licenses/` | 555 068 | Apache, MIT, notices tierces ONNX, source/notices Clipper/JSBN et licence Boost |
+| **Total disque préparé** | **68 169 423 (65,01 Mio)** | Hors `node_modules` et chunks Next générés |
+
+Les binaires sont ignorés dans Git pour éviter un dépôt et un historique lourds ; aucune installation automatique au démarrage ni pendant le build. Les fichiers déjà valides ne sont pas retéléchargés. Toute différence taille/empreinte provoque un refus ; une mise à jour nécessite une revue volontaire du manifeste. `npm run ocr:check` contrôle intégralement les fichiers sans réseau ; `offline:check` l’exécute aussi lorsque le dossier optionnel existe. Une ressource absente ne déclenche aucun repli CDN dans notre configuration : message invitant à préparer les fichiers. Les images et transcriptions ne sont jamais envoyées aux sources des modèles. Le navigateur utilise seulement les URL absolues du même origin pour les deux archives, le Worker et `wasmPaths`. La réutilisation du moteur évite les rechargements dans une session ; après rechargement de page, le cache HTTP dépend du serveur (aucun service worker/PWA promis).
+
+Poids installés mesurés séparément, fichiers décompressés sans les autres transitives : SDK 23 798 562 octets, ONNX Runtime Web 138 109 403, OpenCV.js 4.10.0-release.1 11 780 491. Le build Turbopack émet aussi deux gros chunks OCR de 10 475 604 et 10 847 280 octets et un WASM JSEP de 25 014 754 octets (44,19 Mio au total pour ces trois artefacts, plus les petits chunks générés). Ils ne sont pas chargés sur les pages normales ; ce sont néanmoins des fichiers de build, distincts des 65,01 Mio préparés. Cette duplication liée au SDK/bundler devra être réévaluée avant une intégration de production, sans prétendre ici que la route 404 supprime tous les artefacts OCR du build.
+
+Licences vérifiées : [SDK PaddleOCR au commit npm](https://github.com/PaddlePaddle/PaddleOCR/tree/e5046169b225bcdfbe25d45b4e809ff0f1a69c2c/paddleocr-js) et [détection](https://huggingface.co/PaddlePaddle/PP-OCRv6_small_det)/[reconnaissance](https://huggingface.co/PaddlePaddle/PP-OCRv6_small_rec) déclarent Apache-2.0 ; OpenCV Apache-2.0 ; ONNX Runtime et js-yaml MIT ; Clipper Boost-1.0 avec notice JSBN conservée. Les textes complets/notices sont préparés avec les fichiers ; conserver ce dossier pour toute redistribution ultérieure. Aucune redistribution des photographies utilisateur. Référence : [documentation navigateur officielle](https://github.com/PaddlePaddle/PaddleOCR/blob/main/docs/version3.x/inference_deployment/cross_platform/browser.en.md).
+
+### Images, fusion, parsing et contrat
+
+[images.ts](../lib/ocr/images.ts) accepte 4 fichiers, ≤10 Mio chacun et ≤40 Mio au total ; JPEG/PNG/WebP, image décodée ≤24 mégapixels et ≤8 000 px par côté. HEIC/HEIF refusés avec conseil d’export, pas de convertisseur lourd. Le navigateur décode avec orientation EXIF via `createImageBitmap({imageOrientation:'from-image'})` ; format corrompu/Canvas indisponible signalé. Limite de résolution vérifiée après décodage : ce premier décodage et les aperçus peuvent déjà consommer de la mémoire, aucune garantie sur les appareils de faible mémoire. Prétraitement optionnel : fond blanc, côté ≤2 400 px sans agrandissement, contraste ×1,12. Aucun seuillage, débruitage ou recadrage automatique non mesuré ; aucune suppression des traits fins revendiquée. Décocher pour comparer à l’original orienté. Détection OCR limitée à 1 600 px (maximum 2 400), batch de reconnaissance 1 ; les performances/précisions des réglages restent expérimentales.
+
+[merge.ts](../lib/ocr/merge.ts) groupe les lignes proches en hauteur puis trie horizontalement ; hypothèse de document mono-colonne, à relire pour les colonnes/tableaux/captures complexes. Il conserve polygones dans le repère de l’image effectivement reconnue, score, index source et ordre de lecture. Fusion strictement suffixe/préfixe de pages adjacentes, sans déduplication globale : accents/casse/ponctuation/espaces neutralisés pour comparer uniquement. Une seule ligne nécessite égalité normalisée et ≥20 caractères ; plusieurs lignes exigent chacune ≥0,94 de similarité et ≥16 caractères au total. Tolérance ≤2 éditions, lignes 24–500 caractères pour le flou ; toute différence de chiffres interdit ce rapprochement flou. Pages vides cassent l’adjacence ; maximum 60 lignes comparées. Les résultats bruts par page restent accessibles. Privilégier la relecture lorsque répétitions ou ordre incorrect sont possibles.
+
+[parse.ts](../lib/ocr/parse.ts) contient `parseRecipeText` pur, sans React, Next ni réseau. Sections, sous-groupes, quantités françaises, fractions littérales, intervalles non convertis, unités séparées, facultatif, métadonnées explicitement étiquetées ; durée totale non inventée à partir d’une phrase de cuisson ou d’un seul temps. Instructions conservées, bruit promotionnel/hashtags placé dans `unrecognized`, observations initiales et texte brut conservés. Sans liste : extraction lexicale limitée à des noms réellement présents dans les instructions, sans catalogue distant, accompagnée d’un avertissement d’extraction partielle. Ni correction implicite `2O → 20`, ni complétion LLM. La qualité d’une phrase manuscrite arbitraire reste limitée. Le candidat titre doit toujours être confirmé ; numérotation discontinue signalée.
+
+L’ancien analyseur de légende est extrait dans `parseInstagramCaption` dans ce même fichier, avec son ancien contrat `title/ingredients[].quantity/instructions/description` conservé par l’API. Cette phase ne remplace pas ce contrat par le nouveau format OCR ; tests de non-régression dédiés. `/api/recipe-import/save` et la page admin restent inchangées, sans élargissement d’accès.
+
+[types.ts](../lib/ocr/types.ts) définit un brouillon spécialisé, sans modifier `Recipe`. [DraftEditor](../components/ocr/draft-editor.tsx) est contrôlé ; corrections conservées lors du retour aux sources ou d’une nouvelle OCR. Reparser nécessite une confirmation explicite avant remplacement du brouillon. Validation locale de [draft.ts](../lib/ocr/draft.ts) suivant le formulaire et les bornes RPC : nom 2–150, description ≤2 000, portions entières 1–50, durée totale entière 1–1 440, saison/catégorie/type explicitement choisis, 1–60 ingrédients (nom ≤120, quantité ≤40, unité ≤30), 1–50 étapes de 1–2 000 caractères. Quantité et unité peuvent rester absentes comme dans le workflow existant. Une case de relecture est requise ; toute correction invalide la confirmation.
+
+`toPersonalRecipeFormData` renvoie `{values,origins,ingredientNotes,timingNotes,unrecognized,rawText}` ; `values` reprend les noms des champs du formulaire (`nom`, `servings`, `estimated_time`, etc.) et ses listes. Les absences restent `undefined`, les chaînes et intervalles manuels sont préservés ; `origins` distingue extraction et édition manuelle par champ/section. Les groupes/facultatifs restent dans `ingredientNotes`, les durées séparées dans `timingNotes`, hors payload de soumission. Ce contrat de préremplissage n’est ni une `Recipe` complète ni un appel RPC ; le formulaire actuel n’est pas encore branché dessus. Sa future intégration devra choisir les règles de conservation des notes/provenance avant une soumission réelle.
+
+### Protocole de validation OCR
+
+Automatisé sans nouveau framework : `npm run test:ocr` (Node, transpilation TypeScript comme les contrôles existants), `npm run ocr:check`, puis `npm run test:ocr:browser` avec `PLAYWRIGHT_MODULE` vers une installation externe et `TEST_APP_URL` loopback (défaut `http://localhost:3100`, donc démarrer `npm run dev -- --port 3100`). Le test OCR n’utilise aucune base ni fixture personnelle : image recette et captures synthétiques créées dans Canvas, trafic hors loopback bloqué, méthodes HTTP d’écriture surveillées, vérification des ressources et du minuteur UI. La visite initiale de l’accueil vérifie seulement l’absence de ressources OCR ; elle est fermée avant de surveiller le prototype, pour écarter les requêtes tardives de signature de photos du catalogue existant. `TEST_MOBILE=1` active Pixel 7 émulé ; `--webgpu` essaie explicitement ce backend et rapporte l’absence d’adaptateur ; `--main-thread` vérifie le repli ; `--original` compare sans prétraitement ; `--cancel` teste la réinitialisation pendant une reconnaissance active. En mode production local sur un autre port : `node scripts/verify-ocr-browser.mjs --production`, avec `TEST_APP_URL` adapté, doit recevoir 404 par accès direct. Captures/rapports de test ignorés dans `supabase/.temp/` ; jamais y exporter des images réelles sans accord.
+
+Les quatre photos A–D de la mission ne sont pas présentes dans l’environnement ; **aucune précision manuscrite mesurée**. Protocole manuel, sans ajout à Git :
+
+1. Démarrer le serveur local habituel, préparer/vérifier les ressources, ouvrir `/dev/ocr` avec outils réseau. Désactiver le WAN ou bloquer le trafic externe en conservant localhost, puis recharger la page. La préparation ne doit plus être appelée.
+2. Avec les droits et l’accord du propriétaire pour les seules utilisations locales, importer A puis B depuis leurs fichiers d’origine, séparément. Vérifier orientation, lisibilité des aperçus, saisie invalide et limites. Lancer avec puis sans prétraitement ; reporter navigateur/appareil, dimensions, chargement initial, durée OCR et totale affichées. Ne pas confondre un chargement réutilisé à 0 s avec un démarrage à froid.
+3. Comparer ligne par ligne à une transcription humaine : titre, aliments réellement présents, quantités/unités/facultatifs, portions, préparation/cuisson, numéros d’étape. Compter caractères/mots erronés et ingrédients/quantités corrects, sans déduire la qualité des scores. Pour A, contrôler les aliments intégrés aux phrases et noter les omissions. Corriger la transcription puis analyser et corriger le brouillon ; aucune soumission.
+4. Importer C puis D ensemble, déplacer/inverser/restaurer leur ordre, retirer puis réimporter une capture. Vérifier les groupes, le chevauchement frontière, la conservation des lignes brutes et des répétitions légitimes, instructions/conseils/hashtags. Revenir au texte et annuler une nouvelle analyse : les corrections doivent rester.
+5. Compléter explicitement portions, durée, saison/catégorie/type, ajouter/retirer ingrédients/étapes et confirmer localement. Corriger ensuite un champ : la confirmation doit disparaître. Tester réinitialisation pendant OCR, reprise après échec et rechargement ; vérifier absence de POST, Storage, service OCR et CDN dans le réseau.
+6. Rejouer sur Android/Chrome et Safari iOS **réels**, appareil photo/galerie, portrait/paysage et mémoire limitée. Tester WASM ; WebGPU uniquement sur appareil compatible et contexte sécurisé. Conserver seulement les mesures autorisées et anonymisées dans le journal, pas les photos/transcriptions personnelles. Une émulation n’atteste ni caméra native, ni orientation iOS, ni performances mobiles réelles.
+
+Les résultats exécutés et limites exactes sont dans le [journal IMP-10](ROADMAP.md). Pas de PWA, de cache complet du site public ni de redémarrage physique sans WAN garanti par ces seuls tests.
 
 ## Procédure de migration et diagnostic
 
