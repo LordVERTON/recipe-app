@@ -51,3 +51,10 @@ checkResources('app'); checkResources('components')
 console.log(`PASS: ${local.size} chemins locaux résolus, repli local et cinq surfaces recette protégées, aucune police/CSS/script CDN obligatoire.`)
 console.log(`OPTIONNEL: ${remote.size} URLs Pexels dans ${remoteFiles.length} fichiers SQL conservées avec leurs attributions. Photo distante indisponible → ${fallback}.`)
 console.log('Ce contrôle statique ne remplace pas le test navigateur avec trafic externe bloqué ni un redémarrage complet sans WAN.')
+
+// OCR is optional for normal pages; explicit preparation has a strict offline check.
+if (existsSync('public/ocr/0.4.2')) {
+  const { spawnSync } = await import('node:child_process')
+  const result = spawnSync(process.execPath, ['scripts/prepare-ocr-assets.mjs', '--check'], { stdio: 'inherit' })
+  assert.equal(result.status, 0, 'Ressources OCR locales incompletes')
+} else console.log('OCR optionnel non prepare : npm run ocr:prepare avant /dev/ocr ; application normale independante.')
