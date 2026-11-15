@@ -17,3 +17,6 @@ next-env.d.ts
 supabase/.temp/
 supabase/.local-start-link-backup/
 .DS_Store
+
+# OCR experimental runtime/models: reproducible with npm run ocr:prepare
+public/ocr/

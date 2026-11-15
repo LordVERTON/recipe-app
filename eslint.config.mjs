@@ -7,6 +7,7 @@ const config = [
       ".next/**",
       "node_modules/**",
       "supabase/.temp/**",
+      "public/ocr/**",
     ],
   },
   {

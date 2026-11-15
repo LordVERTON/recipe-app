@@ -1,0 +1,90 @@
+{
+  "sdk": "0.4.2",
+  "ort": "1.24.3",
+  "files": [
+    {
+      "file": "PP-OCRv6_small_det.tar",
+      "source": "https://paddle-model-ecology.bj.bcebos.com/paddlex/official_inference_model/paddle3.0.0/PP-OCRv6_small_det_onnx_infer.tar",
+      "bytes": 9891840,
+      "sha256": "d218f6fbf0f1c23d2161bd6ac7f5eaa6104fa89955c09290497e31008e2618e4",
+      "license": "Apache-2.0"
+    },
+    {
+      "file": "PP-OCRv6_small_rec.tar",
+      "source": "https://paddle-model-ecology.bj.bcebos.com/paddlex/official_inference_model/paddle3.0.0/PP-OCRv6_small_rec_onnx_infer.tar",
+      "bytes": 21319680,
+      "sha256": "d267ab077a44a0eedb1ea8f8c542d263f211de8e9d7a029bf9fcfff7e5a88fb1",
+      "license": "Apache-2.0"
+    },
+    {
+      "file": "worker.js",
+      "source": "npm:@paddleocr/paddleocr-js/dist/assets/worker-entry-C9UNuyOJ.js",
+      "bytes": 11341486,
+      "sha256": "477db3f009c118823a5f9ebe15f1e96c1c464165715ba28a9884290f61addf52",
+      "license": "Apache-2.0"
+    },
+    {
+      "file": "ort-wasm-simd-threaded.jsep.mjs",
+      "source": "npm:onnxruntime-web/dist/ort-wasm-simd-threaded.jsep.mjs",
+      "bytes": 46595,
+      "sha256": "9a99acd12acc495184c9ea4d458ac9424f8180aacfbc7b8371ed64f9351e4a81",
+      "license": "MIT"
+    },
+    {
+      "file": "ort-wasm-simd-threaded.jsep.wasm",
+      "source": "npm:onnxruntime-web/dist/ort-wasm-simd-threaded.jsep.wasm",
+      "bytes": 25014754,
+      "sha256": "2e0a3d0e3f6b7c13ecfaba38c13691fd19c9ed470e72f9d7d8416ca59ab6dbcd",
+      "license": "MIT"
+    },
+    {
+      "file": "licenses/PaddleOCR.txt",
+      "source": "https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/e5046169b225bcdfbe25d45b4e809ff0f1a69c2c/LICENSE",
+      "bytes": 11376,
+      "sha256": "3840c5c0c61c294264d2dd77b8777be6ddd90121ef4e0e64abcd22edea581d6e",
+      "license": "Apache-2.0"
+    },
+    {
+      "file": "licenses/ONNX-Runtime.txt",
+      "source": "https://raw.githubusercontent.com/microsoft/onnxruntime/v1.24.3/LICENSE",
+      "bytes": 1073,
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+      "license": "MIT"
+    },
+    {
+      "file": "licenses/ONNX-ThirdPartyNotices.txt",
+      "source": "https://raw.githubusercontent.com/microsoft/onnxruntime/v1.24.3/ThirdPartyNotices.txt",
+      "bytes": 325054,
+      "sha256": "0e07b95f3a8d6230037707c5c4a2b554d12c4cb67369669ac255635528ffcee2",
+      "license": "MIT"
+    },
+    {
+      "file": "licenses/OpenCV.txt",
+      "source": "npm:@techstark/opencv-js/LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "license": "Apache-2.0"
+    },
+    {
+      "file": "licenses/js-yaml.txt",
+      "source": "npm:js-yaml/LICENSE",
+      "bytes": 1084,
+      "sha256": "a07bc24468b9654ce76a547d47a2db282d07733b715db4c73a98bd63961f9550",
+      "license": "MIT"
+    },
+    {
+      "file": "licenses/Clipper-source.txt",
+      "source": "npm:clipper-lib/clipper.js",
+      "bytes": 203786,
+      "sha256": "a650c6946682edc1a64016f6553eeb5c32ce45eb7ca0ad5d8221961af011d97c",
+      "license": "BSL-1.0 and JSBN notice"
+    },
+    {
+      "file": "licenses/Boost.txt",
+      "source": "https://www.boost.org/LICENSE_1_0.txt",
+      "bytes": 1338,
+      "sha256": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
+      "license": "BSL-1.0"
+    }
+  ]
+}

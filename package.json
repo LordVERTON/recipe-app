@@ -20,9 +20,14 @@
     "supabase:status": "supabase status",
     "supabase:stop": "supabase stop",
     "supabase:reset": "supabase db reset --local",
-    "supabase:env": "node scripts/write-local-supabase-env.mjs"
+    "supabase:env": "node scripts/write-local-supabase-env.mjs",
+    "ocr:prepare": "node scripts/prepare-ocr-assets.mjs",
+    "ocr:check": "node scripts/prepare-ocr-assets.mjs --check",
+    "test:ocr": "node scripts/verify-ocr.mjs",
+    "test:ocr:browser": "node scripts/verify-ocr-browser.mjs"
   },
   "dependencies": {
+    "@paddleocr/paddleocr-js": "0.4.2",
     "@radix-ui/react-dialog": "1.1.15",
     "@radix-ui/react-slot": "1.2.4",
     "@radix-ui/react-switch": "1.2.6",
@@ -34,6 +39,7 @@
     "lucide-react": "^0.564.0",
     "next": "^16.4.4",
     "next-themes": "^0.4.6",
+    "onnxruntime-web": "1.24.3",
     "react": "^19",
     "react-dom": "^19",
     "sonner": "^1.7.1",

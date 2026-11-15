@@ -32,6 +32,19 @@ const nextConfig = {
   // (duplicate lockfiles / parent folders).
   turbopack: {
     root: __dirname,
+    // OpenCV's Emscripten bundle contains dormant Node branches. Browser only.
+    resolveAlias: {
+      fs: { browser: './lib/ocr/browser-empty.ts' },
+      path: { browser: './lib/ocr/browser-empty.ts' },
+      crypto: { browser: './lib/ocr/browser-empty.ts' },
+      // The SDK's default worker has this bare ORT asset reference. Runtime uses
+      // our static worker factory, but Turbopack still resolves the default URL.
+      'ort.bundle.min.mjs': './node_modules/onnxruntime-web/dist/ort.bundle.min.mjs',
+    },
+  },
+  webpack(config, { isServer }) {
+    if (!isServer) config.resolve.fallback = { ...config.resolve.fallback, fs: false, path: false, crypto: false }
+    return config
   },
 };
 
